@@ -1,0 +1,71 @@
+/* carousel.scss */
+ol.carousel-indicators {
+	li {
+			width: 10px;
+			height: 10px;
+			position: relative;
+			text-indent:0;
+			margin: 0 5px;
+			@include opacity(0.6);
+			@include transition(opacity $medspeed $ease);
+			border-radius: 10px;
+			border: 0;
+			
+			
+			&.active, &:hover {
+				@include opacity(1);
+				@include transition(opacity $medspeed $ease);
+				
+			}
+		}
+}
+
+.carousel.right-dots {
+	ol.carousel-indicators {
+		list-style: none;
+		position: absolute;
+		right: 30px;
+		bottom:30px;margin: 0;
+		cursor: pointer;
+		text-align: center;
+		display: flex;
+		justify-content: flex-end;
+		
+	}
+	
+}
+
+.carousel-control-prev, .carousel-control-next {
+	opacity: 0.8;
+	color:#FFF;	
+	
+	&:hover {
+		opacity: 1;
+	}
+	
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+	background-image: none;
+	background: 0 0;
+	width: 28px;
+	height: 28px;
+	position: relative;
+	
+	&::before{						
+		display:inline-block;
+		padding:0px;
+		vertical-align:middle;
+		@include webfonts($lineheight:28px);
+		width: 28px;
+		height: 28px;
+		font-size: 28px;
+		content: '\e916';
+	}
+}
+
+.carousel-control-next-icon:before {
+	content: '\e917';
+}
+

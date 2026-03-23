@@ -1,0 +1,80 @@
+/*body.scss */
+
+html {
+    font-size: 100%;
+}
+body {
+	overflow-y: scroll;
+	overflow-x: hidden;	
+	background-color: $body-bg;
+	color:$text;
+	@include sans();
+    position: relative;
+	
+	//ADA    
+    &.noscroll {
+      overflow-y: hidden !important;
+    }
+    
+    //background: linear-gradient(70deg, rgba($tanlight,1) 50%, rgba($bluelight,1) 100%);
+}
+
+img[aria-hidden="true"][height="1"] {
+    height: 0 !important;
+    display: block;
+}
+
+#page {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	z-index: 1;
+    position: relative;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+     #page {
+		display: block;
+		min-height:100%;
+	}
+}
+
+
+#content {
+  	flex: 1;
+}
+
+/**ADMIN BAR*/
+body.admin-bar {
+	
+	.masthead {
+        margin-top: 46px;
+    }
+    
+    &.header-alert-active {
+        .header-alert {
+            top: 46px;
+        }
+    }
+
+	
+	@media (min-width: $md) {	
+        padding-top: 0px;
+        .masthead {
+            margin-top: 32px;
+        }	
+        
+        
+         &.header-alert-active {
+            .header-alert {
+                top: 32px;
+            }
+            .masthead {
+                margin-top: 32px;
+            }	
+        }
+        
+		
+	}
+	
+}

@@ -1,0 +1,192 @@
+// utilities.scss
+
+img{
+	border:0 none;
+}
+.clear{
+	clear:both;content:".";display:block;font-size:0;height:0;visibility:hidden;
+}
+::selection {
+	background:$primary;
+    color:#FFF;
+}
+::-moz-selection {
+	background:$primary;
+    color:#FFF;
+}
+
+sup,sub{
+	font-size:50%;
+    position:relative;
+    top:-.8em;
+    vertical-align:baseline;
+}
+sub{
+	top:.4em;
+}
+mark {
+	padding: 0;
+}
+
+//COMMON
+.pos-rel {
+	position: relative;
+}
+
+
+.break-word {
+	word-break: break-all;
+}
+
+.anchor-headline, .anchor-section, .anchor-header {
+    padding-top: 140px;
+    margin-top: -140px;
+}
+
+@media (max-width: 575px) {
+	.ignore-br-sm {
+        br {
+            display: none;
+        }
+        .br-spacer:after {
+            content: ' ';
+        }
+	}
+	
+}
+
+@media (max-width: 781px) {
+	.ignore-br-md {
+        br {
+            display: none;
+        }
+        .br-spacer:after {
+            content: ' ';
+        }
+	}
+	
+}
+@media (max-width: 1023px) {
+	.ignore-br-lg {
+		 br {
+            display: none;
+        }
+        .br-spacer:after {
+            content: ' ';
+        }
+	}
+	
+}
+
+///LETTERSPACING
+@for $i from 0 through 6 {
+    .letter-spacing-#{$i} {
+		letter-spacing: #{$i}px;
+	}    
+}
+
+///LINEHEIGHT
+@for $i from 1 through 8 {
+    @if $i == 1 {
+        .line-height-#{$i} {
+            line-height: #{$i};
+        }
+     } @else if $i == 1  {
+         .line-height-#{$i} {
+            line-height: #{$i};
+        }
+    } @else if $i == 2  {
+        .line-height-#{$i} {
+            line-height: #{$i*0.65};
+        }
+    } @else {
+        .line-height-#{$i} {
+            line-height: #{$i*0.5};
+        }        
+    }    
+}
+
+///Z-INDEX
+@for $i from 0 through 6 {
+    .z-#{$i} {
+		z-index: #{$i};
+	}    
+}
+
+///OPACITY
+@for $i from 1 through 9 {   
+    .opacity-#{$i}0 {
+        $i: $i*.10;
+        @include opacity($i);
+	}    
+}
+//LINE CLAMP
+p.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+@for $i from 2 through 8 {
+    p.line-clamp-#{$i} {
+        display: -webkit-box;
+        -webkit-line-clamp: #{$i};
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+}
+
+
+
+///DISPLAY
+.logged-in-only {
+    display: none;
+    
+    body.logged-in & {
+        display: block !important;
+    }
+}
+
+.hide-mobile {
+	display: none;
+	@media (min-width: $sm) {
+		.hide-mobile {display: block;}
+	}
+}
+
+.d-block-xs, .d-xs-block  {    
+    @media (min-width: 400px) {
+        display: block !important;
+    }
+}
+
+.d-none-xs, .d-xs-none  {    
+    @media (min-width: 400px) {
+        display: none !important;
+    }
+}
+.row-sm-flex {
+	
+	@media (min-width: $sm) {
+        display: -webkit-flex;
+        display: flex
+    }
+
+}
+
+
+.container {
+	max-width: $max-width;
+	&.no-pad {padding: 0;}
+}
+.container-fluid.no-pad {
+    padding: 0;
+}
+
+
+
+
+
+
+

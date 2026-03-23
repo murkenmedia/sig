@@ -1,0 +1,28 @@
+/*fonts.scss*/
+@font-face {
+    font-family: 'DallasOutline';
+    src: url('/wp-content/themes/sig/fonts/DallasOutline/Dallas-OutlineThick.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MaziusDisplay-Regular';
+    src: url('/wp-content/themes/sig/fonts/MaziusDisplay/MaziusDisplay-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MaziusDisplay-Italic';
+    src: url('/wp-content/themes/sig/fonts/MaziusDisplay/MaziusDisplay-Extraitalic.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MaziusDisplay-Bold';
+    src: url('/wp-content/themes/sig/fonts/MaziusDisplay/MaziusDisplay-Bold.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'SIG';
+    src: url('/wp-content/themes/sig/fonts/SIG/sig.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

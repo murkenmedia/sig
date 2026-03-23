@@ -1,0 +1,248 @@
+{
+    "key": "group_5ee7fe43157b7",
+    "title": "Options: Homepage Popup",
+    "fields": [
+        {
+            "key": "field_5ee7fe555953c",
+            "label": "Active",
+            "name": "popup_active",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_610db33088d92",
+            "label": "Publish Date",
+            "name": "popup_start",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "default_to_current_date": 0
+        },
+        {
+            "key": "field_610db36188d93",
+            "label": "End Date",
+            "name": "popup_end",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "default_to_current_date": 0
+        },
+        {
+            "key": "field_5efcdf101e00d",
+            "label": "Appearance Rate",
+            "name": "popup_time",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Determine how often the popup appears",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "Always",
+                "0.5": "Once every 12 hours",
+                "1": "Once every 24 hours",
+                "7": "Once a week"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": 0,
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_6526f6f5a4989",
+            "label": "Popup Cookie Name",
+            "name": "popup_cookie",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Reset the popup cookie by changing the name. eg. <strong>sig_popup<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5ee8207663c93",
+            "label": "Popup Type",
+            "name": "popup_type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "content-image": "Content and Image",
+                "content": "Content Only",
+                "image": "Image Only"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "content-image",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5ee820b963c94",
+            "label": "Popup Image",
+            "name": "popup_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee8207663c93",
+                        "operator": "==",
+                        "value": "content-image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee8207663c93",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ee7fe685953d",
+            "label": "Popup Content",
+            "name": "popup_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee8207663c93",
+                        "operator": "==",
+                        "value": "content-image"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee8207663c93",
+                        "operator": "==",
+                        "value": "content"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_610d82ed43a16",
+            "label": "CTA Link",
+            "name": "popup_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "Will add button below content. If image, will add link to image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-homepage-popup"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1764722684
+}

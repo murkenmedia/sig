@@ -1,0 +1,221 @@
+/* editor-hero.scss */
+
+//HERO
+.hero {
+    position: relative;
+    border:1px solid $gutenborder;
+    background-color: $dark;
+    
+    h1, h2 {
+        color: #FFF !important;
+    }
+    
+    &.has-hero-video {
+        min-height: 600px;
+    }
+    
+    &.has-hero-video-fullscreen {
+        min-height: 60vh;
+    }
+    &.secondary-hero {
+
+        margin-bottom: 80px;
+        
+        
+        
+        .hero__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 60px;
+        }
+
+    }
+    
+     &.has-title-box {
+        position: relative;
+        z-index: 1;
+        overflow: visible;
+        min-height: 400px;
+    }
+}
+
+/////////////CONTENT
+.hero__content {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+    
+    min-height: 56vw;
+    position: relative;
+    z-index: 4;
+	width: 100%;
+    
+    p, h1, h2 {
+        a {
+            color: #FFF;
+            text-decoration: none;
+
+            &:visited {
+                color: #FFF;
+            }
+
+            &:hover, &:focus {
+                color: #FFF;
+            }
+        }
+        
+    }
+    
+    
+    a {
+        color: #FFF !important;
+    }
+    
+    @media (min-width: $md) {
+         min-height: 630px;        
+    }
+}
+
+h1.hero__content__title {
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+    text-transform: none;
+    color: #FFF;
+    font-size: 33px;
+    line-height: 36px;
+    padding: 0 30px;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    
+    @media (min-width: $md) {
+        font-size: 33px;
+        line-height: 36px;
+    }
+    
+    @media (min-width: $lg) {        
+        font-size: 54px;
+        line-height: 57px;
+     }
+    
+}
+
+.hero__content__titlebox {
+    background-color: $dark;
+    color: #FFF;
+    padding: 20px 40px;
+    max-width: $lg;
+    position: absolute;
+    display: table;
+    width: auto;
+
+    bottom: 0px;
+    left: 25px;
+    right: 25px;
+    top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    @include transform(translate3d(0px, 20%, 0px));
+
+    @media (min-width: $lg) {
+        @include transform(translate3d(0px, 40%, 0px));
+    }
+    
+    h1.hero__content__title {
+        padding: 0;
+    }
+}
+
+/////////////IMAGE
+.hero__image {
+    @include transition(opacity $speed5 $ease);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+
+.hero__image__img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+///VIDEO
+.hero__video {
+    display: none;
+}
+.hero__controls {
+    position: absolute;
+    
+    z-index: 5;
+    width:auto;
+    display: table;
+    left: 30px;	
+    bottom: 30px;
+}
+
+button.hero__controls__playpause {
+    background-color: $orange;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    @include borderRadius(40px);
+    padding: 0;
+    border: none;
+    
+    
+    &:before {
+        @include webfonts($lineheight:40px);
+        color: #FFF;
+        content:'\e913';
+        font-size: 15px;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: relative;
+    }
+    
+    &:after {
+         content:'';
+    }
+}
+
+.hero__screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background-color: #000;
+}
+
+.hero__navbg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 270px;
+    z-index: 2;
+    background: linear-gradient(180deg,rgba($dark, 1) 0%, rgba($dark, 0.80) 25%, rgba($dark, 0.60) 50%, rgba($dark, 0.25) 75%, rgba($dark, 0) 100%);
+}
+
+.hero__textbg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    z-index: 2;
+    background: linear-gradient(180deg,rgba($dark, 0) 0%, rgba($dark, 0.5) 100%);
+    mix-blend-mode: multiply;
+}

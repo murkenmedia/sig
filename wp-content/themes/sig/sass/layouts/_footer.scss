@@ -1,0 +1,288 @@
+/* footer.scss */
+
+.footer {
+	width: 100%;
+	background-color: $bluedark;
+	padding: 60px 25px;
+	color: #FFF;
+	@include sans();
+    text-align: center;
+    
+    @media (min-width:$md) {
+        text-align: left;
+    }
+    
+    p {
+        color: $tanlight;
+        
+        font-size: 1.15rem;
+        line-height: 1.1;
+        
+        &.has-small-font-size {
+            font-size: 1rem;
+            line-height: 1.1;
+        }
+    }
+    
+}
+
+
+.footer__inner {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.footer__cta {
+    width: 100%;
+    
+    
+    
+    .footer__cta__btns {
+        display: flex;
+        justify-content: center;
+        
+        @media (min-width:$md) {
+            justify-content: flex-end;
+        }
+        
+    }
+    
+    
+    .wp-block-columns {
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+        
+        
+        @media (min-width:$md) {
+            min-height: 250px;
+        }
+    }
+
+    
+}
+
+.footer__columns {
+    width: 100%;
+    margin: 0 auto;
+    
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+    @media (min-width:$md) {
+        gap:30px;
+        flex-wrap: nowrap;
+        
+    }
+    
+    @media (min-width:$md) {
+        justify-content: space-between;
+    }
+    
+}
+
+.footer__columns__column {    
+    width: 100%;
+    
+    @media (min-width:$md) {
+        width: auto;
+    }
+    p {
+        
+        a {
+            color: $tanlight;
+            @include transition(all $medspeed $ease);
+            text-decoration: underline;
+            text-decoration-thickness: .15rem;
+            text-underline-offset: .25rem;
+            text-decoration-color:rgba(#FFF, 0);
+            //text-decoration: underline;
+            
+            &:hover, &:focus {
+                text-decoration-color:rgba($tanlight, 1);
+                color: $tanlight;
+                @include transition(all $medspeed $ease);
+            }
+            
+            &:visited {
+                color: $tanlight;
+                @include transition(all $medspeed $ease);
+                
+                &:hover {
+                    color: $tanlight;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.footer__logo {
+    margin-bottom: 40px;
+    
+    
+    @media (min-width: $md) {
+        flex-basis: auto;
+    }
+    
+    @media (min-width: $lg) {
+        margin-bottom: 0px;
+        flex-grow: 1;
+    }
+}
+
+.footer-logo {
+	@include background-image('sig-light');
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:100% auto;
+	z-index: 1;
+	display:block;
+	margin: 0 auto 30px auto;
+	width:115px;
+    height: 75px;
+	@include transition(all $medspeed ease);
+
+	a {
+		width:100%; 
+		height:100%;
+		display:block;
+		outline:none;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+    }
+    
+    
+    @media (min-width: $md) {
+        margin: 0 0 30px 0;
+    }
+	
+}
+
+ul.footer-menu {
+    list-style: none;
+    font-size: 1.7rem;
+    line-height: 1.3rem;
+
+    li {
+        margin-bottom: 20px;
+
+    }
+
+    a {
+        color: $tanlight;
+        display: block;
+
+         &:hover, &:focus,  &:visited:hover {
+            color: $green;
+        }
+
+        &:visited {
+            color: $tanlight;
+        }
+
+    }
+}
+.footer__nav {
+    
+    flex-basis: calc(50% - 30px);
+    
+    @media (min-width: $md) {
+        flex-basis: auto;
+    }
+    
+    @media (min-width: $lg) {
+        min-width: 450px;
+    }
+    
+}
+
+.footer__links {
+    
+    flex-basis: calc(50% - 30px);
+    
+    
+    @media (min-width: $md) {
+        flex-basis: auto;
+    }
+}
+
+
+.footer__social {
+    width: 100%;
+
+    
+    ul.social-menu {
+        justify-content: center;
+
+        @media (min-width: $md) {
+        
+            justify-content: flex-start;
+        }
+    }
+    
+    
+    a {
+        color: #FFF;
+
+        &:visited {
+            color: #FFF;
+        }
+    }
+    
+}
+
+
+.footer__legal {
+    padding: 65px 0;
+    color: $bluelight;
+    
+    
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap:10px;
+        column-gap: 20px;
+        padding: 0;
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        
+        justify-content: center;
+
+        
+        @media (min-width: $md) {
+            justify-content:flex-start;
+        }
+        
+    }
+    
+    a {
+        color: $bluelight;
+        
+        &:hover, &:focus,  &:visited:hover {
+            color: $green;
+        }
+
+        &:visited {
+            color: $bluelight;
+        }
+    }
+    
+    
+}

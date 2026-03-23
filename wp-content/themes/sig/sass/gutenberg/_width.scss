@@ -1,0 +1,89 @@
+/* width.scss */
+
+.sm-width {
+	max-width: $sm;
+	margin-left: auto;
+	margin-right: auto;
+}
+.md-width {
+	max-width: $md;
+	margin-left: auto;
+	margin-right: auto;
+}
+.lg-width {
+	max-width: $lg;
+	margin-left: auto;
+	margin-right: auto;
+}
+.max-sm {
+	max-width: $sm;
+}
+.max-md {
+	max-width: $md;
+}
+
+.max-800 {
+	max-width: 800px;
+}
+.max-lg {
+	max-width: $lg;
+}
+.max-xl {
+	max-width: $xl;
+}
+.max-max {
+	max-width: $max-width;
+}
+
+
+
+//height
+.min-h-100 {
+	min-height: 100px;
+}
+.min-h-200 {
+	min-height: 200px;
+}
+.min-h-250 {
+	min-height: 250px;
+}
+.min-h-280 {
+	min-height: 280px;
+}
+.min-h-300 {
+	min-height: 300px;
+}
+.min-h-400 {
+	min-height: 400px;
+}
+.min-h-500 {
+	min-height: 500px;
+}
+.min-h-600 {
+	min-height: 600px;
+}
+.min-h-700 {
+	min-height: 700px;
+}
+.min-h-800 {
+	min-height: 800px;
+}
+
+
+.min-h-900 {
+	min-height: 900px;
+}
+
+@media (min-width: $lg) {
+    .min-h-lg-800 {
+        min-height: 800px;
+    }
+     .min-h-lg-900 {
+        min-height: 900px;
+    }
+}
+
+
+.min-h-1000 {
+	min-height: 1000px;
+}

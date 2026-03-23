@@ -1,0 +1,146 @@
+/* _media-text.scss */
+
+.wp-block-media-text {	
+    border:1px solid $gutenborder;
+    gap: 30px;
+    
+    @media (min-width: $md) {
+        gap: 0px;
+    }
+    
+    .wp-block-media-text__content {
+        
+        margin-top: 0px;
+        padding-left: 20px;
+        padding-right: 20px;
+        
+        @media (min-width: $md) {
+            padding-left: 30px;
+            padding-right: 30px;
+
+        }
+    }
+    
+     &.has-media-on-the-right {
+         
+         @media (min-width: $md) {
+             .wp-block-media-text__content {
+                 padding-right: 20px;
+             }
+         }
+    }
+    
+
+    
+    &.alignfull {
+        .wp-block-media-text__content {
+            @media (max-width: 781px) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+    
+     @media (max-width: 781px) {
+
+          &.alignfull {
+            .wp-block-media-text__content {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+         
+    }
+    
+    
+    
+    &.content-max-600 {
+        
+        @media (min-width: $lg) {
+            
+            
+            .wp-block-media-text__content {
+                p {
+                    max-width: 600px;
+                }
+
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    ///CONTENT PADDING
+    
+    &.is-style-content-padding, &.is-style-full-content-padding {    
+        
+        &.is-style-media-text-break-md {
+             @media (min-width: $sm) and (max-width: 781px) {
+                 .wp-block-media-text__content {
+                     padding: 0 !important;                     
+                 }
+            }
+        }
+        
+       
+        
+        
+    }
+    
+    &.is-style-full-content-padding {
+        
+        .wp-block-media-text__content {
+            position: relative;
+
+            @media (min-width: $md) {
+                padding-left: 70px;
+                padding-right: 70px;
+            }
+            
+            @media (min-width: $lg) {
+                padding-left: 100px;
+                padding-right: 100px;
+            }
+        }  
+    }
+    
+    &.is-style-content-padding {
+        
+        .wp-block-media-text__content {
+            position: relative;
+
+            @media (min-width: $md) {
+                padding-left: 70px;
+            }
+            
+            @media (min-width: $lg) {
+                padding-left: 90px;
+            }
+        }
+        
+       &.has-media-on-the-right {
+            .wp-block-media-text__content {
+                position: relative;
+
+                @media (min-width: $md) {
+                    padding-left: 0;
+                    padding-right: 70px;
+                }
+
+                @media (min-width: $lg) {
+                    padding-right: 90px;
+                }
+            }
+            
+        }     
+    }
+    
+   
+  
+	
+	
+
+    
+}

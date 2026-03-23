@@ -1,0 +1,298 @@
+{
+    "key": "group_62e4522a1cd1d",
+    "title": "Options: SIG Settings Fields",
+    "fields": [
+        {
+            "key": "field_65affd287a387",
+            "label": "Analytics & Tracking",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_65affd347a388",
+            "label": "Google Analytics Snippet",
+            "name": "google_analytics",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "<strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 10,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_65b0011a9e8a8",
+            "label": "Google Tag Manager Snippet (Script Only)",
+            "name": "gtm_script",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Only include the <code>&lt;script&gt;!(function(w,d,s,l,i)......&lt;\/script&gt;<\/code> section of the snippet. <br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 10,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_65b001509e8a9",
+            "label": "Google Tag Manager Snippet (Noscript Only)",
+            "name": "gtm_img",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Only include the <code>&lt;noscript&gt;&lt;iframe src....&lt;\/iframe&gt;&lt;\/noscript&gt;<\/code> section of the snippet.<br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 10,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_65affd587a389",
+            "label": "Facebook Pixel Snippet (Script Only)",
+            "name": "facebook_pixel_script",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Only include the <code>&lt;script&gt;!function(f,b,e,v,n,t,s)......&lt;\/script&gt;<\/code> section of the snippet.<br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 15,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_65affe1e720f6",
+            "label": "Facebook Pixel Snippet (Noscript Only)",
+            "name": "facebook_pixel_img",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Only include the <code>&lt;noscript&gt;<img height=\"1\"......&lt;\/noscript&gt;<\/code> section of the snippet.<br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 15,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_660ee9ae4e303",
+            "label": "Footer Scripts",
+            "name": "footer_scripts",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional. Use this field to include scripts in the footer of the website.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 15,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_62e4527143115",
+            "label": "Schema",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_62e4527f43116",
+            "label": "Google Structured Data Schema",
+            "name": "schema",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "<strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 30,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_62e452d079282",
+            "label": "Default Images",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_68ac9ad9bae3b",
+            "label": "Default Hero BG",
+            "name": "default_hero",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_6346e6bcc8ba6",
+            "label": "Default Grid Image",
+            "name": "default_grid_img",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_668ed9ab67f3c",
+            "label": "Default Event Hero BG",
+            "name": "event_hero",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "sig-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1767223060
+}

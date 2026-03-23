@@ -1,0 +1,66 @@
+/* stats.scss */
+
+.stats-block {
+    
+    &.has-orange-color {
+        h2, h3, h4, p {
+            color: inherit;
+        }
+    }
+}
+
+.stat-wrap {
+    
+    //text-align: center;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+    margin-bottom: 3px;
+    
+	
+	.csstransitions & {
+		@include opacity(0);@include transition(opacity $speed2 $ease);
+		
+		&.animating {
+			@include opacity(1);@include transition(opacity $speed2 $ease);
+		}
+	}
+    
+    
+
+	
+	.stat-number {
+		
+		display: block;
+		margin-bottom: 0;		
+		position: relative;		
+		display: block;
+		//text-align: left;
+		margin-top: 0 !important;    
+        
+        .tilde {
+            position: relative;
+            top: 28px;
+        }
+        
+       
+		
+	}
+
+
+    h2, h3, h4, p {
+       @include sans($weight:600);
+        margin-bottom: 0;
+        //color: inherit;
+        
+    }
+
+	
+	
+	
+	
+	
+	
+}
+

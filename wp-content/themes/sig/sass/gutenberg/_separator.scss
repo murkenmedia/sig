@@ -1,0 +1,37 @@
+/* hr.scss */
+
+
+.wp-block-separator, hr {
+
+	width: 100%;	
+	margin: 2rem 0;
+	border-top:1px solid $hr-border;
+	//max-width: 140px;
+	background-color: transparent;
+	border-bottom: 0;
+
+    &.has-dark-background-color {
+        border-top-color: $dark;
+    }
+	
+	&.is-style-pad-top-bot {
+		
+		margin-top: 3.2rem;
+		margin-bottom: 3.2rem;
+		
+		@media (min-width: $lg) {
+			margin-top: 4.2rem;
+			margin-bottom: 4.2rem;
+		}
+	}
+	
+	&.is-style-short {
+
+		width: 70px;
+		margin-left:auto;
+		margin-right: auto;
+		
+	}
+	
+}
+

@@ -1,0 +1,285 @@
+{
+    "key": "group_5f2ef181d0f89",
+    "title": "Block: Stats",
+    "fields": [
+        {
+            "key": "field_5f2ef1aa9a6a5",
+            "label": "Options",
+            "name": "options",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f2ef20f9a6a8",
+                        "operator": "!=",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "has-orange-color": "Orange Color",
+                "has-tan-color": "Tan Color",
+                "has-dark-color": "Dark Color",
+                "has-medium-font-size": "Medium Font Size",
+                "has-large-font-size": "Large Font Size",
+                "has-x-large-font-size": "XL Font Size",
+                "text-center": "Center Text",
+                "text-right": "Right Text"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_62ec710009dd2",
+            "label": "Headline Type",
+            "name": "head_type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "p": "Paragraph",
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "h5": "H5"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "p",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5f2ef1c39a6a6",
+            "label": "Stat Animation",
+            "name": "stat_animation",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5f305518365f3",
+                        "operator": "==",
+                        "value": "animated"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_5f2ef20f9a6a8",
+                    "label": "Prefix",
+                    "name": "prefix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "eg. $ or +",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f2ef2199a6a9",
+                    "label": "Start Number",
+                    "name": "start",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f2ef23c9a6ab",
+                    "label": "End Number",
+                    "name": "end",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "include decimals, no commas or characters",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f2ef21f9a6aa",
+                    "label": "Suffix",
+                    "name": "suffix",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "eg. %",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f2ef24d9a6ac",
+                    "label": "Speed",
+                    "name": "speed",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "in seconds",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 1,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5f2ef2649a6ad",
+                    "label": "Decimal Place",
+                    "name": "decimal",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "eg. for 45.5 enter 1",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                },
+                {
+                    "key": "field_5f2ef2849a6ae",
+                    "label": "Add Comma",
+                    "name": "separator",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "eg. 45,000",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_62eac18695083",
+                    "label": "Delay",
+                    "name": "delay",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "Start delay in milliseconds. eg 200",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "ms",
+                    "min": "",
+                    "max": "",
+                    "step": 100
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/animated-stat"
+            }
+        ]
+    ],
+    "menu_order": 5,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1767735844
+}

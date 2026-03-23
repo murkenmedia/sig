@@ -1,0 +1,122 @@
+/* collapsable.scss */
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: transparent;
+    background-clip: border-box;
+    //border: 1px solid $greylight;
+    padding: 0;
+    max-width: none;
+}
+
+.filter-toggle-btn {
+	position: absolute;
+	left: auto;
+	right: 20px;
+	top: 8px;
+	width: 24px;
+	height: 24px;
+	border-radius: 24px;
+	border: 2px solid rgba(#FFF, 0.5);
+	color: #FFF;
+	text-align: center;
+	@include transform(rotate(0));
+	@include transition(all $speed3 $ease);
+	
+	&:before {
+		@include webfonts($lineheight:10px);
+		content: '\e909';
+		font-size: 10px;
+		position: absolute;
+		left: 2px;
+		top: 6px;
+		left: 1px;
+		right: 0;
+	}
+}
+
+.card-header {
+    
+    margin-bottom: 0;
+    background-color: $blue;
+    //border-bottom: 1px solid $greylight;
+    position: relative;
+    
+    
+    
+    .filter-toggle-btn {        
+        top: 50%;
+        margin-top: -12px;         
+    }
+    
+    button {
+        background-color:transparent;
+        text-align: left;
+        
+        border: none;
+        width: 100%;
+        padding:30px 60px 30px 20px;
+        @include borderRadius(0);
+        @include transition(all $speed3 $ease);
+        -webkit-appearance:none;
+		@include sans($weight:900);
+		font-size: 20px;
+		line-height: 24px;
+		//text-transform: uppercase;
+		color: #FFF;
+        
+        &:hover {
+			color: #FFF;
+            background-color: $green;
+            @include transition(all $speed2 $ease);
+        }
+        
+        &[aria-expanded=true] {
+            //color: $red;
+            color: #FFF;
+            outline: 0;
+            color:#FFF;
+			background-color:$green;
+            @include transition(all $speed2 $ease);
+            
+            .filter-toggle-btn {
+                color: #FFF;
+                //border-color: #FFF;
+                @include transform(rotate(-180deg));
+                @include transition(all $speed2 $ease);
+            }
+        }
+        
+        &:focus {
+            //color: $white;
+            //background-color:$red;
+            //outline: 1px dotted;
+            //outline: 1px auto $greymedium;
+            outline: 0;
+           // @include borderRadius(0);
+        }
+        
+
+		
+		/*@media (min-width: $lg) {	
+			font-size: 30px;
+			line-height: 32px;
+		}*/
+        
+    }
+}
+
+.accordion > .card .card-header {
+    margin-bottom: -1px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 20px;
+	background-color: lighten($greylight, 5%);//rgba($greylight, 0.5);
+	
+}

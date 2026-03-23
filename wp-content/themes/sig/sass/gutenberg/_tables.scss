@@ -1,0 +1,45 @@
+/* tables.scss */
+
+.wp-block-table {
+    
+	font-size: 18px;
+    line-height: 26px;
+    letter-spacing: .01em;
+	color: $black-500;
+	
+	td, th {
+		padding: 20px;
+		font-weight: 600;
+	}
+	
+	th {
+		font-weight: 900;
+		text-transform:  uppercase;
+	}
+	&.is-style-stripes {
+		border-bottom: none;
+		
+		
+		tbody tr:nth-child(odd) {
+			background-color: #FFF;
+		}
+		
+		tbody tr:nth-child(even) {
+			background-color: transparent;
+		}
+		
+		&.blue-stripes {
+			color: #FFF;
+			
+			tbody tr:nth-child(odd) {
+				background-color: rgba(#FFF, 0.1);
+			}
+		}
+		
+		
+		
+	}
+	
+	
+}
+

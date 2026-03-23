@@ -1,0 +1,202 @@
+/*_variables.scss */
+
+/*$fontsize:0.85rem;
+$lineheight:1.3rem;*/
+
+$base-font: 'Space Grotesk', sans-serif;
+$base-font-weight: 400;
+$base-font-style: normal;
+
+
+$max-width: 1500px;
+$xxl: 1500px;
+$xl: 1500px;
+$xllg: 1100px;
+$lg: 1024px;
+$md: 782px;
+$sm: 576px; 
+$xs: 400px;
+
+$gutenbreak:782px;
+$wide-break: 1300px;
+$headerbreak: 1120px;
+$sidepadding:25px;
+
+$speed1: 0.1s;
+$speed2: 0.2s;
+$speed3: 0.3s;
+$speed4: 0.4s;
+$speed5: 0.5s;
+$speed6: 0.6s;
+$speed7: 0.7s;
+$speed8: 0.8s;
+$speed9: 0.9s;
+$speed10: 1s;
+$fastspeed: $speed2;
+$medspeed: $speed3;
+$longspeed: $speed10;
+$mobilenavspeed: $speed3;
+$ease: ease;
+
+$black-100:#111;
+$black-200:#222;
+$black-300:#333;
+$black-400:#444;
+$black-500:#555;
+$black-600:#666;
+$black-700:#777;
+$black-800:#888;
+$black-900:#999;
+
+$gutenborder:rgba(#000, 0.5);
+
+$facebook:#3c5a99;
+$twitter:#00aced;
+$linkedin:#0077B5;
+$vimeo:#1ab7ea;
+$instagram:#c13584;
+
+$grey-1:#F0F0F0;
+$grey-2:#D3D6D9;
+$grey-3:#B7BBBC;
+$grey-4:#718085;
+$grey-5:#141F28;
+
+$grey:#828282;
+$greydark:#231f20;
+
+
+
+$body-bg:#FFF;
+
+
+$blue:#003eff;
+
+$bluemed:#0066fd;
+
+$bluelight:#b7d3ff;
+$bluelightmed:#66a2ff;
+
+$bluedark:#001e5f;
+$bluedarkmed: #021bc3;
+
+//$bluemed:#003eff;
+/*$bluegreyborder:#6a84a5;
+$bluelightborder:#5484ce;
+$bluemedborder:#0850b9;
+$bluedarkborder:#0d217d;*/
+//$teal:lighten(#20c997, 5%);
+//$teal:#5defa3;
+
+
+$green:#5defa3;
+
+$orange:#f48069;
+
+$tan:#f0ebd2;
+$tanlight:#f2f0e2;
+
+$greylight:#f3f2ec;
+$greylighter: rgba($greylight, 0.7);
+
+$text:$bluedark;
+$primary:$blue;
+$secondary:$green;
+
+
+
+$error:#e22d09;
+
+$nav-color:#FFF;
+$nav-active:$green;
+$nav-dropdown-color: #FFF;
+$nav-dropdown-active: $green;
+$nav-dropdown-bg: $blue;
+$nav-dropdown-arrow:#FFF;
+
+$mobile-toggle:#FFF;
+$mobile-toggle-lines:#FFF;
+$mobile-toggle-bg:$primary;
+$mobile-toggle-bg-active:transparent;
+
+$mobile-nav-bg:$blue;
+$mobile-nav-color:#FFF;
+$mobile-nav-active:$bluelight;
+$mobile-nav-dropdown-color: #FFF;
+$mobile-nav-dropdown-active: $bluelight;
+$mobile-nav-dropdown-bg:$bluedarkmed;
+$mobile-nav-dropdown-arrow:#FFF;
+$mobile-nav-dropdown-arrow-hover:$bluelight;
+
+$utility-color:$text;
+$utility-hover:$primary;
+$utility-active:$primary;
+
+$footer-color:#FFF;
+$footer-bg:$blue;
+$footer-link:#FFF;
+
+$page-header-bg:$text;
+
+$headline-color:$text;
+$headline-link-color:$primary;
+$headline-link-hover:$secondary;
+
+
+$link-color:$blue;
+$link-hover:$bluedark;
+
+
+$widget-bg:#FFF;
+$widget-color:$text;
+$widget-link:$blue;
+$widget-link-active:$primary;
+
+$btn-bg:$blue;
+$btn-bg-hover: $bluedark;
+$btn-text: #FFF;
+
+$hr-border:$grey-2;
+
+$blockquote-border:$primary;
+$blockquote-quote:$primary;
+$blockquote-bg:$greylight;
+$blockquote-text:$primary;
+$blockquote-cite:$primary;
+
+$loading-color:$green;
+$loading-bg:$bluedark;
+
+$search-label:$text;
+$search-btn-color:#FFF;
+$search-btn-bg:$primary;
+$search-btn-bg-hover:$bluedark;
+
+$social-color:$text;
+$social-hover:$primary;
+$social-bg:$grey;
+$social-bg-hover:$primary;
+
+$blog-border:$text;
+$blog-title:$primary;
+$blog-title-link:$primary;
+$blog-author:$primary;
+$blog-comments-link:$primary;
+$blog-category:$primary;
+$blog-comments-link:$primary;
+$blog-posted:$primary;
+$blog-posted-link:$primary;
+$blog-h1:$primary;
+$blog-meta:$primary;
+$blog-content:$text;
+$blog-tags:$primary;
+$blog-pagination:$primary;
+
+$sitemap-title:$primary;
+$sitemap-link:$primary;
+
+$scrolltop-bg:$primary;
+$scrolltop-color:#FFF;
+$scrolltop-hover:$bluedark;
+
+$magnific-bg:#000;

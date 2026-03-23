@@ -1,0 +1,97 @@
+/*!
+Theme Name: SIG
+Theme URI: https://www.sigcorp.com
+Description: Theme for SIG
+Author: Murken Media
+Author URI: http://murkenmedia.com
+Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Version: 1.0.00
+Text Domain: sig
+ 
+License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+License URI: http://creativecommons.org/licenses/by-sa/3.0/
+*/
+
+
+@import './base/var';
+@import './base/mixins';
+@import './base/fonts';
+
+@import "./bootstrap/overrides";
+@import "./bootstrap/scss/bootstrap-reboot";
+@import "./bootstrap/scss/bootstrap-grid";
+@import "./bootstrap/scss/type";
+@import "./bootstrap/scss/images";
+@import "./bootstrap/scss/nav";
+@import "./bootstrap/scss/transitions";
+@import "./bootstrap/scss/utilities";
+//@import "./bootstrap/scss/popover";
+//@import "./bootstrap/scss/tooltip";
+
+@import "elements/loading";
+@import "layouts/body";
+@import "layouts/header";
+@import "layouts/ada";
+@import "layouts/content";
+@import "layouts/footer";
+@import './critical/critical-content';
+@import "layouts/utilities";
+
+@import "navigation/nav-megamenu";
+@import "navigation/nav-overlay";
+@import "navigation/nav-utility";
+@import "navigation/nav-social";
+@import "elements/header-search";
+
+@import './content/colors';
+@import './content/fonts';
+@import './content/headings';
+@import './content/paragraphs';
+@import './content/lists';
+@import './content/links';
+@import './content/max';
+@import './content/custom';
+
+
+//GUTENBERG
+@import './gutenberg/buttons';
+@import './gutenberg/columns';
+@import './gutenberg/cover';
+@import './gutenberg/global-styles';
+@import './gutenberg/groups';
+@import './gutenberg/images';
+@import './gutenberg/media-text';
+@import './gutenberg/lists';
+@import './gutenberg/quotes';
+@import './gutenberg/search';
+@import './gutenberg/separator';
+@import './gutenberg/spacer';
+@import './gutenberg/tables';
+@import './gutenberg/width';
+
+
+
+@import "elements/forms";
+@import "elements/iframe";
+@import "elements/loader";
+
+@import "elements/video";
+
+@import "plugins/magnific";
+@import "plugins/owl-carousel";
+
+@import "pages/404";
+@import "pages/blog";
+@import "pages/search";
+
+//BLOCKS
+
+@import './blocks/collapsable';
+@import './blocks/hero';
+@import './blocks/lazy-iframe';
+@import './blocks/lazy-video';
+
+@import './print/print';
+
+
+@import "base/animation";

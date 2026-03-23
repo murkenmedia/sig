@@ -1,0 +1,111 @@
+/* paragraphs.scss */
+		
+p {
+    
+    strong {
+        @include sans($weight:600);
+    }
+    
+    &.tight-line-spacing {
+        line-height:1.2;
+    }
+    
+    
+    font-size:1.125rem;
+    line-height:1.6;
+	margin-bottom:1.2rem;    
+    
+    @media (min-width: $md) {
+        font-size:1.25rem;
+    }
+    
+    @media (min-width:$lg) {
+        font-size:1.3rem;
+        line-height:1.65;
+    }
+
+	&.has-small-font-size {
+        font-size:1rem;
+        line-height:1.6;
+
+        @media (min-width: $md) {
+            font-size: 1.063rem;
+        }
+        
+        @media (min-width:$lg) {
+             font-size: 1.125rem;
+        }
+            
+	}
+    
+    
+    &.has-regularsmall-font-size {
+        font-size:1.125rem;
+        line-height:1.6;
+
+        @media (min-width: $md) {
+            font-size: 1.16rem;
+        }
+        
+        @media (min-width:$lg) {
+             font-size: 1.25rem;
+        }
+            
+	}
+    
+    &.has-regular-font-size {
+        font-size:1.125rem;
+        line-height:1.6;
+        
+        @media (min-width: $md) {
+            font-size:1.25rem;
+        }
+        
+        @media (min-width:$lg) {
+            font-size:1.3rem;
+            line-height:1.65;
+        }
+    }
+    
+    &.has-medium-font-size {
+        font-size: 1.25rem;
+        line-height:1.6;
+        
+        @media (min-width: $md) {
+            font-size: 1.375rem;
+        }
+        
+        @media (min-width:$lg) {
+             font-size: 1.563rem;
+        }
+    }
+    
+    &.has-large-font-size {
+        font-size:1.375rem;
+        line-height:1.5;
+        
+        @media (min-width: $md) {
+            font-size:1.563rem;
+        }
+        
+        @media (min-width:$lg) {
+             font-size: 1.875rem;
+        }
+    }
+    
+    &.has-x-large-font-size {
+        font-size:1.563rem;
+        line-height:1.5;
+        
+        @media (min-width: $md) {
+            font-size:2.188rem;
+        }
+        
+        @media (min-width:$lg) {
+             font-size:2.5rem;
+        }
+    }
+	
+
+	
+}

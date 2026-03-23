@@ -1,0 +1,118 @@
+/*widgets.scss*/
+
+.widget-area {	
+	
+	font-size: 0.8125rem;
+	line-height: 1.6153846154;
+	margin-bottom: 0;
+	padding-top: 1.615384615em;
+	background-color: $widget-bg;
+	
+	
+	h2.widget-title {
+		font-size: 1.3rem;
+		line-height: 1.4rem;
+	}
+	
+	a {
+		//color: $blue;
+		border: 0;
+		padding-left: 0px;
+	}
+	
+	
+	ul {
+		li {
+			line-height: 1rem;
+			margin-bottom: 15px !important;
+		}
+	}
+	
+	
+	
+	@media (min-width: $gutenbreak) {
+		padding: 30px;
+	}
+	
+	
+}
+
+
+
+//PAGES NAV
+.widget_pages, .widget_nav_menu {
+	ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 20px;
+		li {
+			padding-left: 0;
+			margin: 0;
+			
+			&:before {
+				display: none;
+			}
+		}
+		
+	}
+}
+
+//BLOG SEARCH
+.widget_search {
+	
+	.search-form {		
+		height: 100%;
+	}
+	
+	.search-field {
+		background-color: #FFF;
+	}
+	
+	label {
+		width: 100%;
+	}
+	
+}
+
+
+.widget_recent_entries, .widget_archive, .widget_categories {
+	
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin-bottom: 20px;
+		li {
+			
+			padding-left: 0;
+			margin: 0;
+			
+			&:before {
+				display: none;
+			}
+		}
+		
+	}
+	
+	select {
+		font-size: 0.8rem;
+		line-height: 0.7rem;
+		padding: 10px;
+		background-color: #FFF;
+		
+	}
+}
+
+
+.widget_tag_cloud {
+	a {
+		@include transition(color $medspeed $ease);
+		display: block;
+		color: $widget-link;
+		
+		&:hover {
+			color: $widget-link-active;
+			@include transition(color $medspeed $ease);
+		}
+	}
+}

@@ -1,0 +1,350 @@
+/* blocks.scss */
+
+/////ACF HERO OPTIONS STYLES
+.acf-field.hero-options {    
+    input[value^="#title"] {
+        display: none !important;
+        pointer-events: none;
+        cursor: not-allowed;
+    }    
+    label:has(input[value^="#title"]) {
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-top: 20px;
+        pointer-events: none;
+        cursor: not-allowed;
+        display: block;
+    }
+}
+
+//TURN OFF Resizable Editor Sidebar
+.interface-interface-skeleton__sidebar.ui-resizable-resizing::after {
+	display: none !important;
+}
+
+:root :where(.editor-styles-wrapper) {
+    @include sans();
+    
+    &::after {
+        height: 5vw !important;
+    }
+    
+    p, ul, li {
+
+        &.has-small-font-size {
+			font-size: 1.125rem !important;
+		}  
+        
+        &.has-regular-font-size {
+			font-size: 1.3rem !important;
+		}
+        
+        &.has-medium-font-size {
+			font-size: 1.563rem !important;
+		}
+        
+        &.has-large-font-size {
+			font-size: 1.875rem !important;
+		}
+        &.has-x-large-font-size {
+			font-size:2.5rem !important;
+		}
+    }
+    
+    p,li {
+        a {
+            color: $blue;
+            
+            &:visited {
+                color: $blue;
+            }
+        }
+    }
+    
+    h1, h2, h3, h4, h5, h6, h7 {
+
+    
+        &.has-small-font-size {
+            font-size:1.5rem !important;
+        }
+        
+        &.has-regular-font-size {
+			font-size: 1.8rem !important;
+		}
+
+        &.has-medium-font-size {
+            font-size: 2.5rem !important;
+        }
+
+        &.has-large-font-size {
+            font-size: 3.5rem !important;
+        }
+
+        &.has-x-large-font-size {
+            font-size: 4.5rem !important
+        }
+        
+        &.sans {
+            @include sans();
+        }
+        
+        &.sans-bold {
+            @include sans($weight:700);
+        }
+    }
+    
+}
+
+
+#wpadminbar {
+    position: fixed !important;
+}
+
+/* ----- ACF Block Style Reset -------------------- */
+.acf-postbox {
+    .acf-input p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+}
+body .acf-block-fields,
+.edit-post-sidebar {
+     //
+     //font-size: 13px;
+     //line-height: 1.4em;
+    
+    p.description {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif !important;
+    }
+
+     .acf-field {
+          font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+          input[type="text"],
+          input[type="password"],
+          input[type="number"],
+          input[type="search"],
+          input[type="email"],
+          input[type="url"],
+          textarea,
+          select {
+              //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+               font-size: 14px;
+               line-height: 1.4;
+               box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+               transition: 50ms border-color ease-in-out;
+               border-radius: 0;
+               border: 1px solid $gutenborder;
+               color: #32373c;
+          }
+
+          textarea.wp-editor-area {
+               box-shadow: none;
+               border: none;
+          }
+
+          input[type="checkbox"],
+          input[type="radio"] {
+              //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+               border: 1px solid $gutenborder;
+               color: #555;
+               height: 16px;
+               width: 16px;
+               border-radius: 0;
+          }
+
+          input[type="radio"] {
+              //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+               border-radius: 50%;
+               padding: 1px !important;
+          }
+         
+         
+     }
+}
+
+.components-circular-option-picker__option[aria-label="Gradient: Tan Light to Blue"] {
+    //background: linear-gradient(90deg, $tanlight 0%, $bluelight 100%);
+    background: radial-gradient(circle at 100% -200px, $bluelight 0%, $tanlight 70%);
+}
+
+.components-circular-option-picker__option[aria-label="Gradient: Dark Blue to Blue"] {
+    background: linear-gradient(90deg, $bluedark 0%, $blue 50%);
+}
+
+.components-circular-option-picker__option[aria-label="Gradient: Blue Light to Tan White"] {
+    //background: linear-gradient(90deg, $bluelight 0%, $tanlight 100%);
+    background: radial-gradient(circle at 0 -200px, $bluelight 0%, $tanlight 50%);
+}
+.components-circular-option-picker__option[aria-label="Gradient: Dark Blue to Grey Light"] {
+    //background: linear-gradient(90deg, $bluelight 0%, $tanlight 100%);
+   background: linear-gradient(90deg, $bluedark 0%, $greylight 50%);
+}
+
+.anchor-headline, .anchor-section, .anchor-header {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+body.logged-in, body.wp-admin {
+    .logged-in-only  {
+        display: block !important;
+    }
+    
+}
+
+.is-reusable.block-library-block__reusable-block-container {
+    border:1px solid $purple;
+}
+
+.animation-chain .fade-in {
+    opacity: 1 !important;
+}
+
+body .editor-styles-wrapper .wp-block-media-text.animation-chain figure {
+    opacity: 1 !important;
+}
+
+/*CUSTOM*/
+.lazy-load-video {
+	border:1px solid $gutenborder;
+}
+
+.wp-block-group, 
+.wp-block-buttons, 
+.wp-block-columns, 
+.wp-block-column,
+.wp-block-media-text,
+.wp-block-quote,
+.wp-block-media-text,
+.wp-block-cover,
+.wp-block-separator {
+    border:1px solid $gutenborder;
+}
+
+
+/* SPACER*/
+.block-library-spacer__resize-container {
+    background:$gutenborder;
+}
+
+
+.wp-block-table td, .wp-block-table th {
+	border:1px solid $gutenborder !important;
+}
+
+.editor-styles-wrapper {
+    
+    a {
+        pointer-events: none !important;
+    }
+    
+}
+
+/* HEADLINE*/
+h1, h2, h3, h4, h5 {
+    font-weight: 700;
+}
+
+.wp-block {
+	max-width: $lg;
+}
+
+.cover-bg {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.sr-only {
+    display: none;
+}
+.text-left {
+    text-align: center;
+}
+.text-center {
+    text-align: center;
+}
+.text-uppercase {
+	text-transform: uppercase !important;
+}
+
+
+.has-text-align-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.is-style-uppercase {
+	text-transform: uppercase;
+}
+.is-style-shadow {
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+//.d-none, 
+.mfp-hide {
+    background-color: rgba($red, 0.1);
+	opacity: 0.9;
+	display: block !important;
+}
+.d-none,
+.is-style-responsive-hide-sm,
+.is-style-responsive-hide-md,
+.is-style-responsive-hide-lg {
+	background-color: red;
+	opacity: 0.2;
+	display: block !important;
+}
+@media (min-width: $sm) {
+	.d-sm-block {
+		display: block !important;
+	}
+    .text-sm-left {
+        text-align: left !important;
+    }
+    
+    .text-sm-center {
+        text-align: center !important;
+    }
+}
+@media (min-width: $md) {
+	.d-md-block {
+		display: block !important;
+	}
+    .text-md-left {
+        text-align: left !important;
+    }
+    
+    .text-md-center {
+        text-align: center !important;
+    }
+}
+@media (min-width: $lg) {
+	.d-lg-block {
+		display: block !important;
+	}
+    .text-lg-left {
+        text-align: left !important;
+    }
+    .text-lg-center {
+        text-align: center !important;
+    }
+}
+.mb-6 {
+    margin-bottom: 3rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 2.5rem !important;
+}
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}

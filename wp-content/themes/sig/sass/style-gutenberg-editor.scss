@@ -1,0 +1,58 @@
+/*!
+Version: 1.1
+*/
+
+@import "./base/fonts";
+@import "./base/mixins";
+@import "./base/var";
+
+//@import "./includes/bootstrap-grid";
+@import "./bootstrap/overrides";
+//required bootstrap
+@import "./bootstrap/scss/functions";
+@import "./bootstrap/scss/variables";
+@import "./bootstrap/scss/mixins";
+
+@import "./bootstrap/scss/grid";
+@import "./bootstrap/scss/nav";
+
+
+@import './content/colors';
+@import './content/custom';
+
+@import './gutenberg/buttons';
+@import './gutenberg/columns';
+@import './gutenberg/cover';
+@import './editor/editor-groups';
+@import './gutenberg/images';
+@import './gutenberg/lists';
+@import './editor/editor-media-text';
+@import './gutenberg/quotes';
+@import './gutenberg/search';
+@import './gutenberg/separator';
+@import './gutenberg/spacer';
+@import './gutenberg/tables';
+@import './gutenberg/width';
+
+//PAGES
+@import "pages/blog";
+@import "pages/search";
+
+//BLOCKS
+@import './editor/blocks';
+@import './blocks/animated-stat';
+//@import './editor/editor-blog-grid';
+@import './blocks/collapsable';
+@import './editor/editor-hero';
+@import './editor/editor-lazy-iframe';
+@import './blocks/lazy-video';
+
+@import './content/paragraphs';
+@import './content/lists';
+@import './content/custom';
+   
+@import './content/links';
+
+body .editor-styles-wrapper {
+    @import './content/headings'; 
+}

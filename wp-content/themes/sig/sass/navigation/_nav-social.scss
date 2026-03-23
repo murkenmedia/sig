@@ -1,0 +1,144 @@
+/* social.scss */
+
+$socialsize: 28px;
+
+ul.social-menu {
+	
+	list-style:none;
+	position:relative;
+	margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: row;
+    gap:15px;
+    column-gap: 25px;
+	
+    li {
+		position:relative;
+		padding:0;
+		margin:0;
+		
+		a {
+			text-decoration:none;
+			outline:none;
+			display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+			width: $socialsize;
+			height: $socialsize;
+			
+			
+			&::before{						
+				display:inline-block;
+				padding:0px;
+				vertical-align:middle;				
+				@include transition(all $medspeed $ease);			
+				@include webfonts($lineheight:$socialsize);
+				width: $socialsize;
+				height: $socialsize;
+				font-size: $socialsize;
+				color:#FFF;				
+			}
+			&:hover{
+						
+				&::before {
+					color: $secondary;					
+					@include transition(all $medspeed $ease);
+				}
+			}
+		}
+		a[href*="facebook.com"]::before{content:'\e906'}
+		a[href*="twitter.com"]::before{content:'\e908';font-size: 27px;}
+		a[href*="instagram.com"]::before{content:'\e903'}
+		a[href*="linkedin.com"]::before{content:'\e905';}		
+
+	}
+	
+}
+
+ul.social-share {
+	list-style:none;
+	position:relative;
+	margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+    column-gap: 20px;
+	
+	
+	li {
+		position:relative;
+		padding:0;
+		margin:0;
+	}
+
+	a {
+		text-decoration:none;
+        display: block;
+		outline:none;
+	
+		@include transition(opacity $medspeed $ease);
+		width: 32px;
+		height: 32px;
+		@include borderRadius(32px);
+		
+		background-color: $primary;
+
+		
+		&::before{
+			@include webfonts($lineheight:32px);
+			position: relative;
+			padding:0;
+			font-size:14px;	
+			width: 14px;
+			height: 14px;
+			color: #FFF !important;
+		}
+		
+		&:hover {
+			text-decoration: none;
+			@include transition(opacity $medspeed $ease);
+			@include opacity(0.8);
+		}
+	}
+	a[href*="facebook.com"]{
+		//background-color:$facebook;
+		
+		&::before{
+			content:'\e907';
+		}
+	}
+	a[href*="twitter.com"]{
+		//background-color:$twitter;
+		
+		&::before{
+			content:'\e908';
+		}
+	}
+	
+	
+	a[href*="instagram.com"]{
+		//background-color:$instagram;
+		
+		&::before{
+			content:'\e903';
+		}
+	}
+	
+	a[href*="linkedin.com"]{
+		//background-color:$linkedin;
+		
+		&::before{
+			content:'\e904';
+		}
+	}
+	
+	.email a {
+		//background-color:$linkedin;
+		
+		&::before{
+			content:'\e90d';
+		}
+	}
+}

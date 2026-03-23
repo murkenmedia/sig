@@ -1,0 +1,155 @@
+/* loading.scss */
+
+$loaderborder:8px;
+$loadersize:70px;
+@media screen and (min-width: $md) {
+
+    #loading-screen {
+        background-color:$loading-bg;
+        width:100%;
+        height:100%;
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:1000000000;
+        display:block;
+        opacity:1;
+        @include transition(all $medspeed $ease);
+        
+        &.fade-out {
+            opacity: 0;
+        }
+    }
+    .loading-icon {
+        background-repeat:no-repeat;
+        background-position:center center;
+        position:absolute;
+        top:0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width:$loadersize;
+        height:$loadersize;
+        display:block;
+        opacity:1;
+
+        .spinner {
+            width:$loadersize;
+            height:$loadersize;
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            margin:auto;
+            animation: material-rotate-all 1s linear infinite;
+
+
+            .right-side, .left-side {
+                animation: material-fade-in-first 1.2s linear infinite alternate;
+                width:50%;
+                height:100%;
+                position:absolute;
+                top:0;
+                overflow:hidden;
+            }
+
+            .bar {
+                width:100%;
+                height:100%;
+                border-radius:200px 0 0 200px;
+                border:$loaderborder solid $loading-color;
+                position:relative;
+
+                &:after{
+                    content:"";
+                    width:$loaderborder;
+                    height:$loaderborder;
+                    display:block;
+                    background:$loading-color;
+                    position:absolute;
+                    border-radius:$loaderborder;
+                }
+            }
+
+            .left-side {
+                left: 0;
+
+                 .bar {
+                    border-right: none;
+                    transform: rotate(10deg);    
+                    transform-origin: right center;
+                    animation: material-rotate-left 1s linear infinite alternate;
+                     &:after {
+                        bottom: -$loaderborder;
+                        right: -2px
+                    }
+                }
+
+
+            }
+
+            .right-side {
+                right: 0;
+
+                .bar {
+                    border-radius: 0 200px 200px 0;
+                    border-left: none;
+                    transform: rotate(-10deg);
+                    transform-origin: left center;
+                    animation: material-rotate-right 1s linear infinite alternate;
+
+                    &:after {
+                        bottom: -$loaderborder;
+                        left: -2px
+                    }
+                }
+
+            }
+
+        }
+
+    }
+    
+
+	
+
+	
+}
+
+
+@keyframes material-rotate-left {  
+	to{transform:rotate(30deg)}
+	from{transform:rotate(175deg)}
+}
+@keyframes material-rotate-right{  
+	from{transform:rotate(-175deg)}
+	to{transform:rotate(-30deg)}
+}
+@keyframes material-rotate-all{
+	from{transform:rotate(0deg)}
+	 to{transform:rotate(-360deg)}
+}
+@keyframes material-fade-in-first{
+	from{opacity:1}
+	 to{opacity:0}
+}
+@keyframes material-fade-in-second{
+	from{opacity:0}
+	 to{opacity:1}
+}
+
+@keyframes spinning_animation{
+	0%{
+		transform:scale(1) rotate(0deg);
+	
+	}
+	50%{
+		transform:scale(0.8) rotate(360deg);
+	}
+	100%{
+		transform:scale(1) rotate(720deg);
+	}
+}
+

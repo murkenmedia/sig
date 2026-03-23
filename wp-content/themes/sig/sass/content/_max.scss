@@ -1,0 +1,68 @@
+/* max-scss */
+.max-80 {
+	max-width:80px;
+}
+
+.max-100 {		
+    max-width:100px;
+}
+
+.max-150 {
+    max-width:150px;
+}
+
+.max-200 {
+    max-width:200px;
+}
+
+.max-250 {
+    max-width:250px;
+}
+
+.max-300 {
+    max-width:300px;
+}
+
+.max-400 {
+    max-width:400px;
+}
+
+.max-500 {
+    max-width:500px;
+}
+
+.max-600 {
+    max-width:600px;
+}
+
+@media (min-width: $lg) {		
+    .max-600-lg {
+
+        max-width:600px;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.max-700 {
+    max-width:700px;
+}
+
+.max-800 {
+    max-width:800px;
+}
+
+.max-900 {
+    max-width:900px;
+}
+.max-sm {
+    max-width:$sm;
+}
+
+.max-md {
+    max-width:$md;
+}
+
+.max-lg {
+    max-width:$lg;
+}

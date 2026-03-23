@@ -1,0 +1,378 @@
+{
+    "key": "group_5fc59ecdc1c53",
+    "title": "Block: Hero",
+    "fields": [
+        {
+            "key": "field_5fc59ede88307",
+            "label": "Options",
+            "name": "options",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "hero-options",
+                "id": ""
+            },
+            "choices": {
+                "#title1": "Hero Content",
+                "hide-title": "Hide Page Title",
+                "custom-title": "Custom Page Title",
+                "show-parent": "Show Pre-Title Parent Link",
+                "custom-content": "Custom Content",
+                "#title2": "Hero Style",
+                "darken-bg": "Darken BG",
+                "dark-nav-bg": "Dark Nav BG",
+                "blue-bg-gradient": "Blue Gradient Overlay",
+                "align-content-bottom": "Align Content to Bottom",
+                "medium-hero": "Medium Hero",
+                "tall-hero": "Tall Hero",
+                "full-hero": "Full Hero",
+                "#title3": "Hero Image",
+                "use-featured": "Use Featured Image",
+                "custom-image": "Custom Image",
+                "video-bg-fullscreen": "Fullscreen Video BG",
+                "video-bg": "Video BG"
+            },
+            "default_value": [
+                "hide-title"
+            ],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_5fc59fee200fe",
+            "label": "Custom Image",
+            "name": "bg",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "custom-image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_5fc59f6688309",
+            "label": "Custom Title",
+            "name": "custom_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "custom-title"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6022e88f3d4e7",
+            "label": "Darken BG Opacity",
+            "name": "bg_opacity",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "darken-bg"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": 10,
+            "max": 90,
+            "allow_in_bindings": 1,
+            "step": 10,
+            "prepend": "",
+            "append": "%"
+        },
+        {
+            "key": "field_5fd3f9b918e85",
+            "label": "Popup Video URL",
+            "name": "video_url",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the Youtube or Vimeo URL. eg. https:\/\/www.youtube.com\/watch?v=XPDwHwC1E6o",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "popup-video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_601de228fb33d",
+            "label": "Desktop MP4 URL",
+            "name": "desktop_mp4",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "video-bg"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "inset-video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_601de253fb33e",
+            "label": "Mobile MP4 URL",
+            "name": "mobile_mp4",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "video-bg"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "inset-video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_601de264fb33f",
+            "label": "Video Placeholder",
+            "name": "placeholder",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "video-bg"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "inset-video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_623e3d72f3115",
+            "label": "Hide Title During Video",
+            "name": "hide_video_title",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "inset-video"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "video-bg"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_623e43a295be1",
+            "label": "Video Description",
+            "name": "video_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "inset-video"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5fc59ede88307",
+                        "operator": "==",
+                        "value": "video-bg"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/hero"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1774224255
+}

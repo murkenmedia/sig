@@ -1,0 +1,140 @@
+/* links.scss */
+a{
+	text-decoration:none;
+	//outline:none;
+	//&:hover{text-decoration:none;}
+	strong {
+		font-weight: 700;
+	}
+}
+
+h1, h2, h3, h4, h5 {
+
+	a {
+		@include transition(all $medspeed $ease);
+		color: $blue;
+        
+        text-decoration-thickness: .15rem;
+        text-underline-offset: .25rem;
+        text-decoration-color: rgba($blue, 0);
+		
+		&:visited  {
+			color: darken($blue, 2%);
+		}
+
+		&:hover  {
+            @include transition(all $medspeed $ease);
+			text-decoration: underline;
+            text-decoration-color: rgba($blue, 0.9);
+            
+            &.hover-underline {
+                text-decoration: underline;
+            }            
+		}
+        
+        
+	}
+    
+    &.link-underline a {
+        text-decoration: underline;
+        text-decoration-thickness: .15rem;
+        text-underline-offset: .25rem;
+    }
+	
+}
+
+/*.site-content {
+    p {
+        a {
+            text-decoration: underline;
+            text-decoration-thickness: .15rem;
+            text-underline-offset: .25rem;
+            text-decoration-color: $bluelight;
+        }
+    }
+}*/
+
+p, li {
+    
+    a {
+        
+        color: $green;
+        @include transition(color $medspeed ease);
+        text-decoration: none;
+
+        &:hover {
+            @include transition(color $medspeed ease);
+            color: $blue;
+            text-decoration: underline;
+            text-decoration-thickness: .15rem;
+            text-underline-offset: .25rem;
+        }
+        &:visited {
+            color:  $blue;
+        }
+    }
+    
+    &.break-link a {	
+        @include word-wrap();
+    }
+    
+    &.no-underline a:hover {
+        text-decoration: none;
+    }
+        
+    
+    &.white-link a {
+        color: #FFF;
+
+        &:visited {
+            color: #FFF;
+        }
+
+        &:hover, &:focus {
+            color: #FFF;
+        }
+    }
+
+
+    &.blue-link a {
+        color: $blue;
+
+        &:visited {
+            color: $blue;
+        }
+
+        &:hover, &:focus {
+            color: darken($blue, 5%);
+        }
+    }
+
+    &.green-link a {
+        color: $green;
+
+        &:visited {
+            color: $green;
+        }
+
+        &:hover, &:focus {
+            color: darken($green, 5%);
+        }
+    }
+
+    &.orange-link a {
+        color: $orange;
+
+        &:visited {
+            color: $orange;
+        }
+
+        &:hover, &:focus {
+            color: darken($orange, 5%);
+        }
+    }
+
+	
+    
+}
+
+
+

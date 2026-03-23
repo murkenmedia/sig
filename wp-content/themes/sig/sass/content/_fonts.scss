@@ -1,0 +1,28 @@
+/* font-styles.scss */
+
+.serif, .is-style-serif {
+    @include serif();
+}
+.serif-bold, .serif-700, .is-style-serif-bold {
+    @include serif($weight:700);
+}
+.outline, .is-style-outline {
+     @include outline();
+}
+
+.sans, .is-style-sans {
+    @include sans();
+	
+	strong {
+		@include sans($weight:700);
+	}
+}
+.sans-500, .weight-500, .is-style-sans-500 {
+    @include sans($weight:500);
+}
+.sans-600, .sans-medium, .weight-600, .is-style-sans-600 {
+    @include sans($weight:600);
+}
+.sans-700, .sans-bold, .weight-700, .is-style-sans-700 {
+    @include sans($weight:700);
+}

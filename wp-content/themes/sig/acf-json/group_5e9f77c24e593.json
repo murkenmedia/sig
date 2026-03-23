@@ -1,0 +1,134 @@
+{
+    "key": "group_5e9f77c24e593",
+    "title": "Block: Lazy Load Video",
+    "fields": [
+        {
+            "key": "field_5e9f77ccd2d49",
+            "label": "YouTube ID",
+            "name": "youtube_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "The video ID for https:\/\/youtu.be\/<strong>8RDfhSPCrjw<\/strong> would be <strong>8RDfhSPCrjw<\/strong>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e9f7e5985a94",
+            "label": "Vimeo ID",
+            "name": "vimeo_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "The video ID for https:\/\/vimeo.com\/<strong>105985157<\/strong> would be <strong>105985157<\/strong>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6924ac9fc7869",
+            "label": "Video URL (Desktop)",
+            "name": "video_desktop",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6924ad58915e3",
+            "label": "Video URL (Mobile)",
+            "name": "video_mobile",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5f2c93be23011",
+            "label": "Custom Placeholder Image",
+            "name": "img",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optional. Will replace the default YouTube or Vimeo thumbnail. 1280x720",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/lazy-video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1767223270
+}

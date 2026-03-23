@@ -1,0 +1,387 @@
+/* editor-tiles.scss */
+
+.wp-block-acf-tile {
+    border:1px solid $gutenborder;
+}
+
+body :where(.editor-styles-wrapper) {
+    
+    .tiles-grid-block {
+        border:1px solid $gutenborder;
+        padding: 20px;
+        
+        .block-editor-block-list__layout  {
+            width: 100%;
+            //max-width: gridwidth(42);
+            margin: 0 auto;
+            gap:20px;
+
+            @media (min-width: $md) {
+
+                //max-width: gridwidth(46);
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                
+                .block-editor-block-list__layout {
+                    display: block;
+                    
+                }
+                
+            }
+        }
+        
+        .wp-block-acf-tile {
+            width: 100%;
+            margin: 0 !important;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+
+            @media (min-width: $md) {
+                max-width:calc(50% - 40px) !important;
+            }
+        }
+        
+        
+       
+        
+        &.tiles-three-col {
+            
+            .block-editor-block-list__layout  {
+                column-gap: 30px;
+            }
+
+            @media (min-width: $md) {
+                .wp-block-acf-tile {
+                    max-width: calc(33% - 30px)  !important;  
+                }
+            }
+
+        }
+    }
+
+}
+
+
+.tiles-stacked-content {
+    
+    &.tiles-three-col {
+        .tile__img {
+            height:290px;
+        }
+        
+    }
+    
+    .tile{
+        
+        &.tile-has-button {
+        
+            .tile__content { 
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+
+                p:last-of-type {
+                    margin-bottom: 30px;
+                }
+
+                .wp-block-button {
+                    margin: auto 0 0 0;
+                }
+            }
+            
+        }
+        
+        &.no-zoom-hover {
+             .tile__img img {
+                @include transform(scale(1));
+            }
+        }
+    }
+    .tile__img {
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        
+        &:hover {
+            img {
+                @include transition(transform $speed7 $ease);
+                @include transform(scale(1.05));
+            }
+            
+        }
+    }
+    
+    &.no-tile-img-crop {
+        .tile__img {
+            height: auto !important;
+            width: 100%;
+            overflow: visible;
+
+            img {
+                width: 100% !important;
+                height: auto !important;
+                object-fit:scale-down;
+            }
+        }
+
+    }
+    &.pollution-icons {
+        .tile__img {
+            max-width: 300px;
+            margin: 0 auto;
+            
+        }
+        .tile__content { 
+            padding-bottom: 5px;
+            
+            h3 {
+                margin-bottom: 10px;
+            }
+            
+        }
+    }
+    
+    .tile__content { 
+        padding-top:30px;
+        padding-bottom: 0;
+        position: relative;
+        background-color: transparent;
+        min-height: 0;
+        flex-grow: 1;
+        
+        p {
+            font-weight: 400;
+        }
+    }
+    
+    
+    &:hover {
+        h3, h2, h4, h5 {
+            text-decoration:none !important;
+        }
+    }
+    
+    
+}
+
+.tiles-overlay-content {
+    
+    &.tiles-btn-black .tile {
+        &:hover, &:focus-within, &:focus {
+            .wp-block-button a {
+                background-color: $orange;
+            }
+        }
+        
+    }
+    
+    &.tiles-btn-orange .tile {
+        
+        &:hover, &:focus-within, &:focus {
+            .wp-block-button a {
+                background-color: #000;
+            }
+        }
+        
+    }
+    
+    
+    .tile {
+        
+        &.tile-has-button {
+            .tile__img {
+                height: 550px;
+            }
+        }
+        
+        &.tile-has-link:not(.tile-has-button) {
+            h3, h2, h4, h5 {
+                text-decoration: underline;
+                text-decoration-thickness: .15rem;
+                text-underline-offset: .25rem;
+                text-decoration-color: rgba(#000, 0);
+                @include transition(all $speed3 $ease);
+            }
+
+            &:hover {
+                h3, h2, h4, h5 {
+                    text-decoration-color: rgba(#000, 1);
+                }
+            }
+        }
+        
+        &:hover {
+        
+            .tile__img img {
+                transform-origin: center center;
+                @include transition(transform $speed7 $ease);
+                @include transform(scale(1.05));
+            }
+
+            &.no-zoom-hover {
+                 .tile__img img {
+                    @include transform(scale(1));
+                }
+            }
+            &.tile-slide.tile-has-button {
+                .wp-block-button a {
+                    background-color: $orange;
+                }
+
+            }
+        }
+
+    }
+}
+
+
+.tile {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 40px;
+    
+    &.tile-slide {
+        max-width:100%;
+        margin-bottom: 0;
+    }
+    
+    &.tile-has-button {
+
+        .wp-block-button {
+            margin-top: 20px;
+            margin-bottom: 10px;
+
+            a {
+                border: 2px solid #FFF;
+            }
+        }
+
+    }
+    
+    
+    .tiles-btn-black & {
+        .wp-block-button {
+            a {
+                background-color: #000;
+                border: 2px solid #FFF;
+            }
+        }
+        .wp-block-button a {
+            &:hover, &:focus-within, &:focus {
+                background-color: $orange;
+            }
+            
+        }
+        
+    }
+    
+    .tiles-btn-orange & {
+        .wp-block-button {
+            a {
+                background-color: $orange;
+                border: 2px solid #FFF;
+            }
+        }
+        
+        .wp-block-button a {
+            &:hover, &:focus-within, &:focus {
+                background-color: #000;
+            }
+        }
+        
+    }
+	
+}
+
+.tile__img {
+    width: 100%;
+    height: 100%;
+    @include transition(all $medspeed $ease);
+    height: 500px;
+    
+    
+    .img-link {
+        display: none;
+    }
+
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        position: relative;
+        z-index: 0;
+
+        transform-origin: center center;
+        @include transition(transform $speed7 $ease);
+        @include transform(scale(1) translateZ(0));
+
+
+
+    }
+    
+}
+
+.tile__content {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:$tanlightalpha;
+    
+    color: $dark;
+    padding: 20px;
+
+    
+   min-height: 145px;
+    
+    
+    h2, h3, h4, h5 {
+        font-size: 1.5rem !important;
+        line-height: 1.1;
+        margin-bottom: 5px;
+    }
+
+    
+    p {
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    
+    }
+   
+    
+    
+    .wp-block-button {
+        margin-top: 30px;
+        a {
+            font-size: 1.1rem;
+        }
+    }
+        
+    
+    .no-zoom-hover & {
+        padding-bottom: 10px;
+        @media (min-width: $md) {
+           padding-bottom: 45px;
+        }
+    }
+    
+    
+}
+

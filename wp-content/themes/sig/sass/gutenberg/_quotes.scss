@@ -1,0 +1,72 @@
+/* quotes.scss */
+
+blockquote {
+	
+	margin:0;
+    
+    &.is-style-quotation-marks {
+        
+        padding: 40px;
+        quotes: inherit;
+        
+        p {
+            
+            color: $primary;
+            @include sans($weight:600);
+            position: relative;
+            
+            &:first-of-type {
+                
+                &:before {
+                    @include serif();
+                    line-height: 1;
+                    display: inline-block;
+                    @include transform(scale(4));
+                    color: $bluedarkmed;
+                    z-index: 1;                    
+                    content: '\201c';
+                    position: relative;
+                    left: -30px;
+                    top: 10px;
+                }
+                
+            }
+            
+            &:last-of-type {
+                margin-bottom: 60px;
+                
+                &:after {
+                    @include serif();
+                    line-height: 1;
+                    display: inline-block;
+                    @include transform(scale(4));
+                    color: $bluedarkmed;
+                    z-index: 1;                    
+                    content: '\201d';
+                    position: relative;
+                    right: -30px; 
+                    top: 30px;
+                }
+                
+            }
+        }
+        
+        cite {
+            margin-top: 10px;
+            color: $bluedarkmed;
+            @include sans($weight:700);
+            font-size:1.2rem;
+            line-height:1.3;
+            text-transform: uppercase;
+        }
+
+    }
+
+	
+	cite  {
+		margin-bottom: 0;
+		display: block;        
+	}
+
+	
+}

@@ -1,0 +1,106 @@
+/* team-grid.scss */
+
+.team-grid-wrap {
+	position: relative;
+}
+.team-wrap {
+	position: relative;
+	margin: 0px 30px 60px;
+	
+	.img-wrap {
+		overflow: hidden;
+		position: relative;
+	}
+	
+	a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 2;
+	}
+	
+	p {
+		line-height: 24px;
+		
+	}
+	
+	img {
+		display: block;
+		position: relative;
+		z-index: 0;
+		@include transition(all $speed3 $ease);
+		@include transform(scale(1.01));
+		@include hardware($backface: true, $perspective: 1000);
+	}
+	
+	&:hover {
+		cursor: pointer;
+		
+		.team-overlay {
+			@include opacity(1);
+			@include transition(all $speed3 $ease);
+		}
+		img {
+			@include transition(all $speed3 $ease);
+			@include transform(scale(1.1));
+			@include hardware($backface: true, $perspective: 1000);
+		}
+	}
+}
+
+.team-overlay {
+	@include opacity(0);
+	@include transition(all $speed6 $ease);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 30px;
+	
+	color: #FFF;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	
+	z-index: 1;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	/*h3 {
+		font-size: 3.5vmin;
+		line-height: 3.5vmin;
+	}*/
+	
+	p {
+		font-size: 2.5vmin;
+		line-height: 3vmin;	
+		margin-bottom: 0;
+	}
+	
+	@media (min-width: $sm) {
+		/*h3 {
+			font-size: 2.5vmin;
+			line-height: 2.3vmin;
+		}
+*/
+		p {
+			font-size: 2vmin;
+			line-height: 2.3vmin;		
+		}
+		
+	}
+
+}
+
+
+
+
+

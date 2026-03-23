@@ -1,0 +1,282 @@
+/* mixins.scss */
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transform($type) {
+	-webkit-transform:$type;-moz-transform:$type;-o-transform:$type;-ms-transform:$type;transform:$type;
+}
+@mixin delay($time) {
+	-webkit-transition-delay:$time;-moz-transition-delay:$time;-o-transition-delay:$time;transition-delay:$time;
+}
+
+@mixin sans($weight:400) {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight:$weight; 
+    font-style: normal;
+}
+
+
+@mixin serif($weight:400, $style:normal) {	
+    
+    @if $weight == 400 {
+        font-family: 'MaziusDisplay-Regular', serif; 
+        font-weight:400; 
+        font-style: normal;
+    }
+    
+    @if $weight == 700 {
+        font-family: 'MaziusDisplay-Bold', serif; 
+        font-weight:400; 
+        font-style: normal;
+    }
+    
+    @if $style == 'italic' {
+        font-family: 'MaziusDisplay-Italic', serif; 
+        font-weight:400; 
+        font-style: normal;
+    }
+    
+}
+
+@mixin outline() {
+    font-family: 'DallasOutline', sans-serif; 
+    font-weight:400; 
+    font-style: normal;
+}
+
+@mixin webfonts($lineheight:1) {
+	font-family: 'SIG';
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: $lineheight;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin sronly() {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+//SVG BG WITH PNG FALLBACK
+$image-path: 'assets/img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+//DROP SHADOW
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+//OPACITY
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//GRADIENTS
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+@mixin gradient-diagonal($deg:90deg, $start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient($deg, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient($deg, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient($deg, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+//coverBG
+@mixin coverBG($attachment:scroll, $position:center center ) {
+	background-repeat: no-repeat;
+	background-position:$position;
+	background-attachment: $attachment;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+//break long words
+@mixin word-wrap() {
+	/* Warning: Needed for oldIE support, but words are broken up letter-by-letter */
+ -ms-word-break: break-all;
+     word-break: break-all;
+
+     /* Non standard for webkit */
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+ 
+	//overflow-wrap: break-word; word-wrap: break-word;-ms-word-break: break-all; word-break: break-all; word-break: break-word; -ms-hyphens: auto;  -moz-hyphens: auto; -webkit-hyphens: auto; hyphens: auto;
+}
+
+
+//box shadow
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+//border radius
+@mixin borderRadius($radius) {
+	-moz-border-radius:$radius;-webkit-border-radius:$radius;-khtml-border-radius:$radius;border-radius:$radius;
+}
+
+
+//gradient
+@mixin gradient($start:#FFFFFF, $finish:#DFE4E7) {
+	background-image:-webkit-gradient(linear,left top,right top,color-stop(0,$start),color-stop(0.25,$start),color-stop(1,$finish));
+	background-image:-o-linear-gradient(right,$start 0%,$start 25%,$finish 100%);
+	background-image:-moz-linear-gradient(right,$start 0%,$start 25%,$finish 100%);
+	background-image:-webkit-linear-gradient(right,$start 0%,$start 25%,$finish 100%);
+	background-image:-ms-linear-gradient(right,$start 0%,$start 25%,$finish 100%);
+	background-image:linear-gradient(to right,$start 0%,$start 25%,$finish 100%);
+}
+
+
+//center any item 
+@mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+// using ::before and ::after
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+
+//input placeholders
+/*
+input,  
+textarea {  
+    @include input-placeholder {
+        color: $grey;
+    }
+}
+*/
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+
+//hardware acceleration
+@mixin hardware($backface: true, $perspective: 1000px) {
+    @if $backface {
+        backface-visibility: hidden;
+    }
+    perspective: $perspective;
+}
+
+//scalable ratio @include responsive-ratio(16,9);
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+
+//animations
+//animations
+@mixin animation($type:fadeIn, $speed:$medspeed, $direction:forwards) {
+    /*-webkit-animation: $type $speed $direction; 
+    -moz-animation: $type $speed $direction;
+    -o-animation:$type $speed $direction;*/
+    animation: $type $speed $direction;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes fadeInNone {
+    from { opacity: 0;display: block;}
+      to { opacity: 1;}
+}
+@keyframes fadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+ 
+@keyframes fadeOutNone {
+    from { opacity: 1; }
+      to { opacity: 0;display: none; }
+}

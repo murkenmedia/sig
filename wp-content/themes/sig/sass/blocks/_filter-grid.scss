@@ -1,0 +1,88 @@
+/* filter-grid.scss */
+
+.filter-grid {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.filter-wrap {		
+	position: relative;
+}
+
+.filters {
+	margin: 0 auto;
+	text-align: center;
+
+	button {
+		background-color: $blue;
+		border: none;			
+		color: #FFF;
+		@include headline();
+		font-size: 17px;
+		margin: 0 4px 8px 4px;
+		//text-transform: uppercase;
+		padding:10px 15px;
+		position: relative;
+		@include transition(background-color $medspeed $ease);
+		border-radius: 5px;
+
+
+		&:last-of-type {
+			&:after {
+				display: none;
+			}
+		}
+
+		&.is-checked, &:hover {
+			@include transition(background-color $medspeed $ease);
+			background-color: $green;
+		}
+	}
+
+}
+.grid-item {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-bottom:30px;
+	
+	.grid-block {
+		border: 1px solid $greylight;
+	}
+	
+	
+	.content-wrap {
+		background-color: $greylight;
+		padding: 20px;
+		
+		h3 {
+			color: $blue;
+		}
+		
+		&.has-dark-background-color {
+			background-color: $dark;
+			
+			color: #FFF;
+			
+			h3 {
+				color: #FFF;
+			}
+		}
+	}
+}
+
+.grid-sizer, .grid-item {
+	width: 100%;
+	
+	@media (min-width: $sm) {
+		width: 50%;
+	}
+	@media (min-width: $lg) {
+		margin-bottom:30px;
+		width: 33.333333%;
+	}
+}
+
+
+
+
+

@@ -1,0 +1,39 @@
+/* groups.scss */
+
+.wp-block-group.is-style-max-sm, 
+.wp-block-group.is-style-max-md,
+.wp-block-group.is-style-max-lg,
+.wp-block-group.is-style-max-xl,
+.wp-block-group.is-style-max-xxl {
+	padding-right: $sidepadding;
+	padding-left: $sidepadding;
+	margin-right: auto;
+	margin-left: auto;
+    width: 100%;
+}
+	
+.wp-block-group.is-style-max-sm {
+	max-width: $sm;
+}
+
+.wp-block-group.is-style-max-md {
+	max-width: $md;
+}
+
+.wp-block-group.is-style-max-lg {
+	max-width: $lg;
+}
+
+.wp-block-group.is-style-max-xl {
+	max-width: $xl;
+}
+.wp-block-group.is-style-max-xxl {
+	max-width: $xxl;
+}
+
+
+.wp-block-group.inner-max-md {
+	.wp-block-group__inner-container {
+		max-width: $md;
+	}
+}

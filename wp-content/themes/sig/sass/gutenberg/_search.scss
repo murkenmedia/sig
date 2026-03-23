@@ -1,0 +1,100 @@
+/* search.scss */
+
+
+.wp-block-search {
+	max-width: $lg;
+	
+	label {
+		color: $search-label;
+	}
+	
+	.wp-block-search__button {
+		background-color: $search-btn-bg;
+		color: $search-btn-color;
+		text-transform: uppercase; 
+	}
+}
+
+main {
+	
+	.search-form {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+        width: 100%;
+        max-width: $md;
+        margin: 0 auto;
+
+		.form-row {
+			border-bottom: 1px solid $greylight;
+		}
+        
+        label {
+            flex-grow: 1;
+        }
+
+
+		input[type="search"] {
+			@include borderRadius(0px);
+			font-size: 1.1rem;
+			line-height: 1.1rem;
+			height: 50px;
+			padding: 15px 20px;
+			color: #000000;
+			background-color: #FFF;
+			background-image: none;
+			border: 1px solid $grey;
+			
+			margin-bottom: 0;
+            width: 100%;
+
+			@include input-placeholder {
+				color:$grey;
+				@include opacity(0.7); 
+				font-size: 1.1rem;
+			    line-height: 1.1rem;
+				text-align:left;
+			}
+            
+            
+            &::-webkit-search-cancel-button {
+                position: relative;
+                top: 1px;
+                -webkit-appearance: none;
+                height: 18px;
+                width: 18px;
+                border-radius:100%;
+                background: url(assets/svg/times-circle.svg) no-repeat 50% 50%;
+                background-size: contain;
+
+            }
+		}
+
+
+		input[type="submit"] {
+			
+			background-color:$primary;
+			color: #FFF;
+			border: none;
+			padding: 15px 30px;
+			font-size: 1.1rem;
+			line-height: 1.1rem;
+			font-weight: 600;
+			text-transform:uppercase;
+			border-radius: 0;
+			height: 50px;
+			@include transition(all $medspeed $ease);
+
+			&:hover, &:active, &:focus{ 
+				cursor: pointer;
+				//color: #000;
+				background-color: $secondary;
+				@include transition(all $medspeed $ease);
+			}
+		}
+
+	}
+	
+	
+}
+

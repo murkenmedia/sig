@@ -1,0 +1,128 @@
+/* colors.scss */
+
+.has-text-color {
+	color: $text;
+}
+
+.has-dark-color {
+	color: $dark;
+}
+.has-dark-background-color {
+	background-color: $dark;
+}
+.has-blue-color {
+	color: $blue;
+}
+.has-blue-background-color {
+	background-color: $blue;
+}
+.has-blue-dark-color {
+	color: $bluedark;
+}
+.has-blue-dark-background-color {
+	background-color: $bluedark;
+}
+
+.has-blue-dark-medium-color {
+	color: $bluedarkmed;
+}
+.has-blue-dark-medium-background-color {
+	background-color: $bluedarkmed;
+}
+
+.has-blue-medium-color {
+	color: $bluemed;
+}
+.has-blue-medium-background-color {
+	background-color: $bluemed;
+}
+
+.has-blue-light-medium-color {
+	color: $bluelightmed;
+}
+.has-blue-light-medium-background-color {
+	background-color: $bluelightmed;
+}
+
+.has-blue-light-color {
+	color: $bluelight;
+}
+.has-blue-light-background-color {
+	background-color: $bluelight;
+}
+
+.has-tan-color {
+	color: $tan;
+}
+.has-tan-background-color {
+	background-color: $tan;
+}
+
+.has-tan-light-color {
+	color: $tanlight;
+}
+.has-tan-light-background-color {
+	background-color: $tanlight;
+}
+
+.has-orange-color {
+	color: $orange;
+}
+.has-orange-background-color {
+	background-color: $orange;
+}
+
+.has-green-color {
+	color: $green;
+}
+.has-green-background-color {
+	background-color: $green;
+}
+
+.has-grey-color {
+	color: $text;
+}
+.has-grey-background-color {
+	background-color: $text;
+}
+
+.has-grey-light-color {
+	color: $greylight;
+}
+.has-grey-light-background-color {
+	background-color: $greylight;
+}
+
+
+.has-tan-light-to-blue-light-gradient-background {
+    //background: linear-gradient(50deg, $tanlight 50%, $bluelight 100%);
+    background: radial-gradient(circle at 100% -200px, $bluelight 0%, $tanlight 50%);
+}
+
+.has-blue-dark-to-blue-gradient-background {
+    background: linear-gradient(180deg, $bluedark 30%, $blue 100%);
+}
+
+.has-blue-light-to-tan-light-gradient-background {
+    //background: linear-gradient(70deg, $bluelight 0%, $tanlight 60%);
+    background: radial-gradient(circle at top left, $bluelight 0%, $tanlight 50%);
+}
+
+.has-blue-dark-to-grey-light-gradient-background {
+    background: linear-gradient(180deg, $bluedark 300px, $greylight 800px);
+}
+
+
+.has-black-color {
+	color:#000;
+}
+.has-black-background-color {
+	background-color:#000;
+}
+
+.has-white-color {
+	color: #FFF;
+}
+.has-white-background-color {
+	background-color: #FFF;
+}

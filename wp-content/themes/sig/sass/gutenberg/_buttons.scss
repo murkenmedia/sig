@@ -1,0 +1,333 @@
+/* buttons.scss */
+
+[data-whatinput="keyboard"] .wp-block-button a:focus {
+    outline: 4px solid $red !important;
+    outline-offset: 0px;
+}
+.wp-block-buttons {
+	grid-gap: 30px;
+    
+    
+    &.min-300.is-vertical {
+        .wp-block-button  {
+            min-width: 300px;
+            
+            
+            .wp-block-button__link, a {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+
+.wp-block-button  {
+	
+	margin-bottom: 0;
+    color: #FFF;
+	
+	.wp-block-button__link, a {
+		border: none;
+		box-shadow: none;
+		cursor: pointer;
+		display: inline-block;
+		margin: 0;		
+		text-align: center;
+		text-decoration: none;				
+		@include borderRadius(30px);
+		@include transition(all $medspeed $ease);
+		position: relative;        
+		//text-transform: uppercase;	
+        
+        
+        padding: 15px 40px 14px 40px;
+        background-color:$btn-bg;
+        color: $btn-text;
+        
+        @include sans($weight:600);
+        font-size: 1.2rem;
+        line-height: 1.4;
+        
+        
+        @media (min-width: $md) {
+            font-size: 1.37rem;
+        }
+        
+
+        
+        &:hover, &:active, &:focus {
+            outline: none;
+			background-color:$btn-bg-hover;
+			color: #FFF;
+			@include transition(all 0.2s $ease);
+            text-decoration: none;
+            
+            
+            &.green-hover {
+                background-color:$green;
+                color: $blue;
+            }
+		}
+        
+        
+        
+        &[target="_blank"] {
+            position: relative;
+
+            &:after {
+                content: '\e924';
+                display:inline-block;
+                padding-left: 6px;
+                vertical-align:middle;				
+                @include webfonts($lineheight:1);
+                font-size: 90%;
+                color:#FFF;
+                position: relative;
+                top: -2px;
+            }
+        }
+		
+        
+        &.has-blue-dark-background-color {
+            background-color:$bluedark;            
+            &:hover {
+                background-color:$bluedarkmed;
+            }
+        }
+            
+        &.has-blue-dark-medium-background-color {
+            background-color:$bluedarkmed;            
+            &:hover {
+                background-color:$blue;
+            }
+        }
+        
+        &.has-blue-medium-background-color {
+            background-color:$bluemed;            
+            &:hover {
+                background-color:$blue;
+            }
+        }
+        
+        &.has-blue-light-medium-background-color {
+            background-color:$bluelightmed;            
+            &:hover {
+                background-color:$blue;
+            }
+        }
+        
+        &.has-blue-light-background-color {
+            background-color:$bluelight;
+            color: $bluedarkmed;
+            &:hover {
+                color: #FFF;
+                background-color:$bluemed;
+            }
+        }
+        
+        &.has-green-background-color {
+            background-color:$green;
+            color: $blue;            
+            
+            &:hover {
+                background-color:$bluemed;
+                color: #FFF;
+            }
+        }
+        &.has-orange-background-color {
+            background-color:$orange;
+            color: #FFF;            
+            
+            &:hover {
+                background-color:$bluedarkmed;
+                color: #FFF;
+            }
+        }
+        
+
+	}
+
+    //BORDER
+    &.is-style-border-btn {
+		
+		.wp-block-button__link, a {
+			background-color: transparent;
+			position: relative;
+			color: $blue;
+			border: 2px solid $blue;
+            
+            
+			&:hover, &:active, &:focus {
+				background-color: transparent;
+				color: #FFF;
+				background-color: $blue;
+
+			}
+
+            ///WHITE TEXT 
+            &.has-white-color {
+				color: #FFF;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: #FFF;			
+				    border-color:inherit;
+                }
+                
+                &:hover, &:active, &:focus, &:visited:hover {
+                    color: $blue !important;
+                    background-color: #FFF;
+                    border-color:#FFF;
+				}
+                
+            }
+			
+			&.has-white-color {
+				color: #FFF;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: #FFF;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: $blue !important;
+                    background-color: #FFF;
+                    border-color:#FFF;
+				}
+			}
+            
+            &.has-blue-dark-color {
+				color: $bluedark;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $bluedark;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: #FFF !important;
+                    background-color:$bluedark;
+                    border-color:$bluedark;
+				}
+			}
+            
+            &.has-blue-medium-color {
+				color: $bluemed;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $bluemed;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: #FFF !important;
+                    background-color:$bluemed;
+                    border-color:$bluemed;
+				}
+			}
+            
+            &.has-blue-light-color {
+				color: $bluelight;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $bluelight;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: #FFF !important;
+                    background-color:$bluelight;
+                    border-color:$bluelight;
+				}
+			}
+            
+            &.has-blue-light-medium-color {
+				color: $bluelightmed;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $bluelightmed;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: #FFF !important;
+                    background-color:$bluelightmed;
+                    border-color:$bluelightmed;
+				}
+			}
+            
+            &.has-blue-dark-medium-color {
+				color: $bluedarkmed;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $bluedarkmed;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: #FFF !important;
+                    background-color:$bluedarkmed;
+                    border-color:$bluedarkmed;
+				}
+			}
+            
+            &.has-green-color {
+				color: $green;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $green;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: $blue !important;
+                    background-color: $green;
+                    border-color:$green;
+				}
+			}
+            
+            &.has-orange-color {
+				color: $orange;			
+				border-color:inherit;
+                
+                &:visited {
+                    color: $orange;			
+				    border-color:inherit;
+                }
+
+				&:hover, &:active, &:focus, &:visited:hover {
+                    color: #FFF !important;
+                    background-color: $orange;
+                    border-color:$orange;
+				}
+			}
+
+		}
+    }
+
+
+	
+}
+
+p.wp-block-button  {
+	br[data-mce-bogus] {
+		display: none;
+	}
+}
+@media not all and (min-resolution:.001dpcm) { 
+	@supports (column-gap:0.5em) {
+		.wp-block-buttons.is-content-justification-right>.wp-block-button.wp-block-button, .wp-block-buttons>.wp-block-button.wp-block-button {
+			margin-right: .5em;
+		}
+	}
+}
+

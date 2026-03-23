@@ -1,0 +1,49 @@
+/* sections.scss */
+
+.blue-border-top {
+    border-top: $blue 1px solid;
+}
+.blue-border-bot {
+    border-bottom: $blue 1px solid;
+}
+
+.is-style-arrow-link {
+    a {
+        display: table;
+        position: relative;
+        
+        &:after {
+            margin-left: 30px;
+            top: -15px;
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            @include transition(all $medspeed $ease);
+            background-color: rgba($bluedark, 0.2);
+            
+            text-align: center;
+            content: '\e92c';
+            @include webfonts($lineheight:50px);
+            border: 10px solid $blue;
+            border-radius: 100%;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            font-size: 22px;
+            
+            
+        }
+        
+        &:hover {
+            //text-decoration: none;
+            
+            
+            &:after {
+                margin-left: 35px;
+                background-color: $blue;
+                
+            }
+        }
+    }
+}
