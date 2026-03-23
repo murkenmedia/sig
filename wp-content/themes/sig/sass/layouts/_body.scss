@@ -48,33 +48,21 @@ img[aria-hidden="true"][height="1"] {
 body.admin-bar {
 	
 	.masthead {
-        margin-top: 46px;
-    }
-    
-    &.header-alert-active {
-        .header-alert {
-            top: 46px;
-        }
-    }
-
-	
-	@media (min-width: $md) {	
-        padding-top: 0px;
-        .masthead {
+        margin-top: 46px; 
+        
+        @media (min-width: $md) {
             margin-top: 32px;
-        }	
+        }
+    }
+	
+    /*.header-pad {        
+        padding-top: 0px;
         
-        
-         &.header-alert-active {
-            .header-alert {
-                top: 32px;
-            }
-            .masthead {
-                margin-top: 32px;
-            }	
+        @media (min-width: $lg) {
+            padding-top: 80px;
         }
         
-		
-	}
+    }*/
+
 	
 }

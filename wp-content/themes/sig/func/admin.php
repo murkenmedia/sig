@@ -72,7 +72,7 @@ if ( ! function_exists( 'set_login_logo' ) ) {
 	 */
 	function set_login_logo() { 
 	   echo '<style type="text/css">
-			#login h1 a, .login h1 a {background-image: url('.get_stylesheet_directory_uri().'/assets/img/sig.svg);width:300px;height:88px;background-size: 300px auto;background-repeat: no-repeat;padding-bottom:0;}
+			#login h1 a, .login h1 a {background-image: url('.get_stylesheet_directory_uri().'/assets/img/sig-dark.svg);width:300px;height:194px;background-size: 300px auto;background-repeat: no-repeat;padding-bottom:0;}
 			body {background:#FFFFFF !important;}
 		</style>';
 	}

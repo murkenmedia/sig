@@ -87,9 +87,10 @@ jQuery.noConflict();
     //WINDOW LOAD
 	document.addEventListener( 'DOMContentLoaded', function () {
         
-        setTimeout(() => {
+        fadeOutAndRemove("loading-screen");
+       /* setTimeout(() => {
           fadeOutAndRemove("loading-screen");
-        }, 100);
+        }, 100);*/
 
         //START OBSERVER
         io = new IntersectionObserver(reportIntersection, {'rootMargin': '0px 0px '+$topoffset+'px 0px'});	
