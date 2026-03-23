@@ -3,6 +3,15 @@
 
 ///HEADER SEARCH
 
+[data-whatinput="keyboard"] .masthead__search input.search-submit:focus {
+    outline: 4px solid $red !important;
+    outline-offset: -4px;
+}
+[data-whatinput="keyboard"] .masthead__search input[type="search"]:focus {
+    outline: 4px solid $red !important;
+    outline-offset: -4px !important;
+}
+
 .masthead__search {
 	position: absolute;
 	top: 0;
@@ -145,8 +154,5 @@
 
 }
 
-[data-whatinput="keyboard"] input.search-submit:focus {
-    outline: 4px solid $red !important;
-    outline-offset: -4px;
-}
+
 

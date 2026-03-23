@@ -1528,7 +1528,7 @@ jQuery.noConflict();
         mainwidth = jQuery('.masthead__nav').width(),
         searchwidth = 450;
       if (window.innerWidth > 1500) {
-        searchwidth = utilitywidth + 220;
+        searchwidth = utilitywidth + 180;
       } else if (window.innerWidth > 1023 && window.innerWidth < 1499) {
         searchwidth = utilitywidth + mainwidth;
       } else if (window.innerWidth > 576 && window.innerWidth < 1024) {

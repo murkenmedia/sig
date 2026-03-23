@@ -171,7 +171,7 @@ if ( ! function_exists( 'get_default_hero' ) ) {
         return '
         <div class="header-pad">
             <div class="hero alignfull secondary-hero '.$class.'">
-                <div class="hero__content">
+                <div class="hero__content max-xl">
                     '.$title.'
                 </div>
             </div>

@@ -16,13 +16,11 @@ $hero = get_default_hero('Search Results');
 <section <?php post_class('site-content'); ?>>
     
     <?php echo $hero; ?>
-    
-    
 
 	<?php if ( have_posts() ) : ?>
-		<header class="mb-5 pb-5 has-text-align-center">
+		<header class="mb-5 pb-5">
             
-			<h2 class="has-text-align-center mb-5 sans-bold"><?php printf( __( 'Search Results for: %s', 'sig' ), '<span class="has-blue-color">' . get_search_query() . '</span>' ); ?></h2>
+			<h2 class="mb-5 text-center sans-bold has-large-font-size"><?php printf( __( 'Search Results for: %s', 'sig' ), '<span class="has-blue-color">' . get_search_query() . '</span>' ); ?></h2>
             
             <?php get_search_form(); ?>
             
@@ -49,8 +47,8 @@ $hero = get_default_hero('Search Results');
     
 	<?php else : ?>
 
-		<header class="mb-5 has-text-align-center">       
-            <h2 class="has-text-align-center mb-5 sans-bold"><?php esc_html_e( 'Nothing Found', 'sig' ); ?></h2>
+		<header class="mb-5">       
+            <h2 class="mb-5 text-center sans-bold has-large-font-size"><?php esc_html_e( 'Nothing Found', 'sig' ); ?></h2>
         </header>
 
         <div class="wp-block-group is-style-max-lg text-center">
