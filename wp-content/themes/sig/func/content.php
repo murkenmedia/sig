@@ -116,7 +116,6 @@ if ( ! function_exists( 'get_hero_header' ) ) {
             </div>
             <div class="hero__textbg"></div>';
         } else {
-            //$imgid = get_field('default_hero', 'options');
             $class .= ' hero-no-bg';
         }
         
@@ -147,20 +146,26 @@ if ( ! function_exists( 'get_default_hero' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function get_default_hero($id='',$class='') {
+	function get_default_hero($title='',$class='') {
         
-        $imgid = get_field('default_hero', 'options');
+        $img = '';
+        if(get_field('default_hero', 'options')) {
+            $imgid = get_field('default_hero', 'options');
+            
+            $img = '
+            <div class="hero__image alignfull">
+                '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
+            </div>
+            <div class="hero__textbg"></div>';            
+            
+        } else {
+            $class .= ' hero-no-bg';
+        }
         
+
         if($title != '') {
             
-            if($class == 'has-title-box') {
-                $title = '
-                <div class="hero__content__titlebox">
-                    <h1 class="hero__content__title has-white-color d-table text-center has-large-font-size">'.$title.'</h1>
-                </div>';
-            } else {
-                $title = '<h1 class="hero__content__title has-white-color d-block text-center">'.$title.'</h1>';
-            }
+            $title = '<h1 class="hero__content__title has-white-color d-block">'.$title.'</h1>';
         }       
         
         return '
@@ -169,10 +174,6 @@ if ( ! function_exists( 'get_default_hero' ) ) {
                 <div class="hero__content">
                     '.$title.'
                 </div>
-                <div class="hero__image alignfull">
-                    '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
-                </div>
-                <div class="hero__textbg"></div>
             </div>
         </div>';
 	}

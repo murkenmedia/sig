@@ -197,32 +197,6 @@
             "selected": 0
         },
         {
-            "key": "field_68ac9ad9bae3b",
-            "label": "Default Hero BG",
-            "name": "default_hero",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 1,
-            "preview_size": "medium"
-        },
-        {
             "key": "field_6346e6bcc8ba6",
             "label": "Default Grid Image",
             "name": "default_grid_img",
@@ -249,9 +223,9 @@
             "preview_size": "medium"
         },
         {
-            "key": "field_668ed9ab67f3c",
-            "label": "Default Event Hero BG",
-            "name": "event_hero",
+            "key": "field_68ac9ad9bae3b",
+            "label": "Default Hero BG",
+            "name": "default_hero",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -294,5 +268,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1767223060
+    "modified": 1774246135
 }

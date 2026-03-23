@@ -5,7 +5,7 @@ Description: Theme for SIG
 Author: Murken Media
 Author URI: http://murkenmedia.com
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Version: 1.0.01
+Version: 1.0.02
 Text Domain: sig
  
 License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
@@ -74,6 +74,8 @@ License URI: http://creativecommons.org/licenses/by-sa/3.0/
 @import "elements/forms";
 @import "elements/iframe";
 @import "elements/loader";
+@import "elements/post-grid";
+@import "elements/three-col-grid";
 
 @import "elements/video";
 

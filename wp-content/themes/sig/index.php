@@ -15,7 +15,7 @@
 get_header();
 
 
-$pagetitle = $content_markup = $hero = $headerpad = '';
+$content_markup = $hero = '';
 
 $isadmin = false;
 if (is_admin()) {
@@ -43,22 +43,21 @@ foreach( $blocks as $block ) {
 }
 
 
+
+
 ?>
     
 <section class="site-content">
 	<?php 
     if ($hero == '') {
-		$headerpad = '<div class="header-pad"></div>';
+		echo get_hero_header($id,$parentid);
 	} else {
 		echo '<div class="header-pad">'.$hero.'</div>';
-	}  
-	echo $headerpad;
-
+	}
 
 	if($isadmin) {
 		the_content();
-	} else {            
-		echo $pagetitle;            
+	} else {         
 		echo $content_markup;
 	}
     ?>
