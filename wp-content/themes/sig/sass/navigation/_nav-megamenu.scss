@@ -414,7 +414,7 @@ ul.mega-menu__content {
     
     ul.sub-menu {
         padding: 0;
-        margin: auto 0 0 0;
+        //margin: auto 0 0 0;
     }
 
 }
@@ -475,8 +475,10 @@ ul.mega-menu__content {
         @include sans();
         font-size: 1.2rem;
         color: #FFF;
-        flex-grow: 1;
-        //max-width: 220px;
+        
+        //flex-grow: 1;
+        
+        min-height: 100px;
     }
 }
 
