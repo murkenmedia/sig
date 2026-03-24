@@ -23,8 +23,8 @@ $slidenum = 0;
 
 $colorarr = array(
     'blue-light', 
-    'blue',
     'blue-medium',
+    'blue',
     'blue-dark'
 );
 
