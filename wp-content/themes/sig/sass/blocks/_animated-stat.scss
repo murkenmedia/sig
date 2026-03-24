@@ -1,13 +1,5 @@
 /* stats.scss */
 
-.stats-block {
-    
-    &.has-orange-color {
-        h2, h3, h4, p {
-            color: inherit;
-        }
-    }
-}
 
 .stat-wrap {
     
@@ -19,40 +11,77 @@
     margin-bottom: 3px;
     
 	
-	.csstransitions & {
-		@include opacity(0);@include transition(opacity $speed2 $ease);
+	@include opacity(0);
+    @include transition(opacity $speed2 $ease);
 		
-		&.animating {
-			@include opacity(1);@include transition(opacity $speed2 $ease);
-		}
-	}
-    
-    
-
+    &.animating {
+        @include opacity(1);
+        @include transition(opacity $speed2 $ease);
+    }
 	
-	.stat-number {
-		
+	.stat-number {		
 		display: block;
 		margin-bottom: 0;		
 		position: relative;		
 		display: block;
-		//text-align: left;
-		margin-top: 0 !important;    
-        
-        .tilde {
-            position: relative;
-            top: 28px;
-        }
-        
-       
-		
+		margin-top: 0 !important;   
 	}
 
+    
 
     h2, h3, h4, p {
-       @include sans($weight:600);
+       @include outline();
+        
         margin-bottom: 0;
-        //color: inherit;
+        
+        font-size: 2.5rem;
+        line-height: 1;
+        
+        
+        @media (min-width: $sm) {
+            font-size: 3rem;
+        }
+
+        @media (min-width: $lg) {
+            font-size: 4rem;
+        }
+        
+        &.has-medium-font-size {            
+            font-size: 3rem;
+            
+            @media (min-width: $sm) {
+                font-size: 3.5rem;
+            }
+            
+            @media (min-width: $lg) {
+                font-size: 4.5rem;
+            }
+        }
+        
+        
+        &.has-large-font-size {
+            font-size: 4rem;
+            
+            @media (min-width: $sm) {
+                font-size: 4.5rem;
+            }
+            
+            @media (min-width: $lg) {
+                font-size: 5.5rem;
+            }
+        }
+        
+        &.has-x-large-font-size {
+            font-size: 4.5rem;
+            
+            @media (min-width: $sm) {
+                font-size: 5.8rem;
+            }
+            
+            @media (min-width: $lg) {
+                font-size: 6.8rem;
+            }
+        }
         
     }
 

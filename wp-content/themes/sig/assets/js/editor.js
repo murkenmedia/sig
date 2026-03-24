@@ -148,6 +148,10 @@ wp.domReady( () => {
 			{
 				name: 'vertically-aligned-bottom',
 				label: 'Vertically Aligned Bottom'
+			},
+            {
+				name: 'dark-blue-to-light-grey-bg',
+				label: 'Dark Blue to Light Grey BG'
 			}
 		]
 	);

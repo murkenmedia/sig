@@ -36,7 +36,7 @@ jQuery.noConflict();
 	
   ///INTERSECTION OBSERVER
     var $topoffset = -50,
-	items = document.querySelectorAll('.fade-in, .animation-chain'),
+	items = document.querySelectorAll('.fade-in, .move-left, .move-right, .move-up, .move-down, .animation-chain, .animate, .counter'),
 	io,
 	idCounter = 0,
 	minId = null,
@@ -44,7 +44,9 @@ jQuery.noConflict();
 	debounceTimeout = null;
 
 
-	function applyChanges() {	
+    function applyChanges() {
+		//console.log(minId, maxId);
+		
 		items.forEach(entry => {
 			let entryid = entry.getAttribute('data-animate');
 			if (entryid >= minId && entryid <= maxId) {
@@ -53,13 +55,60 @@ jQuery.noConflict();
 					entry.classList.add('in-view');
 					
 					//remove class
-					if(entry.classList.contains('animation-chain')) {
+					if(entry.classList.contains('move-left') || entry.classList.contains('move-right') || entry.classList.contains('move-down') || entry.classList.contains('fade-in')) {
 						
+						setTimeout(function() {
+							entry.classList.add("no-delay");
+						}, 2000);
+					}
+                    if(entry.classList.contains('move-up')) {
+                        setTimeout(function() {
+							entry.classList.remove("move-up");
+						}, 2000);
+                    }
+                    
+                    if(entry.classList.contains('animation-chain')) {						
 						setTimeout(function() {
 							entry.classList.remove('animation-chain');
 						}, 2000);
 					}
+                    
+                    /////////STAT
+                    if (entry.classList.contains('counter')) {
+
+                        let counterID = entry.id,
+                            startVal = entry.getAttribute('data-start'),
+                            endVal = entry.getAttribute('data-end'),
+                            countDelay = entry.getAttribute('data-delay'),
+                            decimals = entry.getAttribute('data-decimal'),				
+                            duration =  entry.getAttribute('data-speed'),
+                            prefix =  entry.getAttribute('data-prefix'),
+                            suffix =  entry.getAttribute('data-suffix'),
+                            separator = entry.getAttribute('data-separator');
+
+                        if($mobile) {countDelay = 0;}
+
+                        let options = {
+                          useEasing : true,
+                          useGrouping : true,
+                          separator : separator,
+                          decimal : '.',
+                          prefix : prefix,
+                          suffix : suffix
+                        };
+
+                        let $counter = new CountUp(counterID, startVal, endVal, decimals, duration, options);
+
+                        setTimeout(function() {
+                            entry.parentElement.classList.add('animating');
+                            $counter.reset();
+                            $counter.start();
+                         }, countDelay);
+
+                    }
 				}
+                
+                
 			}
 		});
 		minId = null;

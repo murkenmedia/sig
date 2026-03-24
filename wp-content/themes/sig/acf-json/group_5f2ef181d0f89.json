@@ -1,6 +1,6 @@
 {
     "key": "group_5f2ef181d0f89",
-    "title": "Block: Stats",
+    "title": "Block: Animated Stat",
     "fields": [
         {
             "key": "field_5f2ef1aa9a6a5",
@@ -25,9 +25,12 @@
                 "id": ""
             },
             "choices": {
-                "has-orange-color": "Orange Color",
+                "has-blue-color": "blue Color",
+                "has-green-color": "Green Color",
+                "has-blue-dark-color": "Blue Dark Color",
+                "has-blue-light-color": "Blue Light Color",
                 "has-tan-color": "Tan Color",
-                "has-dark-color": "Dark Color",
+                "has-orange-color": "Orange Color",
                 "has-medium-font-size": "Medium Font Size",
                 "has-large-font-size": "Large Font Size",
                 "has-x-large-font-size": "XL Font Size",
@@ -281,5 +284,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1767735844
+    "modified": 1774320861
 }
