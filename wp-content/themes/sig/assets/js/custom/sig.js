@@ -52,56 +52,94 @@ jQuery.noConflict();
     
     jQuery(document).ready(function(){
         
-        if (jQuery(".info-slider-wrap")[0]){            
+        if (jQuery(".circle-slider-wrap")[0]){            
             
-            jQuery( '.info-slider-wrap').each( function( i ) {
+            jQuery( '.circle-slider-wrap').each( function( i ) {
                 let $sliderid = jQuery(this).data('id'),
-                    $imgslider = jQuery('#'+$sliderid+'-slider'),
+                    $circleslider = jQuery('#'+$sliderid+'-slider'),
                     $num = jQuery('#'+$sliderid+'-num'),
                     $next = jQuery('#'+$sliderid+'-next'),
                     $prev = jQuery('#'+$sliderid+'-prev');                
                 
-                $imgslider.owlCarousel({
+                $circleslider.owlCarousel({
                     //animateIn: 'fadeIn',
                     //animateOut: 'fadeOut',
-                    items: 1,
                     smartSpeed: 1000,
                     nav: false,
                     autoplay: false, 
                     dots: false,
-                    loop: true,
+                    loop: false,
                     mouseDrag: true,
                     touchDrag: true,
-                    responsiveRefreshRate:50,
-                    margin:20,
+                    //responsiveRefreshRate:50,
+                    margin:0,
+                    //autoWidth:true,
+                    center:true,
+                    startPosition: 0,
+                    //responsiveClass:true,
+                    
+                    items:1,
                     responsive: {
-                        576: {items: 1,margin:30}, 
-                        782: {items: 2,margin:40}, 
-                        1200: {items: 3,margin:50},
+                        576: {items: 2},
+                        1024: {items: 3,startPosition: 1}, 
+                        1500: {items: 4,startPosition: 1},
                     },
+                    onChanged: function(e) {
+                        if (e.item) {
+                            let index = e.item.index,
+                                count = e.item.count,
+                                visibleslides = 1;
+
+                            
+                            //console.log('index: '+index+', total: '+ count);
+
+                            if(index == 0) {
+                                $prev.prop("disabled",true);
+                            } else if(index == count-visibleslides) {
+                                $next.prop("disabled",true);
+                            } else {
+                                $prev.prop("disabled",false);
+                                $next.prop("disabled",false);                                
+                            }
+                            
+                            setTimeout(function(){
+                                $circleslider.find('.owl-item').each(function () {
+                                    if(jQuery(this).hasClass('center')) {
+                                       jQuery(this).find('a.circle-slide__link').attr('tabindex', 0);
+                                    } else {
+                                        jQuery(this).find('a.circle-slide__link').attr('tabindex', -1);
+                                    }						
+                                });                       
+                            }, 100);
+                        }
+                    },
+                    onInitialized: function(e) {
+                        setTimeout(function(){
+                            $circleslider.addClass('active');
+                        }, 500);
+                        
+                    }
                 });
                 
                 $next.click(function() {
-                    $imgslider.trigger('next.owl.carousel');
+                    $circleslider.trigger('next.owl.carousel');
                 });
                 
                 $prev.click(function() {
-                    $imgslider.trigger('prev.owl.carousel');
-                });    
-            
-                $imgslider.on('changed.owl.carousel', function(e) {
-                    if (e.item) {                        
-                        var index = e.item.index - 1;
-                        var count = e.item.count;
-                        if (index > count) {
-                            index -= count;
-                        }
-                        if (index <= 0) {
-                            index += count;
-                        }                        
-                        $num.html(pad(index,2));
-                    }                    
+                    $circleslider.trigger('prev.owl.carousel');
                 });
+                                
+                
+                $circleslider.on('click', '.owl-item', function(e) {
+                    if(!jQuery(this).hasClass('center')) {
+                        e.preventDefault(); 
+                        var index = jQuery(this).index();
+                        $circleslider.trigger('to.owl.carousel', [index, 1000, true]);                       
+                    }
+                    
+              });
+            
+                
             });            
         }
         

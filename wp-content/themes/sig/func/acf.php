@@ -81,11 +81,11 @@ if ( function_exists( 'acf_register_block' ) ) {
             
             
             array(
-				'name'        => 'carousel',
-				'title'       => __( 'Carousel', 'sig' ),
-				'description' => __( 'Carousel', 'sig' ),
+				'name'        => 'circle-slider',
+				'title'       => __( 'Circle Slider', 'sig' ),
+				'description' => __( 'Circle Slider', 'sig' ),
                 'icon' => 'format-image',
-				'keywords'    => array( 'carousel' ),
+				'keywords'    => array( 'slider', 'circle', 'sig' ),
 				'supports'    => array(
 					'align'    => array('full' ),
 				),
