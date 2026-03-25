@@ -32,7 +32,7 @@ $args = array(
     'post_type' => $cpt,
     'posts_per_page' => '4', 
     'orderby' => 'date',
-    'order' => 'ASC',
+    'order' => 'DESC',
     'post_status' => 'publish'	
 );
 
