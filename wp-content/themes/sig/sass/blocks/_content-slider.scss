@@ -62,8 +62,13 @@
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 3;
     border-radius: 50px;
+    display: none;
+    z-index: 3;
+
+    .active & {
+        display: block;
+    }
 
     [data-whatinput="keyboard"] &:focus {
         outline: 4px solid $red !important;
