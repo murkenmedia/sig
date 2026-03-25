@@ -1,0 +1,179 @@
+//circle-slider.scss
+
+.circle-slider-wrap {
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 60px;
+    
+    @media (min-width: $xl) {
+        margin-bottom: 0;
+    }
+    
+}
+
+
+.circle-slider {    
+	display: flex;
+	flex-direction: row;
+	gap:40px;
+	flex-wrap: wrap;
+}
+
+
+.circle-slide {
+    @include transition(all $medspeed $ease);
+    background-color:$blue;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    @include transform(translateX(0));
+    
+    position: relative;
+    margin: 0 auto;
+    
+    width: 500px;
+	height: 500px;
+	border-radius: 100%;
+	
+	&:after {
+		position: absolute;
+		z-index: -1;
+		left:0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		display: block;
+		content: '';
+		border-radius: 100%;
+		border: 3px solid $blue;
+		@include transition(all $medspeed $ease);
+		opacity: 0;
+	}
+    
+    
+    
+    
+    &.slide-color-blue-light {
+        background-color: rgba($bluelightmed, 0.88);
+        
+        &:after {
+            border-color: $bluelightmed;
+        }
+        
+        &:hover {
+            background-color: rgba($bluelightmed, 1);
+        }
+    }
+    &.slide-color-blue {
+        background-color: rgba($blue, 0.88);
+        
+        &:hover {
+            background-color: rgba($blue, 1);
+        }
+    }
+    
+    &.slide-color-blue-medium {
+        background-color: rgba($bluemed, 0.88);
+        
+        &:after {
+            border-color: $bluemed;
+        }
+        &:hover {
+            background-color: rgba($bluemed, 1);
+        }
+    }
+    &.slide-color-blue-dark {
+        background-color: rgba($bluedark, 0.88);
+        
+        &:after {
+            border-color: $bluedark;
+        }
+        
+        &:hover {
+            background-color: rgba($bluedark, 1);
+        }
+    }
+    &:hover {
+        
+        .circle-slide__textlink {
+            text-decoration: underline;
+            text-decoration-thickness: .15rem;
+            text-underline-offset: .25rem;
+        }
+    }
+}
+
+.circle-slide__content {
+    @include transition(all $medspeed $ease);
+    display: block;
+    max-width: 500px;
+    
+    color: #FFF;
+    padding:40px;
+    
+    //max-width: 500px;
+    margin: 0 auto;
+    
+   @media (min-width: $md) {
+       min-height: 140px;       
+    }
+    
+    @media (min-width: $lg) {
+        min-height: 145px;
+    }
+    
+    a {
+        color: #FFF;
+        
+        &:visited {
+           color: #FFF;
+        }
+        
+        &:hover, &:focus {
+            color: #FFF;
+            text-decoration: underline;
+        }
+    }
+    
+    p {
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 50px;
+    }
+    
+    .circle-slide__textlink {
+        text-transform: uppercase;
+        @include sans($weight:600);
+        letter-spacing: 0.1rem;
+        font-size: 1.1rem;
+        line-height: 1.3;
+    }
+
+}
+
+.circle-slide__link {
+    position: absolute;
+    display: block;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.circle-slide__content__collapse {
+    @media (min-width: $sm) {
+        display: block;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out 0s;
+    }
+}
+
+.circle-slider__controls {
+    display: none;
+}

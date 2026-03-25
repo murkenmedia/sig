@@ -206,8 +206,10 @@ body .editor-styles-wrapper .wp-block-media-text.animation-chain figure {
 }
 
 /*CUSTOM*/
+.content-tabs-wrap,
 .circle-slider-wrap,
-.lazy-load-video {
+.lazy-load-video,
+.stats-block {
 	border:1px solid $gutenborder;
 }
 

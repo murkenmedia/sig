@@ -25,7 +25,7 @@
                 "id": ""
             },
             "choices": {
-                "has-blue-color": "blue Color",
+                "has-blue-color": "Blue Color",
                 "has-green-color": "Green Color",
                 "has-blue-dark-color": "Blue Dark Color",
                 "has-blue-light-color": "Blue Light Color",
@@ -284,5 +284,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774320861
+    "modified": 1774401157
 }

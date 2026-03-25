@@ -23,6 +23,7 @@ $show = 'show ';
 $dataattr = 'true';
 
 $cpt = array('post');
+
 if(get_field('cpt')) {
     $cpt = get_field('cpt');
 }

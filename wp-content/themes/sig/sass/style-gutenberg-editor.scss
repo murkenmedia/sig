@@ -40,8 +40,10 @@ Version: 1.1
 
 //BLOCKS
 @import './editor/blocks';
-@import './blocks/animated-stat';
-//@import './editor/editor-blog-grid';
+@import './editor/editor-animated-stat';
+
+@import './editor/editor-circle-slider';
+@import './blocks/content-tabs';
 @import './blocks/collapsable';
 @import './editor/editor-hero';
 @import './editor/editor-lazy-iframe';

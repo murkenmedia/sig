@@ -1,0 +1,86 @@
+/* stats.scss */
+
+
+.stat-wrap {
+    
+    //text-align: center;
+	padding: 0px;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+    margin-bottom: 3px;
+    
+	.stat-number {		
+		display: block;
+		margin-bottom: 0;		
+		position: relative;		
+		display: block;
+		margin-top: 0 !important;   
+	}
+
+    
+
+    h2, h3, h4, p {
+       @include outline();
+        
+        margin-bottom: 0;
+        
+        font-size: 2.5rem;
+        line-height: 1;
+        
+        
+        @media (min-width: $sm) {
+            font-size: 3rem;
+        }
+
+        @media (min-width: $lg) {
+            font-size: 4rem;
+        }
+        
+        &.has-medium-font-size {            
+            font-size: 3rem;
+            
+            @media (min-width: $sm) {
+                font-size: 3.5rem;
+            }
+            
+            @media (min-width: $lg) {
+                font-size: 4.5rem;
+            }
+        }
+        
+        
+        &.has-large-font-size {
+            font-size: 4rem;
+            
+            @media (min-width: $sm) {
+                font-size: 4.5rem;
+            }
+            
+            @media (min-width: $lg) {
+                font-size: 5.5rem;
+            }
+        }
+        
+        &.has-x-large-font-size {
+            font-size: 4.5rem;
+            
+            @media (min-width: $sm) {
+                font-size: 5.8rem;
+            }
+            
+            @media (min-width: $lg) {
+                font-size: 6.8rem;
+            }
+        }
+        
+    }
+
+	
+	
+	
+	
+	
+	
+}
+
