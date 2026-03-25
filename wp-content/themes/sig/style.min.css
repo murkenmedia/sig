@@ -5,7 +5,7 @@ Description: Theme for SIG
 Author: Murken Media
 Author URI: http://murkenmedia.com
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Version: 1.0.11
+Version: 1.0.12
 Text Domain: sig
  
 License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
@@ -550,7 +550,7 @@ p.orange-link a:hover,p.orange-link a:focus,li.orange-link a:hover,li.orange-lin
 .wp-block-button.is-style-border-btn .wp-block-button__link.has-orange-color:hover,.wp-block-button.is-style-border-btn .wp-block-button__link.has-orange-color:active,.wp-block-button.is-style-border-btn .wp-block-button__link.has-orange-color:focus,.wp-block-button.is-style-border-btn .wp-block-button__link.has-orange-color:visited:hover,.wp-block-button.is-style-border-btn a.has-orange-color:hover,.wp-block-button.is-style-border-btn a.has-orange-color:active,.wp-block-button.is-style-border-btn a.has-orange-color:focus,.wp-block-button.is-style-border-btn a.has-orange-color:visited:hover{color:#FFF !important;background-color:#f48069;border-color:#f48069}
 p.wp-block-button br[data-mce-bogus]{display:none}.wp-block-columns{gap:30px;-ms-flex-wrap:nowrap !important;flex-wrap:nowrap !important;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 .wp-block-columns.no-gap{gap:0}.wp-block-columns.gap-30{gap:30px}.wp-block-columns.is-style-no-collapse-mobile{-webkit-box-orient:horizontal !important;-webkit-box-direction:normal !important;-ms-flex-direction:row !important;flex-direction:row !important}
-.wp-block-cover{background-position:center;background-size:cover;height:auto;min-height:15.625rem;max-height:none}
+.wp-block-cover{background-position:center;background-size:cover;height:auto;min-height:15.625rem;max-height:none;padding:0}
 .wp-block-cover .wp-block-cover__inner-container{color:inherit !important}.wp-block-cover.is-style-vertically-aligned-top{-webkit-box-align:start;-ms-flex-align:start;align-items:start;padding-top:40px}
 .wp-block-cover.is-style-vertically-aligned-bottom{-webkit-box-align:end;-ms-flex-align:end;align-items:end;padding-bottom:40px}
 .wp-block-cover.is-style-image-overlay{overflow:hidden}.wp-block-cover.is-style-image-overlay .wp-block-cover__inner-container{z-index:3}
