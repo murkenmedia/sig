@@ -63,6 +63,12 @@
     right: 0;
     bottom: 0;
     z-index: 3;
+    border-radius: 50px;
+
+    [data-whatinput="keyboard"] &:focus {
+        outline: 4px solid $red !important;
+        outline-offset: -4px;
+    }
 }
 
 .content-slider__slide__img {

@@ -39,6 +39,8 @@ $args = array(
     'post_status' => 'publish'	
 );
 
+$tabindex = '1';
+
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -75,7 +77,7 @@ if ( $the_query->have_posts() ) {
 
         $slides .= '
         <div class="content-slider__slide">
-            <a class="content-slider__slide__link" href="'.$url.'"><span class="sr-only">'.$linktext.' - '.$title.'</span></a>
+            <a class="content-slider__slide__link" href="'.$url.'" tabindex="'.$tabindex.'"><span class="sr-only">'.$linktext.' - '.$title.'</span></a>
             <div class="content-slider__slide__img">
                 '.$img.'
             </div>
@@ -91,6 +93,7 @@ if ( $the_query->have_posts() ) {
         </div>';
 
          $slidenum++;
+         $tabindex = '-1';
     endwhile;
 
 wp_reset_postdata();

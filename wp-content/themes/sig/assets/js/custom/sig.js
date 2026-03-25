@@ -162,7 +162,22 @@ jQuery.noConflict();
                     responsive: {
                         782: {stagePadding: 100}, 
                         1200: {stagePadding: 150},
-                    }, 
+                        1500: {stagePadding: 220},
+                    },
+                    onChanged: function(e) {
+                        if (e.item) {
+                          
+                            setTimeout(function(){
+                                $contentslider.find('.owl-item').each(function () {
+                                    if(jQuery(this).hasClass('active')) {
+                                       jQuery(this).find('a.content-slider__slide__link').attr('tabindex', 0);
+                                    } else {
+                                        jQuery(this).find('a.content-slider__slide__link').attr('tabindex', -1);
+                                    }						
+                                });                       
+                            }, 100);
+                        }
+                    },
                 });
                 
                 $next.click(function() {
