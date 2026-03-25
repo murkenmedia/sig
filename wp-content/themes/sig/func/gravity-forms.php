@@ -27,7 +27,7 @@ if ( ! function_exists( 'input_to_button' ) ) {
             }
         }
 
-        return sprintf( '<button %s><span class="text-wrap">%s</span><span class="arrow-icon"></span></button>', implode( ' ', $new_attributes ), esc_html( $fragment->get_attribute( 'value' ) ) );
+        return sprintf( '<button %s><span class="text-wrap">%s</span><span class="submit-arrow-icon"></span></button>', implode( ' ', $new_attributes ), esc_html( $fragment->get_attribute( 'value' ) ) );
     }
 }
 
