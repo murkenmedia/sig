@@ -58,17 +58,17 @@ if ( $the_query->have_posts() ) {
             case 'post':
                 $linktext = __('Read Insight', 'sig');
                 $postypetitle = "Insights";
-                $outerlink = '<a href=".'.get_home_url().'/insights/">'.__('Visit the Insights Center', 'sig').'</a>';
+                $outerlink = '<a href="'.get_home_url().'/insights/">'.__('Visit the Insights Center', 'sig').'</a>';
                 break;
             case 'webinar':
                 $linktext = __('Watch Webinar', 'sig');
                 $postypetitle = "Webinars";
-                $outerlink = '<a href=".'.get_home_url().'/webinars/">'.__('Visit the Webinars Center', 'sig').'</a>';
+                $outerlink = '<a href="'.get_home_url().'/on-demand-webinars/">'.__('Visit the Webinars Center', 'sig').'</a>';
                 break;
             case 'case-study':
                 $linktext = __('Read Case Study', 'sig');
                 $postypetitle = "Case Studies";
-                $outerlink = '<a href=".'.get_home_url().'/case-studies/">'.__('Visit the Case Studies Center', 'sig').'</a>';
+                $outerlink = '<a href="'.get_home_url().'/case-studies/">'.__('Visit the Case Studies Center', 'sig').'</a>';
                 break;
         }
 
