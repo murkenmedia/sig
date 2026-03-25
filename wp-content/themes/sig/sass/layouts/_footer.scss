@@ -1,5 +1,41 @@
 /* footer.scss */
 
+.footer-circles-wrap {
+    overflow: hidden;
+    height: 23.2vw;
+    margin-top: 20px;
+    display: block;;
+}
+.footer-circles {
+    width: 85vw;
+    margin-left: -15vw;
+    
+}
+.footer-circle {
+    @include transition(all $speed10 $ease);
+    opacity: 0;
+    transform:translateX(-100px);
+
+    .in-view & {
+        opacity: 1;
+        transform:translateX(0px);
+        transition-delay: 0.3s;
+    }
+}
+.footer-circle-left {    
+    @include transition(all $speed10 $ease);
+    transform:translateX(-2vw);
+}
+.footer-circle-mid {    
+     @include transition(all $speed10 $ease);
+     transform:translateX(-4vw);
+}
+.footer-circle-right {    
+    @include transition(all $speed10 $ease);
+    transform:translateX(-6vw);
+}
+
+
 .footer {
 	width: 100%;
 	background-color: $bluedark;

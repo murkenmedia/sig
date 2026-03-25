@@ -67,7 +67,7 @@ $greydark:#231f20;
 
 
 
-$body-bg:#FFF;
+
 
 
 $blue:#003eff;
@@ -98,6 +98,9 @@ $tanlight:#f2f0e2;
 
 $greylight:#f3f2ec;
 $greylighter: rgba($greylight, 0.7);
+
+
+$body-bg:$greylight;
 
 $text:$bluedark;
 $primary:$blue;
