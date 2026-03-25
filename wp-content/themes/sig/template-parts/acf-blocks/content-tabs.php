@@ -41,6 +41,7 @@ if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) : $the_query->the_post();
         $id = get_the_ID();
         $title = get_the_title($id);
+        $adatitle = $title;
         $slug = 'content-'.sanitize_title($title);
 
         $title = widowfix($title);
@@ -51,24 +52,29 @@ if ( $the_query->have_posts() ) {
         $linktext = __('Read More', 'sig');
         $postypetitle = '';
         $posttype = get_post_type($id);
+        $outerlink = '';
+
         switch ($posttype) {
             case 'post':
                 $linktext = __('Read Insight', 'sig');
                 $postypetitle = "Insights";
+                $outerlink = '<a href=".'.get_home_url().'/insights/">'.__('Visit the Insights Center', 'sig').'</a>';
                 break;
             case 'webinar':
                 $linktext = __('Watch Webinar', 'sig');
                 $postypetitle = "Webinars";
+                $outerlink = '<a href=".'.get_home_url().'/webinars/">'.__('Visit the Webinars Center', 'sig').'</a>';
                 break;
             case 'case-study':
                 $linktext = __('Read Case Study', 'sig');
                 $postypetitle = "Case Studies";
+                $outerlink = '<a href=".'.get_home_url().'/case-studies/">'.__('Visit the Case Studies Center', 'sig').'</a>';
                 break;
         }
 
         $nav .= '
         <li class="content-tabs__tab nav-item" role="presentation">
-            <button class="nav-link '.$class.'" id="'.$slug.'-tab" data-toggle="tab" href="#'.$slug.'-panel" role="tab" type="button" aria-controls="'.$slug.'-panel" aria-selected="'.$dataattr.'" aria-label="'.$title.'">
+            <button class="nav-link '.$class.'" id="'.$slug.'-tab" data-toggle="tab" data-target="#'.$slug.'-panel" role="tab" type="button" aria-controls="'.$slug.'-panel" aria-selected="'.$dataattr.'" aria-label="'.$adatitle.'">
                 <span class="content-type-title">'.$postypetitle.'</span>
                 <span class="tab-title serif arrow-icon"><span>'.$title.'</span></span>
             </button>
@@ -76,15 +82,18 @@ if ( $the_query->have_posts() ) {
 
         $content .= '
         <div class="content-tabs__content tab-pane fade '.$show.$class.'" id="'.$slug.'-panel" role="tabpanel" aria-labelledby="'.$slug.'-tab">
-            <a class="content-tabs__content__link" href="'.$url.'"></a>
-            <p class="content-type-title">'.$postypetitle.'</p>
-            <h3 class="arrow-icon"><span>'.$title.'</span></h3>
-            <div class="wp-block-button is-style-small">
-                <div class="wp-block-button__link has-blue-dark-medium-background-color has-background wp-element-button" href="'.$url.'">'.$linktext.'</div>
+            <div class="content-tabs__content__inner">
+                <a class="content-tabs__content__link" href="'.$url.'"></a>
+                <p class="content-type-title">'.$postypetitle.'</p>
+                <h3 class="arrow-icon"><span>'.$title.'</span></h3>
+                <div class="wp-block-button is-style-small">
+                    <div class="wp-block-button__link has-blue-dark-medium-background-color has-background wp-element-button" href="'.$url.'">'.$linktext.'</div>
+                </div>
+                <div class="content-tabs__content__img">
+                    '.$img.'
+                </div>
             </div>
-            <div class="content-tabs__content__img">
-                '.$img.'
-            </div>
+            <p class="content-tabs__outerlink has-blue-medium-color mb-0 is-style-small-arrow-link">'.$outerlink.'</p>
         </div>';
 
         

@@ -91,13 +91,13 @@
             text-align: center;
             content: '\e92c';
             @include webfonts($lineheight:1);
-            color: #FFF;
-            font-size: 22px;
+            color: inherit;
+            font-size: 80%;
         }
         
         &:hover {
             &:after {
-                margin-left: 15px;                
+                margin-left: 9px;                
             }
         }
     }
@@ -118,7 +118,7 @@
         content: '\e92c';
         @include webfonts($lineheight:1);
         color: #FFF;
-        font-size: 22px;
+        font-size: 75%;
     }
 }
 

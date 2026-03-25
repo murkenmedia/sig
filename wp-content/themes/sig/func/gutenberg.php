@@ -1,5 +1,7 @@
 <?php
 
+add_filter( 'should_load_separate_core_block_assets', '__return_false' );
+
 if ( ! function_exists( 'gutenberg_editor_styles' ) ) {
 	/**
 	 * EDITOR STYLES
@@ -42,7 +44,7 @@ function widowfix_blocks( $block_content, $block ) {
 	return $block_content;
 }
 
-add_filter( 'render_block', 'widowfix_blocks', 10, 2 );
+//add_filter( 'render_block', 'widowfix_blocks', 10, 2 );
 
 
 if ( ! function_exists( 'custom_gutenberg_classes' ) ) {
@@ -62,6 +64,7 @@ if ( ! function_exists( 'custom_gutenberg_classes' ) ) {
 	}
 }
 add_action( 'enqueue_block_editor_assets', 'custom_gutenberg_classes' );
+
 
 // Theme supports wide images, galleries and videos.
 
