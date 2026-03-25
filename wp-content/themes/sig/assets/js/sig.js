@@ -816,12 +816,9 @@ jQuery.noConflict();
       jQuery('.circle-slider-wrap').each(function (i) {
         var $sliderid = jQuery(this).data('id'),
           $circleslider = jQuery('#' + $sliderid + '-slider'),
-          $num = jQuery('#' + $sliderid + '-num'),
           $next = jQuery('#' + $sliderid + '-next'),
           $prev = jQuery('#' + $sliderid + '-prev');
         $circleslider.owlCarousel({
-          //animateIn: 'fadeIn',
-          //animateOut: 'fadeOut',
           smartSpeed: 1000,
           nav: false,
           autoplay: false,
@@ -834,8 +831,6 @@ jQuery.noConflict();
           //autoWidth:true,
           center: true,
           startPosition: 0,
-          //responsiveClass:true,
-
           items: 1,
           responsive: {
             576: {
@@ -895,6 +890,41 @@ jQuery.noConflict();
             var index = jQuery(this).index();
             $circleslider.trigger('to.owl.carousel', [index, 1000, true]);
           }
+        });
+      });
+    }
+    if (jQuery(".content-slider-wrap")[0]) {
+      jQuery('.content-slider-wrap').each(function (i) {
+        var $sliderid = jQuery(this).data('id'),
+          $contentslider = jQuery('#' + $sliderid + '-slider'),
+          $next = jQuery('#' + $sliderid + '-next'),
+          $prev = jQuery('#' + $sliderid + '-prev');
+        $contentslider.owlCarousel({
+          items: 1,
+          smartSpeed: 1000,
+          nav: false,
+          autoplay: false,
+          dots: true,
+          loop: true,
+          mouseDrag: true,
+          touchDrag: true,
+          responsiveRefreshRate: 50,
+          margin: 30,
+          stagePadding: 0,
+          responsive: {
+            782: {
+              stagePadding: 100
+            },
+            1200: {
+              stagePadding: 150
+            }
+          }
+        });
+        $next.click(function () {
+          $contentslider.trigger('next.owl.carousel');
+        });
+        $prev.click(function () {
+          $contentslider.trigger('prev.owl.carousel');
         });
       });
     }

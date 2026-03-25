@@ -147,8 +147,31 @@ function sig_create_post_type() {
         'capability_type'   => 'post',
         'menu_position'       => 29,
         'show_in_rest' => true,
-        'rewrite' => array( 'slug' => 'webinar', 'with_front' => false ),
+        'rewrite' => array( 'slug' => 'webinars', 'with_front' => false ),
         'menu_icon'   => 'dashicons-cover-image',		
+        'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        )
+    );
+
+    register_post_type( 'case-study', array(
+        'labels' => array(
+            'name' => __( 'Case Studies', 'post type general name', 'sig'),
+            'singular_name' => __( 'Case Study', 'post type singular name', 'sig'),
+            'add_new'            => __( 'Add New', 'Case Study', 'sig'),
+            'add_new_item'       => __( 'Add New Case Study', 'sig'),
+            'edit_item'          => __( 'Edit Case Study', 'sig'),
+            'new_item'           => __( 'New Case Study', 'sig'),
+            'view_item'             => __( 'View Case Study', 'sig' ),
+          ),
+        'public'            => true,
+        'query_var'           => true,
+        'hierarchical'      => false,
+        'has_archive'       => true,		
+        'capability_type'   => 'post',
+        'menu_position'       => 29,
+        'show_in_rest' => true,
+        'rewrite' => array( 'slug' => 'case-studies', 'with_front' => false ),
+        'menu_icon'   => 'dashicons-search',		
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         )
     );

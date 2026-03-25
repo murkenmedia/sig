@@ -90,6 +90,18 @@ if ( function_exists( 'acf_register_block' ) ) {
 					'align'    => array('full' ),
 				),
 			),
+
+
+			array(
+				'name'        => 'content-slider',
+				'title'       => __( 'Content Slider', 'sig' ),
+				'description' => __( 'Content Slider', 'sig' ),
+                'icon' => 'format-image',
+				'keywords'    => array( 'slider', 'content', 'sig' ),
+				'supports'    => array(
+					'align'    => array('full' ),
+				),
+			),
             
             array(
 				'name'        => 'collapsable',

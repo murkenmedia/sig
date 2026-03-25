@@ -13,10 +13,10 @@
 if(get_field('page_options', $id)) {
 	$options = get_field('page_options', $id);
 	if(!in_array('hide_footer_circles', $options)) {
-		echo get_footer_cirlces();
+		echo get_footer_circles();
 	}
 } else {
-    echo get_footer_cirlces();
+    echo get_footer_circles();
 }
 
 

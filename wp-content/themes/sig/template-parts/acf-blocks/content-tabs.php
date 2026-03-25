@@ -83,7 +83,7 @@ if ( $the_query->have_posts() ) {
         $content .= '
         <div class="content-tabs__content tab-pane fade '.$show.$class.'" id="'.$slug.'-panel" role="tabpanel" aria-labelledby="'.$slug.'-tab">
             <div class="content-tabs__content__inner">
-                <a class="content-tabs__content__link" href="'.$url.'"></a>
+                <a class="content-tabs__content__link" href="'.$url.'"><span class="sr-only">'.$linktext.' - '.$adatitle.'</span></a>
                 <p class="content-type-title">'.$postypetitle.'</p>
                 <h3 class="arrow-icon"><span>'.$title.'</span></h3>
                 <div class="wp-block-button is-style-small">
@@ -102,9 +102,6 @@ if ( $the_query->have_posts() ) {
         $dataattr = 'false';
 
     endwhile;
-
-
-
 
 wp_reset_postdata();
 

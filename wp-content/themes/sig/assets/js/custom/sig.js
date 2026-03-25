@@ -57,13 +57,10 @@ jQuery.noConflict();
             jQuery( '.circle-slider-wrap').each( function( i ) {
                 let $sliderid = jQuery(this).data('id'),
                     $circleslider = jQuery('#'+$sliderid+'-slider'),
-                    $num = jQuery('#'+$sliderid+'-num'),
                     $next = jQuery('#'+$sliderid+'-next'),
                     $prev = jQuery('#'+$sliderid+'-prev');                
                 
                 $circleslider.owlCarousel({
-                    //animateIn: 'fadeIn',
-                    //animateOut: 'fadeOut',
                     smartSpeed: 1000,
                     nav: false,
                     autoplay: false, 
@@ -75,9 +72,7 @@ jQuery.noConflict();
                     margin:0,
                     //autoWidth:true,
                     center:true,
-                    startPosition: 0,
-                    //responsiveClass:true,
-                    
+                    startPosition: 0,                    
                     items:1,
                     responsive: {
                         576: {items: 2},
@@ -142,6 +137,48 @@ jQuery.noConflict();
                 
             });
         }
+
+
+        if (jQuery(".content-slider-wrap")[0]){            
+            
+            jQuery( '.content-slider-wrap').each( function( i ) {
+                let $sliderid = jQuery(this).data('id'),
+                    $contentslider = jQuery('#'+$sliderid+'-slider'),
+                    $next = jQuery('#'+$sliderid+'-next'),
+                    $prev = jQuery('#'+$sliderid+'-prev');                
+                
+                $contentslider.owlCarousel({
+                    items: 1,
+                    smartSpeed: 1000,
+                    nav: false,
+                    autoplay: false, 
+                    dots: true,
+                    loop: true,
+                    mouseDrag: true,
+                    touchDrag: true,
+                    responsiveRefreshRate:50,
+                    margin:30,
+                    stagePadding:0,
+                    responsive: {
+                        782: {stagePadding: 100}, 
+                        1200: {stagePadding: 150},
+                    }, 
+                });
+                
+                $next.click(function() {
+                    $contentslider.trigger('next.owl.carousel');
+                });
+                
+                $prev.click(function() {
+                    $contentslider.trigger('prev.owl.carousel');
+                });
+            });            
+        }
+
+
+
+
+        
     });
     
     ///ON READY	

@@ -174,8 +174,8 @@ h1.hero__content__title {
     text-transform: none;
     color: #FFF;    
     @include transition(all $medspeed $ease);        
-    font-size: clamp(4.5rem, 5vw, 6rem);
-    line-height: 1.2;    
+    font-size: clamp(3rem, 4vw, 4.75rem);
+    //line-height: 1.1;    
 }
 
 .hero__content__pretitle {

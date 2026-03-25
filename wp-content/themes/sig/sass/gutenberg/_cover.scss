@@ -1,4 +1,7 @@
 /* cover.scss */
+:where(.wp-block-cover-image.is-light:not(.has-text-color)), :where(.wp-block-cover.is-light:not(.has-text-color)) {
+    color: $text;
+}
 
 .wp-block-cover {
     background-position: center;
