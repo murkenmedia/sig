@@ -845,15 +845,6 @@ jQuery.noConflict();
     });
   }
 })();
-/*!
- * HHV Carousels
- * Version  : 1.0.00
- */
-jQuery.noConflict();
-(function () {
-  var $window = jQuery(window);
-  document.addEventListener('DOMContentLoaded', function () {});
-})();
 jQuery.noConflict();
 (function () {
   var $window = jQuery(window),

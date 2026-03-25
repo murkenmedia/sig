@@ -128,6 +128,30 @@ function sig_create_post_type() {
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         )
     );
+
+
+    register_post_type( 'webinar', array(
+        'labels' => array(
+            'name' => __( 'Webinars', 'post type general name', 'sig'),
+            'singular_name' => __( 'Webinar', 'post type singular name', 'sig'),
+            'add_new'            => __( 'Add New', 'Webinar', 'sig'),
+            'add_new_item'       => __( 'Add New Webinar', 'sig'),
+            'edit_item'          => __( 'Edit Webinar', 'sig'),
+            'new_item'           => __( 'New Webinar', 'sig'),
+            'view_item'             => __( 'View Webinar', 'sig' ),
+          ),
+        'public'            => true,
+        'query_var'           => true,
+        'hierarchical'      => false,
+        'has_archive'       => true,		
+        'capability_type'   => 'post',
+        'menu_position'       => 29,
+        'show_in_rest' => true,
+        'rewrite' => array( 'slug' => 'webinar', 'with_front' => false ),
+        'menu_icon'   => 'dashicons-cover-image',		
+        'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        )
+    );
 }
 
 add_action( 'init', 'sig_create_post_type' ); 

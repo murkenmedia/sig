@@ -68,9 +68,7 @@
                 background-color:$green;
                 color: $blue;
             }
-		}
-        
-        
+        }
         
         &[target="_blank"] {
             position: relative;
@@ -147,6 +145,15 @@
         
 
 	}
+
+    &.is-style-small {
+        .wp-block-button__link, a {
+            padding: 12px 30px 12px 30px;
+
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+    }
 
     //BORDER
     &.is-style-border-btn {

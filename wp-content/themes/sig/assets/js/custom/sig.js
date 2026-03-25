@@ -140,11 +140,8 @@ jQuery.noConflict();
               });
             
                 
-            });            
+            });
         }
-        
-        
-        
     });
     
     ///ON READY	

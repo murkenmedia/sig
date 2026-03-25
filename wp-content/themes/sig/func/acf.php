@@ -107,6 +107,17 @@ if ( function_exists( 'acf_register_block' ) ) {
                 ]
 			),
             
+            array(
+				'name'        => 'content-tabs',
+				'title'       => __( 'Content Tabs', 'sig' ),
+				'description' => __( 'Content Tabs', 'sig' ),
+                'icon' => 'table-col-before',
+				'keywords'    => array( 'content', 'tabs', 'insights', 'case study', 'sig' ),
+				'supports'    => array(
+					'align'    => array('full' ),
+				),
+			),
+            
 
            array(
 				'name'        => 'hero',

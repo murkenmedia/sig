@@ -65,20 +65,60 @@
             width: 60px;
             height: 60px;
             font-size: 22px;
-            
-            
+        }        
+        &:hover {
+            &:after {
+                margin-left: 35px;
+                background-color: $blue;                
+            }
+        }
+    }
+}
+
+.is-style-small-arrow-link {
+    a {
+        display: table;
+        position: relative;
+        
+        &:after {
+            margin-left: 5px;
+            top:0px;
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            @include transition(all $medspeed $ease);            
+            text-align: center;
+            content: '\e92c';
+            @include webfonts($lineheight:1);
+            color: #FFF;
+            font-size: 22px;
         }
         
         &:hover {
-            //text-decoration: none;
-            
-            
             &:after {
-                margin-left: 35px;
-                background-color: $blue;
-                
+                margin-left: 15px;                
             }
         }
+    }
+}
+.arrow-icon {
+    display: table;
+    position: relative;
+    
+    &:after {
+        margin-left: 5px;
+        top:0px;
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        @include transition(all $medspeed $ease);            
+        text-align: center;
+        content: '\e92c';
+        @include webfonts($lineheight:1);
+        color: #FFF;
+        font-size: 22px;
     }
 }
 
@@ -86,7 +126,7 @@
     background-color: $greylight;
     position: relative;
     
-    div {
+    > div {
         position: relative;
         z-index: 1;
     }
@@ -115,4 +155,12 @@
         height: 1000px;
         z-index: 0;
     }
+}
+
+.content-type-title {
+    text-transform: uppercase;
+    @include sans($weight:600);
+    font-size: 1.1rem;
+    line-height: 1.1;
+    letter-spacing: 0.1rem;
 }
