@@ -334,17 +334,29 @@ wp.domReady( () => {
 				label: 'Default',
 				isDefault: true
 			},
-            {
-				name: 'responsive-small',
-				label: 'Responsive Small'
+			{
+				name: 'responsive-large',
+				label: 'Mobile Large'
 			},
 			{
 				name: 'responsive-medium',
-				label: 'Responsive Medium'
+				label: 'Mobile Medium'
 			},
-            {
-				name: 'responsive-large',
-				label: 'Responsive Large'
+			{
+				name: 'responsive-small',
+				label: 'Mobile Small'
+			},
+			{
+				name: 'responsive-hide-lg',
+				label: 'Hide Below 1024px (Desktop)'
+			},
+			{
+				name: 'responsive-hide-md',
+				label: 'Hide Below 768px (Tablet)'
+			},
+			{
+				name: 'responsive-hide-sm',
+				label: 'Hide Below 576px (Mobile)'
 			}
 		]
 	);

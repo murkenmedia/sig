@@ -5,7 +5,7 @@ Description: Theme for SIG
 Author: Murken Media
 Author URI: http://murkenmedia.com
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Version: 1.0.17
+Version: 1.0.18
 Text Domain: sig
  
 License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
@@ -772,8 +772,9 @@ ul.blog-related-links li{margin-bottom:10px}.blog-related-link__date{display:blo
 .circle-slider__next:active,.circle-slider__prev:active{border-color:#003eff}.circle-slider__next{border-top-right-radius:30px;border-bottom-right-radius:30px}
 .circle-slider__next:before{content:'\e92c'}.circle-slider__prev{border-top-left-radius:30px;border-bottom-left-radius:30px}
 .circle-slider__prev:before{left:-2px}.content-slider-wrap{margin:0 auto;position:relative;margin-bottom:60px}
-.content-slider{-ms-touch-action:auto;touch-action:auto}.content-slider .owl-stage{display:-webkit-box;display:-ms-flexbox;display:flex}
-.content-slider .owl-item{-ms-touch-action:auto;touch-action:auto}.content-slider__slide{background-color:#e7e8e3;border-radius:50px;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100%;margin:0 25px;position:relative}
+.content-slider{-ms-touch-action:auto;touch-action:auto}.content-slider .owl-stage{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap}
+.content-slider .owl-stage-outer{padding:0}.content-slider .owl-item{-ms-touch-action:auto;touch-action:auto;float:none;width:100vw;-ms-flex-preferred-size:100vw;flex-basis:100vw;min-width:100vw}
+.content-slider__slide{background-color:#e7e8e3;border-radius:50px;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;height:100%;margin:0 25px;position:relative}
 .active .content-slider__slide:hover .content-slider__slide__img img{-webkit-transform:scale(1.03);transform:scale(1.03)}
 .content-slider__slide__link{position:absolute;left:0;top:0;right:0;bottom:0;border-radius:50px;display:none;z-index:3}
 .active .content-slider__slide__link{display:block}[data-whatinput="keyboard"] .content-slider__slide__link:focus{outline:4px solid #dc3545 !important;outline-offset:-4px}
@@ -1097,8 +1098,8 @@ button.hero__controls__playpause.active{-webkit-transition:none;transition:none}
 .circle-slider .owl-item.center .circle-slide .circle-slide__content__collapse{max-height:300px;-webkit-transition:max-height .8s ease .4s;transition:max-height .8s ease .4s}
 .circle-slide{width:50vw;height:50vw;border-radius:100%}.circle-slide:after{position:absolute;z-index:-1;left:0;top:0;right:0;bottom:0;display:block;content:'';border-radius:100%;border:3px solid #003eff;-webkit-transition:all .3s ease;transition:all .3s ease;opacity:0}
 .circle-slide__content__collapse{display:block;max-height:0;overflow:hidden;-webkit-transition:max-height .3s ease-out 0s;transition:max-height .3s ease-out 0s}
-.circle-slider__controls{top:40px;bottom:auto}.content-tabs__outerlink{width:100%}.hero{min-height:400px}
-.animation-chain .move-up:nth-child(1),.animation-chain .move-left:nth-child(1),.animation-chain .move-right:nth-child(1){-webkit-transition:all 1s ease;transition:all 1s ease;-webkit-transition-delay:.1s;transition-delay:.1s}
+.circle-slider__controls{top:40px;bottom:auto}.content-slider .owl-stage-outer{padding:0 10vw}.content-slider .owl-item{width:80vw;-ms-flex-preferred-size:80vw;flex-basis:80vw;min-width:80vw}
+.content-tabs__outerlink{width:100%}.hero{min-height:400px}.animation-chain .move-up:nth-child(1),.animation-chain .move-left:nth-child(1),.animation-chain .move-right:nth-child(1){-webkit-transition:all 1s ease;transition:all 1s ease;-webkit-transition-delay:.1s;transition-delay:.1s}
 .animation-chain .fade-in:nth-child(1){-webkit-transition:opacity 1s ease;transition:opacity 1s ease;-webkit-transition-delay:.1s;transition-delay:.1s}
 .animation-chain .move-up:nth-child(2),.animation-chain .move-left:nth-child(2),.animation-chain .move-right:nth-child(2){-webkit-transition:all 1s ease;transition:all 1s ease;-webkit-transition-delay:.2s;transition-delay:.2s}
 .animation-chain .fade-in:nth-child(2){-webkit-transition:opacity 1s ease;transition:opacity 1s ease;-webkit-transition-delay:.2s;transition-delay:.2s}
@@ -1736,7 +1737,8 @@ ul.main-nav>li>a{-webkit-transition:none;transition:none}ul.main-nav__dropdown.d
 .wp-block-columns.huge-gap,.wp-block-columns.gap-100,.wp-block-columns.is-style-wide-gap{gap:100px}.three-col-grid{-webkit-column-gap:60px;-moz-column-gap:60px;column-gap:60px}
 .three-col-grid__item{max-width:calc(33.33% - 40px)}.home-popup__content{padding:40px 20px}.circle-slider-wrap{margin-bottom:0}
 .circle-slider .owl-item{width:25vw !important;height:30vw}.circle-slider .owl-item.center .circle-slide{width:30vw !important;height:30vw;-webkit-transform:translateX(-2.5vw);transform:translateX(-2.5vw)}
-.circle-slide{width:25vw;height:25vw}.content-slider-wrap{margin-bottom:0}.hero.has-hero-video{max-height:calc(100vh - 185px)}
+.circle-slide{width:25vw;height:25vw}.content-slider-wrap{margin-bottom:0}.content-slider .owl-stage-outer{padding:0 15vw}
+.content-slider .owl-item{width:70vw;-ms-flex-preferred-size:70vw;flex-basis:70vw;min-width:70vw}.hero.has-hero-video{max-height:calc(100vh - 185px)}
 .hero__bluegradient{width:1600px;height:1400px;left:-400px;bottom:-700px}.hero__bluegradient{width:1700px;height:1200px;left:-300px;bottom:-600px}
 }@media all and (max-width:1024px){.mfp-arrow{-webkit-transform:scale(0.75);transform:scale(0.75)}.mfp-arrow-left{-webkit-transform-origin:0 0;transform-origin:0 0}
 .mfp-arrow-right{-webkit-transform-origin:100%;transform-origin:100%}.mfp-container{padding-left:20px;padding-right:20px}

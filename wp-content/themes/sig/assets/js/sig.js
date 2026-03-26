@@ -909,19 +909,14 @@ jQuery.noConflict();
           mouseDrag: true,
           touchDrag: true,
           responsiveRefreshRate: 50,
+          autoWidth: true,
           margin: 30,
-          stagePadding: 0,
+          /* stagePadding:0,
           responsive: {
-            782: {
-              stagePadding: 100
-            },
-            1200: {
-              stagePadding: 150
-            },
-            1500: {
-              stagePadding: 220
-            }
-          },
+              782: {stagePadding: 100}, 
+              1200: {stagePadding: 150},
+              1500: {stagePadding: 220},
+          }, */
           onChanged: function onChanged(e) {
             if (e.item) {
               setTimeout(function () {

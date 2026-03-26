@@ -25,12 +25,56 @@
 
     .owl-stage{
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        //gap:30px;
+        
     }
 
+    .owl-stage-outer {
+
+        padding: 0;
+
+        @media (min-width: $sm) {
+            padding: 0 10vw;
+        }
+
+        @media (min-width: $max-width) {
+            padding: 0 15vw;
+        }
+
+        /* @media (min-width: 1700px) {
+            padding: 0 20vw;
+        } */
+    }
 
     .owl-item {
         touch-action: auto;
-        //height: 100%;
+        float: none;
+
+
+        width: 100vw;
+        flex-basis:100vw;
+        min-width: 100vw;
+       
+
+        @media (min-width: $sm) {
+            width: 80vw;
+            flex-basis:80vw;
+            min-width: 80vw;
+        }
+        
+        @media (min-width: $max-width) {
+            width: 70vw;
+            flex-basis:70vw;
+            min-width: 70vw;
+        }
+
+        /* @media (min-width: 1700px) {
+            width: 60vw;
+            flex-basis:60vw;
+            min-width: 60vw;
+        } */
     }
 }
 
