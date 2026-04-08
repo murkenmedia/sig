@@ -98,7 +98,7 @@ class MegaMenuWalker extends Walker_Nav_Menu {
                  $menu = 'solutions';
                 break;
             case 44:
-                $menu = 'technologies';
+                $menu = 'platforms';
                 break;
             case 47:
                 $menu = 'about';

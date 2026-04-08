@@ -24,9 +24,10 @@
                 "custom-content": "Custom Content",
                 "#title2": "Hero Style",
                 "darken-bg": "Darken BG",
-                "dark-nav-bg": "Dark Nav BG",
+                "darken-upper": "Upper Dark Gradient",
+                "darken-lower": "Lower Dark Gradient",
                 "blue-bg-gradient": "Blue Gradient Overlay",
-                "align-content-bottom": "Align Content to Bottom",
+                "align-content-center": "Align Content to Center",
                 "medium-hero": "Medium Hero",
                 "tall-hero": "Tall Hero",
                 "full-hero": "Full Hero",
@@ -37,7 +38,10 @@
                 "video-bg": "Video BG"
             },
             "default_value": [
-                "hide-title"
+                "darken-upper",
+                "darken-lower",
+                "medium-hero",
+                "use-featured"
             ],
             "return_format": "value",
             "allow_custom": 0,
@@ -374,5 +378,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774224255
+    "modified": 1775153706
 }

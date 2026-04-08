@@ -81,7 +81,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "technologies"
+                "value": "platforms"
             }
         ],
         [

@@ -10,6 +10,7 @@ register_nav_menus( array(
 	'footer-legal' => 'Footer Legal Menu',
     'solutions' => 'Solutions Menu',
     'technologies' => 'Technologies Menu',
+    'platforms' => 'Platforms Menu',
     'about' => 'About Menu',
     
 ) );
