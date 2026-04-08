@@ -13,7 +13,7 @@
  */
 
 
-//include( plugin_dir_path( __FILE__ ) . 'includes/taxonomies.php');
+include( plugin_dir_path( __FILE__ ) . 'includes/taxonomies.php');
 include( plugin_dir_path( __FILE__ ) . 'includes/cpt.php');
 include( plugin_dir_path( __FILE__ ) . 'includes/admin.php');
 //include( plugin_dir_path( __FILE__ ) . 'includes/events-admin.php');

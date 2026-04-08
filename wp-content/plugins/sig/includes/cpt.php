@@ -4,6 +4,107 @@
 function sig_create_post_type() {
     
     
+    register_post_type( 'case-study', array(
+        'labels' => array(
+            'name' => __( 'Case Studies', 'post type general name', 'sig'),
+            'singular_name' => __( 'Case Study', 'post type singular name', 'sig'),
+            'add_new'            => __( 'Add New', 'Case Study', 'sig'),
+            'add_new_item'       => __( 'Add New Case Study', 'sig'),
+            'edit_item'          => __( 'Edit Case Study', 'sig'),
+            'new_item'           => __( 'New Case Study', 'sig'),
+            'view_item'             => __( 'View Case Study', 'sig' ),
+          ),
+        'public'            => true,
+        'query_var'           => true,
+        'show_ui'           => true,
+        'hierarchical'      => false,
+        'has_archive'       => false,
+        'capability_type'   => 'post',
+        'capability_type'   => 'post',
+        'menu_position'       => 29,
+        'show_in_rest' => true,
+        'rewrite' => array( 'slug' => 'case-studies', 'with_front' => false ),
+        'taxonomies'  => array('case_study_category'),
+        'menu_icon'   => 'dashicons-search',		
+        'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        )
+    );
+
+    register_post_type( 'events', array(
+        'labels' => array(
+            'name' => __( 'Events', 'post type general name', 'sig'),
+            'singular_name' => __( 'Event', 'post type singular name', 'sig'),
+            'add_new'            => __( 'Add New', 'Event', 'sig'),
+            'add_new_item'       => __( 'Add New Event', 'sig'),
+            'edit_item'          => __( 'Edit Event', 'sig'),
+            'new_item'           => __( 'New Event', 'sig'),
+            'view_item'             => __( 'View Event', 'sig' ),
+          ),
+        'public'            => true,
+        'query_var'           => true,
+        'show_ui'           => true,
+        'show_in_nav_menus' => false,
+        'hierarchical'      => false,
+        'has_archive'       => false,
+        'capability_type'   => 'post',
+        'menu_position'       => 28,
+        'show_in_rest' => true,
+        "rewrite" => [ "slug" => "events", "with_front" => false ],
+        'taxonomies'  => array('event_category'),
+        'menu_icon'   => 'dashicons-calendar-alt',		
+        'supports'   => array("title", "editor", "thumbnail", "excerpt"),
+        )
+    );
+    
+    
+    register_post_type( 'news', array(
+        'labels' => array(
+            'name' => __( 'News', 'post type general name', 'sig'),
+            'singular_name' => __( 'News', 'post type singular name', 'sig'),
+            'add_new'            => __( 'Add New', 'News', 'sig'),
+            'add_new_item'       => __( 'Add New News', 'sig'),
+            'edit_item'          => __( 'Edit News', 'sig'),
+            'new_item'           => __( 'New News', 'sig'),
+            'view_item'             => __( 'View News', 'sig' ),
+          ),
+        'public'            => true,
+        'query_var'           => true,
+        'hierarchical'      => false,
+        'has_archive'       => true,		
+        'capability_type'   => 'post',
+        'menu_position'       => 29,
+        'show_in_rest' => true,
+        'rewrite' => array( 'slug' => 'news', 'with_front' => false ),
+        'taxonomies'  => array('news_category'),
+        'menu_icon'   => 'dashicons-admin-site',		
+        'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        )
+    );
+
+
+    register_post_type( 'platforms', array(
+		'labels' => array(
+			'name' => __( 'Platforms', 'post type general name', 'sig'),
+			'singular_name' => __( 'Platform', 'post type singular name', 'sig'),
+			'add_new'            => __( 'Add New', 'Platforms', 'sig'),
+            'add_new_item'       => __( 'Add New Platforms', 'sig'),
+            'edit_item'          => __( 'Edit Platforms', 'sig'),
+            'new_item'           => __( 'New Platforms', 'sig'),
+            'view_item'             => __( 'View Platforms', 'sig' ),
+		  ),
+		'public'            => true,
+        'query_var'           => true,
+		'hierarchical'      => true,
+		'has_archive'       => false,		
+		'capability_type'   => 'page',
+		'menu_position'       => 24,
+		'show_in_rest' => true,
+        'rewrite' => array( 'slug' => 'platforms', 'with_front' => false ),
+		'menu_icon'   => plugin_dir_url( __DIR__ ).'icons/platforms.svg',
+		'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes')
+		)
+	);
+
     register_post_type( 'solutions', array(
 		'labels' => array(
 			'name' => __( 'Solutions', 'post type general name', 'sig'),
@@ -27,31 +128,9 @@ function sig_create_post_type() {
 		)
 	);
     
-    register_post_type( 'technologies', array(
-		'labels' => array(
-			'name' => __( 'Technologies', 'post type general name', 'sig'),
-			'singular_name' => __( 'Technology', 'post type singular name', 'sig'),
-			'add_new'            => __( 'Add New', 'Technologies', 'sig'),
-            'add_new_item'       => __( 'Add New Technologies', 'sig'),
-            'edit_item'          => __( 'Edit Technologies', 'sig'),
-            'new_item'           => __( 'New Technologies', 'sig'),
-            'view_item'             => __( 'View Technologies', 'sig' ),
-		  ),
-		'public'            => true,
-        'query_var'           => true,
-		'hierarchical'      => true,
-		'has_archive'       => false,		
-		'capability_type'   => 'page',
-		'menu_position'       => 24,
-		'show_in_rest' => true,
-        'rewrite' => array( 'slug' => 'technologies', 'with_front' => false ),
-		'menu_icon'   => plugin_dir_url( __DIR__ ).'icons/technologies.svg',
-		'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes')
-		)
-	);
     
     
-    register_post_type( 'team', array(
+    /* register_post_type( 'team', array(
         'labels' => array(
             'name' => __( 'Team', 'post type general name', 'sig'),
             'singular_name' => __( 'Team', 'post type singular name', 'sig'),
@@ -75,60 +154,37 @@ function sig_create_post_type() {
         'menu_icon'   => 'dashicons-groups',
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'page-attributes'),
         )
-    );
-    
-    
-    register_post_type( 'events', array(
+    ); */
+
+    register_post_type( 'testimonial', array(
         'labels' => array(
-            'name' => __( 'Events', 'post type general name', 'sig'),
-            'singular_name' => __( 'Event', 'post type singular name', 'sig'),
-            'add_new'            => __( 'Add New', 'Event', 'sig'),
-            'add_new_item'       => __( 'Add New Event', 'sig'),
-            'edit_item'          => __( 'Edit Event', 'sig'),
-            'new_item'           => __( 'New Event', 'sig'),
-            'view_item'             => __( 'View Event', 'sig' ),
+            'name' => __( 'Testimonials', 'post type general name', 'sig'),
+            'singular_name' => __( 'Testimonial', 'post type singular name', 'sig'),
+            'add_new'            => __( 'Add New', 'Testimonial', 'sig'),
+            'add_new_item'       => __( 'Add New Testimonial', 'sig'),
+            'edit_item'          => __( 'Edit Testimonial', 'sig'),
+            'new_item'           => __( 'New Testimonial', 'sig'),
+            'view_item'             => __( 'View Testimonial', 'sig' ),
           ),
-        'public'            => true,
+        'public'            => false,
+        'publicly_queryable' => false,
         'query_var'           => true,
         'show_ui'           => true,
         'show_in_nav_menus' => false,
-        'hierarchical'      => false,
+        'hierarchical'      => true,
         'has_archive'       => false,		
-        'capability_type'   => 'post',
-        'menu_position'       => 28,
-        'show_in_rest' => true,
-        "rewrite" => [ "slug" => "events", "with_front" => false ],
-        'menu_icon'   => 'dashicons-calendar-alt',		
-        'supports'   => array("title", "editor", "thumbnail", "excerpt"),
-
-        )
-    );
-    
-    
-    register_post_type( 'news', array(
-        'labels' => array(
-            'name' => __( 'News', 'post type general name', 'sig'),
-            'singular_name' => __( 'News', 'post type singular name', 'sig'),
-            'add_new'            => __( 'Add New', 'News', 'sig'),
-            'add_new_item'       => __( 'Add New News', 'sig'),
-            'edit_item'          => __( 'Edit News', 'sig'),
-            'new_item'           => __( 'New News', 'sig'),
-            'view_item'             => __( 'View News', 'sig' ),
-          ),
-        'public'            => true,
-        'query_var'           => true,
-        'hierarchical'      => false,
-        'has_archive'       => true,		
-        'capability_type'   => 'post',
+        'capability_type'   => 'page',
         'menu_position'       => 29,
         'show_in_rest' => true,
-        'rewrite' => array( 'slug' => 'news', 'with_front' => false ),
-        //'taxonomies'  => array('news_tag', 'news_category'),
-        'menu_icon'   => 'dashicons-admin-site',		
-        'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        'rewrite' => array('with_front' => false),
+        'taxonomies'  => array( 'testimonial_category'),
+        'menu_icon'   => 'dashicons-admin-comments',
+        'supports'   => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         )
     );
-
+    
+    
+    
 
     register_post_type( 'webinar', array(
         'labels' => array(
@@ -142,39 +198,20 @@ function sig_create_post_type() {
           ),
         'public'            => true,
         'query_var'           => true,
+        'show_ui'           => true,
         'hierarchical'      => false,
-        'has_archive'       => true,		
+        'has_archive'       => false,
         'capability_type'   => 'post',
         'menu_position'       => 29,
         'show_in_rest' => true,
         'rewrite' => array( 'slug' => 'webinars', 'with_front' => false ),
+        'taxonomies'  => array( 'webinar_category'),
         'menu_icon'   => 'dashicons-cover-image',		
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         )
     );
 
-    register_post_type( 'case-study', array(
-        'labels' => array(
-            'name' => __( 'Case Studies', 'post type general name', 'sig'),
-            'singular_name' => __( 'Case Study', 'post type singular name', 'sig'),
-            'add_new'            => __( 'Add New', 'Case Study', 'sig'),
-            'add_new_item'       => __( 'Add New Case Study', 'sig'),
-            'edit_item'          => __( 'Edit Case Study', 'sig'),
-            'new_item'           => __( 'New Case Study', 'sig'),
-            'view_item'             => __( 'View Case Study', 'sig' ),
-          ),
-        'public'            => true,
-        'query_var'           => true,
-        'hierarchical'      => false,
-        'has_archive'       => true,		
-        'capability_type'   => 'post',
-        'menu_position'       => 29,
-        'show_in_rest' => true,
-        'rewrite' => array( 'slug' => 'case-studies', 'with_front' => false ),
-        'menu_icon'   => 'dashicons-search',		
-        'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
-        )
-    );
+    
 }
 
 add_action( 'init', 'sig_create_post_type' ); 
