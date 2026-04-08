@@ -19,7 +19,7 @@ $block_classes = array(
 	$className,
 );
 
-$class = $title = $titleclass = $titletext = $imgid = $classes = $heroscreen = $bgvideo = $navbg = $pretitle = $posttitle = $testimonialsbtn = $textbg = $bluebg = $blueimgbg = '';
+$class = $title = $titleclass = $titletext = $imgid = $classes = $heroscreen = $bgvideo = $pretitle = $posttitle = $testimonialsbtn = $darkenupper = $darkenlower = $bluebg = $blueimgbg = '';
 
 $customtitle = $today = $hidetitle = $screenbg = $customcontent = $headervideo = $showparent = $showtestimonialsbtn = $tanbg = $usefeatured = $customheroheight = $titlebox = $alignbottom = false;
 
@@ -87,8 +87,11 @@ if( !empty($options) ):
         if ($option == 'darken-bg') {
             $screenbg = true;
         }
-        if ($option == 'dark-nav-bg') {
-            $navbg = '<div class="hero__navbg"></div>';
+        if ($option == 'darken-upper') {
+            $darkenupper = '<div class="hero__darken-lower"></div>';
+        }
+        if ($option == 'darken-lower') {
+            $darkenlower = '<div class="hero__darken-upper"></div>';
         }
         if ($option == 'blue-bg-gradient') {
             array_push($block_classes, 'has-blue-gradient-bg');
@@ -123,8 +126,8 @@ if( !empty($options) ):
             array_push($block_classes, 'medium-hero');
         }
 
-        if($option == 'align-content-bottom') {
-            array_push($block_classes, 'align-content-bottom');
+        if($option == 'align-content-center') {
+            array_push($block_classes, 'align-content-center');
         }
         
         if($option == 'use-featured') {
@@ -170,7 +173,10 @@ if($showparent == true) {
     }
     
     if($parentid != '') {
-        $pretitle = '<p class="hero__content__pretitle has-white-color text-uppercase is-style-subtitle d-block text-center mb-2 fade-in"><a href="'.get_permalink($parentid).'" >'.get_the_title($parentid).'</a></p>';
+        $pretitle = '
+        <p class="hero__content__pretitle has-white-color text-uppercase is-style-subtitle d-block text-center mb-2 fade-in">
+            <a href="'.get_permalink($parentid).'" >'.get_the_title($parentid).'</a>
+        </p>';
     }    
 }
 /////////////HERO TITLE
@@ -199,7 +205,7 @@ if ($hidetitle  == true || in_array('hide_title', $pageoptions)) {
     
     
 }
-$title = $pretitle.'<h1 class="hero__content__title text-center '.$titleclass.$titleshow.$titlefade.'">'.$titletext.'</h1>'.$posttitle;
+$title = $pretitle.'<h1 class="hero__content__title '.$titleclass.$titleshow.$titlefade.'">'.$titletext.'</h1>'.$posttitle;
 
 
 $headertitle = '';
@@ -292,8 +298,8 @@ if ($headervideo) {
     <?php echo $testimonialsbtn.
     $bgvideo.
     $heroscreen.
-    $textbg.
-    $navbg.
+    $darkenlower.
+    $darkenupper.
     $bluebg.
     $blueimgbg.
     $imgdiv; 

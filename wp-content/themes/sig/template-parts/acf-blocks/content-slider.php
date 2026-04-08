@@ -13,6 +13,7 @@ if( !empty($block['className']) ) {
 
 $block_classes = array(
     'content-slider-wrap',
+    'alignfull',
     'fade-in',
     $className
 );

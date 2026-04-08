@@ -49,10 +49,10 @@ foreach( $blocks as $block ) {
         $content_markup .= render_block( $block );
     }
 }
-
 $parentid = $post->post_parent;
+$breadcrumb = get_hero_breadcrumb($id,$parentid );
 if ($hero == '') {
-    $hero = get_hero_header($id,$parentid);
+    $hero = get_hero_header($id,$breadcrumb);
 } else {
     $hero = '<div class="header-pad">'.$hero.'</div>';
 }
