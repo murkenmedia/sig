@@ -50,12 +50,8 @@ if ( ! function_exists( 'get_blog_hero' ) ) {
     }
 }
 
-if ( ! function_exists( 'get_post_block' ) ) {
-	/**
-	 * GET POST BLOCK
-	 *
-	 * @since 1.0.0
-	 */
+/* if ( ! function_exists( 'get_post_block' ) ) {
+
 	
 	function get_post_block($id) {
 		$blockclass = '';
@@ -90,7 +86,7 @@ if ( ! function_exists( 'get_post_block' ) ) {
 		return $content;
 	}
 
-}
+} */
 
 if ( ! function_exists( 'get_post_blocks' ) ) {
 	/**

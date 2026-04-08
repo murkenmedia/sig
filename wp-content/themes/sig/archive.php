@@ -27,7 +27,7 @@ $title = get_the_archive_title();
             <?php echo $bio; ?>
         </header>
         <div style="height:30px" aria-hidden="true" class="wp-block-spacer is-style-responsive-medium"></div>
-        <div class="three-col-grid">
+        <div class="tiles-grid tiles-stacked-content tiles-stacked-content-arrow-btn">
             <?php
             /* Start the Loop */
             while ( have_posts() ) :

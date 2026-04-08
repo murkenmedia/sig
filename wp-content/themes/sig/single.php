@@ -15,7 +15,7 @@ get_header(); ?>
         $postype = get_post_type();
 
         switch ($postype) {
-            case 'solutions' || 'technologies' || 'post':
+            case 'solutions' || 'platforms' || 'post':
                 get_template_part( 'template-parts/content', 'page' );
                 break;
             default:

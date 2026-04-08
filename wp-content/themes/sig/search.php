@@ -26,7 +26,7 @@ $hero = get_default_hero('Search Results');
             
 		</header>		
 			
-        <div class="three-col-grid">
+        <div class="tiles-grid tiles-three-col tiles-stacked-content tiles-stacked-content-arrow-btn">
             <?php while ( have_posts() ) : the_post();
                 $id = get_the_ID();
                 echo get_post_block($id);
