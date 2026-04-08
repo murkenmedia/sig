@@ -11,7 +11,7 @@ get_header();
 
 $content = $hero = $notfoundid = '';
 
-/*$args = array(
+$args = array(
     'post_type' => 'page',
     'post_status' => 'private',
     'posts_per_page' => 1,
@@ -27,7 +27,7 @@ if ($query->have_posts()) {
         $content = get_the_content($notfoundid);
     }
 }
-wp_reset_postdata()*/;
+wp_reset_postdata();
 
 
 $hero = get_default_hero('404 Page Not Found');
