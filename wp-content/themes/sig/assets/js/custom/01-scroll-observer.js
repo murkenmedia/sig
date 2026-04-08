@@ -36,12 +36,13 @@ jQuery.noConflict();
 	
   ///INTERSECTION OBSERVER
     var $topoffset = -50,
-	items = document.querySelectorAll('.fade-in, .move-left, .move-right, .move-up, .move-down, .animation-chain, .animate, .counter'),
+	items = document.querySelectorAll('.fade-in, .move-left, .move-right, .move-up, .move-down, .animation-chain, .animate, .counter, .scale-center, .scale-right'),
 	io,
 	idCounter = 0,
 	minId = null,
 	maxId = null,
-	debounceTimeout = null;
+	debounceTimeout = null,
+    nodelayclasses = ['move-left', 'move-right', 'move-down', 'move-up', 'scale-center', 'scale-right'];
 
 
     function applyChanges() {
@@ -53,19 +54,14 @@ jQuery.noConflict();
 				
 				if(!entry.classList.contains('in-view')) {
 					entry.classList.add('in-view');
-					
+                    
 					//remove class
-					if(entry.classList.contains('move-left') || entry.classList.contains('move-right') || entry.classList.contains('move-down') || entry.classList.contains('fade-in')) {
-						
-						setTimeout(function() {
+                    let hasMatch = nodelayclasses.some(className => entry.classList.contains(className));
+                    if (hasMatch) {
+                        setTimeout(function() {
 							entry.classList.add("no-delay");
 						}, 2000);
-					}
-                    if(entry.classList.contains('move-up')) {
-                        setTimeout(function() {
-							entry.classList.remove("move-up");
-						}, 2000);
-                    }
+                    };
                     
                     if(entry.classList.contains('animation-chain')) {						
 						setTimeout(function() {

@@ -78,12 +78,13 @@ jQuery.noConflict();
 
   ///INTERSECTION OBSERVER
   var $topoffset = -50,
-    items = document.querySelectorAll('.fade-in, .move-left, .move-right, .move-up, .move-down, .animation-chain, .animate, .counter'),
+    items = document.querySelectorAll('.fade-in, .move-left, .move-right, .move-up, .move-down, .animation-chain, .animate, .counter, .scale-center, .scale-right'),
     io,
     idCounter = 0,
     minId = null,
     maxId = null,
-    debounceTimeout = null;
+    debounceTimeout = null,
+    nodelayclasses = ['move-left', 'move-right', 'move-down', 'move-up', 'scale-center', 'scale-right'];
   function applyChanges() {
     //console.log(minId, maxId);
 
@@ -94,16 +95,15 @@ jQuery.noConflict();
           entry.classList.add('in-view');
 
           //remove class
-          if (entry.classList.contains('move-left') || entry.classList.contains('move-right') || entry.classList.contains('move-down') || entry.classList.contains('fade-in')) {
+          var hasMatch = nodelayclasses.some(function (className) {
+            return entry.classList.contains(className);
+          });
+          if (hasMatch) {
             setTimeout(function () {
               entry.classList.add("no-delay");
             }, 2000);
           }
-          if (entry.classList.contains('move-up')) {
-            setTimeout(function () {
-              entry.classList.remove("move-up");
-            }, 2000);
-          }
+          ;
           if (entry.classList.contains('animation-chain')) {
             setTimeout(function () {
               entry.classList.remove('animation-chain');
@@ -1018,26 +1018,35 @@ jQuery.noConflict();
       }
     }
 
-    ////////////////MAGNIFIC
+    // SCROLL TO ANCHOR
+    jQuery('a.scroll-link[href*="#"]:not([href="#"]), p.scroll-link a[href*="#"]:not([href="#"]), li.scroll-link a[href*="#"]:not([href="#"]), ul.scroll-link a[href*="#"]:not([href="#"])').click(function () {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var $speed = 1000,
+          //$top = 148;
+          $top = 50;
+        if (jQuery(this).data('speed')) {
+          $speed = jQuery(this).data('speed');
+          //console.log($speed);
+        }
 
-    jQuery('.open-menu-popup a').magnificPopup({
-      type: 'inline',
-      closeOnContentClick: false,
-      midClick: true,
-      //removalDelay: 400,
-      mainClass: 'mfp-fade menu-popup-wrap',
-      preloader: false,
-      autoFocusLast: false,
-      fixedContentPos: false,
-      callbacks: {
-        open: function open() {
-          jQuery('body').addClass('noscroll');
-        },
-        close: function close() {
-          jQuery('body').removeClass('noscroll');
+        if (jQuery(this).data('top')) {
+          $top = jQuery(this).data('top');
+          //console.log($top);
+        }
+
+        var target = jQuery(this.hash);
+        target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          jQuery('html, body').animate({
+            scrollTop: target.offset().top - $top
+          }, $speed, "easeInOutExpo");
+          return false;
         }
       }
     });
+
+    ////////////////MAGNIFIC        
+
     if (jQuery(".image-popup")[0]) {
       //Not used in any templates
       jQuery('.image-popup').magnificPopup({
@@ -1065,8 +1074,8 @@ jQuery.noConflict();
         closeOnContentClick: false,
         midClick: true,
         removalDelay: 400,
-        mainClass: 'mfp-fade',
-        closeBtnInside: false,
+        mainClass: 'mfp-fade content-popup',
+        closeBtnInside: true,
         preloader: false,
         autoFocusLast: false,
         callbacks: {
