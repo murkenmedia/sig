@@ -3,161 +3,169 @@
 h1, h2, h3, h4, h5, h6, h7 {
     @include serif($weight:400);
     margin-bottom: 0.5rem;
-    line-height: 1.1;
+    
     
     em {
         //@include serif($weight:400, $style:'italic');
         letter-spacing: -0.1rem;
     }
+
+    line-height:$headregfontlineheight;
     
     &.has-small-font-size {
-		font-size:1.3rem;
+		font-size:$headsmfontsm;
+        line-height:$headsmfontlineheight;
         
         @media (min-width:$md) {
-            font-size:1.4rem;
+            font-size:$headsmfontmd;
         }
         
         @media (min-width:$lg) {
-            font-size:1.5rem;
+            font-size:$headsmfontlg;
         }
     }
     
     &.has-regular-font-size {
-        font-size: 1.5rem;
+        font-size: $headregfontsm;
+        line-height:$headregfontlineheight;
 
         @media (min-width:$md) {
-            font-size: 1.65rem;      
+            font-size: $headregfontmd;      
         }
 
         @media (min-width:$lg) {
-            font-size: 2rem;
+            font-size: $headregfontlg;
         }
     }
     
     &.has-medium-font-size {
-        font-size: 1.65rem;
+        font-size: $headmdfontsm;
+        line-height:$headmdfontlineheight;
 
         @media (min-width:$md) {
-            font-size: 2rem;      
+            font-size: $headmdfontmd;      
         }
 
         @media (min-width:$lg) {
-            font-size: 2.5rem;
+            font-size: $headmdfontlg;
         }
     }
     
     &.has-large-font-size {
-        font-size: 2rem;
+        font-size: $headlgfontsm;
+        line-height:$headlgfontlineheight;
 
         @media (min-width:$md) {
-            font-size: 2.5rem;       
+            font-size: $headlgfontmd;       
         }
 
         @media (min-width:$lg) {
-            font-size: 3rem;
+            font-size: $headlgfontlg;
         }
     }
     
     &.has-x-large-font-size {
-        font-size:2.5rem;
+        font-size:$headxlfontsm;
+        line-height:$headxlfontlineheight;
         
         @media (min-width:$md) {
-            font-size:3rem;
+            font-size:$headxlfontmd;
         }
         
         @media (min-width:$lg) {
-            font-size: 3.5rem;
+            font-size: $headxlfontlg;
         }
     }
 }
 
 h1 {
-	font-size:2.5rem;
-    line-height: 1;
+	font-size:$h1fontsm;
+    line-height:$headxlfontlineheight;
 
     @media (min-width:$md) {
-        font-size:4.2rem;
+        font-size:$h1fontmd;
     }
 	
 	@media (min-width:$lg) {
-		font-size: 4.25rem;
+		font-size: $h1fontlg;
 	}
 }
 
-h2 {   
+h2 {    
+	font-size: $h2fontsm;
+    line-height:$headlgfontlineheight;
     
-	font-size: 2.25rem;
-
 	@media (min-width:$md) {
-        font-size: 2.75rem;      
+        font-size: $h2fontmd;
     }
 	
 	@media (min-width:$lg) {
-        font-size: 3rem;
+        font-size: $h2fontlg;
     }
 }
 
 
 h3 {
-	font-size: 1.75rem;
+	font-size:$h3fontsm;
+    line-height:$headmdfontlineheight;
 
 	@media (min-width:$md) {
-        font-size: 2rem;       
+        font-size:$h3fontmd;     
     }
 	
 	@media (min-width:$lg) {
-        font-size: 2.5rem;
-        //line-height:  3rem;
+        font-size: $h3fontlg;
     }
 }
 
 h4 {
-	font-size: 1.5rem;
-    
+	font-size: $h4fontsm;
+    line-height:$headregfontlineheight;
     
 	@media (min-width:$md) {
-        font-size: 1.75rem;
+        font-size: $h4fontmd;
     }
 	
 	@media (min-width:$lg) {
-        font-size: 2rem;
+        font-size: $h4fontlg;
     }
-
-
 }
 
 h5 {
-	font-size: 1.25rem;
+	font-size:$h5fontsm;
+    line-height:$headsmfontlineheight;
 
 	@media (min-width:$md) {
-        font-size: 1.5rem;     
+        font-size:$h5fontmd;     
     }
 	
 	@media (min-width:$lg) {
-        font-size: 1.75rem;
+        font-size: $h5fontlg;
     }
 }
 
 h6 {
-	font-size: 1.25rem;
+	font-size:$h6fontsm;
+    line-height:$headsmfontlineheight;
 
 	@media (min-width:$md) {
-        font-size: 1.5rem;     
+        font-size:$h6fontmd;     
     }
 	
 	@media (min-width:$lg) {
-        font-size: 1.85rem;
+        font-size: $h6fontlg;
     }
 }
 
 h7 {
-	font-size: 1.25rem;
+	font-size:$h7fontsm;
+    line-height:$headsmfontlineheight;
 
-    @media (min-width:$md) {
-        font-size: 1.5rem;     
+	@media (min-width:$md) {
+        font-size:$h7fontmd;     
     }
 	
 	@media (min-width:$lg) {
-        font-size: 1.75rem;
+        font-size: $h7fontlg;
     }
 }

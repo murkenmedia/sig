@@ -8,6 +8,72 @@
 }
 .outline, .is-style-outline {
      @include outline();
+     
+     
+     &.has-small-font-size {
+		font-size:$headsmfontsm;
+        line-height:$headsmfontlineheight;
+        
+        @media (min-width:$md) {
+            font-size:$headsmfontmd;
+        }
+        
+        @media (min-width:$lg) {
+            font-size:$headsmfontlg;
+        }
+    }
+    
+    &.has-regular-font-size {
+        font-size: $headregfontsm;
+        line-height:$headregfontlineheight;
+
+        @media (min-width:$md) {
+            font-size: $headregfontmd;      
+        }
+
+        @media (min-width:$lg) {
+            font-size: $headregfontlg;
+        }
+    }
+    
+    &.has-medium-font-size {
+        font-size: $headmdfontsm;
+        line-height:$headmdfontlineheight;
+
+        @media (min-width:$md) {
+            font-size: $headmdfontmd;      
+        }
+
+        @media (min-width:$lg) {
+            font-size: $headmdfontlg;
+        }
+    }
+    
+    &.has-large-font-size {
+        font-size: $headlgfontsm;
+        line-height:$headlgfontlineheight;
+
+        @media (min-width:$md) {
+            font-size: $headlgfontmd;       
+        }
+
+        @media (min-width:$lg) {
+            font-size: $headlgfontlg;
+        }
+    }
+    
+    &.has-x-large-font-size {
+        font-size:$headxlfontsm;
+        line-height:$headxlfontlineheight;
+        
+        @media (min-width:$md) {
+            font-size:$headxlfontmd;
+        }
+        
+        @media (min-width:$lg) {
+            font-size: $headxlfontlg;
+        }
+    }
 }
 
 .sans, .is-style-sans {
@@ -17,6 +83,7 @@
 		@include sans($weight:700);
 	}
 }
+
 .sans-500, .weight-500, .is-style-sans-500 {
     @include sans($weight:500);
 }

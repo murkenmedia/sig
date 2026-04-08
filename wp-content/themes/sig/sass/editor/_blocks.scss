@@ -31,23 +31,31 @@
     
     p, ul, li {
 
+        line-height:$lineheight;
+        font-size: $regfontlg;
+
         &.has-small-font-size {
-			font-size: 1.125rem !important;
+            line-height:$smfontlineheight;
+			font-size: $smfontlg !important;
 		}  
         
         &.has-regular-font-size {
-			font-size: 1.3rem !important;
+            line-height:$regfontlineheight;
+			font-size: $regfontlg !important;
 		}
         
         &.has-medium-font-size {
-			font-size: 1.563rem !important;
+            line-height:$mdfontlineheight;
+			font-size: $mdfontlg !important;
 		}
         
         &.has-large-font-size {
-			font-size: 1.875rem !important;
+            line-height:$lgfontlineheight;
+			font-size: $lgfontlg !important;
 		}
         &.has-x-large-font-size {
-			font-size:2.5rem !important;
+            line-height:$xlfontlineheight;
+			font-size:$xlfontlg !important;
 		}
     }
     
@@ -63,25 +71,30 @@
     
     h1, h2, h3, h4, h5, h6, h7 {
 
-    
+
         &.has-small-font-size {
-            font-size:1.5rem !important;
+            font-size:$headsmfontlg !important;
+            line-height:$headsmfontlineheight;
         }
         
         &.has-regular-font-size {
-			font-size: 1.8rem !important;
+			font-size:$headregfontlg !important;
+            line-height:$headregfontlineheight;
 		}
 
         &.has-medium-font-size {
-            font-size: 2.5rem !important;
+            font-size:$headmdfontlg !important;
+            line-height:$headmdfontlineheight;
         }
 
         &.has-large-font-size {
-            font-size: 3.5rem !important;
+            font-size:$headlgfontlg !important;
+            line-height:$headlgfontlineheight;
         }
 
         &.has-x-large-font-size {
-            font-size: 4.5rem !important
+            font-size:$headxlfontlg !important;
+            line-height:$headxlfontlineheight;
         }
         
         &.sans {
@@ -209,9 +222,39 @@ body .editor-styles-wrapper .wp-block-media-text.animation-chain figure {
 .content-tabs-wrap,
 .circle-slider-wrap,
 .lazy-load-video,
-.stats-block {
+.stats-block,
+.team-grid {
 	border:1px solid $gutenborder;
 }
+
+.team-grid {
+    .mfp-hide {
+        display: none !important;
+    }
+}
+
+p.is-style-bold-highlight, 
+ul.is-style-bold-highlight {
+
+    strong {
+        background-size: 100% 100% !important;
+        color: #FFF !important;
+        pointer-events: none;
+    }
+}
+
+//.is-style-underline-headline,
+.is-style-underline-bold-headline {
+   
+    strong::after {
+        transform: scaleX(1) !important;
+        z-index: 0 !important;
+        opacity: 0.3;
+       pointer-events: none;
+    }
+}
+
+
 
 .wp-block-group, 
 .wp-block-buttons, 
@@ -220,8 +263,7 @@ body .editor-styles-wrapper .wp-block-media-text.animation-chain figure {
 .wp-block-media-text,
 .wp-block-quote,
 .wp-block-media-text,
-.wp-block-cover,
-.wp-block-separator {
+.wp-block-cover {
     border:1px solid $gutenborder;
 }
 

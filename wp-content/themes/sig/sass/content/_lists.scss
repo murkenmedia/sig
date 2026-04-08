@@ -3,85 +3,83 @@
 
 ul, ol {
     padding: 0 0 0 1.1rem;
-    margin-bottom:1.2rem;
+    margin-bottom:$botmargin;
+     
     
-    font-size:1.125rem;
-    line-height:1.6;
-	margin-bottom:1.2rem;    
+    font-size:$regfontsm;
+    line-height:$regfontlineheight;
     
     @media (min-width: $md) {
-        font-size:1.25rem;
+        font-size:$regfontmd;
     }
     
     @media (min-width:$lg) {
-        font-size:1.3rem;
-        line-height:1.65;
+        font-size:$regfontlg;
     }
 
+
 	&.has-small-font-size {
-        font-size:1rem;
-        line-height:1.6;
+        font-size:$smfontsm;
+        line-height:$smfontlineheight;
 
         @media (min-width: $md) {
-            font-size: 1.063rem;
+            font-size: $smfontmd;
         }
         
         @media (min-width:$lg) {
-             font-size: 1.125rem;
-        }
-            
+             font-size: $smfontlg;
+        }            
 	}
-    
+
     &.has-regular-font-size {
-        font-size:1.125rem;
-        line-height:1.6;
+        font-size:$regfontsm;
+        line-height:$regfontlineheight;
         
         @media (min-width: $md) {
-            font-size:1.25rem;
+            font-size:$regfontmd;
         }
         
         @media (min-width:$lg) {
-            font-size:1.3rem;
-            line-height:1.65;
+            font-size:$regfontlg;
         }
     }
     
     &.has-medium-font-size {
-        font-size: 1.25rem;
-        line-height:1.6;
-        
+        font-size: $mdfontsm;
+        line-height:$mdfontlineheight;
+
         @media (min-width: $md) {
-            font-size: 1.375rem;
+            font-size: $mdfontmd;
         }
         
         @media (min-width:$lg) {
-             font-size: 1.563rem;
+            font-size: $mdfontlg;
         }
     }
     
     &.has-large-font-size {
-        font-size:1.375rem;
-        line-height:1.5;
+        font-size: $lgfontsm;
+        line-height:$lgfontlineheight;
         
         @media (min-width: $md) {
-            font-size:1.563rem;
+            font-size:$lgfontmd;
         }
         
         @media (min-width:$lg) {
-             font-size: 1.875rem;
+             font-size: $lgfontlg;
         }
     }
     
     &.has-x-large-font-size {
-        font-size:1.563rem;
-        line-height:1.5;
+        font-size:$xlfontsm;
+        line-height:$xlfontlineheight;
         
         @media (min-width: $md) {
-            font-size:2.188rem;
+            font-size:$xlfontmd;
         }
         
         @media (min-width:$lg) {
-             font-size:2.5rem;
+             font-size:$xlfontlg;
         }
     }
     

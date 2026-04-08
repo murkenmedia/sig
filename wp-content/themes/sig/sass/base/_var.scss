@@ -7,11 +7,9 @@ $base-font: 'Space Grotesk', sans-serif;
 $base-font-weight: 400;
 $base-font-style: normal;
 
-
-$max-width: 1500px;
-$xxl: 1500px;
-$xl: 1500px;
-$xllg: 1200px;
+$max-width: 1400px;
+$xxl: 1600px;
+$xl: 1400px;
 $lg: 1024px;
 $md: 782px;
 $sm: 576px; 
@@ -80,6 +78,10 @@ $bluelightmed:#66a2ff;
 $bluedark:#001e5f;
 $bluedarkmed: #021bc3;
 
+$bluedarker:#00143f;
+
+$bluepowder:#1dbdff;
+
 //$bluemed:#003eff;
 /*$bluegreyborder:#6a84a5;
 $bluelightborder:#5484ce;
@@ -97,6 +99,8 @@ $tan:#f0ebd2;
 $tanlight:#f2f0e2;
 $tangrey:#e7e8e3;
 
+$yellow:#f0ecd2;
+
 $greylight:#f3f2ec;
 $greylighter: rgba($greylight, 0.7);
 
@@ -110,6 +114,102 @@ $secondary:$green;
 
 
 $error:#e22d09;
+
+
+////FONT SIZES
+
+$botmargin:1.2rem;
+
+$lineheight:1.6;
+
+$smfontlineheight:1.5;
+$regfontlineheight:1.5;
+$mdfontlineheight:1.5;
+$lgfontlineheight:1.3;
+$xlfontlineheight:1.2;
+
+$smfontsm:1.1rem;
+$smfontmd:1.16rem;
+$smfontlg:1.2rem;
+
+$regfontsm:1.16rem;
+$regfontmd:1.28rem;
+$regfontlg:1.38rem;
+
+$mdfontsm:1.25rem;
+$mdfontmd:1.3rem;
+$mdfontlg:1.5rem;
+
+$lgfontsm:1.3rem;
+$lgfontmd:1.5rem;
+$lgfontlg:1.9rem;
+
+$xlfontsm:1.7rem;
+$xlfontmd:2.1rem;
+$xlfontlg:2.4rem;
+
+
+/////////HEADLINES
+$headsmfontlineheight:1.2;
+$headregfontlineheight:1.2;
+$headmdfontlineheight:1.2;
+$headlgfontlineheight:1.1;
+$headxlfontlineheight:1.1;
+
+///HEADINGS
+$h1fontsm:3.5rem;
+$h1fontmd:4.2rem;
+$h1fontlg:4.25rem;
+
+$h2fontsm:2.25rem;
+$h2fontmd:2.75rem;
+$h2fontlg:3rem;
+
+$h3fontsm:1.75rem;
+$h3fontmd:2rem;
+$h3fontlg:2.5rem;
+
+$h4fontsm:1.5rem;
+$h4fontmd:1.75rem;
+$h4fontlg:2rem;
+
+$h5fontsm:1.4rem;
+$h5fontmd:1.5rem;
+$h5fontlg:1.75rem;
+
+$h6fontsm:1.3rem;
+$h6fontmd:1.4rem;
+$h6fontlg:1.5rem;
+
+$h7fontsm:1.5rem;
+$h7fontmd:1.3rem;
+$h7fontlg:1.4rem;
+
+
+//HEADLINE FONT SIZES
+$headsmfontsm:$h5fontsm;
+$headsmfontmd:$h5fontmd;
+$headsmfontlg:$h5fontlg;
+
+$headregfontsm:$h4fontsm;
+$headregfontmd:$h4fontmd;
+$headregfontlg:$h4fontlg;
+
+$headmdfontsm:$h3fontsm;
+$headmdfontmd:$h3fontmd;
+$headmdfontlg:$h3fontlg;
+
+$headlgfontsm:$h2fontsm;
+$headlgfontmd:$h2fontmd;
+$headlgfontlg:$h2fontlg;
+
+$headxlfontsm:$h1fontsm;
+$headxlfontmd:$h1fontmd;
+$headxlfontlg:$h1fontlg;
+
+
+
+///UI
 
 $nav-color:#FFF;
 $nav-active:$green;
