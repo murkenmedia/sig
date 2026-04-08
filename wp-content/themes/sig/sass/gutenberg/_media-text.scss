@@ -3,6 +3,7 @@
 .wp-block-media-text {	
     
     gap: 30px;
+    column-gap: 40px;
     
     @media (min-width: $md) {
         gap: 0px;
@@ -15,8 +16,8 @@
         padding-right: 0px;
         
         @media (min-width: $md) {
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-left: $sidepadding;
+            padding-right: $sidepadding;
 
         }
     }
@@ -25,39 +26,46 @@
          
          @media (min-width: $md) {
              .wp-block-media-text__content {
-                 padding-right: 20px;
+                 padding-right: $sidepadding;
              }
          }
     }
     
 
+    &.is-style-rounded-corners {
+        .wp-block-media-text__media {
+            border-radius: 20px;
+            overflow: hidden;
+        }
+    }
+
     /////MAX SM
-     @media (max-width: 575px) {
+    /*  @media (max-width: 575px) {
         &.no-mobile-contentpad-sm {
            .wp-block-media-text__content {
                 padding-left: 0px !important;
                 padding-right: 0px !important;
             }
         }
-    }
+    } */
     
     ////MAX MD
      @media (max-width: 781px) {
-         &.is-style-reverse-mobile {             
+        /*  &.is-style-reverse-mobile {             
              display: block;
-         }
+         } */
          
-         &.no-mobile-contentpad-md {
+        /*  &.no-mobile-contentpad-md {
            .wp-block-media-text__content {
                 padding-left: 0px !important;
                 padding-right: 0px !important;
             }
-        }
+        } */
          
          &.alignfull, .wp-block-group.alignfull & {
             .wp-block-media-text__content {
-                padding-left: 20px;
-                padding-right: 20px;
+                padding-left: $sidepadding;
+                padding-right: $sidepadding;
              }
          }
          
@@ -66,16 +74,16 @@
     ///MAX LG
     @media (max-width: 1023px) {
         
-        &.is-style-reverse-mobile.is-style-break-lg {             
+        &.is-style-reverse-mobile.is-style-break-lg {
              display: block;
          }
         
-        &.no-mobile-contentpad-lg {
+/*         &.no-mobile-contentpad-lg {
            .wp-block-media-text__content {
                 padding-left: 0px !important;
                 padding-right: 0px !important;
             }
-        }
+        } */
         
     }
     
@@ -91,8 +99,8 @@
         
         .wp-block-media-text__content {
             position: relative;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 30px;
+            padding-right: 30px;
 
             @media (min-width: $lg) {
                 padding:20px 100px;
@@ -104,11 +112,13 @@
     
     ///////PADDING STYLES
     &.is-style-full-width-side-padding {        
-        max-width: calc(100vw - 30px);
-        margin: 0 auto;
+        //max-width: calc(100vw - 50px);
+        padding: 0 25px;
+        //margin: 0 auto;
         
         @media (min-width: $lg) {
-            max-width: calc(100vw - 80px);
+            padding: 0 30px;
+            //max-width: calc(100vw - 80px);
         }
         
     }
@@ -131,27 +141,18 @@
             position: relative;
 
             @media (min-width: $md) {
-                padding-left: 50px;
+                padding-left: 80px;
                 padding-right: 0;
             }
-            
-            /*@media (min-width: $lg) {
-                padding-left: 90px;
-            }*/
         }
         
        &.has-media-on-the-right {
             .wp-block-media-text__content {
-                position: relative;
 
                 @media (min-width: $md) {
                     padding-left: 0;
-                    padding-right: 50px;
+                    padding-right: 80px;
                 }
-
-                /*@media (min-width: $lg) {
-                    padding-right: 90px;
-                }*/
             }
             
         }     
@@ -201,7 +202,7 @@
     
     @media (min-width: $sm) and (max-width: 781px) {
 		
-		&.is-style-media-text-break-md, &.is-style-break-md {
+		&.is-style-break-md {
 			grid-template-columns:100%!important;
             gap: 30px;
 		
@@ -225,7 +226,7 @@
 	
 	@media (min-width: $sm) and (max-width: 1023px) {
 		
-		&.is-style-media-text-break-lg, &.is-style-break-lg {
+		&.is-style-break-lg {
 			grid-template-columns:100%!important;
             gap: 30px;
 		

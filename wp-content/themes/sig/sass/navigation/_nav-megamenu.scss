@@ -2,16 +2,36 @@
 
 //ACTIVE CTP
 
-/*body.single-solutions, 
-body.single-technologies, 
-body.single-insights {
-	ul.main-nav li#menu-item-64 a.mega-parent-link {
-		color:$green;        
-        &:after {
-            @include transform(scaleX(1)); 
+body.single-solutions {
+	ul.main-nav {
+        
+        li#menu-item-45 a.mega-parent-link {
+		    color:$nav-color;
+        }
+
+        li#menu-item-39 a.mega-parent-link {
+		    color: $nav-active;
         }
 	}	
-}*/
+}
+
+body.single-platforms {
+	ul.main-nav {
+        
+        li#menu-item-45 a.mega-parent-link {
+		    color:$nav-color;
+
+            &:hover {
+                color: $nav-active;
+            }
+        }
+
+        li#menu-item-44 a.mega-parent-link {
+		    color: $nav-active;
+        }
+	}	
+}
+
 
 $dropdown-width:220px;
 
@@ -118,6 +138,8 @@ $dropdown-width:220px;
             }
         }
             
+
+        
     }
     
     
@@ -139,6 +161,7 @@ $dropdown-width:220px;
         @include opacity(0);
         visibility: hidden;
         pointer-events: none;
+        overflow: hidden;
         transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
         
 
@@ -160,6 +183,7 @@ $dropdown-width:220px;
                 color: $nav-dropdown-active;
             }
 
+           
             &:first-child a {
                 padding-top: 20px;
 
@@ -178,6 +202,18 @@ $dropdown-width:220px;
                     text-decoration: none;
                     //color: $nav-dropdown-active;
                 }
+            }
+
+             &.current_page_item.scroll-link, &.current-menu-item.scroll-link {
+                 > a {
+                    color: $nav-dropdown-color;
+                    background-color: transparent;
+
+
+                    &:hover {
+                        background-color: rgba($bluedark, 0.5);
+                    }
+                 }
             }
         }
 
@@ -379,7 +415,7 @@ ul.mega-menu__content {
             color: #FFF;
         }
         &:hover {
-            color: $green;
+            color: $nav-active;
         }
         
         
@@ -391,15 +427,19 @@ ul.mega-menu__content {
         padding-bottom: 15px;
         
 
-        &.current-menu-item
+        &.current-menu-item,
         &:hover, &:focus {
             > a {	
                 text-decoration: none;
-                color:#FFF;
+                color:$nav-active;
                 @include transition(color $medspeed $ease);
 
+                &::visited {
+                    color:$nav-active;
+                }
             }
         }
+        
 
 
          &:last-child {
@@ -493,110 +533,3 @@ ul.mega-menu__content {
     }
     
 }
-
-/*
-@media (min-width: $md) {
-    .main-nav-wrap {
-        width: gridwidth(36);
-    }
-	.mega-menu__inner {
-        width: $max-width;
-    }
-    ul.mega-menu__content {
-        width: 100%;
-    }
-	.masthead.nav-collapse .main-nav-wrap {
-		width: gridwidth(26);
-	}
-}
-*/
-
-/*@media (min-width: $lg) {
-    .main-nav-wrap, .mega-menu__inner {
-        width: gridwidth(26);
-    }
-	.masthead.nav-collapse .main-nav-wrap {
-		 width: gridwidth(26);
-	}
-    ul.mega-menu__content {
-        width: $max-width;
-    }
-    ul.main-nav a.mega-parent-link {
-        padding: 0 0 20px 0;
-    }
-}
-
-@media (min-width: $xl) {
-    ul.main-nav a.mega-parent-link {
-        padding: 0 0 22px 0;
-    }
-}
-*/
-
-///700 MAX HEIGHT
-
-/*@media (min-width: $md) and (max-height:700px) {
-	
-	.two-col-block-max-700 {
-		
-		ul.mega-menu__content {
-			width: gridwidth(22);
-
-			display: flex;
-			flex-flow: wrap column;
-			max-height: 300px; 
-
-			> li {
-				width: 100%;
-				max-width: 40%;
-			}
-
-		}
-
-		.mega-menu a {
-			display: inline;
-		}
-
-	}
-	
-	
-	.two-col-inline-max-700 {
-	
-		ul.mega-menu__content {
-			width: gridwidth(22);
-			
-			-moz-column-count: 2;
-			-moz-column-gap: gridwidth(1);
-			-webkit-column-count: 2;
-			-webkit-column-gap: gridwidth(1);
-			column-count: 2;
-			column-gap: gridwidth(1);
-			
-		}
-
-	}
-}
-	
-	
-@media (min-width: $xl) and (max-height:700px) {
-	
-	.two-col-block-max-700 {
-		
-		ul.mega-menu__content {
-			width: gridwidth(15);
-
-			
-		}
-	}
-	
-	
-	.two-col-inline-max-700 {
-	
-		ul.mega-menu__content {
-			width: gridwidth(15);
-	
-			
-		}
-		
-	}
-}*/

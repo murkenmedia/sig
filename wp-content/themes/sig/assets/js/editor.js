@@ -152,6 +152,26 @@ wp.domReady( () => {
             {
 				name: 'dark-blue-to-light-grey-bg',
 				label: 'Dark Blue to Light Grey BG'
+			},
+            {
+				name: 'dark-blue-to-light-grey-bg-tall',
+				label: 'Dark Blue to Light Grey BG - Tall Gradient'
+			},
+			{
+				name: 'light-blue-to-light-grey-circles-bg',
+				label: 'Light Blue to Light Grey BG with Circles'
+			},
+			{
+				name: 'light-blue-to-yellow-to-light-grey-bg',
+				label: 'Light Blue to to Yellow to Light Grey BG'
+			},
+			{
+				name: 'blue-circles-bg',
+				label: 'Blue BG with Circles'
+			},
+			{
+				name: 'blue-circles-bot-bg',
+				label: 'Blue BG with Bottom Circles'
 			}
 		]
 	);
@@ -189,6 +209,14 @@ wp.domReady( () => {
 			{
 				name: 'extra-padded-box',
 				label: 'Extra Padded Box'
+			},
+			{
+				name: 'circle-icon-left',
+				label: 'Circle Icon Left'
+			},
+			{
+				name: 'check-icon-left',
+				label: 'Check Icon Left'
 			}
 		]
 	);
@@ -200,16 +228,44 @@ wp.domReady( () => {
 				isDefault: true
 			},
 			{
+				name: 'serif-bold',
+				label: 'Serif Bold'
+			},
+			{
 				name: 'sans',
 				label: 'Sans'
 			},
 			{
-				name: 'serif',
-				label: 'Serif'
+				name: 'sans-500',
+				label: 'Sans 500'
+			},
+			{
+				name: 'sans-600',
+				label: 'Sans 600'
+			},
+			{
+				name: 'sans-700',
+				label: 'Sans 700'
+			},
+			{
+				name: 'outline',
+				label: 'Outline'
 			},
 			{
 				name: 'arrow-link',
 				label: 'Arrow Link'
+			},
+			{
+				name: 'intro-headline',
+				label: 'Intro Headline'
+			},
+			{
+				name: 'number-headline',
+				label: 'Number Headline'
+			},
+			{
+				name: 'underline-bold-headline',
+				label: 'Underline Bold Headline'
 			}
 		]
 	);
@@ -246,6 +302,14 @@ wp.domReady( () => {
 				label: 'No Bullets'
 			},
 			{
+				name: 'serif',
+				label: 'Serif'
+			},
+			{
+				name: 'serif-bold',
+				label: 'Serif Bold'
+			},
+			{
 				name: 'center-list',
 				label: 'Centered List'
 			},
@@ -260,6 +324,14 @@ wp.domReady( () => {
 			{
 				name: 'list-space',
 				label: 'List with Space'
+			},
+			{
+				name: 'outline-number',
+				label: 'Outline Number List'
+			},
+			{
+				name: 'circle-icons-list',
+				label: 'Circle Icons List'
 			}
 		]
 	);
@@ -271,13 +343,29 @@ wp.domReady( () => {
 				isDefault: true
 			},
 			{
-				name: 'media-text-break-md',
-				label: 'Stack Mobile Md'
+				name: 'break-md',
+				label: 'Stack Tablet (782px)'
 			},
 			{
-				name: 'media-text-break-lg',
-				label: 'Stack Mobile Lg'
-			}
+				name: 'break-lg',
+				label: 'Stack Large (1024px)'
+			},
+			{
+				name: 'rounded-corners',
+				label: 'Rounded Corners'
+			},
+			{
+				name: 'content-padding',
+				label: 'Content Padding'
+			},
+			{
+				name: 'full-width-content-padding',
+				label: 'Full Width + Content Padding'
+			},
+			{
+				name: 'full-width-side-padding',
+				label: 'Full Width + Side Padding'
+			},
 		]
 	);
 	wp.blocks.registerBlockStyle(
@@ -290,6 +378,34 @@ wp.domReady( () => {
 			{
 				name: 'serif',
 				label: 'Serif'
+			},
+			{
+				name: 'serif-bold',
+				label: 'Serif Bold'
+			},
+			{
+				name: 'sans-500',
+				label: 'Sans 500'
+			},
+			{
+				name: 'sans-600',
+				label: 'Sans 600'
+			},
+			{
+				name: 'sans-700',
+				label: 'Sans 700'
+			},
+			{
+				name: 'outline',
+				label: 'Outline'
+			},
+			{
+				name: 'bold-highlight',
+				label: 'Bold Highlight'
+			},
+			{
+				name: 'intro-headline',
+				label: 'Intro Headline'
 			}
 		]
 	);
@@ -318,12 +434,16 @@ wp.domReady( () => {
 				isDefault: true
 			},
 			{
-				name: 'short',
-				label: 'Short'
+				name: 'thick-line',
+				label: 'Thick Line'
 			},
 			{
-				name: 'dots',
-				label: 'Dots'
+				name: 'thick-line',
+				label: 'Thick Line'
+			},
+			{
+				name: 'pad-top-bot',
+				label: 'Padding Top + Bottom'
 			}
 		]
 	);
@@ -336,15 +456,15 @@ wp.domReady( () => {
 			},
 			{
 				name: 'responsive-large',
-				label: 'Mobile Large'
+				label: 'Mobile Large (50px)'
 			},
 			{
 				name: 'responsive-medium',
-				label: 'Mobile Medium'
+				label: 'Mobile Medium (30px)'
 			},
 			{
 				name: 'responsive-small',
-				label: 'Mobile Small'
+				label: 'Mobile Small (20px)'
 			},
 			{
 				name: 'responsive-hide-lg',

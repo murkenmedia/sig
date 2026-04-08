@@ -12,20 +12,21 @@ h1, h2, h3, h4, h5 {
 
 	a {
 		@include transition(all $medspeed $ease);
-		color: $blue;
+		color: $bluedark;
         
         text-decoration-thickness: .15rem;
         text-underline-offset: .25rem;
-        text-decoration-color: rgba($blue, 0);
+        text-decoration-color: rgba($bluedark, 0);
 		
 		&:visited  {
-			color: darken($blue, 2%);
+			color: $bluedark;
 		}
 
 		&:hover  {
             @include transition(all $medspeed $ease);
 			text-decoration: underline;
             text-decoration-color: rgba($blue, 0.9);
+            color: $bluedarkmed;
             
             &.hover-underline {
                 text-decoration: underline;
@@ -120,17 +121,68 @@ p, li {
         }
     }
 
-    &.orange-link a {
-        color: $orange;
+    &.blue-medium-link a {
+        color: $bluemed;
 
         &:visited {
-            color: $orange;
+            color: $bluemed;
         }
 
         &:hover, &:focus {
-            color: darken($orange, 5%);
+            color: lighten($bluemed, 5%);
         }
     }
+
+    &.blue-light-link a {
+        color: $bluelight;
+
+        &:visited {
+            color: $bluelight;
+        }
+
+        &:hover, &:focus {
+            color: $bluemed;
+        }
+    }
+
+    &.blue-light-medium-link a {
+        color: $bluelightmed;
+
+        &:visited {
+            color: $bluelightmed;
+        }
+
+        &:hover, &:focus {
+            color: $bluelight;
+        }
+    }
+
+    &.blue-dark-link a {
+        color: $bluedark;
+
+        &:visited {
+            color: $bluedark;
+        }
+
+        &:hover, &:focus {
+            color: $blue;
+        }
+    }
+
+    &.blue-dark-medium-link a {
+        color: $bluedarkmed;
+
+        &:visited {
+            color: $bluedarkmed;
+        }
+
+        &:hover, &:focus {
+            color: $blue;
+        }
+    }
+
+
+    
 
 	
     

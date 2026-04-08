@@ -22,6 +22,7 @@
 	gap: 30px;
     flex-wrap: nowrap !important;
     flex-direction:column;
+    margin-bottom: 0;
     
     @media (min-width: $md) {
         flex-direction: row;

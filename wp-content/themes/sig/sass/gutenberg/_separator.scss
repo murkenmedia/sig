@@ -5,14 +5,11 @@
 
 	width: 100%;	
 	margin: 2rem 0;
-	border-top:1px solid $hr-border;
-	//max-width: 140px;
+	//border-top:1px solid $hr-border;
 	background-color: transparent;
 	border-bottom: 0;
 
-    &.has-dark-background-color {
-        border-top-color: $dark;
-    }
+
 	
 	&.is-style-pad-top-bot {
 		
@@ -23,6 +20,10 @@
 			margin-top: 4.2rem;
 			margin-bottom: 4.2rem;
 		}
+	}
+
+	&.is-style-thick-line {
+		border-width: 10px;
 	}
 	
 	&.is-style-short {

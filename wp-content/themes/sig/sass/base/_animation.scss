@@ -52,7 +52,26 @@
     @include transition(all 0.6s $ease);
 }
 
+.scale-center, .scale-right {
+    @include opacity(0);
+    @include transition(all 1s $ease);
+    @include transform(scaleX(0));
+    transform-origin: center;
+    @include hardware($backface: true, $perspective: 1000);
 
+    &.in-view {
+        @include transform(scaleX(1));
+        @include opacity(1);
+    }
+}
+
+.scale-right {
+    transform-origin: left;
+}
+
+.no-delay.in-view {
+    transition-delay: 0s !important;
+}
 
 .move-up.in-view, .move-down.in-view, .move-right.in-view, .move-left.in-view {
     @include opacity(1);
@@ -62,7 +81,7 @@
 }
 
 
-.delay.in-view,  { @include delay($medspeed);}
+.delay.in-view { @include delay($medspeed);}
 
 .mediumdelay.in-view {@include delay($speed4);}
 

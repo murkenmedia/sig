@@ -3,13 +3,16 @@
 body .gform_wrapper.gravity-theme {
 	position:relative;
 	padding:0;
-	color: $blue;
+	color: $text;
     @include sans($weight:600);	
 	
 	label {
         margin-bottom: 0;
 	}
     
+    .gform_required_legend {
+        font-size: 1rem;
+    }
     .gfield_label  {
         //letter-spacing: 1px;
         font-size: 1.1rem;
@@ -31,28 +34,27 @@ body .gform_wrapper.gravity-theme {
 	//::placeholder {color:#000;@include opacity(1);font-size:16px;text-align:left;}	
 	
 	input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
-    .gfield textarea {
+    .gfield textarea,
+    .gfield select {
 		border-radius: 10px;
         font-size: 1.18rem;
 		line-height: 1.2rem;
 		height: 60px;
-		padding: 12px 30px;
-		background-color:$tanlight;
-		background-image: none;
-		border: none;
+		padding: 15px 20px;
+		background-color:#FFF;
+		border: 1px solid rgba($grey, 0.5);
+        color: $text;
         //border-bottom: 2px solid $blue;
 		//margin-bottom: 5px;
 		@include transition(all $medspeed $ease);
         
         &:hover, &:focus, &:active {
-            background-color: darken($tanlight, 5%);
-            //outline-color: darken($tan, 4%);
-            //outline-style: solid;
+            background-color:rgba(#FFF, 0.5);
         }
         
         @include input-placeholder {
-			color: $blue;
-            @include opacity(1); 
+			color: $text;
+            //@include opacity(0.6); 
             font-size: 1.18rem;
             text-align:left;
 		}
@@ -88,8 +90,8 @@ body .gform_wrapper.gravity-theme {
         @include sans($weight:500);	
         letter-spacing: 0.05rem;
         
-		background-color:$green;
-        color:$blue;
+		background-color:$bluedarkmed;
+        color:#FFF;
         
         position: relative;
         
@@ -107,8 +109,8 @@ body .gform_wrapper.gravity-theme {
         
 		&:hover, &:active, &:focus{ 
 			cursor: pointer;
-			background-color:$blue;
-			color:#FFF;
+			background-color:$green;
+			color:$blue;
 			@include transition(all $medspeed $ease);
 			box-shadow:none;
 		}
@@ -131,11 +133,32 @@ body .gform_wrapper.gravity-theme {
 
 body .gform_wrapper.gravity-theme.footer-newsletter_wrapper {
     max-width: 650px;
+
+    color: $blue;
+
+    input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+    .gfield textarea {
+        background-color:$tanlight;
+		border: none;
+        padding: 12px 30px;
+        
+        &:hover, &:focus, &:active {
+            background-color: darken($tanlight, 5%);
+        }
+
+        @include input-placeholder {
+			color: $blue;
+        }
+
+    }
     
     button[type="submit"] {
         .text-wrap {
             @include sronly();
         }
+
+        background-color:$green;
+        color:$blue;
         
         border-radius: 100%;
         width: 60px;
@@ -143,6 +166,11 @@ body .gform_wrapper.gravity-theme.footer-newsletter_wrapper {
         
         .submit-arrow-icon {
             margin-left: 0px;
+        }
+
+        &:hover, &:active, &:focus{ 
+            background-color:$blue;
+            color: #FFF;
         }
     }
     
