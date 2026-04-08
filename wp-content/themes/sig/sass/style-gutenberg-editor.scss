@@ -18,7 +18,7 @@ Version: 1.1
 
 
 @import './content/colors';
-@import './content/custom';
+
 
 @import './gutenberg/buttons';
 @import './gutenberg/columns';
@@ -43,18 +43,24 @@ Version: 1.1
 @import './editor/editor-animated-stat';
 
 @import './editor/editor-circle-slider';
+@import './editor/editor-content-slider';
 @import './blocks/content-tabs';
 @import './blocks/collapsable';
 @import './editor/editor-hero';
 @import './editor/editor-lazy-iframe';
 @import './blocks/lazy-video';
+@import './blocks/team-grid';
+@import './editor/editor-tiles';
 
+@import './content/max';
 @import './content/paragraphs';
 @import './content/lists';
-@import './content/custom';
-   
+
+
 @import './content/links';
 
 body .editor-styles-wrapper {
+    @import './content/custom';
     @import './content/headings'; 
+    @import './content/fonts';
 }

@@ -1,0 +1,139 @@
+/* history.scss */
+
+.history-timeline-wrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.history-timeline__timeline {
+    min-width: 100px;
+    position: relative;
+
+    @media (min-width:$lg) {
+         min-width: 200px;
+    }
+}
+.history-timeline__timeline__top, 
+.history-timeline__timeline__bot {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: $bluelight;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+
+    transform: scale(0);
+    transform-origin: center;
+    opacity: 0;
+    @include transition(all 0.4s $ease);
+
+    .in-view & {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.history-timeline__timeline__top {
+     margin-top: 0;
+     top: -10px;
+     
+     &:before {
+        width: 25px;
+        height: 25px;
+        background-color: $greylight;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        content: '';
+        border-radius: 100%;
+     }
+}
+.history-timeline__timeline__bot {
+    margin-bottom: 0;
+    bottom: -10px;
+    background-color: $bluedark;
+
+    .in-view & {       
+        transition-delay: 0.6s;
+    }
+}   
+.history-timeline__timeline__line {
+    width: 30px;
+    height: 100%;
+    position:absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom:0px;
+    margin: auto;
+    z-index: 0;
+    background: linear-gradient(180deg, $bluelight 10%, $bluemed 35%, $blue 55%, $bluedarkmed 70%, $bluedark 90%);
+    @include transform(scaleY(0));
+    transform-origin: top;
+    @include transition(all 1s $ease);
+
+    .in-view & {
+        @include transform(scaleY(1));
+        @include opacity(1);
+    }
+    
+}
+
+.history-timeline {
+    padding-top: 50px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @media (min-width:$lg) {
+        gap: 100px;
+    }
+}
+
+.history-timeline__item {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+    @media (min-width:$lg) {
+        gap: 50px;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+}
+
+.history-timeline__date {
+    font-size: 4rem;
+    line-height: 1.3;
+
+    @media (min-width:$lg) {
+        flex-basis: 180px;
+        min-width: 180px;
+    }
+}
+
+.history-timeline__content {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.history-timeline__end {
+    text-align: left;
+
+    @media (min-width:$lg) {
+        text-align: center;
+    }
+}
+        

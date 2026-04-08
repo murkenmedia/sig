@@ -50,6 +50,7 @@ foreach( $blocks as $block ) {
 <section class="site-content">
 	<?php 
     if ($hero == '') {
+        $parentid = $post->post_parent;
 		echo get_hero_header($id,$parentid);
 	} else {
 		echo '<div class="header-pad">'.$hero.'</div>';

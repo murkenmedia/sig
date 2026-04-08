@@ -38,16 +38,10 @@ if(get_field('tile_link')) {
         $adatext = get_field('ada_link');
     }
     
-    if(!get_field('hide_button')) {
-        array_push($block_classes, 'tile-has-button');
-        $btn = '
-        <div class="wp-block-button"><a href="'.$url.'" target="'.$target.'" aria-label="'.$adatext.'">'.$linktext.'</a></div>';
-    }
-    
+    $btn = '<div class="wp-block-button"><a href="'.$url.'" target="'.$target.'" aria-label="'.$adatext.'"><span>'.$linktext.'</span></a></div>';    
     
     $imglink = '<a href="'.$url.'" class="img-link" tabindex="-1" target="'.$target.'"><span class="sr-only">'.$adatext.'</span></a>';
-} else {
-    
+} else {    
     array_push($block_classes,'no-zoom-hover');
 }
 
@@ -55,7 +49,7 @@ $template = array(
     array('core/heading', array(
 		'level' => 3,
 		'placeholder' => 'Headline Goes Here',
-        'className' => 'has-small-font-size'
+        'className' => 'has-large-font-size'
 	)),
     array( 'core/paragraph', array(
         'placeholder' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
@@ -68,7 +62,7 @@ $tile = '
     '.$img.'
     '.$imglink.'
 </div>
-<div class="tile__content text-center">
+<div class="tile__content">
     <InnerBlocks template="' . esc_attr( wp_json_encode( $template ) ) . '" />
     '.$btn.'
 </div>';

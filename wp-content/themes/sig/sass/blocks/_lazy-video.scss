@@ -1,9 +1,55 @@
 /* lazy-video.scss */
 $btnwidth:80px;
 
-[data-whatinput="keyboard"] .lazy-video .play-button:focus {
+
+[data-whatinput="keyboard"] .lazy-video .lazy-video__play:focus {
     outline: 4px solid $red !important;
     outline-offset: -4px;
+}
+
+.lazy-video-wrap {
+    position: relative;
+	overflow: hidden;
+	border-radius: 15px;
+    
+    &.blue-border {
+        border: 15px solid $blue;
+    }
+    
+    &.blue-box-bg {
+        
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color:$bluedark;
+            z-index: 1;
+        }
+        
+        &:after {
+            position: absolute;
+            content: '';
+            top: 30px;
+            left: -40px;
+            right: -40px;
+            bottom: 30px;
+            background-color: $blue;
+            z-index: 0;
+        }
+    }
+
+}
+
+@keyframes fadeOutVideo {
+    from { opacity: 1; }
+      to { opacity: 0;display: none; z-index: -1; }
+}
+@keyframes fadeInVideo {
+    from { opacity: 0;display: block;}
+      to { opacity: 1;}
 }
 
 .lazy-video {
@@ -11,101 +57,192 @@ $btnwidth:80px;
     padding-top: 56.25%;
     overflow: hidden;
     cursor: pointer;
+    z-index: 2;
 
 	&.active {
 		background-color: #000;
 		@include borderRadius(0);
 	}
-	
-	img {
-		width: 100%;
-		top: 0;
-		left: 0;
-		
-		//opacity: 0.7;
-	}
-	
-	
-	
-	.play-button {
-		background-color: transparent;
-		z-index: 1;
-        text-align: center;        
-		padding: 0;
-		border: none;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		height: 100%;
-        
-        .play-btn {
-            position: absolute;
-            display: block;
-            margin: 0;
 
-			left: 50%;
-			top: 50%;
-			margin-top: -40px;
-			margin-left: -40px;
-			right: auto;
-			background-color: $green;
-			@include borderRadius($btnwidth);
-			width: $btnwidth;
-            height: $btnwidth;
-			//text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-			@include transition(all $medspeed $ease);
-            
-            &::before {
-                content: "\e913";
-                color: rgba(#FFF, 1);				
-                display:block;
-                vertical-align:middle;
-                @include webfonts($lineheight:$btnwidth);
-                font-size:30px;                
-                width: $btnwidth;
-                height: $btnwidth;				
-            }
-        }
-
-        
-        &:hover {
-            .play-btn {
-                color: rgba(#FFF, 1);
-                //text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-				@include transition(all $medspeed $ease);
-				@include transform(scale(1.1));
-            }
-            
-           
-        }
-	}
-	
-	img, .play-button {
-		cursor: pointer;
-	}
-	
-	img	{
-        top: 50%;
-		left: 50%;
-		transform: translate3d( -50%, -50%, 0 );
-		position: absolute;
-	}
-	.play-button,
-	.play-button:before {
-		
-	}
-	iframe {
+	iframe, video {
 		position: absolute;
 		height: 100%;
 		width: 100%;
 		top: 0;
 		left: 0;
+        z-index: 0;
 	}
+    
+    &.video-playing {
+        .lazy-video__img, .lazy-video__play {
+            animation: fadeOutVideo 0.5s forwards;            
+        }        
+    }
+    
+    &.video-complete {
+        .lazy-video__img, .lazy-video__play {
+            animation: fadeInVideo 0.5s forwards;            
+        }        
+    }
 
 }
 
 
+.lazy-video__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include transition(opacity $medspeed $ease);
+}
+
+.lazy-video__play {
+    background-color: transparent;
+    z-index: 2;
+    text-align: center;        
+    padding: 0;
+    border: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    
+    ///custom controls
+    /*.video-playing & {
+        .lazy-video__play__btn {
+            //opacity: 0;
+            &::before {
+                content:'\e958';
+            }
+        }
+        
+        &:hover {
+            .lazy-video__play__btn {
+                @include transform(scale(1));
+            }
+        }
+    }
+    
+    .video-paused & {
+        .lazy-video__play__btn {
+            opacity: 1;
+            &::before {
+                content:'\e913';
+            }
+            
+            .controls-hidden {
+                opacity: 1;
+            }
+            
+            &:hover {
+                .lazy-video__play__btn {
+                    @include transform(scale(1));
+                }
+            }
+        }
+    }
+    
+    
+    &.controls-hidden {
+        .lazy-video__play__btn {
+            opacity: 0;
+        }
+    }*/
+    
+
+}
+
+
+.lazy-video__play__btn {
+    position: absolute;
+    display: block;
+    margin: auto;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    //background-color:$bluemed;
+    /*@include borderRadius(2px);
+    width: 150px;
+    height: 80px;*/
+    @include borderRadius(100%);
+    width: 100px;
+    height: 100px;
+    @include transition(all $medspeed $ease);
+	border: 10px solid #FFF;
+    
+    
+
+    &::before {
+        content: "\e913";
+        color: rgba(#FFF, 1);				
+        display:block;
+        @include webfonts($lineheight:1);
+        position: absolute;
+		left: 8px;
+		right: 0;
+		top: 0;
+		bottom: 0;
+        margin: auto;
+		width: 30px;
+		height: 30px;
+		font-size: 30px;
+    }
+    
+    .lazy-video__play:hover & {
+        color: rgba(#FFF, 1);
+        @include transition(all $medspeed $ease);
+        @include transform(scale(1.02));
+		background-color:rgba($bluedark, 0.3);
+		box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    
+    
+    @media (min-width: $md) {
+        width: 180px;
+        height: 180px;
+		border: 15px solid #FFF;
+        
+        &::before {
+			font-size: 60px;
+			width: 60px;
+			height: 60px;
+        }
+        
+    }
+}
+
+
+.lazy-video__play__circle {
+    position: absolute;
+    display: block;
+    margin: auto;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    @include borderRadius(100%);
+    width: 300px;
+    height: 300px;
+	border: 4px solid rgba(#FFF, 0.3);
+
+}
+
+.lazy-video__play__circle.circle-mid {
+    width: 420px;
+    height: 420px;
+}
+
+.lazy-video__play__circle.circle-large {
+    width: 540px;
+    height: 540px;
+}
 

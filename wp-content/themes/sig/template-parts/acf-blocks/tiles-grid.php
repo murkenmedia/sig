@@ -12,8 +12,7 @@ if( !empty($block['className']) ) {
 }
 
 $block_classes = array(
-	'tiles-block',
-    'tiles-grid-block',	
+    'tiles-grid',	
 	$className
 );
 $template = array(
@@ -22,15 +21,12 @@ $template = array(
 
 if(get_field('tile_style')) {
     array_push($block_classes, get_field('tile_style'));
-    
-    if(get_field('tile_style') == 'no-tile-img-crop') {
+
+    if(get_field('tile_style') == 'tiles-stacked-content-arrow-btn') {
         array_push($block_classes, 'tiles-stacked-content');
     }
 }
 
-if(get_field('btn_style')) {
-    array_push($block_classes, get_field('btn_style'));
-}
 
 if(get_field('col_style')) {
     array_push($block_classes, get_field('col_style'));

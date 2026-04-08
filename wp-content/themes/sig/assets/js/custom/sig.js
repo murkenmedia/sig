@@ -280,29 +280,35 @@ jQuery.noConflict();
 				}, 2000);
 			}
 		}
+
+        // SCROLL TO ANCHOR
+		jQuery('a.scroll-link[href*="#"]:not([href="#"]), p.scroll-link a[href*="#"]:not([href="#"]), li.scroll-link a[href*="#"]:not([href="#"]), ul.scroll-link a[href*="#"]:not([href="#"])').click(function() {
+			 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+				 let $speed = 1000,
+					 //$top = 148;
+					 $top = 50;
+				 if (jQuery(this).data('speed')) {
+					 $speed = jQuery(this).data('speed');
+					 //console.log($speed);
+				 }
+				 if (jQuery(this).data('top')) {
+					 $top = jQuery(this).data('top');
+					 //console.log($top);
+				 }
+				 let target = jQuery(this.hash);
+				 target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+
+				 if (target.length) {
+					jQuery('html, body').animate({
+						scrollTop: (target.offset().top-$top)
+					}, $speed, "easeInOutExpo");
+					return false;
+				 }
+			 }
+		});
         
         
-        ////////////////MAGNIFIC
-        
-        jQuery('.open-menu-popup a').magnificPopup({
-			type:'inline',
-			closeOnContentClick: false,
-			midClick: true,
-			//removalDelay: 400,
-			mainClass: 'mfp-fade menu-popup-wrap',
-			preloader: false,
-			autoFocusLast:false,
-			fixedContentPos: false,
-			callbacks: {
-				open: function() {
-				  jQuery('body').addClass('noscroll');
-				},
-				close: function() {
-				  jQuery('body').removeClass('noscroll');
-				}
-            }
-		});	
-        
+        ////////////////MAGNIFIC        
         
         if (jQuery(".image-popup")[0]){
             //Not used in any templates
@@ -332,8 +338,8 @@ jQuery.noConflict();
                 closeOnContentClick: false,
                 midClick: true,
                 removalDelay: 400,
-                mainClass: 'mfp-fade',
-                closeBtnInside:false,
+                mainClass: 'mfp-fade content-popup',
+                closeBtnInside:true,
                 preloader: false,
                 autoFocusLast:false,
                 callbacks: {

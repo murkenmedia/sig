@@ -65,33 +65,6 @@ if ( $post_cats ) {
 }
 
 $authors = '';
-$authorsarr = get_the_terms( $id, 'authors' );
-$authortitle = __('Author', 'sig');
-if ( empty( $authorsarr ) ) {
-    $author = get_term_by( 'slug', 'hope4cancer-treatment-centers', 'authors' );
-    $authors = get_author_block($author);
-} else {
-    $authornum=0;
-    foreach( $authorsarr as $author ) {
-        $authors .= get_author_block($author);
-        $authornum++;
-	}
-    
-    if($authornum > 1) {
-        $authortitle = __('Authors', 'sig');
-    }
-}
-if($authors != '') {
-    $authors = '
-    <div class="blog-sidebar-topics blog-sidebar-module mb-5">
-        <h4 class="mb-3 sans-bold has-small-font-size">'.$authortitle.'</h4>
-        <div class="authors-wrap">
-            '.$authors.'
-        </div>
-    </div>
-    ';
-}
-
 
 
 /////SIDEBAR
@@ -139,7 +112,6 @@ $relatedlinks = '
         </div>
         <div class="entry-content__sidebar">
             <div class="entry-content__sidebar__sticky mt-6 mt-md-0">
-                <?php echo $authors; ?>
                 <?php echo $topics; ?>
                 <?php echo $relatedlinks; ?>
             </div>

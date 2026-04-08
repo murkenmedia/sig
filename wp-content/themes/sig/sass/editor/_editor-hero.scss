@@ -5,6 +5,10 @@
     position: relative;
     border:1px solid $gutenborder;
     background-color: $dark;
+    display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+    min-height: 600px;
     
     h1, h2 {
         color: #FFF !important;
@@ -38,6 +42,10 @@
         overflow: visible;
         min-height: 400px;
     }
+    &.align-content-center {
+        justify-content: center;
+    }
+    
 }
 
 /////////////CONTENT
@@ -47,14 +55,18 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: nowrap;
-    margin: 0 auto;
-    
-    min-height: 56vw;
+    margin: auto auto 0 auto;
+    border:1px solid $gutenborder;
     position: relative;
     z-index: 4;
 	width: 100%;
+    max-width: $xl;
+    padding-bottom: 40px;
     
     p, h1, h2 {
+        display: block;
+        width: 100%;
+        max-width: none;
         a {
             color: #FFF;
             text-decoration: none;
@@ -75,13 +87,10 @@
         color: #FFF !important;
     }
     
-    @media (min-width: $md) {
-         min-height: 630px;        
-    }
 }
 
 h1.hero__content__title {
-    text-align: center;
+    text-align: left;
     margin: 0 auto;
     display: table;
     text-transform: none;
@@ -199,7 +208,7 @@ button.hero__controls__playpause {
     background-color: #000;
 }
 
-.hero__navbg {
+.hero__darken-upper {
     position: absolute;
     top: 0;
     left: 0;
@@ -209,7 +218,7 @@ button.hero__controls__playpause {
     background: linear-gradient(180deg,rgba($dark, 1) 0%, rgba($dark, 0.80) 25%, rgba($dark, 0.60) 50%, rgba($dark, 0.25) 75%, rgba($dark, 0) 100%);
 }
 
-.hero__textbg {
+.hero__darken-lower{
     position: absolute;
     bottom: 0;
     left: 0;

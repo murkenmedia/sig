@@ -121,7 +121,44 @@ if ( ! function_exists( 'get_popup' ) ) {
         
     }
 }
-     
+
+if ( ! function_exists( 'get_hero_breadcrumb' ) ) {
+	/**
+	 * GET HERO BREADCRUMB
+	 *
+	 * @since 1.0.0
+	 */
+	function get_hero_breadcrumb($id,$parentid = '') {
+        $breadcrumb = '';
+        $posttype = get_post_type($id);
+        switch ($posttype) {
+            case "solutions":
+                $breadcrumb .= '<a href="'.get_permalink(18).'" >'.__('Solutions', 'sig').'</a>';
+                if($parentid != 0) {
+                    $breadcrumb .= '<span class="hero__content__pretitle__divider"></span><a href="'.get_permalink($parentid).'" >'.get_the_title($parentid).'</a>';
+                }
+                break;
+            case "platforms":
+                $breadcrumb .= '<a href="'.get_permalink(20).'" >'.__('Platforms', 'sig').'</a>';
+                if($parentid != 0) {
+                    $breadcrumb .= '<span class="hero__content__pretitle__divider"></span><a href="'.get_permalink($parentid).'" >'.get_the_title($parentid).'</a>';
+                }
+                break;
+            default:
+                if($parentid != '' && $parentid != 0) {
+                    $breadcrumb .= '<a href="'.get_permalink($parentid).'" >'.get_the_title($parentid).'</a>';
+                }
+        }
+
+        if($breadcrumb != '') {
+            return '<p class="hero__content__pretitle mb-4 blue-medium-link">'.$breadcrumb.'</p>';
+        }
+
+    }
+
+}
+
+
 
 
 if ( ! function_exists( 'get_hero_header' ) ) {
@@ -130,7 +167,7 @@ if ( ! function_exists( 'get_hero_header' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function get_hero_header($id,$parentid='',$class='') {
+	function get_hero_header($id,$pretitle='',$class='') {
         
         $img = '';
         if (has_post_thumbnail( $id ) ) {
@@ -140,7 +177,10 @@ if ( ! function_exists( 'get_hero_header' ) ) {
             <div class="hero__image alignfull">
                 '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
             </div>
-            <div class="hero__textbg"></div>';
+            <div class="hero__darken-upper"></div>
+            <div class="hero__darken-lower"></div>';
+
+            $class .= ' medium-hero';
         } else {
             $class .= ' hero-no-bg';
         }
@@ -148,11 +188,11 @@ if ( ! function_exists( 'get_hero_header' ) ) {
         $title = get_the_title($id);
         $title = '<h1 class="hero__content__title has-white-color d-block">'.widowfix($title).'</h1>';
         
-        $pretitle = '';
+        /* $pretitle = '';
         if($parentid) {
             $pretitle = '
             <p class="hero__content__pretitle mb-4 green-link"><a href="'.get_permalink($parentid).'" >'.get_the_title($parentid).'</a></p>';
-        }
+        } */
                 
         
         return '
@@ -161,6 +201,7 @@ if ( ! function_exists( 'get_hero_header' ) ) {
                 <div class="hero__content max-xl">
                     '.$pretitle.$title.'
                 </div>
+                '.$img.'
             </div>
         </div>';
 	}
@@ -221,24 +262,21 @@ if ( ! function_exists( 'get_post_block' ) ) {
 		$url = get_the_permalink($id);
         
 		$img = get_default_image($id);
-        
-        //$date = get_the_date('F j, Y', $id);	
-        //<p class="post-grid__content__date mb-2 has-brown-color weight-600">'.$date.'</p>
-		
+
 		$content = '
-		<article class="post-grid three-col-grid__item">
-			<figure class="post-grid__img">
+		<article class="tile">
+			<figure class="tile__img">
 				<a href="'.$url.'" tabindex="-1">
                     <span class="sr-only">'.$title.'</span>
 					'.$img.'
 				</a>
 			</figure>
-            <div class="post-grid__content">
-                <h3 class="post-grid__content__title mb-2 sans-bold has-small-font-size"><a href="'.$url.'" tabindex="-1">'.$title.'</a></h3>
-                <p class="line-clamp">'.$excerpt.'</p>
-                <div class="wp-block-button is-style-border-btn post-grid__content__btn">
-                    <a class="wp-block-button__link" href="'.$url.'">
-                    '.__('Read More', 'sig').'<span class="sr-only">: '.$title.'</span></a>
+            <div class="tile__content pt-1">
+                <h3 class="mb-3 has-blue-dark-color"><a href="'.$url.'">'.$title.'</a></h3>
+                <p class="line-clamp-3 has-small-font-size">'.$excerpt.'</p>
+                <div class="wp-block-button">
+                    <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
+                    <span>'.__('Read More', 'sig').'<span><span class="sr-only">: '.$title.'</span></a>
                 </div>
             </div>
 		</article>';

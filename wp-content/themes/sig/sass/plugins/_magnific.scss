@@ -62,6 +62,35 @@ a.image-popup, .is-style-image-popup a {
 	}	
 }
 
+///CONTENT POPUP
+.content-popup {
+	
+	
+	.mfp-content {
+      padding: 15px; 
+      max-width:$lg;
+      margin: 20px auto;
+      position: relative;
+      background: #FFF;
+      padding: 40px;
+      border-radius: 15px;
+    }
+    
+    .admin-bar & {
+        margin: 40px auto 20px auto;
+    }
+    
+    @media (min-width: $md) {
+        .mfp-close  {
+            color:$bluedark !important;
+            top: 10px;
+            right: 10px;
+        }
+    }
+
+}
+
+
 //HOMEPAGE POPUP
 .home-popup-wrap.mfp-bg {
     background: rgba($text, 0.9);
@@ -250,7 +279,7 @@ a.image-popup, .is-style-image-popup a {
 
 
 
-.form-popup-wrap.mfp-wrap {
+/* .form-popup-wrap.mfp-wrap {
     
     .mfp-content {
         padding: 0; 
@@ -274,7 +303,7 @@ a.image-popup, .is-style-image-popup a {
             right: 10px;
         }
     }
-}
+} */
 
 
 .mfp-gallery {
@@ -305,33 +334,6 @@ a.image-popup, .is-style-image-popup a {
 	}
 	
 }
-
-
-
-
-
-
-.popup-content {
-    padding: 50px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    
-	h2, h3 {
-		color: $primary;
-	}
-}
-
-.popup-photo {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    
-}
-
-
-
-
 
 ///FADE IN CLASS
 .mfp-fade.mfp-bg {
@@ -616,7 +618,7 @@ button {
   color: $mfp-controls-color;
 
   font-style: normal;
-  font-size: 38px;
+  font-size: 50px;
   font-family: Arial, Baskerville, monospace;
 
   &:hover,

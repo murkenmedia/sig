@@ -17,35 +17,9 @@
                 "id": ""
             },
             "choices": {
-                "tiles-overlay-content": "Overlay Content",
+                "tiles-overlay-content": "Content Overlay",
                 "tiles-stacked-content": "Stacked Content",
-                "no-tile-img-crop": "Stacked Content with No Image Cropping"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 0,
-            "layout": "vertical",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_68ab4389a4a27",
-            "label": "Buttons Style",
-            "name": "btn_style",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "tiles-btn-orange": "Orange Button",
-                "tiles-btn-black": "Black Button"
+                "tiles-stacked-content-arrow-btn": "Stacked Content - Arrow Button"
             },
             "default_value": "",
             "return_format": "value",
@@ -101,5 +75,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1773777475
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1775446593
 }

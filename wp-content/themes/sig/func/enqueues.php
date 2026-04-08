@@ -10,6 +10,11 @@ function add_allowed_origins($origins) {
     return $origins;
 }
 
+/*
+<link rel="preconnect" href="https://use.typekit.net" />
+<link rel="preconnect" href="https://p.typekit.net" />
+*/
+
 if ( ! function_exists( 'preconnect_scripts' ) ) {
 function preconnect_scripts() { ?> 
 <link rel="preload" href="<?php echo get_stylesheet_directory_uri(); ?>/fonts/SIG/sig.woff2" as="font" type="font/woff2" crossorigin />
@@ -18,8 +23,8 @@ function preconnect_scripts() { ?>
 <link rel="preconnect" href="http://www.googletagmanager.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://www.gstatic.com" />
-<link rel="preconnect" href="https://use.typekit.net" />
-<link rel="preconnect" href="https://p.typekit.net" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <?php }
 }
 add_action( 'wp_head', 'preconnect_scripts', 1 );
@@ -41,6 +46,12 @@ if ( ! function_exists( 'sig_scripts' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sig_scripts' );
+
+
+function load_custom_fonts_admin() {
+ 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap' );
+}
+add_action('enqueue_block_editor_assets', 'load_custom_fonts_admin');
 
 		   
 ?>

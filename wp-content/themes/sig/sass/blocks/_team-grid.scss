@@ -1,0 +1,156 @@
+/* team-grid.scss */
+
+.team-grid-wrap {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap:40px;
+	column-gap: 40px;
+
+
+	@media (min-width:500px) {
+        justify-content: space-between;
+		flex-direction: row;
+	}
+
+}
+.team-grid {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	text-align: center;
+	align-items: center;
+	flex-basis: calc(50% - 20px);
+
+	@media (min-width:$md) {
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		text-align: left;
+		
+	}
+	
+
+	h3 {
+		
+		a {
+			color: $bluedark;
+		}
+		font-size: 2rem;
+
+		@media (min-width:$lg) {
+			font-size: 3rem;
+		}
+	}
+}
+
+.team-grid__img {
+
+	width: 100%;
+	border: 8px solid $blue;
+	overflow: hidden;
+	border-radius: 100%;
+	position: relative;
+
+	@media (min-width:$sm) {
+		flex-basis: 150px;
+		max-width: 150px;
+	}
+
+	@media (min-width:$lg) {
+		flex-basis: 200px;
+		max-width: 200px;
+	}
+	@media (min-width:$xl) {
+		flex-basis: 300px;
+		max-width: 300px;
+	}
+	
+	&.blue-light-border {
+		border-color: $bluelight;
+	}
+	&.blue-light-medium-border  {
+		border-color: $bluelightmed;
+	}
+
+	&.blue-medium-border {
+		border-color: #4190fa;
+	}
+
+
+	a {
+		display: block;
+		position: relative;
+		overflow: hidden;		
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		@include transition(all $speed5 $ease);
+	}
+	
+	&:hover {
+		a{
+			img {
+				transform: scale(1.04);
+				@include transition(all $speed5 $ease);
+			}
+		}
+		
+	}
+}
+
+.team-grid__content {
+	flex-grow: 1;
+}
+
+////////////////POPUP
+
+.team-popup {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 40px;
+	align-items: center;
+}
+.team-popup__header {
+	display: flex;
+	flex-direction: row;
+
+}
+
+.team-popup__img {
+
+	width: 100%;
+	border: 8px solid $blue;
+	overflow: hidden;
+	border-radius: 100%;
+	position: relative;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	width: 300px;
+
+	&.blue-light-border {
+		border-color: $bluelight;
+	}
+	&.blue-light-medium-border  {
+		border-color: $bluelightmed;
+	}
+
+	&.blue-medium-border {
+		border-color: #4190fa;
+	}
+}
+
+
+
+

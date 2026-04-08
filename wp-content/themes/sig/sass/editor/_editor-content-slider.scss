@@ -1,0 +1,129 @@
+//.content-slider.scss
+
+.content-slider-wrap {
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 60px;
+
+    border:1px solid $gutenborder;
+    
+}
+
+
+.content-slider {    
+    touch-action: auto;    
+    padding: 30px;
+
+    .content-slider__slide:first-of-type {
+        display: block;
+    }
+
+}
+
+
+.content-slider__slide {
+    background-color: $tangrey;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 25px;
+    position: relative;
+
+    display: none;
+    @media (min-width: $md) {
+        margin: 0;
+    }
+}
+
+.content-slider__slide__link {
+    position:absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    display: none;
+    z-index: 3;
+
+    .active & {
+        display: block;
+    }
+
+    [data-whatinput="keyboard"] &:focus {
+        outline: 4px solid $red !important;
+        outline-offset: -4px;
+    }
+}
+
+.content-slider__slide__img {
+    width: 100%;
+    height: 100%;
+    
+    height: 450px;
+    overflow: hidden;
+    
+    img {
+        @include transition(all $speed7 $ease);
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-position: center center;
+        max-height: 800px;
+    }
+    
+    @media (min-width: $md) {
+        height: 400px;
+        
+    }
+    
+    @media (min-width: $lg) {
+        height: 550px;
+    }
+}
+
+.content-slider__slide__content {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding: 30px;
+    position: relative;
+
+
+    &::before {
+        content: '';
+        background-color: $blue;
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        height: 1px;
+
+    }
+
+    @media (min-width: $md) {
+        padding: 50px 30px;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-grow: 1;
+         gap:30px;
+    }
+}
+
+.content-slider__slide__content__col {
+    
+    padding-top: 20px;
+
+    @media (min-width: $lg) {
+        flex-basis: 45%;
+
+    }
+}
+
+
+
+.content-slider__next, .content-slider__prev {
+    display: none;
+
+}
+

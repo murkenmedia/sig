@@ -99,7 +99,9 @@ if ( function_exists( 'acf_register_block' ) ) {
                 'icon' => 'format-image',
 				'keywords'    => array( 'slider', 'content', 'sig' ),
 				'supports'    => array(
-					'align'    => array('full' ),
+					'align'			=> false,
+					'anchor'		=> true,
+					'customClassName'	=> true,
 				),
 			),
             
@@ -143,6 +145,21 @@ if ( function_exists( 'acf_register_block' ) ) {
                     'jsx' 			=> true,
 				),
 			),
+
+			array(
+				'name'        => 'history-timeline',
+				'title'       => __( 'History Timeline', 'sig' ),
+				'description' => __( 'History Timeline', 'sig' ),
+                'icon' => 'clock',
+				'keywords'    => array( 'history', 'timeline' ),
+				'mode'			=> 'preview',
+                'supports'		=> [
+                    'align'			=> false,
+                    'anchor'		=> true,
+                    'customClassName'	=> true,
+                    'jsx' 			=> true,
+                ]
+			),
             
            
             array(
@@ -151,6 +168,15 @@ if ( function_exists( 'acf_register_block' ) ) {
 				'description' => __( 'Lazy Load a YouTube or Vimeo video.', 'sig' ),
 				'icon'        => 'video-alt3',
 				'keywords'    => array( 'youtube', 'vimeo', 'video' ),
+			),
+
+
+			array(
+				'name'        => 'team-grid',
+				'title'       => __( 'Team Grid', 'sig' ),
+				'description' => __( 'Team Grid.', 'sig' ),
+				'icon'        => 'groups',
+				'keywords'    => array( 'team', 'grid' ),
 			),
             
            

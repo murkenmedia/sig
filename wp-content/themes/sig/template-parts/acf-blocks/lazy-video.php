@@ -84,6 +84,9 @@ array_push($block_classes,$style);
 	<div id="video-<?php echo $embed; ?>" class="lazy-video <?php echo $class; ?>" data-embed="<?php echo $embed; ?>">
     	<button type="button" class="lazy-video__play">
             <div class="lazy-video__play__btn"></div>
+            <div class="lazy-video__play__circle circle-inner"></div>
+            <div class="lazy-video__play__circle circle-mid"></div>
+            <div class="lazy-video__play__circle circle-large"></div>
             <span class="sr-only"><?php _e('Play Video', 'sig'); ?></span>
         </button>
 		<?php echo $img; ?>
