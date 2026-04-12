@@ -174,11 +174,12 @@ if ( ! function_exists( 'get_hero_header' ) ) {
             $imgid = get_post_thumbnail_id($id);
             
             $img = '
-            <div class="hero__image alignfull">
+            <div class="hero__image alignfull fade-in">
                 '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
             </div>
             <div class="hero__darken-upper"></div>
-            <div class="hero__darken-lower"></div>';
+            <div class="hero__darken-lower"></div>
+            <div class="hero__image__bluebg"></div>';
 
             $class .= ' medium-hero';
         } else {
@@ -196,38 +197,51 @@ if ( ! function_exists( 'get_hero_header' ) ) {
                 
         
         return '
-        <div class="header-pad">
-            <div class="hero alignfull secondary-hero '.$class.'">
-                <div class="hero__content max-xl">
-                    '.$pretitle.$title.'
-                </div>
-                '.$img.'
+        <div class="hero alignfull secondary-hero '.$class.'">
+            <div class="hero__content max-xl fade-in delay">
+                '.$pretitle.$title.'
             </div>
+            '.$img.'
         </div>';
 	}
 }
 
-if ( ! function_exists( 'get_default_hero' ) ) {
+if ( ! function_exists( 'get_post_hero' ) ) {
+	/**
+	 * GET POST HERO
+	 *
+	 * @since 1.0.0
+	 */
+	function get_post_hero($id, $parentlink='', $parenttitle='') {
+        
+        /* $title = widowfix(get_the_title($id));
+        $titleclass = '';
+        if(strlen($title) > 50) {
+            $titleclass = ' has-long-title';
+        }
+        $breadcrumb = '';
+        if($parentlink != '') {
+             $breadcrumb = '<p class="hero__content__pretitle mb-4 blue-medium-link"><a href="'.$parentlink.'">'.$parenttitle.'</a></p>';
+        }
+        <div class="hero__content max-xl">
+                    '.$breadcrumb.'
+                     <h1 class="hero__content__title has-white-color d-block'.$titleclass.'">'.$title.'</h1>
+                </div> */
+       
+        return '
+        <div class="hero alignfull secondary-hero short-hero '.$class.'">
+            
+        </div>';
+	}
+}
+
+if ( ! function_exists( 'get_hero_with_custom_text' ) ) {
 	/**
 	 * GET 404 HERO
 	 *
 	 * @since 1.0.0
 	 */
-	function get_default_hero($title='',$class='') {
-        
-        $img = '';
-        if(get_field('default_hero', 'options')) {
-            $imgid = get_field('default_hero', 'options');
-            
-            $img = '
-            <div class="hero__image alignfull">
-                '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
-            </div>
-            <div class="hero__textbg"></div>';            
-            
-        } else {
-            $class .= ' hero-no-bg';
-        }       
+	function get_hero_with_custom_text($title='',$class='') {
 
         if($title != '') {            
             $title = '<h1 class="hero__content__title has-white-color d-block">'.widowfix($title).'</h1>';
@@ -236,11 +250,9 @@ if ( ! function_exists( 'get_default_hero' ) ) {
         }
         
         return '
-        <div class="header-pad">
-            <div class="hero alignfull secondary-hero '.$class.'">
-                <div class="hero__content max-xl">
-                    '.$title.'
-                </div>
+        <div class="hero alignfull secondary-hero hero-no-bg '.$class.'">
+            <div class="hero__content max-xl">
+                '.$title.'
             </div>
         </div>';
 	}
@@ -256,12 +268,22 @@ if ( ! function_exists( 'get_post_block' ) ) {
 	
 	function get_post_block($id) {
 		$blockclass = '';
-		$title = get_the_title($id);	
+        $lineclamp = 'line-clamp-6';
+        $titleclass = ' has-regular-font-size';
+		$title = widowfix(get_the_title($id));
+        if(strlen($title) > 65) {
+            $titleclass = ' has-small-font-size';
+            $lineclamp = 'line-clamp-3';
+        }
+
 		$excerpt = get_the_excerpt($id);
-        $excerpt = wp_trim_words( $excerpt, 50 , '...' );
+        //$excerpt = wp_trim_words( $excerpt, 50 , '...' );
+
 		$url = get_the_permalink($id);
         
 		$img = get_default_image($id);
+
+        $date = get_the_date('F j, Y', $id);
 
 		$content = '
 		<article class="tile">
@@ -272,8 +294,10 @@ if ( ! function_exists( 'get_post_block' ) ) {
 				</a>
 			</figure>
             <div class="tile__content pt-1">
-                <h3 class="mb-3 has-blue-dark-color"><a href="'.$url.'">'.$title.'</a></h3>
-                <p class="line-clamp-3 has-small-font-size">'.$excerpt.'</p>
+                <p class="tile__content__date has-blue-medium-color mb-2">'.$date.'</p>
+                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>
+                
+                <p class="'.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
                 <div class="wp-block-button">
                     <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
                     <span>'.__('Read More', 'sig').'<span><span class="sr-only">: '.$title.'</span></a>
@@ -298,15 +322,17 @@ if ( ! function_exists( 'get_social_share' ) ) {
 		$url = get_the_permalink($id);
 		$title = get_the_title($id);
 		$urltitle = urlencode($title);
-		$img = get_the_post_thumbnail_url($id, 'large' );
+		$img = get_the_post_thumbnail_url($id, 'large' );      
+        $emailsubject = str_replace(' ', '%20', $title);
 
 		$content = '
 		<div class="share-content">
 			<ul class="social-share">		
                 <li class="share">'.__("Share:", 'sig').'</li>
-				<li><a href="https://x.com/share?text='.urlencode($title).'&url='.$url.'&hashtags=water4la" target="_blank"><span class="sr-only">Share on X</span></a></li>
-
+				<li><a href="https://x.com/share?text='.urlencode($title).'&url='.$url.'&hashtags=sig" target="_blank"><span class="sr-only">Share on X</span></a></li>
+                <li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url='.$url.'" target="_blank"><span class="screen-reader-text">'.__('Share on LinkedIn', 'sig').'</span></a></li>
 				<li><a href="https://www.facebook.com/sharer.php?u='.$url.'" target="_blank"><span class="sr-only">Share on Facebook</span></a></li>
+                <li class="email"><a href="mailto:?subject='.$emailsubject.'&amp;body=%20'.$url.'" target="_blank"><span class="screen-reader-text">'.__('Share with email', 'sig').'</span></a></li>
 			 </ul>
 		</div>
 		';

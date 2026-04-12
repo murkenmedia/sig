@@ -170,6 +170,13 @@ if ( function_exists( 'acf_register_block' ) ) {
 				'keywords'    => array( 'youtube', 'vimeo', 'video' ),
 			),
 
+			array(
+				'name'        => 'post-grid',
+				'title'       => __( 'Post Grid', 'sig' ),
+				'description' => __( 'A configurable grid of posts with a search and filter bar.', 'sig' ),
+				'icon'        => 'screenoptions',
+				'keywords'    => array( 'post', 'insight', 'event', 'case-studies', 'webinars', 'grid' ),
+			),
 
 			array(
 				'name'        => 'team-grid',

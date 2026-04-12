@@ -15,11 +15,15 @@ get_header(); ?>
         $postype = get_post_type();
 
         switch ($postype) {
-            case 'solutions' || 'platforms' || 'post':
+            case 'solutions':
+                get_template_part( 'template-parts/content', 'page' );
+                break;
+             case 'platforms':
                 get_template_part( 'template-parts/content', 'page' );
                 break;
             default:
                 get_template_part( 'template-parts/content', get_post_type() );
+                break;
         }
 
 	endwhile; // End of the loop.

@@ -10,28 +10,54 @@
 global $post;
 $id = $post->ID;
 
+$titleclass=$headerclass='';
 $title = widowfix(get_the_title($id));
+if(strlen($title) > 65) {
+    $titleclass = '  has-long-title';
+}
+if(strlen($title) > 95) {
+    $titleclass = '  has-longer-title';
+}
+
+
+
+$insightslink = get_permalink( get_option( 'page_for_posts' ) );
+$insightstitle = get_blog_title();
+$breadcrumb = '<p class="hero__content__pretitle mb-4 blue-medium-link"><a href="'.$insightslink.'">'.$insightstitle.'</a></p>';
+//$hero = get_post_hero($id,$insightslink,$insightstitle);
+
+$date = '<p class="has-blue-color mb-1">'.get_the_date('F j, Y', $id).'</p>';
+/* $hero = '
+<div class="hero alignfull secondary-hero insights-hero ">
+    <div class="hero__content max-xl text-center">
+        '.$breadcrumb.'
+            <h1 class="hero__content__title has-white-color d-block'.$titleclass.' mb-5">'.$title.'</h1>
+            '.$date.'
+    </div> 
+</div>'; */
+
+$hero = '
+<div class="hero alignfull insights-hero">
+    
+</div>';
+
 
 $img = '';
 if(get_field('disable_featured_img')) {
-    
+    $headerclass = ' no-featured-img';
 } else {
     if(has_post_thumbnail($id)) {
         $imgid = get_post_thumbnail_id($id);
         $img = '
-        <div class="blog-featured-img mb-4 mb-sm-5">
+        <div class="insights-single__featured-img">
             '.wp_get_attachment_image($imgid, 'full').'
         </div>';
     } 
 }
-$date = '<p class="sans-bold has-brown-color mb-1">'.get_the_date('F j, Y', $id).'</p>';
 
-$parentid = $post->post_parent;
-if ($hero == '') {
-    $hero = get_default_hero($id,$parentid);
-} else {
-    $hero = '<div class="header-pad">'.$hero.'</div>';
-}
+
+
+
 
 
 ///CATS & TAGS
@@ -71,71 +97,88 @@ $authors = '';
 $topics = '';
 if($topiclinks !== '') {
     $topics = '
-    <div class="blog-sidebar-topics blog-sidebar-module mb-5">
-        <h4 class="mb-3 sans-bold has-small-font-size">'.__('Topics Covered', 'sig').'</h4>
-        <ul class="blog-related-links list-unstyled has-small-font-size">
+    <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
+
+        <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Topics Covered', 'sig').'</h4>
+        <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
             '.$topiclinks.'
         </ul>
+
     </div>';
 }
 
 $relatedlinks = '
-<div class="blog-sidebar-related blog-sidebar-module">
-    <h4 class="mb-3 sans-bold has-small-font-size">'.__('Related Articles', 'sig').'</h4>
-    <ul class="blog-related-links list-unstyled has-small-font-size">
+<div class="insights-single__sidebar__module insights-sidebar-related">
+
+    <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Related Articles', 'sig').'</h4>
+
+    <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
         '.get_related_blog($id,$tagsarr,$catsarr,'link',4).'
     </ul>
+
 </div>
 ';
 
+$header = '
+<header class="insights-single__header has-text-align-center'.$headerclass.'">
+    <p class="sans-bold in-content-breadcrumb-link"><a href="'.$insightslink.'">'.$insightstitle.'</a></p>
+    <h1 class="fade-in has-blue-dark-color mb-4 '.$titleclass.'">'.$title.'</h1>
+    <div class="entry-meta">
+        '.$date.'
+    </div>
+</header>';
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('site-content'); ?>>
-	<?php echo $hero; ?>
-    
-    <header class="blog-header mt-sm-5 mb-sm-5 mt-4 mb-4 has-text-align-center">
-        <p class="sans-bold is-style-subtitle"><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>"><?php echo get_blog_title(); ?></a></p>
-        <h1 class="fade-in has-blue-dark-color mb-4"><?php echo $title; ?></h1>
-        <div class="entry-meta">
-            <?php echo $date; ?>
-        </div>
+<article id="post-<?php the_ID(); ?>" <?php post_class('site-content'.$headerclass); ?>>
+    <?php echo $hero; ?>
+
+    <div class="insights-single__header-wrap alignfull">
+        <?php echo $header; ?>
         
-        
-    </header>
-		
+    </div>
+
     <?php echo $img; ?>
 
-    <div class="entry-content mx-auto pt-4 has-columns">
-        <div class="entry-content__content">
+    <div class="insights-single__content-wrap mx-auto">
+
+        <div class="insights-single__content">
             <?php the_content(); ?>
         </div>
-        <div class="entry-content__sidebar">
-            <div class="entry-content__sidebar__sticky mt-6 mt-md-0">
+
+        <div class="insights-single__sidebar">
+            <div class="insights-single__sidebar__sticky mt-6 mt-md-0">
                 <?php echo $topics; ?>
                 <?php echo $relatedlinks; ?>
             </div>
         </div>
+
     </div>
     
-    <footer class="blog-footer mt-5 mb-5 mx-auto ">
-        <div class="blog-footer__cat text-center text-md-right">
+    <footer class="insights-single__footer mx-auto">
+
+        <div class="insights-single__footer__cat text-center text-md-right">
+            <ul class="insights-single__footer__cat-list sans-500">
+                <?php echo $topiclinks; ?>
+            </ul>
         </div>
-        <div class="blog-footer__social">
+
+        <div class="insights-single__footer__social">
             <?php echo get_social_share($id); ?>
         </div>
+
     </footer>
     
-    <div style="height:60px" aria-hidden="true" class="wp-block-spacer is-style-responsive-medium"></div>
     
-    <div class="related-articles-block alignfull has-tan-light-background-color">
-        <div class="related-articles-block__inner">
-            <div style="height:100px" aria-hidden="true" class="wp-block-spacer is-style-responsive-large"></div>
-            <h4 class="text-center mb-6 has-large-font-size has-brown-color">Related Articles</h4>
-            <div class="max-xl mx-auto three-col-grid">
+    <div class="insights-single__related-block related-articles alignfull">
+
+        <div class="related-articles__inner">
+            <h4 class="text-center mb-6 has-large-font-size sans-500 has-blue-dark-color">Related Insights</h4>
+
+            <div class="max-xl mx-auto tiles-grid tiles-three-col tiles-stacked-content">
                 <?php echo get_related_blog($id,$tagsarr,$catsarr,'',3); ?>
             </div>
-            <div style="height:100px" aria-hidden="true" class="wp-block-spacer is-style-responsive-large"></div>
+
         </div>        
     </div>
 </article>

@@ -53,6 +53,14 @@ const jsCustomDestination = './assets/js/';
 // Compiled JS custom file name. Default set to custom i.e. custom.js.
 const jsCustomFile = 'sig';
 
+// Path to JS ajax scripts folder.
+const jsAjaxSRC = './assets/js/ajax/*.js';
+
+// Path to place the compiled JS ajax scripts file.
+const jsAjaxDestination = './assets/js/';
+
+// Compiled JS ajax file name. Default set to ajax i.e. ajax.js.
+const jsAjaxFile = 'search-filter';
 
 // Images options.
 
@@ -73,6 +81,9 @@ const watchJsVendor = './assets/js/vendor/*.js';
 
 // Path to all custom JS files.
 const watchJsCustom = './assets/js/custom/*.js';
+
+// Path to all custom JS files.
+const watchJsAjax = './assets/js/ajax/*.js';
 
 // Path to all PHP files.
 const watchPhp = './**/*.php';
@@ -106,7 +117,8 @@ const zipIgnoreGlob = [
 	`!${imgSRC}`,
 	`!${styleSRC}`,
 	`!${jsCustomSRC}`,
-	`!${jsVendorSRC}`
+	`!${jsVendorSRC}`,
+	`!${jsAjaxSRC}`
 ];
 
 // >>>>> Translation options.
@@ -152,11 +164,15 @@ module.exports = {
 	jsCustomSRC,
 	jsCustomDestination,
 	jsCustomFile,
+	jsAjaxSRC,
+	jsAjaxDestination,
+	jsAjaxFile,
 	imgSRC,
 	imgDST,
 	watchStyles,
 	watchJsVendor,
 	watchJsCustom,
+	watchJsAjax,
 	watchPhp,
 	zipName,
 	zipDestination,

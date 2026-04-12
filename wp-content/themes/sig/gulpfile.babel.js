@@ -303,6 +303,56 @@ gulp.task('customJS', () => {
 });
 
 /**
+ * Task: `ajaxJS`.
+ *
+ * Concatenate and uglify ajax JS scripts.
+ *
+ * This task does the following:
+ *     1. Gets the source folder for JS ajax files
+ *     2. Concatenates all the files and generates ajax.js
+ *     3. Renames the JS file with suffix .min.js
+ *     4. Uglifes/Minifies the JS file and generates ajax.min.js
+ */
+gulp.task('ajaxJS', () => {
+	return gulp
+		.src(config.jsAjaxSRC, {since: gulp.lastRun('ajaxJS')}) // Only run on changed files.
+		.pipe(plumber(errorHandler))
+		.pipe(
+			babel({
+				presets: [
+					[
+						'@babel/preset-env', // Preset to compile your modern JS to ES5.
+						{
+							targets: { browsers: config.BROWSERS_LIST }, // Target browser list to support.
+							loose: true,
+							modules: false
+						}
+					]
+				]
+			})
+		)
+		.pipe(remember(config.jsAjaxSRC)) // Bring all files back to stream.
+		.pipe(concat(config.jsAjaxFile + '.js'))
+		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		.pipe(gulp.dest(config.jsAjaxDestination))
+		.pipe(
+			rename({
+				basename: config.jsAjaxFile,
+				suffix: '.min'
+			})
+		)
+		.pipe(uglify())
+		.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
+		.pipe(gulp.dest(config.jsAjaxDestination))
+		.pipe(
+			notify({
+				message: '\n\n✅  ===> AJAX JS — completed!\n',
+				onLast: true
+			})
+		);
+});
+
+/**
  * Task: `images`.
  *
  * Minifies PNG, JPEG, GIF and SVG images.
@@ -403,11 +453,12 @@ gulp.task('zip', () => {
  */
 gulp.task(
 	'default',
-	gulp.parallel('styles', 'vendorsJS', 'customJS', 'images', browsersync, () => {
+	gulp.parallel('styles', 'vendorsJS', 'customJS', 'ajaxJS', 'images', browsersync, () => {
 		gulp.watch(config.watchPhp, reload); // Reload on PHP file changes.
 		gulp.watch(config.watchStyles, gulp.parallel('styles')); // Reload on SCSS file changes.
 		gulp.watch(config.watchJsVendor, gulp.series('vendorsJS', reload)); // Reload on vendorsJS file changes.
 		gulp.watch(config.watchJsCustom, gulp.series('customJS', reload)); // Reload on customJS file changes
+		gulp.watch(config.watchJsAjax, gulp.series('ajaxJS', reload)); // Reload on ajaxJS file changes
 		gulp.watch(config.imgSRC, gulp.series('images', reload)); // Reload on customJS file changes.
 	})
 );
