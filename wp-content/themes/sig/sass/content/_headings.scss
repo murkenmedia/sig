@@ -89,6 +89,14 @@ h1 {
 	@media (min-width:$lg) {
 		font-size: $h1fontlg;
 	}
+
+    /* &.has-long-title {
+        font-size:$h1fontsm;
+    }
+
+    &.has-longer-title {
+        font-size: $h2fontlg;
+    } */
 }
 
 h2 {    

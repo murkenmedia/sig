@@ -65,7 +65,7 @@ ul.social-share {
     flex-direction: row;
     gap:25px;
     column-gap: 20px;
-	
+	align-items: center;
 	
 	li {
 		position:relative;
@@ -79,20 +79,20 @@ ul.social-share {
 		outline:none;
 	
 		@include transition(opacity $medspeed $ease);
-		width: 32px;
-		height: 32px;
-		@include borderRadius(32px);
-		
-		background-color: $primary;
+		width: 40px;
+		height: 40px;
+		@include borderRadius(40px);
+		text-align: center;
+		background-color: $bluedarkmed;
 
 		
 		&::before{
-			@include webfonts($lineheight:32px);
+			@include webfonts($lineheight:40px);
 			position: relative;
 			padding:0;
-			font-size:14px;	
-			width: 14px;
-			height: 14px;
+			font-size:18px;	
+			width: 18px;
+			height: 18px;
 			color: #FFF !important;
 		}
 		
@@ -109,7 +109,7 @@ ul.social-share {
 			content:'\e907';
 		}
 	}
-	a[href*="twitter.com"]{
+	a[href*="x.com"]{
 		//background-color:$twitter;
 		
 		&::before{
@@ -117,14 +117,6 @@ ul.social-share {
 		}
 	}
 	
-	
-	a[href*="instagram.com"]{
-		//background-color:$instagram;
-		
-		&::before{
-			content:'\e903';
-		}
-	}
 	
 	a[href*="linkedin.com"]{
 		//background-color:$linkedin;

@@ -59,19 +59,19 @@ p, li {
     
     a {
         
-        color: $green;
+        color: $bluedarkmed;
         @include transition(color $medspeed ease);
         text-decoration: none;
 
         &:hover {
             @include transition(color $medspeed ease);
-            color: $blue;
+            color: $bluedark;
             text-decoration: underline;
             text-decoration-thickness: .15rem;
             text-underline-offset: .25rem;
         }
         &:visited {
-            color:  $blue;
+            color:  $bluedarkmed;
         }
     }
     

@@ -12,11 +12,14 @@
 
 if(get_field('page_options', $id)) {
 	$options = get_field('page_options', $id);
-	if(!in_array('hide_footer_circles', $options)) {
+	if(!in_array('hide_footer_circles', $options) && !is_single('post')) {
 		echo get_footer_circles();
 	}
 } else {
-    echo get_footer_circles();
+    if('post' != get_post_type()) {
+        echo get_footer_circles();
+    }
+    
 }
 
 

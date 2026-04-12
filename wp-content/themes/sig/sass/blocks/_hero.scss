@@ -7,7 +7,7 @@
 	flex-direction: column;
 	justify-content: flex-end;
     min-height: 300px;
-    background-color: $bluedark;
+    background-color: darken($bluedarker, 5%);
     
     @media (min-width:$sm) {
         min-height: 400px;
@@ -58,19 +58,22 @@
         }
             
     }
+
+    
     
     &.secondary-hero {
 
         margin-bottom: 50px;
         flex-direction: column;
         justify-content: flex-end;
-        
+        background-color:$bluedark;
         
         .hero__content {
             padding-bottom: 50px;
             text-align: left;
 
             @media (min-width: $md) {
+                padding-top: 150px;
                 padding-bottom: 60px;
             }
 
@@ -82,6 +85,13 @@
              margin-bottom: 80px;
         }
     }
+
+    &.insights-hero {
+        min-height: 130px;
+        max-height: 130px;
+        margin-bottom: 0;
+        background-color:$bluedark;
+    }
     
     &.align-content-center {
         justify-content: center;
@@ -90,7 +100,7 @@
     &.has-blue-gradient-bg {        
         
         .hero__image {
-            @include opacity(0.91);
+            @include opacity(0.98);
         }
     }
 
@@ -126,7 +136,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     margin: 0 auto;    
-    padding: 70px 25px;
+    padding: 120px 25px 70px 25px;
     
     @media (min-width: $md) {
          padding:100px 25px 70px 25px;
@@ -159,11 +169,19 @@ h1.hero__content__title {
     color: #FFF;    
     @include transition(all $medspeed $ease);        
     font-size: clamp(3rem, 4vw, 4.75rem);
-    //line-height: 1.1;    
+    margin-bottom: 0;
+    //line-height: 1.1;   
+    
+    &.has-long-title {
+        font-size: clamp(3rem, 4vw, 4rem);
+    }
+
+    &.has-longer-title {
+        font-size: clamp(2.5rem, 3vw, 3.5rem);
+    }
 }
 
 .hero__content__pretitle {
-    text-transform: none;
     color: #FFF;    
     @include transition(all $medspeed $ease);        
     font-size: 1.5rem;
@@ -196,7 +214,7 @@ h1.hero__content__title {
     z-index: 1;
 }
 .hero__image__bluebg {
-    background-color: $bluemed;
+    background-color: $bluedarker;
     top: 0;
     left: 0;
     right: 0;

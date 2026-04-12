@@ -10,7 +10,7 @@
 get_header();
 
 
-$hero = get_default_hero('Search Results');
+$hero = get_hero_with_custom_text('Search Results');
 
 ?>
 <section <?php post_class('site-content'); ?>>

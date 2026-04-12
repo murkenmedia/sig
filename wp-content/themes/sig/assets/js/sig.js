@@ -944,8 +944,8 @@ jQuery.noConflict();
   ///ON READY	
   document.addEventListener('DOMContentLoaded', function () {
     //ADD BR SPACERS
-    if (jQuery(".widow-fix")[0]) {
-      var elements = document.querySelectorAll('.widow-fix');
+    if (jQuery(".widow-fix, .is-style-intro-headline, h2.wp-block-heading")[0]) {
+      var elements = document.querySelectorAll('.widow-fix, .is-style-intro-headline, h2.wp-block-heading');
       elements.forEach(function (element) {
         var text = element.innerHTML;
         text = text.replace(/(\S+)\s+(\S+)$/, '$1&nbsp;$2');
@@ -953,6 +953,13 @@ jQuery.noConflict();
       });
     }
     ;
+
+    //LONG LINKS
+    jQuery('.insights-single__content a').each(function () {
+      if (jQuery(this).text().length > 60) {
+        jQuery(this).addClass('break-link');
+      }
+    });
 
     //ADD BR SPACERS
     jQuery('.ignore-br-md, .ignore-br-lg').find('br').after('<span class="br-spacer"></span>');

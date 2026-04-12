@@ -30,7 +30,7 @@ if ($query->have_posts()) {
 wp_reset_postdata();
 
 
-$hero = get_default_hero('404 Page Not Found');
+$hero = get_hero_with_custom_text('404 Page Not Found');
 
 ?>
 <section <?php post_class('site-content error-404'); ?>>

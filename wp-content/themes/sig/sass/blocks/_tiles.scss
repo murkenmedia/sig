@@ -19,7 +19,7 @@
         column-gap: 50px;
 
         &.tiles-two-col {
-            column-gap: 50px;
+
             
             .tile {
                 max-width: calc(50% - 25px);  
@@ -28,11 +28,17 @@
         }
 
         &.tiles-three-col {
-            column-gap: 50px;
+
             justify-content: flex-start;
             
             .tile {
                 max-width: calc(33.3% - 33px);  
+            }
+
+            &.tiles-stacked-content {
+                .tile__img {
+                    max-height: 300px;
+                }
             }
 
             &.tiles-overlay-content {
@@ -41,6 +47,7 @@
                 }
                 .tile__img {
                     height: 530px;
+                    margin: 0;
                 }
                 p {
                     flex-basis:auto;
@@ -83,6 +90,7 @@
     @include transition(all $medspeed $ease);
     height: 450px;
     overflow: hidden;
+    
     
     .img-link {
         position: absolute;
@@ -276,6 +284,7 @@
         overflow: hidden;
         border-radius: 20px;
         height: 50vw;
+        //max-height: 380px;
         max-height: 380px;
             
         &:hover {

@@ -68,8 +68,7 @@ body :where(.editor-styles-wrapper) {
 
 
 .tiles-grid {
-    width: 100%;
-    max-width: $xl;
+
     margin: 0 auto;
     position: relative;
 
@@ -85,9 +84,28 @@ body :where(.editor-styles-wrapper) {
     @media (min-width: $lg) {
         column-gap: 50px;
 
+
+        &.tiles-two-col {
+            
+            .tile {
+                max-width: calc(50% - 25px);  
+            }
+            
+        }
+
         &.tiles-three-col {
-            column-gap: 50px;
+
             justify-content: flex-start;
+            
+            .tile {
+                max-width: calc(33.3% - 33px);  
+            }
+
+            &.tiles-stacked-content {
+                .tile__img {
+                    max-height: 300px;
+                }
+            }
 
             &.tiles-overlay-content {
                 .tile__content {
@@ -95,6 +113,7 @@ body :where(.editor-styles-wrapper) {
                 }
                 .tile__img {
                     height: 530px;
+                    margin: 0;
                 }
                 p {
                     flex-basis:auto;

@@ -393,3 +393,20 @@ h1, h2, h3, h4, h5 {
 .mb-2 {
     margin-bottom: 0.5rem !important;
 }
+
+//LINE CLAMP
+p.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+@for $i from 2 through 8 {
+    p.line-clamp-#{$i} {
+        display: -webkit-box;
+        -webkit-line-clamp: #{$i};
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+}
