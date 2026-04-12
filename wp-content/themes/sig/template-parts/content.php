@@ -170,7 +170,7 @@ $header = '
     </footer>
     
     
-    <div class="insights-single__related-block related-articles alignfull">
+    <div class="insights-single__related-articles related-articles alignfull">
 
         <div class="related-articles__inner">
             <h4 class="text-center mb-6 has-large-font-size sans-500 has-blue-dark-color">Related Insights</h4>

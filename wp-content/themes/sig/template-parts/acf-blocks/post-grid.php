@@ -7,12 +7,16 @@
  */
 
 $block_classes = array(
-	'post-grid-block',
+	'post-grid',
 	'fade-in ',
 );
 
-$blog = $cat = $tag = $content = $terms = $catcontent = $searchcontent = $sort = $showevents = $loadposts = $tagcontent = '';
-		
+$blog = $cat = $tag = $content = $terms = $sort = $showevents = $loadposts = '';
+
+$typecontent = $catcontent = $searchcontent = $tagcontent = '';
+
+$cptarr = array();
+
 $filternum = 0;
 
 $cat = get_field('category');
@@ -26,9 +30,22 @@ if(get_field('load_posts')) {
 $args = array();
 $args['posts_per_page'] = $max;
 
-$args['post_type'] = array('post');
+////////CPT
+if(get_field('type')) {
+	$types = get_field('type');
+} else {
+	$types = array('post');
+}
 
-//CATS
+foreach( $types as $type ):
+	array_push($cptarr, $type['value']);
+endforeach;
+$cpts = implode(',', $cptarr);
+$defaultctp = ' data-cpt="'.$cpts.'" ';
+$args['post_type'] = $cptarr;
+
+
+////////CATS
 $defaultcats = ' data-cats="" ';
 if($cat != '') {
 	$args['cat'] = $cat;
@@ -37,7 +54,7 @@ if($cat != '') {
 	$defaultcats = ' data-cats="'.$dcats.'" ';
 }
 
-//TAGS
+////////TAGS
 $defaulttags = ' data-tags="" ';
 if($tag != '') {
 	$args['tag__in'] = $tag;
@@ -55,14 +72,10 @@ $tagtax = 'post_tag';
 
 
 //get articles
-
 $blog = get_post_blocks($args,$loadposts,$page);
 
 //search sort
 $search_options = get_field('search_sort');
-
-//CAT
-
 
 
 //IF THE CATEGORIES ARE SET, THEN THE DROPDOWN WILL LIST THOSE OPTIONS. OTHERWISE SHOW ALL:
@@ -134,6 +147,35 @@ if( $search_options && in_array('tag', $search_options) ) {
 
 }
 
+//POST TYPE SELECTOR
+if( $search_options && in_array('type', $search_options) ) {
+	
+	$cptdropdown = '';
+	//only show if bigger than one
+	if(count($types) > 1) {
+		
+		$alllabel = __( 'All Insights', 'sig' );
+		
+		$cptdropdown .= '<option value="'.$cpts.'">'.$alllabel.'</option>';
+		
+		//create dropdown
+		foreach( $types as $type ):
+			$cptdropdown .= '<option value="'.$type['value'].'">'.$type['label'].'</option>';
+		endforeach;
+		
+		$typecontent = '
+		<div class="search-filter__col search-filter__type">
+			<label for="search-filter__cat__select" class="d-none">'.$type['label'].'</label>
+			<select name="search-filter__type__select" class="custom-select" id="search-filter__type__select">
+				'.$cptdropdown.'
+			</select>
+		</div>';
+		$showsort = true;
+		
+	}
+	
+}
+
 
 //SEARCH
 if( $search_options && in_array('search', $search_options) ) {
@@ -158,7 +200,7 @@ if($filternum > 0) {
 	$sort = '
 	<div class="search-filter">
         <form method="post" id="search-filter" class="form-inline search-filter__form filters-'.$filternum.'">
-            '.$catcontent.$tagcontent.$searchcontent.'
+            '.$catcontent.$tagcontent.$typecontent.$searchcontent.'
         </form>
         <div class="search-filter__loader"></div>
 	</div>';					
@@ -166,9 +208,13 @@ if($filternum > 0) {
 
 ?>
 
-<div id="<?php echo esc_attr( $block['id'] ); ?>" class="<?php echo esc_attr( implode( ' ', $block_classes ) ); ?>">	
-    <?php echo $sort; ?>
-    <div class="tiles-grid tiles-three-col tiles-stacked-content" data-page="1" data-max="<?php echo $max; ?>" <?php echo $defaulttags; ?> <?php echo $defaultcats; ?>">		
-        <?php echo $blog; ?>			
-    </div>
+<div id="<?php echo esc_attr( $block['id'] ); ?>" class="<?php echo esc_attr( implode( ' ', $block_classes ) ); ?>">
+	<div class="post-grid__column post-grid__sort-column">
+    	<?php echo $sort; ?>
+	</div>
+	<div class="post-grid__column">
+		<div class="tiles-grid tiles-stacked-content post-grid__posts" data-page="1" data-max="<?php echo $max; ?>" <?php echo $defaulttags; ?> <?php echo $defaultcats; ?>" <?php echo $defaultctp; ?> >		
+			<?php echo $blog; ?>			
+		</div>
+	</div>
 </div>

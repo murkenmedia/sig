@@ -100,7 +100,7 @@ if ( ! function_exists( 'get_post_blocks' ) ) {
 
 		if ( $page > $the_query->max_num_pages ) {
 			$blocks = '
-            <div class="blog-grid__posts__message">
+            <div class="post-grid__posts__message">
                 <p class="text-center">'. __('No more posts.', 'sig').'</p>
             </div>';
 		} else {
@@ -121,7 +121,7 @@ if ( ! function_exists( 'get_post_blocks' ) ) {
                         $btntext = __('Load More', 'sig');
                         
 						$blocks .= '
-						<div class="blog-grid__posts__message">
+						<div class="post-grid__posts__message">
 							<div class="wp-block-button fullwidth next-posts-link">'
                                 .get_next_posts_link($btntext, $the_query->max_num_pages ).'
                             </div>

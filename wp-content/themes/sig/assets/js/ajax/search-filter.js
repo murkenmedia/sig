@@ -9,6 +9,7 @@ jQuery(function(){
 		$filterload = jQuery('.search-filter__loader'),
 		$catfilter = jQuery('#search-filter__cat__select'),
 		$tagfilter = jQuery('#search-filter__tag__select'),
+		$typefilter = jQuery('#search-filter__type__select'),
 		$search = jQuery('#search-filter__search__input'),
 		$searchbtn = jQuery('.search-filter__search__btn'),
 		max = $gridwrap.data('max'),
@@ -17,6 +18,8 @@ jQuery(function(){
 		search_term,
 		cat_term,
 		tag_term,
+		cpt = jQuery('.posts-wrap').data('cpt'),
+		type_term = cpt,
 		page = 1,
 		wto = 0;
 
@@ -25,7 +28,7 @@ jQuery(function(){
 		max = $gridwrap.data('max');
 		page = 1;
         $gridwrap.data('page', page);
-        console.log(page);
+        console.log('page: ' + page);
                        
 		$gridwrap.addClass('loading');
 		$filterload.html( '<div class="post-grid__posts__loading active"></div>' );
@@ -40,6 +43,7 @@ jQuery(function(){
 				search_term : search_term,
 				cat_term : cat_term,
 				tag_term : tag_term,
+				type_term : type_term,
 				page : page,
 				max : max,
 			},
@@ -59,7 +63,7 @@ jQuery(function(){
         page = $gridwrap.data('page');
 		page = page + 1;
         $gridwrap.data('page', page);
-        console.log(page);
+        //console.log(page);
         
 		cat_term = tag_term = '';
         
@@ -93,6 +97,7 @@ jQuery(function(){
 				search_term : search_term,
 				cat_term : cat_term,
 				tag_term : tag_term,
+				type_term : type_term,
 				page : page,
 				max : max,
 			},
@@ -197,6 +202,17 @@ jQuery(function(){
 
 			}, 300);
 
+		});
+
+		$typefilter.on('change', function (event) {
+
+			clearTimeout(wto);
+			wto = setTimeout(function() {
+				type_term = $typefilter.val();
+				console.log(type_term);
+				search_term = '';
+				filterResults();
+			}, 300);
 		});
 
 

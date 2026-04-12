@@ -14,8 +14,8 @@ h1.archive-title {
 }
 //SINGLE POST
 .single-post {
-
-    background-color: $greylight;
+    background-color: $tanlightest;
+    //background-color: #FFF;
 
 
     .site-content {
@@ -45,19 +45,20 @@ h1.archive-title {
 }
 
 .insights-single__header-wrap {
-    background-color: rgba(#FFF,0.6);
+    //background-color: $alphawhite;
+    background-color: $body-bg;
+    margin-bottom: 60px;
+    border-bottom: 1px solid rgba($bluedark, 0.2);
+    /* .no-featured-img & {
+        border-bottom: 1px solid rgba($bluedark, 0.2);
+        
+    } */
 }
 
 .insights-single__header {
     max-width: 1200px;
     margin: 0 auto;
-    
-    padding-bottom: 40px; 
-
-    .no-featured-img & {
-        border-bottom: 1px solid rgba($bluedark, 0.2);
-        margin-bottom: 50px;
-    }
+    padding: 60px 30px;
 }
 
 
@@ -90,6 +91,8 @@ h1.archive-title {
     width: 100%;
     border: 1px solid $grey;
     margin-bottom: 50px;
+    border-radius:$roundedcorner;
+    overflow: hidden;
     
     img {
         width: 100%;
@@ -157,7 +160,10 @@ h1.archive-title {
 .insights-single__sidebar__sticky {
     
     padding: 30px;
-    background-color: rgba(#FFF,0.6);
+    //background-color: rgba(#FFF,0.6);
+    background-color: $bluelightest;
+    border-radius: $roundedcorner;
+    border: 1px solid rgba($bluedark, 0.2);
     
     @media (min-width: $md) {
         position: sticky;
@@ -292,9 +298,10 @@ p.blog-author__name {
 
 ////////////////RELATED
 
-.insights-single__related-block {
-    //background-color: rgba($bluelight, 0.5);
-    background-color: rgba(#FFF,0.6);
+.insights-single__related-articles {
+    //background-color: $alphawhite;
+    border-top: 1px solid rgba($bluedark, 0.2);
+    background-color: $bluelightest;
     margin-top: 90px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -305,7 +312,7 @@ p.blog-author__name {
     }
 }
 
-.related-articles-block__inner{
+.related-articles__inner{
     padding-left: 30px;
     padding-right: 30px;
 }

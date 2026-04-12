@@ -82,6 +82,9 @@ $bluedarker:#00143f;
 
 $bluepowder:#1dbdff;
 
+
+
+
 //$bluemed:#003eff;
 /*$bluegreyborder:#6a84a5;
 $bluelightborder:#5484ce;
@@ -105,13 +108,18 @@ $greylight:#f3f2ec;
 $greylighter: rgba($greylight, 0.7);
 
 
+$bluelightest:lighten($bluelight, 11%);
+$alphawhite:rgba(#FFF,0.6);
+$tanlightest:#fafaf8;
+
+
 $body-bg:$greylight;
 
 $text:$bluedark;
 $primary:$blue;
 $secondary:$green;
 
-
+$roundedcorner:20px;
 
 $error:#e22d09;
 
