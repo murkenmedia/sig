@@ -11,7 +11,7 @@
 
 .content-pad-top-0, .fixed-header {
     .site-content {
-        .header-pad, .hero.secondary-hero {
+        .hero.secondary-hero {
             margin-bottom: 0px;
         }
     }
@@ -35,10 +35,6 @@
     }
     
     @media (min-width: $sm) {
-        .header-pad {
-            margin-bottom: 50px;
-        }
-        
         padding-bottom: 90px;
     }
     

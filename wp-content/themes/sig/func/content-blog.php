@@ -39,13 +39,11 @@ if ( ! function_exists( 'get_blog_hero' ) ) {
         $img = wp_get_attachment_image($imgid, 'full', '', array('loading'=>'lazy' ));
 
         return '
-        <div class="header-pad">
-            <div class="hero alignfull blog-hero">
-                <div class="hero__image alignfull">
-                    '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
-                </div>
-                
+        <div class="hero alignfull blog-hero">
+            <div class="hero__image alignfull">
+                '.wp_get_attachment_image($imgid, 'full', '', array('class'=>'hero__image__img', 'onload'=> "this.className='in-view hero__image__img'")).'
             </div>
+            
         </div>';        
     }
 }
@@ -73,7 +71,7 @@ if ( ! function_exists( 'get_blog_hero' ) ) {
 			</figure>
             <div class="post-grid__content">
                 <h3 class="post-grid__content__title mb-2 sans-bold has-regular-font-size"><a href="'.$url.'" tabindex="-1">'.$title.'</a></h3>
-                <p class="post-grid__content__date mb-2 has-brown-color weight-600">'.$date.'</p>
+                <p class="post-grid__content__date mb-2 has-blue-medium-color weight-600">'.$date.'</p>
                 <p class="line-clamp">'.$excerpt.'</p>
                 <div class="wp-block-button is-style-border-btn post-grid__content__btn">
                     <a class="wp-block-button__link" href="'.$url.'">

@@ -22,8 +22,8 @@ if (is_admin()) {
     $isadmin =  true;
 }
 
-$id = get_option( 'page_for_posts' );
-$bloghome = get_post($id);
+$insightsid = get_option( 'page_for_posts' );
+$bloghome = get_post($insightsid);
 $blocks = parse_blocks( $bloghome->post_content );
 
 foreach( $blocks as $block ) {
@@ -50,10 +50,7 @@ foreach( $blocks as $block ) {
 <section class="site-content">
 	<?php 
     if ($hero == '') {
-        $parentid = $post->post_parent;
-		echo get_hero_header($id,$parentid);
-	} else {
-		echo '<div class="header-pad">'.$hero.'</div>';
+		echo get_hero_header($insightsid);
 	}
 
 	if($isadmin) {
@@ -63,5 +60,11 @@ foreach( $blocks as $block ) {
 	}
     ?>
 </section>
+
+<?php if ( have_posts() ) : 
+    while ( have_posts() ) : the_post(); 
+    endwhile;
+endif;
+?>
 <?php
 get_footer();
