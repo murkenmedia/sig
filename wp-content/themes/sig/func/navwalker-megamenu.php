@@ -195,7 +195,9 @@ class MegaDropDown_Walker extends Walker_Nav_Menu {
             
             $description = '';
             if(!empty( $item->post_content )) {
-                $description = '<div class="mega-menu__description" role="presentation">'.htmlspecialchars($item->post_content).'</div>';
+                if($item->post_content != ' ') {
+                    $description = '<div class="mega-menu__description" role="presentation">'.htmlspecialchars($item->post_content).'</div>';
+                }                
             }
 
 

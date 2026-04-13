@@ -5,7 +5,7 @@ add_action( 'init', 'create_sig_taxonomies', 0 );
 
 function create_sig_taxonomies() {
 
-	register_taxonomy(
+	/* register_taxonomy(
 		'case_study_category',
 		array('case-study'),
 		array(
@@ -32,53 +32,24 @@ function create_sig_taxonomies() {
 			'show_in_nav_menus' => false,
 			'show_in_rest' => true,
 		)
-	);
+	); */
 
 	register_taxonomy(
-		'insight_theme',
+		'insight_topic',
 		array('post', 'webinar', 'case-study'),
 		array(
 			'labels' =>  array(
-				'name'              => _x( 'Insight Themes', 'taxonomy general name', 'sig' ),
-				'singular_name'     => _x( 'Insight Theme', 'taxonomy singular name', 'sig' ),
-				'search_items'      => __( 'Search Insight Themes', 'sig' ),
-				'all_items'         => __( 'All Insight Themes', 'sig' ),
-				'parent_item'       => __( 'Parent Insight Themes', 'sig' ),
-				'parent_item_colon' => __( 'Parent Insight Themes:', 'sig' ),
-				'edit_item'         => __( 'Edit Insight Theme', 'sig' ),
-				'update_item'       => __( 'Update Insight Theme', 'sig' ),
-				'add_new_item'      => __( 'Add New Insight Theme', 'sig' ),
-				'new_item_name'     => __( 'New Insight Theme Name', 'sig' ),
-				'menu_name'         => __( 'Insight Themes', 'sig' ), 
-			),
-			'public' => false,
-			'has_archive' => false,
-			'show_admin_column' => true,
-			'show_ui' => true,
-			'hierarchical' => true,
-			'rewrite' => array('with_front' => false),
-			//'publicly_queryable' => false,
-			'show_in_nav_menus' => false,
-			'show_in_rest' => true,
-		)
-	);
-
-	register_taxonomy(
-		'insight_solution',
-		array('post', 'webinar', 'case-study'),
-		array(
-			'labels' =>  array(
-				'name'              => _x( 'Insight Solutions', 'taxonomy general name', 'sig' ),
-				'singular_name'     => _x( 'Insight Solution', 'taxonomy singular name', 'sig' ),
-				'search_items'      => __( 'Search Insight Solutions', 'sig' ),
-				'all_items'         => __( 'All Insight Solutions', 'sig' ),
-				'parent_item'       => __( 'Parent Insight Solutions', 'sig' ),
-				'parent_item_colon' => __( 'Parent Insight Solutions:', 'sig' ),
-				'edit_item'         => __( 'Edit Insight Solution', 'sig' ),
-				'update_item'       => __( 'Update Insight Solution', 'sig' ),
-				'add_new_item'      => __( 'Add New Insight Solution', 'sig' ),
-				'new_item_name'     => __( 'New Insight Solution Name', 'sig' ),
-				'menu_name'         => __( 'Insight Solutions', 'sig' ),
+				'name'              => _x( 'Insight Topics', 'taxonomy general name', 'sig' ),
+				'singular_name'     => _x( 'Insight Topic', 'taxonomy singular name', 'sig' ),
+				'search_items'      => __( 'Search Insight Topics', 'sig' ),
+				'all_items'         => __( 'All Insight Topics', 'sig' ),
+				'parent_item'       => __( 'Parent Insight Topics', 'sig' ),
+				'parent_item_colon' => __( 'Parent Insight Topics:', 'sig' ),
+				'edit_item'         => __( 'Edit Insight Topic', 'sig' ),
+				'update_item'       => __( 'Update Insight Topic', 'sig' ),
+				'add_new_item'      => __( 'Add New Insight Topic', 'sig' ),
+				'new_item_name'     => __( 'New Insight Topic Name', 'sig' ),
+				'menu_name'         => __( 'Insight Topics', 'sig' ), 
 			),
 			'public' => false,
 			'has_archive' => false,
@@ -122,7 +93,7 @@ function create_sig_taxonomies() {
 	); */
 
 
-	register_taxonomy(
+	/* register_taxonomy(
 		'news_category',
 		array('news'),
 		array(
@@ -210,7 +181,7 @@ function create_sig_taxonomies() {
 			'show_in_rest' => true,
 		)
 	);
-
+ */
     
     /*register_taxonomy(
 		'event_time',

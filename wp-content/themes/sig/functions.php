@@ -45,7 +45,7 @@ if ( ! function_exists( 'sig_setup' ) ) :
         require_once locate_template('/func/helpers.php');
         require_once locate_template('/func/content.php');
         require_once locate_template('/func/content-blog.php');
-        require_once locate_template('/func/ajax.php');
+        //require_once locate_template('/func/ajax.php');
         
         //PLUGINS
         require_once locate_template('/func/acf.php');			

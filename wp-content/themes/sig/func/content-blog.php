@@ -72,6 +72,7 @@ if ( ! function_exists( 'get_post_block' ) ) {
         
 		$img = get_default_image($id);
 
+        //$postype = get_post_type($id);
         //$date = get_the_date('F j, Y', $id);
         //<p class="tile__content__date has-blue-medium-color mb-2">'.$date.'</p>
 
@@ -184,19 +185,19 @@ if ( ! function_exists( 'get_post_block_with_filters' ) ) {
         }
         $posttypetitle = '<span class="cpt">'.ucwords($posttypetitle).'</span>';
 
-        $terms = get_the_terms( $id, 'insight_theme' );						
+        $terms = get_the_terms( $id, 'category' );						
         if ( $terms && ! is_wp_error( $terms ) ) : 
             foreach ( $terms as $term ) {
                 $classes[] = $term->slug;
             }
         endif;
 
-        $terms = get_the_terms( $id, 'insight_solution' );						
+        /* $terms = get_the_terms( $id, 'post_tag' );						
         if ( $terms && ! is_wp_error( $terms ) ) : 
             foreach ( $terms as $term ) {
                 $classes[] = $term->slug;
             }
-        endif;
+        endif; */
 
 		$excerpt = get_the_excerpt($id);
         if($excerpt == '') {
@@ -379,7 +380,7 @@ if ( ! function_exists( 'get_related_insights' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function get_related_insights($postid='',$themearr='',$solutionarr='',$type = '',$max=3) { 
+	function get_related_insights($postid='',$catarr='',$tagarr='',$type = '',$max=3) { 
         
         $excludearr = array();
         array_push($excludearr, $postid);
@@ -391,21 +392,7 @@ if ( ! function_exists( 'get_related_insights' ) ) {
         $args = array( 
             'post_type' => 'post',
             'post_status' => 'publish',
-            'tax_query' => array(
-                'relation' => 'AND',
-                array(
-                    'taxonomy' => 'insight_theme',
-                    'field'    => 'term_id',
-                    'terms'    => $themearr,
-                    //'operator' => 'IN',
-                ),
-                array(
-                    'taxonomy' => 'insight_solution',
-                    'field'    => 'term_id',
-                    'terms'    => $solutionarr,
-                ),
-            ),
-            
+            'cat' => $catarr,
             'post__not_in' => $excludearr,
             'posts_per_page'=>$max,
         );
@@ -514,12 +501,19 @@ if ( ! function_exists( 'get_blog_related_link' ) ) {
 	function get_blog_related_link($id) { 
         $url = get_the_permalink($id);
         $title = get_the_title($id);
+
+        $postype = get_post_type($id);
+
+        if($postype == 'post') {
+            $postype ='insight';
+        }
         //$date = get_the_date('F d, Y', $id);
-        //<span class="blog-related-link__date">'.$date.'</span>
+        //<span class="blog-related-link__date">'.ucfirst($postype).'</span>
         
         return '
         <li class="blog-related-link">
             <a class="blog-related-link__link" href="'.$url.'">'.$title.'</a>
+            
         </li>';
     }
     

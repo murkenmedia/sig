@@ -18,13 +18,12 @@
             },
             "choices": {
                 "type": "Post Type",
-                "cat": "Category Selector",
-                "tag": "Tag Selector",
-                "search": "Search Field"
+                "cat": "Categories",
+                "tag": "Tags"
             },
             "default_value": [
                 "cat",
-                "search"
+                "tag"
             ],
             "return_format": "value",
             "allow_custom": 0,
@@ -71,54 +70,6 @@
             "toggle": 0,
             "save_custom": 0,
             "custom_choice_button_text": "Add new choice"
-        },
-        {
-            "key": "field_5e8529d6e4004",
-            "label": "Category",
-            "name": "category",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "Leave blank for all",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "category",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "id",
-            "multiple": 0,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_5e852a05e4005",
-            "label": "Tag",
-            "name": "tag",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "Leave blank for all",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "post_tag",
-            "field_type": "multi_select",
-            "allow_null": 0,
-            "add_term": 0,
-            "save_terms": 0,
-            "load_terms": 0,
-            "return_format": "id",
-            "multiple": 0,
-            "bidirectional_target": []
         },
         {
             "key": "field_5e852966e4001",
@@ -185,5 +136,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776028236
+    "modified": 1776111012
 }

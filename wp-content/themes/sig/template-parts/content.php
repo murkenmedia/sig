@@ -57,113 +57,71 @@ if(get_field('disable_featured_img')) {
     } 
 }
 
-
-
-
-
-
-///CATS & TAGS
+/////SIDEBAR
 $topiclinks = '';
 
-/* $tagsarr = array();
+$tagsarr = array();
 $post_tags = get_the_tags($id);
 if ( $post_tags ) {
+    $links = '';
 	foreach( $post_tags as $tag ) {
         array_push($tagsarr, $tag->term_id);
         
-        $topiclinks .= '
+        $links .= '
         <li>
-            <a href="'.esc_attr( get_tag_link( $tag->term_id ) ).'">'.$tag->name.'</a>
+            <a href="'.$insightslink.'#'.$tag->slug.'">'.$tag->name.'</a>
         </li>
         ';
     }
+
+    $topiclinks .= '
+    <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
+        <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Tags', 'sig').'</h4>
+        <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
+            '.$links.'
+        </ul>
+    </div>';
 }
 
 $catsarr = array();
 $post_cats = get_the_category($id);
 if ( $post_cats ) {
+    $links = '';
 	foreach( $post_cats as $cat ) {
         array_push($catsarr, $cat->term_id);        
-        $topiclinks .= '
+        $links .= '
         <li>
-            <a href="'.esc_attr( get_tag_link( $cat->term_id ) ).'">'.$cat->name.'</a>
+            <a href="'.$insightslink.'#'.$cat->slug.'">'.$cat->name.'</a>
         </li>
         ';
     }
-} */
 
-$themelinks = $terms = '';
-$themearr = array();
-$terms = get_the_terms( $id, 'insight_theme' );
-if ( $terms ) {
-	foreach( $terms as $term ) {
-        array_push($themearr, $term->term_id);
-        
-        $themelinks .= '
-        <li>
-            <a href="'.$insightslink.'#'.$term->slug.'">'.$term->name.'</a>
-        </li>
-        ';
-    }
-}
-$solutionlinks = '';
-$solutionsarr = array();
-$terms = get_the_terms( $id, 'insight_solution' );
-if ( $terms ) {
-	foreach( $terms as $term ) {
-        array_push($solutionsarr, $term->term_id);
-        
-        $solutionlinks .= '
-        <li>
-            <a href="'.$insightslink.'#'.$term->slug.'">'.$term->name.'</a>
-        </li>
-        ';
-    }
+    $topiclinks .= '
+    <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
+        <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Topics', 'sig').'</h4>
+        <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
+            '.$links.'
+        </ul>
+    </div>';
 }
 
 $authors = '';
 
 
-/////SIDEBAR
-$themes = '';
-if($themelinks !== '') {
-    $themes = '
-    <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
 
-        <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Themes', 'sig').'</h4>
-        <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
-            '.$themelinks.'
-        </ul>
-
-    </div>';
-}
-
-$solutions = '';
-if($themelinks !== '') {
-    $solutions = '
-    <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
-
-        <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Solutions', 'sig').'</h4>
-        <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
-            '.$solutionlinks.'
-        </ul>
-
-    </div>';
-}
 
 $relatedlinks = '
 <div class="insights-single__sidebar__module insights-sidebar-related">
 
-    <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Related Insights', 'sig').'</h4>
+    <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Related', 'sig').'</h4>
 
     <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
-        '.get_related_insights($id,$themearr,$solutionsarr,'link',4).'
+        '.get_related_insights($id,$catsarr,$tagsarr,'link',4).'
     </ul>
 
 </div>
 ';
 
-//<p class="insights-single__header__date mb-0">'.get_the_date('F j, Y', $id).'</p> 
 
 $header = '
 <header class="insights-single__header '.$headerclass.'">
@@ -191,7 +149,7 @@ $header = '
 
         <div class="insights-single__sidebar">
             <div class="insights-single__sidebar__sticky mt-6 mt-md-0">
-                <?php echo $themes.$solutions; ?>
+                <?php echo $topiclinks; ?>
                 <?php echo $relatedlinks; ?>
             </div>
         </div>

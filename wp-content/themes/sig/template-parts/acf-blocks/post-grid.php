@@ -40,80 +40,11 @@ $blog = get_filter_post_blocks($args,$max,$loadposts);
 //search sort
 $search_options = get_field('search_sort');
 
-//THEMES
-$themefilters = '';
-if( $search_options && in_array('insight_theme', $search_options) ) {
-	$selections = $terms = '';
+$filters = '';
 
-	$terms = get_terms( array( 
-		'taxonomy' => 'insight_theme', 
-		'orderby' => 'count',
-		'order' => 'DESC',
-		'hide_empty' => true,
-	));
-	if( $terms ) : 
-		foreach ( $terms as $term ) :
-			//&nbsp;['.$term->count.']</span>
-			$selections .=  '
-			<div class="post-grid__filter__checkbox">
-				<label for="'.$term->slug.'-filter">
-					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
-					<span>'.$term->name.'</span>
-				</label>
-			</div>';
-		endforeach;
-	endif;
-
-
-	$themefilters = '
-	<div class="post-grid__filter__fieldset">
-		<fieldset>
-			<legend class="post-grid__filter__legend">'.__('Theme', 'sig').'</legend>
-			'.$selections.'
-		</fieldset>
-	</div>';
-
-    $filternum++;
-
-}
-
-$solutionfilters = '';
-if( $search_options && in_array('insight_solution', $search_options) ) {
-	$selections = $terms = '';
-
-	$terms = get_terms( array( 
-		'taxonomy' => 'insight_solution', 
-		'orderby' => 'count',
-		'order' => 'DESC',
-		'hide_empty' => true,
-	));
-	if( $terms ) : 
-		foreach ( $terms as $term ) :
-			$selections .=  '
-			<div class="post-grid__filter__checkbox">
-				<label for="'.$term->slug.'-filter">
-					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
-					<span>'.$term->name.'</span>
-				</label>
-			</div>';
-		endforeach;
-	endif;
-
-
-	$solutionfilters = '
-	<div class="post-grid__filter__fieldset">
-		<fieldset>
-			<legend class="post-grid__filter__legend">'.__('Solution', 'sig').'</legend>
-			'.$selections.'
-		</fieldset>
-	</div>';
-
-    $filternum++;
-
-}
 
 //POST TYPE SELECTOR
-$typefilters = '';
+
 if( $search_options && in_array('type', $search_options) ) {
 	
 	$selections = '';
@@ -140,10 +71,10 @@ if( $search_options && in_array('type', $search_options) ) {
 			</div>';
 		endforeach;
 		
-		$typefilters = '
+		$filters .= '
 		<div class="post-grid__filter__fieldset">
 			<fieldset>
-				<legend class="post-grid__filter__legend">'.__('Insight Type', 'sig').'</legend>
+				<legend class="post-grid__filter__legend">'.__('Filter by Category', 'sig').'</legend>
 				'.$selections.'
 			</fieldset>
 		</div>';
@@ -153,6 +84,77 @@ if( $search_options && in_array('type', $search_options) ) {
 	}
 	
 }
+
+if( $search_options && in_array('cat', $search_options) ) {
+
+	$selections = $terms = '';
+
+	$terms = get_terms( array( 
+		'taxonomy' => 'category', 
+		'orderby' => 'count',
+		'order' => 'DESC',
+		'hide_empty' => true,
+	));
+	if( $terms ) : 
+		foreach ( $terms as $term ) :
+			//&nbsp;['.$term->count.']</span>
+			$selections .=  '
+			<div class="post-grid__filter__checkbox">
+				<label for="'.$term->slug.'-filter">
+					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
+					<span>'.$term->name.'</span>
+				</label>
+			</div>';
+		endforeach;
+	endif;
+
+
+	$filters .= '
+	<div class="post-grid__filter__fieldset">
+		<fieldset>
+			<legend class="post-grid__filter__legend">'.__('Filter by Topic', 'sig').'</legend>
+			'.$selections.'
+		</fieldset>
+	</div>';
+
+    $filternum++;
+}
+
+/* if( $search_options && in_array('tag', $search_options) ) {
+
+	$selections = $terms = '';
+
+	$terms = get_terms( array( 
+		'taxonomy' => 'post_tag', 
+		'orderby' => 'count',
+		'order' => 'DESC',
+		'hide_empty' => true,
+	));
+	if( $terms ) : 
+		foreach ( $terms as $term ) :
+			//&nbsp;['.$term->count.']</span>
+			$selections .=  '
+			<div class="post-grid__filter__checkbox">
+				<label for="'.$term->slug.'-filter">
+					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
+					<span>'.$term->name.'</span>
+				</label>
+			</div>';
+		endforeach;
+	endif;
+
+
+	$filters .= '
+	<div class="post-grid__filter__fieldset">
+		<fieldset>
+			<legend class="post-grid__filter__legend">'.__('Filter by Topic', 'sig').'</legend>
+			'.$selections.'
+		</fieldset>
+	</div>';
+
+    $filternum++;
+} */
+
 
 
 //SEARCH
@@ -178,7 +180,7 @@ if($filternum > 0) {
     
 	$sort = '
 	<div class="post-grid__filters">
-        '.$solutionfilters.$themefilters.$typefilters.'
+        '.$filters.'
 	</div>';					
 }
 

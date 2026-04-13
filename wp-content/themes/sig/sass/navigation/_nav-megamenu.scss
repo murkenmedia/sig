@@ -475,6 +475,9 @@ ul.mega-menu__content {
         max-width: 250px;
         padding-top: 25px;
         position: relative;
+        gap:25px;
+        flex-direction: column;
+        //justify-content: space-between;
         
         &:before {
             content: '';
@@ -501,17 +504,18 @@ ul.mega-menu__content {
         
        >  a {
             display: block;
-            min-height: 80px;
+            //min-height: 80px;
             @include sans($weight:600);
             font-size: 2rem;
             line-height: 1.2;
         }
+        
     }
     
     .mega-menu__description {
         display: block;
-        margin-top: 15px;
-        margin-bottom: 50px;
+        //margin-top: 15px;
+        //margin-bottom: 50px;
         @include sans();
         font-size: 1.2rem;
         color: #FFF;
