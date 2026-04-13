@@ -22,7 +22,7 @@ article.tile {
 
 /* post-grid.scss */
 
-.post-grid {
+.post-grid-block {
     width: 100%;
     display: flex;
 
@@ -35,38 +35,224 @@ article.tile {
 		flex-wrap: nowrap;
 	}
 }
-.post-grid__column {
-
+.post-grid-block__column {
+	position: relative;
 	flex-grow: 1;
 
-	&.post-grid__sort-column {
-		flex-basis: 300px;
-		max-width: 300px;
-	}
-	
+	@media (min-width: $md) {
+		&.sort-column {
+			flex-basis: 250px;
+		}
+
+		&.posts-column {
+			flex-basis: calc(100% - 250px);
+		}
+	}	
 }
 
-.tiles-grid.post-grid__posts.tiles-stacked-content {
+.post-grid.tiles-grid.tiles-stacked-content {
 
-	@media (min-width: $lg) {
-        column-gap: 40px;
+	@media (min-width: $sm) {
+		column-gap: 40px;
+		flex-direction: row;
+		display: flex;
+		flex-wrap: wrap;
+
+        .tile__img {
+			max-height: 240px;
+		}
+            
+		.tile {
+			max-width: calc(50% - 20px);
+		}
+
+	}
+
+	@media (min-width: 1200px) {
             
 		.tile {
 			max-width: calc(33.3% - 27px);
-
-			.wp-block-button {
-				display: none;
-			}
-		}
-
-		.tile__img {
-			max-height: 240px;
 		}
 	}
 }
 
-.post-grid__posts {
-/*    width: 100%;
+.post-grid__tile.tile {
+	display: none;
+
+	&.filter-active {
+		display: flex;
+	}
+}
+
+.tile__content__cpt-date {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 20px;
+	font-size: 1.05rem;
+	letter-spacing: 1px;
+	
+	span.cpt {
+		text-transform: uppercase;
+
+	}
+
+	span.date {
+		color: rgba($bluemed, 0.7);
+		
+	}
+}
+
+//////////////FILTERS
+
+.post-grid__filters {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    gap: 30px;
+	
+    label {
+        font-size:1.1rem;
+        line-height:1.3rem;
+    }
+    
+    fieldset {
+        display: block;
+        width: 100%;
+    }
+    
+
+	@media (min-width: $md) {
+		flex-direction: column;
+
+	}
+   
+}
+
+.post-grid__filter__fieldset {
+	display: block;
+	
+}
+.post-grid__filter__legend {
+    color: $blue;
+    @include sans($weight:500);
+    font-size:1.3rem;
+    line-height:1.6rem;
+    margin-bottom: 15px;
+}
+
+.post-grid__filter__checkbox {
+	display: block;
+	position: relative;
+	margin-bottom: 15px;
+
+	label {
+		position: relative;
+		width: 100%;
+		margin-bottom: 0;
+		display:flex;
+		margin: 0;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		gap: 10px;
+		align-items: center;
+		max-width: 270px;
+		cursor: pointer;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		appearance: none;
+		width: 20px;
+		height: 20px;
+		border: 2px solid $bluedark;
+		border-radius: 4px;
+		cursor: pointer;
+		position: relative;
+		background-color: #fff;
+	}
+
+	input[type="checkbox"]:checked,
+	input[type="radio"]:checked {
+		background-color:$bluemed;
+		border-color: $bluemed;
+	}
+
+	input[type="radio"]:checked::after,
+	input[type="checkbox"]:checked::after {
+		content: "";
+		position: absolute;
+		left: 6px;
+		top: 2px;
+		width: 5px;
+		height: 10px;
+		border: solid white;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+
+}
+
+.post-grid__message {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+
+}
+
+.post-grid__empty {
+    display: none;
+    
+    &.active {
+        display: block;
+    }
+}
+
+.post-grid__reset {
+    opacity: 0;
+    @include transition(opacity $medspeed $ease);
+    //text-decoration: underline !important;
+    color: $blue;
+    &.active {
+        opacity: 1;
+    }
+}
+
+.post-grid__load-btn {
+	@include borderRadius(30px);
+	@include transition(all $medspeed $ease);
+	position: relative;
+	border:none; 
+	//text-transform: uppercase;	
+	
+	
+	padding: 15px 40px 14px 40px;
+	background-color:$btn-bg;
+	color: $btn-text;
+	
+	@include sans($weight:600);
+	font-size: 1.2rem;
+	line-height: 1.4;
+
+	 &:hover, &:active, &:focus {
+		outline: none;
+		background-color:$btn-bg-hover;
+		color: #FFF;
+		@include transition(all 0.2s $ease);
+		text-decoration: none;
+		
+		
+		&.green-hover {
+			background-color:$green;
+			color: $blue;
+		}
+	}
+}
+
+
+/* .post-grid__posts {
+	width: 100%;
     max-width: $xl;
     margin: 0 auto;
     position: relative;
@@ -79,7 +265,7 @@ article.tile {
         column-gap: 60px;
         flex-direction: row;        
         flex-wrap: wrap;
-    }*/
+    }
 
     &.loading-posts {
         padding-bottom: 96px;
@@ -95,17 +281,9 @@ article.tile {
     }
 
 
-}
+} */
 
-.post-grid__posts__message {
-    width: 100%;
-    text-align: center;
-    padding-top: 20px;
-    
-/*    &.hide p.btn {
-		display: none;
-	}*/
-}
+/* 
 
 
 .post-grid__posts__loading {
@@ -123,14 +301,14 @@ article.tile {
 		@include opacity(1);
 		@include transition(opacity $speed3 ease-out);
 	}
-}
+} */
 
 
 
 //SEE three-col-grid.scss AND post-grid.scss
 
 
-.post-navigation {
+/* .post-navigation {
 	margin: 3rem 0;
 }
 
@@ -152,68 +330,10 @@ article.tile {
 
 
 
-.search-filter__form {
-	margin-bottom: 40px;
-	padding:0;	
-	width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap:20px;
 
-	select.custom-select {
-		width: 100%;
-		@include borderRadius(10px);
-		border: 1px solid $bluedark;
-	}
-	
-	select, input, button {
-		font-weight: 600;
-		color: $text;
-		font-size: 1.2rem;
-		line-height: 1.6rem;
-		border: 0;
-		
-		 background-color: #FFF;
-		padding: 10px 20px;
-		//min-width: 25%;
-		text-transform: capitalize;
-		height: 50px;
-		
-		
-		&:focus {
-			outline: 0;
-			box-shadow:0;
-		}
-	}
 
-	
-	
-	input[type="text"] {
 
-		@include input-placeholder {
-			color:$text;
-			@include opacity(1);
-		}
-		
-	}
-	
-}
 
-.search-filter__col {
-    width: 100%;
-    
-    /* @media (min-width: $sm) {
-         max-width: calc(50% - 10px);
-    }
-    
-    @media (min-width: $lg) {
-        &.filters-3 {
-            max-width: calc(33% - 18px);
-        }
-    } */
-}
 
 .search-filter__search {
     .search-group {
@@ -250,4 +370,56 @@ article.tile {
         background-color: $blue;
         color:#FFF;
     }
+} */
+
+
+
+
+
+
+
+/* .post-grid__posts  {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+	
+	@media (min-width: $sm) {
+        margin-left: -20px;
+	    margin-right: -20px;
+        
+    }
 }
+
+
+.post-grid__item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    
+    width: 100%;
+    margin-bottom:30px;
+    
+    @media (min-width: $sm) {
+        width: calc(33% - 40px );
+        margin-right:20px;
+        margin-left: 20px;
+        margin-bottom:30px;
+    }
+
+    @media (min-width: $lg) {
+        width: calc(33.33% - 40px );
+    }
+    
+
+    
+       
+    &:hover img{
+        transform-origin: center center;
+        @include transition(transform $speed7 $ease);
+        @include transform(scale(1.1));
+    }
+    
+    
+    
+} */

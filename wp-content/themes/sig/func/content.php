@@ -206,35 +206,6 @@ if ( ! function_exists( 'get_hero_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'get_post_hero' ) ) {
-	/**
-	 * GET POST HERO
-	 *
-	 * @since 1.0.0
-	 */
-	function get_post_hero($id, $parentlink='', $parenttitle='') {
-        
-        /* $title = widowfix(get_the_title($id));
-        $titleclass = '';
-        if(strlen($title) > 50) {
-            $titleclass = ' has-long-title';
-        }
-        $breadcrumb = '';
-        if($parentlink != '') {
-             $breadcrumb = '<p class="hero__content__pretitle mb-4 blue-medium-link"><a href="'.$parentlink.'">'.$parenttitle.'</a></p>';
-        }
-        <div class="hero__content max-xl">
-                    '.$breadcrumb.'
-                     <h1 class="hero__content__title has-white-color d-block'.$titleclass.'">'.$title.'</h1>
-                </div> */
-       
-        return '
-        <div class="hero alignfull secondary-hero short-hero '.$class.'">
-            
-        </div>';
-	}
-}
-
 if ( ! function_exists( 'get_hero_with_custom_text' ) ) {
 	/**
 	 * GET 404 HERO
@@ -259,57 +230,7 @@ if ( ! function_exists( 'get_hero_with_custom_text' ) ) {
 }
 
 
-if ( ! function_exists( 'get_post_block' ) ) {
-	/**
-	 * GET POST BLOCK
-	 *
-	 * @since 1.0.0
-	 */
-	
-	function get_post_block($id) {
-		$blockclass = '';
-        $lineclamp = 'line-clamp-6';
-        $titleclass = ' has-regular-font-size';
-		$title = widowfix(get_the_title($id));
-        if(strlen($title) > 65) {
-            $titleclass = ' has-small-font-size';
-            $lineclamp = 'line-clamp-3';
-        }
 
-		$excerpt = get_the_excerpt($id);
-        //$excerpt = wp_trim_words( $excerpt, 50 , '...' );
-
-		$url = get_the_permalink($id);
-        
-		$img = get_default_image($id);
-
-        $date = get_the_date('F j, Y', $id);
-
-		$content = '
-		<article class="tile">
-			<figure class="tile__img">
-				<a href="'.$url.'" tabindex="-1">
-                    <span class="sr-only">'.$title.'</span>
-					'.$img.'
-				</a>
-			</figure>
-            <div class="tile__content pt-1">
-                <p class="tile__content__date has-blue-medium-color mb-2">'.$date.'</p>
-                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>
-                
-                <p class="'.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
-                <div class="wp-block-button">
-                    <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
-                    <span>'.__('Read More', 'sig').'<span><span class="sr-only">: '.$title.'</span></a>
-                </div>
-            </div>
-		</article>';
-		
-
-		return $content;
-	}
-
-}
 
 
 if ( ! function_exists( 'get_social_share' ) ) {

@@ -7,28 +7,20 @@
  */
 
 $block_classes = array(
-	'post-grid',
+	'post-grid-block',
 	'fade-in ',
 );
 
-$blog = $cat = $tag = $content = $terms = $sort = $showevents = $loadposts = '';
-
-$typecontent = $catcontent = $searchcontent = $tagcontent = '';
-
-$cptarr = array();
-
 $filternum = 0;
 
-$cat = get_field('category');
-$tag = get_field('tag');
 $max = get_field('max');
-
+$loadposts = '';
 if(get_field('load_posts')) {
 	$loadposts= true;
 }
 
-$args = array();
-$args['posts_per_page'] = $max;
+$args = $cptarr = array();
+$args['posts_per_page'] = -1;
 
 ////////CPT
 if(get_field('type')) {
@@ -36,141 +28,127 @@ if(get_field('type')) {
 } else {
 	$types = array('post');
 }
-
 foreach( $types as $type ):
 	array_push($cptarr, $type['value']);
 endforeach;
 $cpts = implode(',', $cptarr);
-$defaultctp = ' data-cpt="'.$cpts.'" ';
 $args['post_type'] = $cptarr;
 
 
-////////CATS
-$defaultcats = ' data-cats="" ';
-if($cat != '') {
-	$args['cat'] = $cat;
-
-	$dcats = implode(', ', $cat);
-	$defaultcats = ' data-cats="'.$dcats.'" ';
-}
-
-////////TAGS
-$defaulttags = ' data-tags="" ';
-if($tag != '') {
-	$args['tag__in'] = $tag;
-
-	$dtags = implode(', ', $tag);
-	$defaulttags = ' data-tags="'.$dtags.'" ';
-}	
-$page = 1;
-
-//CAT TAX
-$cattax = 'category';
-
-//TAG TAX
-$tagtax = 'post_tag';
-
-
-//get articles
-$blog = get_post_blocks($args,$loadposts,$page);
+$blog = get_filter_post_blocks($args,$max,$loadposts);
 
 //search sort
 $search_options = get_field('search_sort');
 
+//THEMES
+$themefilters = '';
+if( $search_options && in_array('insight_theme', $search_options) ) {
+	$selections = $terms = '';
 
-//IF THE CATEGORIES ARE SET, THEN THE DROPDOWN WILL LIST THOSE OPTIONS. OTHERWISE SHOW ALL:
-
-if( $search_options && in_array('cat', $search_options) ) {
-
-	$catcontent .= '
-		<div class="search-filter__col search-filter__cat">
-			<label for="search-filter__cat__select" class="sr-only">'.__('Filter by Category', 'h4c').'</label>
-			<select name="search-filter__cat__select" class="custom-select" id="search-filter__cat__select">
-				<option value="CATEGORY">'.__( 'Filter by Category', 'h4c' ).'</option>';
-
-	if($cat != '') {
-		$cats = $cat;						
-		foreach ( $cat as $c ) {							
-			$cat_id = get_term_by('id', $c, $cattax);							
-			$catcontent .=  '<option value="' . $c . '">' . $cat_id->name . '</option>';
-		}						
-	} else {
-		
-		$terms = get_terms( array( 
-			'taxonomy' => $cattax, 
-			'orderby' => 'count',
-            'order' => 'DESC',
-			'hide_empty' => true,
-			'exclude' => array(1)
-		));
-		if( $terms ) : 
-			foreach ( $terms as $term ) :
-				$catcontent .=  '<option value="' . $term->term_id . '">' . $term->name . ' ('.$term->count.')</option>'; 
-			endforeach;
-		endif;
-		
-	}
+	$terms = get_terms( array( 
+		'taxonomy' => 'insight_theme', 
+		'orderby' => 'count',
+		'order' => 'DESC',
+		'hide_empty' => true,
+	));
+	if( $terms ) : 
+		foreach ( $terms as $term ) :
+			//&nbsp;['.$term->count.']</span>
+			$selections .=  '
+			<div class="post-grid__filter__checkbox">
+				<label for="'.$term->slug.'-filter">
+					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
+					<span>'.$term->name.'</span>
+				</label>
+			</div>';
+		endforeach;
+	endif;
 
 
-	$catcontent .=  '</select></div>';
+	$themefilters = '
+	<div class="post-grid__filter__fieldset">
+		<fieldset>
+			<legend class="post-grid__filter__legend">'.__('Theme', 'sig').'</legend>
+			'.$selections.'
+		</fieldset>
+	</div>';
+
     $filternum++;
+
 }
 
-//TAG
-if( $search_options && in_array('tag', $search_options) ) {
+$solutionfilters = '';
+if( $search_options && in_array('insight_solution', $search_options) ) {
+	$selections = $terms = '';
 
-	$tagcontent .= '
-		<div class="search-filter__col search-filter__tag">
-			<label for="search-filter__tag__select" class="sr-only">'.__('Filter by Tag', 'h4c').'</label>
-			<select name="search-filter__tag__select" class="custom-select" id="search-filter__tag__select">
-				<option value="TAG">'.__( 'Filter by Tag', 'h4c' ).'</option>';
+	$terms = get_terms( array( 
+		'taxonomy' => 'insight_solution', 
+		'orderby' => 'count',
+		'order' => 'DESC',
+		'hide_empty' => true,
+	));
+	if( $terms ) : 
+		foreach ( $terms as $term ) :
+			$selections .=  '
+			<div class="post-grid__filter__checkbox">
+				<label for="'.$term->slug.'-filter">
+					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
+					<span>'.$term->name.'</span>
+				</label>
+			</div>';
+		endforeach;
+	endif;
 
-	//IF THE TAGS ARE SET, THEN THE DROPDOWN WILL LIST THOSE OPTIONS. OTHERWISE SHOW ALL:
 
-	if($tag != '') {
-		$tags = $tag;						
-		foreach ( $tags as $t ) {							
-			$tag_id = get_term_by('id', $t, 'post_tag');							
-			$tagcontent .=  '<option value="' . $t . '">' . $tag_id->name . '</option>';
-		}						
-	} else {
-		
-		$tags = get_tags();
-        foreach ( $tags as $t ) {
-            $tagcontent .=  '<option value="' . $t->term_id . '">' . $t->name . '</option>';
-        }
-							
-	}					
+	$solutionfilters = '
+	<div class="post-grid__filter__fieldset">
+		<fieldset>
+			<legend class="post-grid__filter__legend">'.__('Solution', 'sig').'</legend>
+			'.$selections.'
+		</fieldset>
+	</div>';
 
-	$tagcontent .=  '</select></div>';
     $filternum++;
 
 }
 
 //POST TYPE SELECTOR
+$typefilters = '';
 if( $search_options && in_array('type', $search_options) ) {
 	
-	$cptdropdown = '';
-	//only show if bigger than one
+	$selections = '';
+
 	if(count($types) > 1) {
-		
-		$alllabel = __( 'All Insights', 'sig' );
-		
-		$cptdropdown .= '<option value="'.$cpts.'">'.$alllabel.'</option>';
-		
-		//create dropdown
+	
 		foreach( $types as $type ):
-			$cptdropdown .= '<option value="'.$type['value'].'">'.$type['label'].'</option>';
+
+			$args = array(
+				'post_type' => $type['value'],
+				'posts_per_page' => 1
+			);
+			$the_query = new WP_Query( $args );
+
+			//$total = $the_query->found_posts;
+			//'&nbsp;['.$total.']</span>
+
+			$selections .=  '
+			<div class="post-grid__filter__checkbox">
+				<label for="'.$type['value'].'-filter">
+					<input type="radio" class="post-grid__filter" name="type" value="'.$type['value'].'" id="'.$type['value'].'-filter"  />
+					<span>'.$type['label'].'</span>
+				</label>
+			</div>';
 		endforeach;
 		
-		$typecontent = '
-		<div class="search-filter__col search-filter__type">
-			<label for="search-filter__cat__select" class="d-none">'.$type['label'].'</label>
-			<select name="search-filter__type__select" class="custom-select" id="search-filter__type__select">
-				'.$cptdropdown.'
-			</select>
+		$typefilters = '
+		<div class="post-grid__filter__fieldset">
+			<fieldset>
+				<legend class="post-grid__filter__legend">'.__('Insight Type', 'sig').'</legend>
+				'.$selections.'
+			</fieldset>
 		</div>';
-		$showsort = true;
+
+    	$filternum++;
 		
 	}
 	
@@ -178,7 +156,7 @@ if( $search_options && in_array('type', $search_options) ) {
 
 
 //SEARCH
-if( $search_options && in_array('search', $search_options) ) {
+/* if( $search_options && in_array('search', $search_options) ) {
 	$searchcontent = '
 	<div class="search-filter__col search-filter__search">
 		<div class="input-group search-group">
@@ -193,28 +171,30 @@ if( $search_options && in_array('search', $search_options) ) {
 	</div>';
     
     $filternum++;
-}
+} */
 
+$sort = '';
 if($filternum > 0) {
     
 	$sort = '
-	<div class="search-filter">
-        <form method="post" id="search-filter" class="form-inline search-filter__form filters-'.$filternum.'">
-            '.$catcontent.$tagcontent.$typecontent.$searchcontent.'
-        </form>
-        <div class="search-filter__loader"></div>
+	<div class="post-grid__filters">
+        '.$solutionfilters.$themefilters.$typefilters.'
 	</div>';					
 }
 
 ?>
 
 <div id="<?php echo esc_attr( $block['id'] ); ?>" class="<?php echo esc_attr( implode( ' ', $block_classes ) ); ?>">
-	<div class="post-grid__column post-grid__sort-column">
+	<div class="post-grid-block__column sort-column">
     	<?php echo $sort; ?>
 	</div>
-	<div class="post-grid__column">
-		<div class="tiles-grid tiles-stacked-content post-grid__posts" data-page="1" data-max="<?php echo $max; ?>" <?php echo $defaulttags; ?> <?php echo $defaultcats; ?>" <?php echo $defaultctp; ?> >		
-			<?php echo $blog; ?>			
+	<div class="post-grid-block__column posts-column">
+		<div class="post-grid tiles-grid tiles-stacked-content" >		
+			<?php echo $blog; ?>
+			<div class="post-grid__message">
+				<button class="post-grid__load-btn">Load More</button>
+			</div>		
 		</div>
+		
 	</div>
 </div>

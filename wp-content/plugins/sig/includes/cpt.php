@@ -50,7 +50,7 @@ function sig_create_post_type() {
         'menu_position'       => 28,
         'show_in_rest' => true,
         "rewrite" => [ "slug" => "events", "with_front" => false ],
-        'taxonomies'  => array('event_category'),
+        //'taxonomies'  => array('event_category'),
         'menu_icon'   => 'dashicons-calendar-alt',		
         'supports'   => array("title", "editor", "thumbnail", "excerpt"),
         )

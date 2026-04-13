@@ -48,34 +48,48 @@ if ( ! function_exists( 'get_blog_hero' ) ) {
     }
 }
 
-/* if ( ! function_exists( 'get_post_block' ) ) {
-
+if ( ! function_exists( 'get_post_block' ) ) {
+	/**
+	 * GET POST BLOCK
+	 *
+	 * @since 1.0.0
+	 */
 	
 	function get_post_block($id) {
 		$blockclass = '';
-		$title = get_the_title($id);
-		$date = get_the_date('F j, Y', $id);		
+        $lineclamp = 'line-clamp-6';
+        $titleclass = ' has-regular-font-size';
+		$title = widowfix(get_the_title($id));
+        if(strlen($title) > 65) {
+            $titleclass = ' has-small-font-size';
+            $lineclamp = 'line-clamp-3';
+        }
+
 		$excerpt = get_the_excerpt($id);
-        $excerpt = wp_trim_words( $excerpt, 50 , '...' );
+        //$excerpt = wp_trim_words( $excerpt, 50 , '...' );
+
 		$url = get_the_permalink($id);
         
 		$img = get_default_image($id);
-		
+
+        //$date = get_the_date('F j, Y', $id);
+        //<p class="tile__content__date has-blue-medium-color mb-2">'.$date.'</p>
+
 		$content = '
-		<article class="post-grid three-col-grid__item">
-			<figure class="post-grid__img">
+		<article class="tile">
+			<figure class="tile__img">
 				<a href="'.$url.'" tabindex="-1">
                     <span class="sr-only">'.$title.'</span>
 					'.$img.'
 				</a>
 			</figure>
-            <div class="post-grid__content">
-                <h3 class="post-grid__content__title mb-2 sans-bold has-regular-font-size"><a href="'.$url.'" tabindex="-1">'.$title.'</a></h3>
-                <p class="post-grid__content__date mb-2 has-blue-medium-color weight-600">'.$date.'</p>
-                <p class="line-clamp">'.$excerpt.'</p>
-                <div class="wp-block-button is-style-border-btn post-grid__content__btn">
-                    <a class="wp-block-button__link" href="'.$url.'">
-                    '.__('Read More', 'sig').'<span class="sr-only">: '.$title.'</span></a>
+            <div class="tile__content pt-1">
+                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>
+                
+                <p class="'.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
+                <div class="wp-block-button">
+                    <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
+                    <span>'.__('Read More', 'sig').'<span><span class="sr-only">: '.$title.'</span></a>
                 </div>
             </div>
 		</article>';
@@ -84,7 +98,7 @@ if ( ! function_exists( 'get_blog_hero' ) ) {
 		return $content;
 	}
 
-} */
+}
 
 if ( ! function_exists( 'get_post_blocks' ) ) {
 	/**
@@ -138,13 +152,134 @@ if ( ! function_exists( 'get_post_blocks' ) ) {
 	
 }
 
-if ( ! function_exists( 'get_related_blog_articles' ) ) {
+
+if ( ! function_exists( 'get_post_block_with_filters' ) ) {
+	/**
+	 * GET POST BLOCK
+	 *
+	 * @since 1.0.0
+	 */
+	
+	function get_post_block_with_filters($id,$class='') {
+		$blockclass = '';
+        $lineclamp = 'line-clamp-6';
+        $titleclass = ' has-regular-font-size';
+		$title = widowfix(get_the_title($id));
+        if(strlen($title) > 65) {
+            $titleclass = ' has-small-font-size';
+            $lineclamp = 'line-clamp-3';
+        }
+
+        $classes = array();
+        array_push($classes,$class);
+
+        $posttype = get_post_type($id);
+        array_push($classes, $posttype);
+
+        $posttypetitle = '';
+        if($posttype == 'post') {
+            $posttypetitle = 'insight';
+        } else {
+            $posttypetitle = $posttype;
+        }
+        $posttypetitle = '<span class="cpt">'.ucwords($posttypetitle).'</span>';
+
+        $terms = get_the_terms( $id, 'insight_theme' );						
+        if ( $terms && ! is_wp_error( $terms ) ) : 
+            foreach ( $terms as $term ) {
+                $classes[] = $term->slug;
+            }
+        endif;
+
+        $terms = get_the_terms( $id, 'insight_solution' );						
+        if ( $terms && ! is_wp_error( $terms ) ) : 
+            foreach ( $terms as $term ) {
+                $classes[] = $term->slug;
+            }
+        endif;
+
+		$excerpt = get_the_excerpt($id);
+        if($excerpt == '') {
+            $excerpt = 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ';
+        }
+        //$excerpt = wp_trim_words( $excerpt, 50 , '...' );
+		$url = get_the_permalink($id);
+        
+		$img = get_default_image($id);
+        //F j, Y
+        //$date = '<span class="date">'.get_the_date('n/j/y', $id).'</span>';
+
+        /* <div class="wp-block-button">
+            <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
+            <span>'.__('Read More', 'sig').'<span><span class="sr-only">: '.$title.'</span></a>
+        </div> */
+
+		$content = '
+		<article class="tile post-grid__tile '.esc_attr( implode( ' ', $classes ) ).'">
+			<figure class="tile__img">
+				<a href="'.$url.'" tabindex="-1">
+                    <span class="sr-only">'.$title.'</span>
+					'.$img.'
+				</a>
+			</figure>
+            <div class="tile__content pt-1">
+                <p class="tile__content__cpt-date mb-2 sans-600 has-blue-medium-color">'.$posttypetitle.'</p>
+                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>
+                
+                <p class="'.$lineclamp.' has-small-font-size mb-0">'.$excerpt.'</p>
+                
+            </div>
+		</article>';
+		
+
+		return $content;
+	}
+
+}
+if ( ! function_exists( 'get_filter_post_blocks' ) ) {
+	/**
+	 * GET POST ALL BLOCKS
+	 *
+	 * @since 1.0.0
+	 */
+	function get_filter_post_blocks($args, $max = 9, $loadposts=false) {
+		$blocks = $class = '';
+
+		$the_query = new WP_Query( $args );
+
+        $num = 0;
+		if ( $the_query->have_posts() ) {
+                
+            while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                $postid = get_the_id();
+
+                $class='';
+                if($num < $max) {
+                    $class='filter-active';
+                }
+                $blocks .= get_post_block_with_filters($postid,$class);
+
+                $num++;
+            }
+
+            wp_reset_postdata();
+        }
+
+        return $blocks;	
+
+	}
+		
+}
+	
+
+if ( ! function_exists( 'get_related_insights_articles' ) ) {
 	/**
 	 * GET RELATED BLOG
 	 *
 	 * @since 1.0.0
 	 */
-    function get_related_blog_articles($id) {
+    function get_related_insights_articles($id) {
         
         $related = $cats =  $title = '';
         
@@ -238,13 +373,13 @@ if ( ! function_exists( 'get_related_blog_articles' ) ) {
 }
 
 
-if ( ! function_exists( 'get_related_blog' ) ) {
+if ( ! function_exists( 'get_related_insights' ) ) {
 	/**
 	 * GET RELATED BLOG
 	 *
 	 * @since 1.0.0
 	 */
-	function get_related_blog($postid='',$tagsarr='',$catsarr='',$type = '',$max=3) { 
+	function get_related_insights($postid='',$themearr='',$solutionarr='',$type = '',$max=3) { 
         
         $excludearr = array();
         array_push($excludearr, $postid);
@@ -256,8 +391,21 @@ if ( ! function_exists( 'get_related_blog' ) ) {
         $args = array( 
             'post_type' => 'post',
             'post_status' => 'publish',
-            'tag__and' => $tagsarr,
-            'category__in' => $catsarr,
+            'tax_query' => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'insight_theme',
+                    'field'    => 'term_id',
+                    'terms'    => $themearr,
+                    //'operator' => 'IN',
+                ),
+                array(
+                    'taxonomy' => 'insight_solution',
+                    'field'    => 'term_id',
+                    'terms'    => $solutionarr,
+                ),
+            ),
+            
             'post__not_in' => $excludearr,
             'posts_per_page'=>$max,
         );
@@ -366,12 +514,12 @@ if ( ! function_exists( 'get_blog_related_link' ) ) {
 	function get_blog_related_link($id) { 
         $url = get_the_permalink($id);
         $title = get_the_title($id);
-        $date = get_the_date('F d, Y', $id);
+        //$date = get_the_date('F d, Y', $id);
+        //<span class="blog-related-link__date">'.$date.'</span>
         
         return '
         <li class="blog-related-link">
             <a class="blog-related-link__link" href="'.$url.'">'.$title.'</a>
-            <span class="blog-related-link__date">'.$date.'</span>
         </li>';
     }
     
