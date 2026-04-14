@@ -51,7 +51,7 @@ if( have_rows('team') ):
 				</div>
 			</div>';
 			
-			$imglink = '<a class="open-popup-link" href="#'.$slug.'" tabindex="-1"><span class="sr-only">'.__('Read '.$name.' bio', 'sig').'</span>';
+			$imglink = '<a class="open-popup-link" href="#'.$slug.'" tabindex="-1"><span class="sr-only">Read '.$name.' Bio</span>';
 
 			$link1 = '<a class="open-popup-link" href="#'.$slug.'">';
 			$link2 = '</a>';
