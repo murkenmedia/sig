@@ -71,7 +71,7 @@ $parentlink = get_home_url().'/events/';
 $parenttitle = 'Events';
 $breadcrumb = '<p class="hero__content__pretitle mb-4 blue-medium-link"><a href="'.$parentlink.'">'.$parenttitle.'</a></p>';
 $hero = '
-<div class="hero alignfull secondary-hero insights-hero'.$heroclass.'">
+<div class="hero alignfull secondary-hero events-hero">
     <div class="hero__content max-xl">
         '.$breadcrumb.'
         <h1 class="insights-single__header__title mb-4 '.$titleclass.'">'.$title.'</h1>

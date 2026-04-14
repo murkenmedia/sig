@@ -3,6 +3,7 @@
 ////CONTENT
 .events-single__content-wrap {
     //max-width: 1200px;
+    margin-bottom: 50px;
     
     a {
         text-decoration: underline;
@@ -25,6 +26,15 @@
     }
 }
 
+.hero.events-hero.secondary-hero {
+    .hero__content {
+        
+
+         @media (min-width: $md) {
+            padding-top: 180px;
+         }
+    }
+}
 
 
 
