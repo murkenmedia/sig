@@ -195,13 +195,13 @@
             display: block;            
             text-align: left;            
 
-            &:hover, &.active {
+            /* &:hover, &.active {
                 .arrow-icon {
                     &:after {
                         margin-left: 10px;                
                     }
                 }
-            }
+            } */
             
         }
         span.content-type-title {

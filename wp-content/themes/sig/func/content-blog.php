@@ -72,18 +72,19 @@ if ( ! function_exists( 'get_post_block' ) ) {
         
 		$img = get_default_image($id);
 
-        //$postype = get_post_type($id);
         //$date = get_the_date('F j, Y', $id);
 
-        $subtitle = '';
+        $subtitle = $tileclass = '';
         if($pretitle = 'cpt') {
             $posttype = get_post_type($id);
             $cpt = get_insight_cpt_title($posttype);
             $subtitle = '<p class="tile__content__pretitle mb-2 sans-600 has-blue-medium-color text-uppercase has-small-font-size letter-spacing-1">'.$cpt.'</p>';
+
+            $tileclass = $posttype.'-tile';
         }
 
 		$content = '
-		<article class="tile">
+		<article class="tile '.$tileclass.'">
 			<figure class="tile__img">
 				<a href="'.$url.'" tabindex="-1">
                     <span class="sr-only">'.$title.'</span>
@@ -92,8 +93,8 @@ if ( ! function_exists( 'get_post_block' ) ) {
 			</figure>
             <div class="tile__content pt-1">
                 '.$subtitle.'
-                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>                
-                <p class="'.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
+                <h3 class="tile__content__title mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>                
+                <p class="tile__content__excerpt '.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
                 <div class="wp-block-button">
                     <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
                     <span>'.__('Read More', 'sig').'<span><span class="sr-only">: '.$title.'</span></a>
@@ -468,7 +469,6 @@ if ( ! function_exists( 'get_blog_related_link' ) ) {
 
         $cpt = get_insight_cpt_title($posttype);
         //$date = get_the_date('F d, Y', $id);
-        //<span class="blog-related-link__date">'.ucfirst($postype).'</span>
         
         return '
         <li class="blog-related-link">

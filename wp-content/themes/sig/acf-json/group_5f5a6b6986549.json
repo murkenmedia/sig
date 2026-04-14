@@ -20,27 +20,6 @@
             "default_value": "",
             "allow_in_bindings": 1,
             "placeholder": ""
-        },
-        {
-            "key": "field_6769abafe1916",
-            "label": "Event Date Field",
-            "name": "publish_date",
-            "aria-label": "",
-            "type": "date_picker",
-            "instructions": "Date the webinar was given. Will sort in chronological order based on this date",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "relevanssi_exclude": 0,
-            "display_format": "m\/d\/Y",
-            "return_format": "d\/m\/Y",
-            "first_day": 1,
-            "allow_in_bindings": 0,
-            "default_to_current_date": 0
         }
     ],
     "location": [
@@ -64,5 +43,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776117312
+    "modified": 1776149645
 }

@@ -22,7 +22,8 @@ if(strlen($title) > 95) {
 
 ////////////FEATURED IMG
 $img = $heroclass = '';
-if(get_field('disable_featured_img')) {
+ $heroclass = ' no-featured-img';
+/* if(get_field('disable_featured_img')) {
     $heroclass = ' no-featured-img';
 } else {
     
@@ -34,7 +35,7 @@ if(get_field('disable_featured_img')) {
             '.wp_get_attachment_image($imgid, 'full').'
         </div>';
     } 
-}
+} */
 
 
 ////////////HERO
@@ -101,16 +102,40 @@ $relatedlinks = '
 
 </div>';
 
+$webinar = '';
+if(get_field('webinar_link', $id)) {
+
+    $vimeourl = get_field('webinar_link', $id);
+
+
+    if(has_post_thumbnail($id)) {
+        $imgid = get_post_thumbnail_id($id);
+        $url = wp_get_attachment_image_url($imgid, 'full');
+        $img = '<img src="'.$url.'" alt="" width="1280" height="720" loading="lazy" class="lazy-video__img" />';
+    } 
+
+    $webinar = '
+    <div id="webinar-'.$id.'" class="lazy-video-wrap fade-in mb-5 simple-video">
+        <div id="video-'.$vimeourl.'" class="lazy-video lazy-vimeo" data-embed="'.$vimeourl.'">
+            <button type="button" class="lazy-video__play">
+                <div class="lazy-video__play__btn"></div>
+                <span class="sr-only">'.__('Play Video', 'sig').'</span>
+            </button>
+            '.$img.'
+        </div>
+    </div>';
+}
+
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('site-content'); ?>>
     <?php echo $hero; ?>
 
-    <?php echo $img; ?>
-
     <div class="insights-single__content-wrap mx-auto">
 
         <div class="insights-single__content">
+            <?php echo $webinar; ?>
             <?php the_content(); ?>
         </div>
 
@@ -141,7 +166,7 @@ $relatedlinks = '
     <div class="insights-single__related-articles related-articles alignfull">
 
         <div class="related-articles__inner">
-            <h4 class="text-center mb-6 has-large-font-size sans-500 has-blue-dark-color">Related Insights</h4>
+            <h4 class="text-center mb-6 has-large-font-size sans-500 has-blue-dark-color">Related Webinars</h4>
 
             <div class="max-xl mx-auto tiles-grid tiles-three-col tiles-stacked-content">
                 <?php echo get_related_insights($id,$topicsarr,$cpt,'',3); ?>
