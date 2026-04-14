@@ -40,9 +40,6 @@ $args = array(
 $grid = get_upcoming_events($args,$today);
 
 
-
-
-
 if ($grid == '') {
 	$grid = '
 	<div class="events-grid__message">
