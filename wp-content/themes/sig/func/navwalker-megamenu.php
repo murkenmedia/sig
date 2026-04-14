@@ -3,7 +3,7 @@
  function remove_active_class_from_blog( $classes, $item ) {
     // Check if we are on a single post or post type archive
     // AND if the menu item title is 'Blog'
-    if( ( is_singular( 'case-study' ) || is_archive() || is_singular( 'solutions' ) || is_singular( 'platforms' ) ) && $item->title == 'Insights' ){
+    if( ( is_singular( 'case-study' ) || is_archive() || is_singular( 'solutions' ) || is_singular( 'platforms' ) || is_singular( 'events' ) ) && $item->title == 'Insights' ){
         // Remove 'current_page_parent' or 'current-menu-item' from the classes array
         $classes = array_diff( $classes, array( 'current_page_parent', 'current-menu-item' ) );
     }
