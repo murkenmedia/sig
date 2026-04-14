@@ -18,12 +18,11 @@
             },
             "choices": {
                 "type": "Post Type",
-                "cat": "Categories",
-                "tag": "Tags"
+                "topics": "Topics"
             },
             "default_value": [
-                "cat",
-                "tag"
+                "type",
+                "topics"
             ],
             "return_format": "value",
             "allow_custom": 0,
@@ -136,5 +135,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776111012
+    "modified": 1776116588
 }

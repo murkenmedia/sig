@@ -1,0 +1,68 @@
+{
+    "key": "group_5f5a6b6986549",
+    "title": "Webinar Fields",
+    "fields": [
+        {
+            "key": "field_5f595f249c628",
+            "label": "On-Demand Webinar URL",
+            "name": "webinar_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Vimeo Link or other external link",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "default_value": "",
+            "allow_in_bindings": 1,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6769abafe1916",
+            "label": "Event Date Field",
+            "name": "publish_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Date the webinar was given. Will sort in chronological order based on this date",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "relevanssi_exclude": 0,
+            "display_format": "m\/d\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1,
+            "allow_in_bindings": 0,
+            "default_to_current_date": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "webinar"
+            }
+        ]
+    ],
+    "menu_order": 17,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1776117312
+}
