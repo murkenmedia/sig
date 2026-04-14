@@ -26,7 +26,7 @@
             "name": "google_analytics",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "<strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "instructions": "Placement is just right after the opening <code>&lt;head&gt;<\/code> tag. <strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -36,87 +36,50 @@
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 10,
             "placeholder": "",
             "new_lines": ""
         },
         {
             "key": "field_65b0011a9e8a8",
-            "label": "Google Tag Manager Snippet (Script Only)",
-            "name": "gtm_script",
+            "label": "Head Tag Scripts",
+            "name": "head_scripts",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Only include the <code>&lt;script&gt;!(function(w,d,s,l,i)......&lt;\/script&gt;<\/code> section of the snippet. <br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "instructions": "Placement is just before the closing <code>&lt;\/head&gt;<\/code> tag. <strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 10,
             "placeholder": "",
             "new_lines": ""
         },
         {
-            "key": "field_65b001509e8a9",
-            "label": "Google Tag Manager Snippet (Noscript Only)",
-            "name": "gtm_img",
+            "key": "field_69deb40a8b95b",
+            "label": "Body Tag Scripts",
+            "name": "body_scripts",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Only include the <code>&lt;noscript&gt;&lt;iframe src....&lt;\/iframe&gt;&lt;\/noscript&gt;<\/code> section of the snippet.<br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
+            "instructions": "Placement is right after the opening <code>&lt;body&gt;<\/code> tag. <strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 10,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_65affd587a389",
-            "label": "Facebook Pixel Snippet (Script Only)",
-            "name": "facebook_pixel_script",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Only include the <code>&lt;script&gt;!function(f,b,e,v,n,t,s)......&lt;\/script&gt;<\/code> section of the snippet.<br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 15,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_65affe1e720f6",
-            "label": "Facebook Pixel Snippet (Noscript Only)",
-            "name": "facebook_pixel_img",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Only include the <code>&lt;noscript&gt;<img height=\"1\"......&lt;\/noscript&gt;<\/code> section of the snippet.<br \/><strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "rows": 15,
             "placeholder": "",
             "new_lines": ""
         },
@@ -126,7 +89,7 @@
             "name": "footer_scripts",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "Optional. Use this field to include scripts in the footer of the website.",
+            "instructions": "Placement is right before the closing <code>&lt;\/body&gt;<\/code> tag. <strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -136,6 +99,7 @@
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "rows": 15,
             "placeholder": "",
             "new_lines": ""
@@ -268,5 +232,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1774246135
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1776203127
 }
