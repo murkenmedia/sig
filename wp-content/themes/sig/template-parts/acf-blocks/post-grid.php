@@ -139,7 +139,7 @@ if($filternum > 0) {
 		<div class="post-grid tiles-grid tiles-stacked-content">		
 			<?php echo $grid; ?>
 			<div class="post-grid__message">
-				<button class="post-grid__load-btn">Load More</button>
+				<button class="post-grid__load-btn" data-max="<?php echo $max; ?>">Load More</button>
 			</div>		
 		</div>
 		

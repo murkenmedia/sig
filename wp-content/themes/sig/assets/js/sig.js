@@ -822,9 +822,10 @@ jQuery.noConflict();
         }
       }
       jQuery('.post-grid__load-btn').on('click', function () {
-        var tiles = jQuery('.post-grid__tile:not(.filter-active)');
-        if (tiles.length >= 9) {
-          jQuery('.post-grid__tile:not(.filter-active)').slice(0, 9).addClass('filter-active');
+        var tiles = jQuery('.post-grid__tile:not(.filter-active)'),
+          max = jQuery(this).data('max');
+        if (tiles.length >= max) {
+          jQuery('.post-grid__tile:not(.filter-active)').slice(0, max).addClass('filter-active');
         } else {
           jQuery('.post-grid__tile:not(.filter-active)').addClass('filter-active');
           jQuery('.post-grid__load-btn').hide();

@@ -104,7 +104,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 21,
+            "default_value": 10,
             "min": -1,
             "max": "",
             "allow_in_bindings": 1,
@@ -135,5 +135,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776116588
+    "modified": 1776133862
 }

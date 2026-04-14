@@ -32,6 +32,23 @@ body.single-platforms {
 	}	
 }
 
+body.single-case-study {
+	ul.main-nav {
+        
+        li#menu-item-45 a.mega-parent-link {
+		    color:$nav-color;
+
+            &:hover {
+                color: $nav-active;
+            }
+        }
+
+        li#menu-item-923 a.mega-parent-link {
+		    color: $nav-active;
+        }
+	}	
+}
+
 
 $dropdown-width:220px;
 
@@ -90,6 +107,20 @@ $dropdown-width:220px;
                 &:hover, &.active {
                     color: $nav-active;
                 }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0px;
+                    left: 20px;
+                    right: 20px;
+                    top: auto;
+                    background-color: $green;
+                    height: 6px;
+                    transform-origin: center;
+                    transform: scaleX(0);
+                    @include transition(all $medspeed $ease);
+                }
                  
                  
                  span.link-wrap {
@@ -106,7 +137,12 @@ $dropdown-width:220px;
                 > a {
                     text-decoration: none;
                     outline: none;
-                    color: $nav-active;
+                    //color:$nav-active;
+                    color: #FFF;
+
+                    &:after {
+                        transform: scaleX(1);
+                    }
                 }
 
             }
@@ -114,6 +150,12 @@ $dropdown-width:220px;
             //SUBMENU
             &.menu-item-has-children, &.mega-menu-parent {
 
+                 > a {
+
+                    &:after {
+                        right: 25px
+                    }
+                 }
                span.link-wrap {
                    padding-right: 20px;
                        &:after {
