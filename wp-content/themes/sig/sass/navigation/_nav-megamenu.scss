@@ -437,7 +437,8 @@ $dropdown-width:220px;
         
         z-index: 15;
         @include opacity(1);
-        transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+        transition: opacity 0.3s ease-in-out 0.2s, visibility 0s linear 0.3s;
+        transition-delay: 0.3s !important;
         visibility: visible;
         pointer-events: auto;
         transition-delay: 0s;
