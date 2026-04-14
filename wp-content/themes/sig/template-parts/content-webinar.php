@@ -22,21 +22,34 @@ if(strlen($title) > 95) {
 
 ////////////FEATURED IMG
 $img = $heroclass = '';
- $heroclass = ' no-featured-img';
-/* if(get_field('disable_featured_img')) {
-    $heroclass = ' no-featured-img';
-} else {
-    
-    if(has_post_thumbnail($id)) {
-        $imgid = get_post_thumbnail_id($id);
-        $heroclass = ' has-featured-img';
-        $img = '
-        <div class="insights-single__featured-img">
-            '.wp_get_attachment_image($imgid, 'full').'
-        </div>';
-    } 
-} */
+$heroclass = ' no-featured-img';
 
+$webinar = '';
+if(get_field('webinar_link', $id)) {
+
+    $vimeourl = get_field('webinar_link', $id);
+
+
+    if(has_post_thumbnail($id)) {
+        $imgid = get_post_thumbnail_id($id);        
+    } else {
+        $imgid = get_field('default_grid_img', 'option' );
+    }
+
+    $url = wp_get_attachment_image_url($imgid, 'full');
+    $img = '<img src="'.$url.'" alt="" width="1280" height="720" loading="lazy" class="lazy-video__img" />';
+
+    $webinar = '
+    <div id="webinar-'.$id.'" class="lazy-video-wrap fade-in mb-5 simple-video">
+        <div id="video-'.$vimeourl.'" class="lazy-video lazy-vimeo" data-embed="'.$vimeourl.'">
+            <button type="button" class="lazy-video__play">
+                <div class="lazy-video__play__btn"></div>
+                <span class="sr-only">'.__('Play Video', 'sig').'</span>
+            </button>
+            '.$img.'
+        </div>
+    </div>';
+}
 
 ////////////HERO
 $cpt = get_post_type($id);
@@ -101,31 +114,6 @@ $relatedlinks = '
     </ul>
 
 </div>';
-
-$webinar = '';
-if(get_field('webinar_link', $id)) {
-
-    $vimeourl = get_field('webinar_link', $id);
-
-
-    if(has_post_thumbnail($id)) {
-        $imgid = get_post_thumbnail_id($id);
-        $url = wp_get_attachment_image_url($imgid, 'full');
-        $img = '<img src="'.$url.'" alt="" width="1280" height="720" loading="lazy" class="lazy-video__img" />';
-    } 
-
-    $webinar = '
-    <div id="webinar-'.$id.'" class="lazy-video-wrap fade-in mb-5 simple-video">
-        <div id="video-'.$vimeourl.'" class="lazy-video lazy-vimeo" data-embed="'.$vimeourl.'">
-            <button type="button" class="lazy-video__play">
-                <div class="lazy-video__play__btn"></div>
-                <span class="sr-only">'.__('Play Video', 'sig').'</span>
-            </button>
-            '.$img.'
-        </div>
-    </div>';
-}
-
 
 ?>
 
