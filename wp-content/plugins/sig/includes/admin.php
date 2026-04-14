@@ -139,7 +139,7 @@ function custom_events_column( $column, $post_id ) {
     switch ( $column ) {
 
         case 'start_date' :
-            if(get_post_meta( $post_id, 'event_type', true )) {
+            if(get_post_meta( $post_id, 'start_date', true )) {
                 $date = get_post_meta( $post_id, 'start_date', true );
                 echo date("F j, Y", strtotime($date));
             } else {
@@ -148,7 +148,7 @@ function custom_events_column( $column, $post_id ) {
             break;
 			
 		case 'end_date' :
-            if(get_post_meta( $post_id, 'event_type', true )) {
+            if(get_post_meta( $post_id, 'end_date', true )) {
                 $date = get_post_meta( $post_id, 'end_date', true );
                 echo date("F j, Y", strtotime($date));    
             } else {
