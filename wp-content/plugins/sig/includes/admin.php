@@ -70,62 +70,65 @@ if ( ! function_exists( 'exclude_listings_from_link_search' ) ) {
 		return $query; 
 	}
 }
-//add_filter( 'wp_link_query_args', 'exclude_listings_from_link_search' );
+add_filter( 'wp_link_query_args', 'exclude_listings_from_link_search' );
 
 
+////////COLUMNS
+add_filter( 'manage_post_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_post_posts_custom_column' , 'custom_insights_columns', 10, 2 );
 
-////////PAGE
-add_filter( 'manage_page_posts_columns', 'set_custom_edit_page_columns' );
-function set_custom_edit_page_columns($columns) {
+
+add_filter( 'manage_testimonial_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_testimonial_posts_custom_column' , 'custom_insights_columns', 10, 2 );
+
+add_filter( 'manage_page_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_page_posts_custom_column' , 'custom_insights_columns', 10, 2 );
+
+add_filter( 'manage_case-study_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_case-study_posts_custom_column' , 'custom_insights_columns', 10, 2 );
+
+add_filter( 'manage_webinar_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_webinar_posts_custom_column' , 'custom_insights_columns', 10, 2 );
+
+add_filter( 'manage_platforms_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_platforms_posts_custom_column' , 'custom_insights_columns', 10, 2 );
+
+add_filter( 'manage_solutions_posts_columns', 'set_custom_edit_insights_columns' );
+add_action( 'manage_solutions_posts_custom_column' , 'custom_insights_columns', 10, 2 );
+
+////////WEBINARS
+function set_custom_edit_insights_columns($columns) {
     unset($columns['date']);
-    $columns['date'] = __( 'Date', 'sig' );
+    unset($columns['author']);
+    unset($columns['comments']);
+    $columns['feat_img'] = __( 'Featured', 'sig' );
     $columns['description'] = __( 'Excerpt', 'sig' );
+    $columns['date'] = __( 'Date', 'sig' );
+    $columns['author'] = __( 'Author', 'sig' );
     return $columns;
 }
-add_action( 'manage_page_posts_custom_column' , 'custom_page_column', 10, 2 );
-function custom_page_column( $column, $post_id ) {	
+function custom_insights_columns( $column, $post_id ) {	
     switch ( $column ) {
+        case 'feat_img' :
+            echo get_the_post_thumbnail( $post_id, array( 60, 60), array( 'class' => 'img-fluid' ) );
+            break;
         case 'description' :
             $currpost = get_post($post_id);
             if(!empty( $currpost->post_excerpt )) {
                 echo $currpost->post_excerpt;
             }
-            break;		
+            break;	
     }
 }
-
-
-////////PRESS
-add_filter( 'manage_press_posts_columns', 'set_custom_edit_press_columns' );
-function set_custom_edit_press_columns($columns) {
-    unset($columns['date']);
-    $columns['date'] = __( 'Date', 'sig' );
-    $columns['description'] = __( 'Excerpt', 'sig' );
-    return $columns;
-}
-add_action( 'manage_press_posts_custom_column' , 'custom_press_column', 10, 2 );
-function custom_press_column( $column, $post_id ) {	
-    switch ( $column ) {
-        case 'description' :
-            $currpost = get_post($post_id);
-            if(!empty( $currpost->post_excerpt )) {
-                echo $currpost->post_excerpt;
-            }
-            break;		
-    }
-}
-
-
 
 
 //EVENT COLUMNS
-/*add_filter( 'manage_events_posts_columns', 'set_custom_edit_events_columns' );
+add_filter( 'manage_events_posts_columns', 'set_custom_edit_events_columns' );
 function set_custom_edit_events_columns($columns) {
     $columns['start_date'] = __( 'Start Date', 'sig' );
 	$columns['end_date'] = __( 'End Date', 'sig' );
 	$columns['start_time'] = __( 'Start Time', 'sig' );
-	$columns['event_type'] = __( 'Event Type', 'sig' );
-	$columns['feat_img'] = __('Featured Image');
+    $columns['feat_img'] = __( 'Featured', 'sig' );
 	$columns['description'] = __( 'Excerpt', 'sig' );
 	unset($columns['date']);
     return $columns;
@@ -137,14 +140,8 @@ function custom_events_column( $column, $post_id ) {
 
         case 'start_date' :
             if(get_post_meta( $post_id, 'event_type', true )) {
-                $eventtype = get_post_meta( $post_id, 'event_type', true );                
-                if($eventtype == 'Weekly Select' || $eventtype == 'Daily') {
-                    //echo get_post_meta( $post_id, 'event_type', true );
-                    echo '∞';
-                } else {
-                    $date = get_post_meta( $post_id, 'start_date', true );
-                    echo date("F j, Y", strtotime($date));
-                }                
+                $date = get_post_meta( $post_id, 'start_date', true );
+                echo date("F j, Y", strtotime($date));
             } else {
 				echo '';
 			}
@@ -152,14 +149,8 @@ function custom_events_column( $column, $post_id ) {
 			
 		case 'end_date' :
             if(get_post_meta( $post_id, 'event_type', true )) {
-                $eventtype = get_post_meta( $post_id, 'event_type', true );                
-                if($eventtype == 'Weekly Select' || $eventtype == 'Daily') {
-                    //echo get_post_meta( $post_id, 'event_type', true );
-                    echo '∞';
-                } else {
-                    $date = get_post_meta( $post_id, 'end_date', true );
-                    echo date("F j, Y", strtotime($date));
-                }                
+                $date = get_post_meta( $post_id, 'end_date', true );
+                echo date("F j, Y", strtotime($date));    
             } else {
 				echo '';
 			}
@@ -173,14 +164,7 @@ function custom_events_column( $column, $post_id ) {
 				echo '-';
 			}
             break;
-		case 'event_type' :
-            if(get_post_meta( $post_id, 'event_type', true )) {
-				$date = get_post_meta( $post_id, 'event_type', true );
-				echo get_post_meta( $post_id, 'event_type', true );
-			}
-            break;
-			
-		case 'feat_img' :
+        case 'feat_img' :
             echo get_the_post_thumbnail( $post_id, array( 60, 60), array( 'class' => 'img-fluid' ) );
             break;
         case 'description' :
@@ -196,11 +180,9 @@ function custom_events_column( $column, $post_id ) {
 
 add_filter( 'manage_edit-events_sortable_columns', 'set_events_sortable_columns');
 function set_events_sortable_columns( $columns ) {
-	$columns['event_type'] = 'event_type';
 	$columns['start_date'] = 'start_date';
 	return $columns;
 }
-*/
 
 
 //ORDER BY EVENT DATE
@@ -216,10 +198,6 @@ function post_types_admin_order( $query ) {
 		$orderby = $query->get( 'orderby');
 		
 		switch( $orderby ){
-			case 'event_type': 
-				$query->set('meta_key','event_type');
-				$query->set('orderby','meta_value');
-				break;
 			case 'start_date': 
 				$query->set('meta_key', 'start_date');
 				$query->set('orderby', 'meta_value_num');
@@ -241,7 +219,7 @@ function post_types_admin_order( $query ) {
 		
 	}*/
  }
- //add_filter('pre_get_posts', 'post_types_admin_order');
+ add_filter('pre_get_posts', 'post_types_admin_order');
 
 
 
