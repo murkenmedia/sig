@@ -201,8 +201,8 @@ jQuery.noConflict();
 	document.addEventListener( 'DOMContentLoaded', function () {
         
         //ADD BR SPACERS
-        if (jQuery(".widow-fix, .is-style-intro-headline, h2.wp-block-heading")[0]){
-            let elements = document.querySelectorAll('.widow-fix, .is-style-intro-headline, h2.wp-block-heading');
+        if (jQuery(".widow-fix, .is-style-intro-headline")[0]){
+            let elements = document.querySelectorAll('.widow-fix, .is-style-intro-headline');
             elements.forEach(element => {
                 let text = element.innerHTML;
                 text = text.replace(/(\S+)\s+(\S+)$/, '$1&nbsp;$2');

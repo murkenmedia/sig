@@ -1097,8 +1097,8 @@ jQuery.noConflict();
   ///ON READY	
   document.addEventListener('DOMContentLoaded', function () {
     //ADD BR SPACERS
-    if (jQuery(".widow-fix, .is-style-intro-headline, h2.wp-block-heading")[0]) {
-      var elements = document.querySelectorAll('.widow-fix, .is-style-intro-headline, h2.wp-block-heading');
+    if (jQuery(".widow-fix, .is-style-intro-headline")[0]) {
+      var elements = document.querySelectorAll('.widow-fix, .is-style-intro-headline');
       elements.forEach(function (element) {
         var text = element.innerHTML;
         text = text.replace(/(\S+)\s+(\S+)$/, '$1&nbsp;$2');
