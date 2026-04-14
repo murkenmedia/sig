@@ -161,7 +161,7 @@ if ( ! function_exists( 'get_post_block_with_filters' ) ) {
 	 * @since 1.0.0
 	 */
 	
-	function get_post_block_with_filters($id,$class='') {
+	function get_post_block_with_filters($id,$class='',$cpt=array()) {
 		$blockclass = '';
         $lineclamp = 'line-clamp-6';
         $titleclass = ' has-regular-font-size';
@@ -175,17 +175,51 @@ if ( ! function_exists( 'get_post_block_with_filters' ) ) {
         array_push($classes,$class);
 
         $posttype = get_post_type($id);
+        $pretitle = $pretitletext = '';
         array_push($classes, $posttype);
 
-        $posttypetitle = '';
-        if($posttype == 'post') {
-            $posttypetitle = 'insight';
-        } else {
-            $posttypetitle = $posttype;
-        }
-        $posttypetitle = '<span class="cpt">'.ucwords($posttypetitle).'</span>';
+        if(count($cpt) == 1) {
+            switch ($posttype) {
+                case "case-study":
+                    $pretitletext = get_field('client_name', $id);
 
-        $terms = get_the_terms( $id, 'category' );						
+                    break;
+                case "event":
+                    
+
+                    break;
+                case "post":
+                    $pretitletext = 'insight';
+
+                    break;
+                default:
+                   $pretitletext = $posttype;
+
+                    break;
+            }
+
+
+        } else {
+
+            switch ($posttype) {
+                case "case-study":
+                    $pretitletext = 'case study';
+                    break;
+                case "post":
+                    $pretitletext = 'insight';
+
+                    break;
+                default:
+                   $pretitletext = $posttype;
+                    break;
+            }
+
+        }
+
+        $pretitle = '<p class="tile__content__pretitle mb-2 sans-600 has-blue-medium-color text-uppercase has-small-font-size letter-spacing-1">'.$pretitletext.'</p>';
+        
+
+        $terms = get_the_terms( $id, 'insight_topic' );						
         if ( $terms && ! is_wp_error( $terms ) ) : 
             foreach ( $terms as $term ) {
                 $classes[] = $term->slug;
@@ -224,7 +258,7 @@ if ( ! function_exists( 'get_post_block_with_filters' ) ) {
 				</a>
 			</figure>
             <div class="tile__content pt-1">
-                <p class="tile__content__cpt-date mb-2 sans-600 has-blue-medium-color">'.$posttypetitle.'</p>
+                '.$pretitle.'
                 <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>
                 
                 <p class="'.$lineclamp.' has-small-font-size mb-0">'.$excerpt.'</p>
@@ -243,7 +277,7 @@ if ( ! function_exists( 'get_filter_post_blocks' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function get_filter_post_blocks($args, $max = 9, $loadposts=false) {
+	function get_filter_post_blocks($args, $max = 9, $cpt=array()) {
 		$blocks = $class = '';
 
 		$the_query = new WP_Query( $args );
@@ -259,7 +293,7 @@ if ( ! function_exists( 'get_filter_post_blocks' ) ) {
                 if($num < $max) {
                     $class='filter-active';
                 }
-                $blocks .= get_post_block_with_filters($postid,$class);
+                $blocks .= get_post_block_with_filters($postid,$class,$cpt);
 
                 $num++;
             }
@@ -273,6 +307,192 @@ if ( ! function_exists( 'get_filter_post_blocks' ) ) {
 		
 }
 	
+
+if ( ! function_exists( 'get_related_insights' ) ) {
+	/**
+	 * GET RELATED BLOG
+	 *
+	 * @since 1.0.0
+	 */
+	function get_related_insights($postid='',$topicarr='',$type = '',$max=3) { 
+        
+        $excludearr = array();
+        array_push($excludearr, $postid);
+        
+        $postcount = 0;
+        //$max = 3;
+        $related = '';
+        
+        $cptarr = array('post', 'case-study', 'webinar');
+
+        $args = array( 
+            'post_type' => $cptarr,
+            'post_status' => 'publish',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'insight_topic',
+                    'field'    => 'term_id',
+                    'terms'    => $topicarr,
+                )
+            ),
+            'post__not_in' => $excludearr,
+            'posts_per_page'=>$max,
+        );
+        
+        ///////////EXACT MATCH
+        $loop = new WP_Query( $args );
+        while ( $loop->have_posts() ) : $loop->the_post();
+            $id = get_the_ID();        
+            array_push($excludearr, $id);
+        
+            switch ($type) {
+                case 'link':
+                    $related .= get_blog_related_link($id);
+                    break;
+                default:
+                    $related .= get_post_block($id,$type);
+                    break;
+            }
+
+            $postcount++;
+        endwhile;
+        wp_reset_postdata();
+        
+        
+        
+        /////////////NOT ENOUGH EXACT MATCHES
+        if($postcount < $max) {
+            
+            //$related .= '. second round: ';
+        
+            $remaining = $max-$postcount;
+
+            $args = array( 
+                'post_type' => $cptarr,
+                'post_status' => 'publish',
+                'post__not_in' => $excludearr,
+                'posts_per_page'=>$remaining,
+            );
+
+            $loop = new WP_Query( $args );
+            while ( $loop->have_posts() ) : $loop->the_post();
+                $id = get_the_ID();        
+                array_push($excludearr, $id);
+            
+                switch ($type) {
+                    case 'link':
+                        $related .= get_blog_related_link($id);
+                        break;
+                    default:
+                        $related .= get_post_block($id,$type);
+                        break;
+                }
+            
+                $postcount++;
+            endwhile;
+            wp_reset_postdata();
+            
+        }
+        
+        
+        
+        /////////////SHOW THE CATEGORY
+        /* if($postcount < $max) {
+            //$related .= '. third round: ';
+        
+            $remaining = $max-$postcount;
+
+            $args = array( 
+                'post_type' => 'post',
+                'post_status' => 'publish',
+                'category__in' => $catsarr,
+                'post__not_in' => $excludearr,
+                'posts_per_page'=>$remaining,
+                'orderby'=>'rand'
+            );
+
+            $loop = new WP_Query( $args );
+            while ( $loop->have_posts() ) : $loop->the_post();
+                $id = get_the_ID();        
+                switch ($type) {
+                    case 'link':
+                        $related .= get_blog_related_link($id);
+                        break;
+                    default:
+                        $related .= get_post_block($id,$type);
+                        break;
+                }
+            endwhile;
+            wp_reset_postdata();
+            
+        } */
+        
+        return $related;
+        
+    }
+    
+}
+if ( ! function_exists( 'get_blog_related_link' ) ) {
+	/**
+	 * GET INSIGHT GRID BLOCK
+	 *
+	 * @since 1.0.0
+	 */
+	function get_blog_related_link($id) { 
+        $url = get_the_permalink($id);
+        $title = get_the_title($id);
+
+        $postype = get_post_type($id);
+
+        if($postype == 'post') {
+            $postype ='insight';
+        }
+        //$date = get_the_date('F d, Y', $id);
+        //<span class="blog-related-link__date">'.ucfirst($postype).'</span>
+        
+        return '
+        <li class="blog-related-link">
+            <a class="blog-related-link__link" href="'.$url.'">'.$title.'</a>
+            
+        </li>';
+    }
+    
+}
+
+
+if ( ! function_exists( 'get_author_block' ) ) {
+	/**
+	 * GET INSIGHT GRID BLOCK
+	 *
+	 * @since 1.0.0
+	 */
+	function get_author_block($author = array()) {
+        
+        $url = $img = $name = '';
+        
+        if(isset($author->name)) {
+            
+            $name = $author->name;
+            $id = $author->term_id;
+            $imgid = get_field( 'author_img', 'term_'.$id);
+            $img = wp_get_attachment_image($imgid, 'medium', '');
+            $slug = $author->slug;
+            $url = get_home_url().'/authors/'.$slug; 
+        }
+        
+        return '
+            <div class="blog-author">
+                <figure class="blog-author__img mb-0">
+                    <a href="'.$url.'" tabindex="-1">
+                        '.$img.'
+                    </a>
+                </figure>
+                <p class="blog-author__name mb-0"><a href="'.$url.'"><span class="sr-only">Read More Articles by </span>'.$name.'</a></p>
+            </div>';
+        
+    }
+    
+}
 
 if ( ! function_exists( 'get_related_insights_articles' ) ) {
 	/**
@@ -371,185 +591,4 @@ if ( ! function_exists( 'get_related_insights_articles' ) ) {
             </div>';
         }        
     }        
-}
-
-
-if ( ! function_exists( 'get_related_insights' ) ) {
-	/**
-	 * GET RELATED BLOG
-	 *
-	 * @since 1.0.0
-	 */
-	function get_related_insights($postid='',$catarr='',$tagarr='',$type = '',$max=3) { 
-        
-        $excludearr = array();
-        array_push($excludearr, $postid);
-        
-        $postcount = 0;
-        //$max = 3;
-        $related = '';
-        
-        $args = array( 
-            'post_type' => 'post',
-            'post_status' => 'publish',
-            'cat' => $catarr,
-            'post__not_in' => $excludearr,
-            'posts_per_page'=>$max,
-        );
-        
-        ///////////EXACT MATCH
-        $loop = new WP_Query( $args );
-        while ( $loop->have_posts() ) : $loop->the_post();
-            $id = get_the_ID();        
-            array_push($excludearr, $id);
-        
-            switch ($type) {
-                case 'link':
-                    $related .= get_blog_related_link($id);
-                    break;
-                default:
-                    $related .= get_post_block($id,$type);
-                    break;
-            }
-
-            $postcount++;
-        endwhile;
-        wp_reset_postdata();
-        
-        
-        
-        /////////////NOT ENOUGH EXACT MATCHES
-        if($postcount < $max) {
-            
-            //$related .= '. second round: ';
-        
-            $remaining = $max-$postcount;
-
-            $args = array( 
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'tag__in' => $tagsarr,
-                'category__in' => $catsarr,
-                'post__not_in' => $excludearr,
-                'posts_per_page'=>$remaining,
-            );
-
-            $loop = new WP_Query( $args );
-            while ( $loop->have_posts() ) : $loop->the_post();
-                $id = get_the_ID();        
-                array_push($excludearr, $id);
-            
-                switch ($type) {
-                    case 'link':
-                        $related .= get_blog_related_link($id);
-                        break;
-                    default:
-                        $related .= get_post_block($id,$type);
-                        break;
-                }
-            
-                $postcount++;
-            endwhile;
-            wp_reset_postdata();
-            
-        }
-        
-        
-        
-        /////////////SHOW THE CATEGORY
-        if($postcount < $max) {
-            //$related .= '. third round: ';
-        
-            $remaining = $max-$postcount;
-
-            $args = array( 
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'category__in' => $catsarr,
-                'post__not_in' => $excludearr,
-                'posts_per_page'=>$remaining,
-                'orderby'=>'rand'
-            );
-
-            $loop = new WP_Query( $args );
-            while ( $loop->have_posts() ) : $loop->the_post();
-                $id = get_the_ID();        
-                switch ($type) {
-                    case 'link':
-                        $related .= get_blog_related_link($id);
-                        break;
-                    default:
-                        $related .= get_post_block($id,$type);
-                        break;
-                }
-            endwhile;
-            wp_reset_postdata();
-            
-        }
-        
-        return $related;
-        
-    }
-    
-}
-if ( ! function_exists( 'get_blog_related_link' ) ) {
-	/**
-	 * GET INSIGHT GRID BLOCK
-	 *
-	 * @since 1.0.0
-	 */
-	function get_blog_related_link($id) { 
-        $url = get_the_permalink($id);
-        $title = get_the_title($id);
-
-        $postype = get_post_type($id);
-
-        if($postype == 'post') {
-            $postype ='insight';
-        }
-        //$date = get_the_date('F d, Y', $id);
-        //<span class="blog-related-link__date">'.ucfirst($postype).'</span>
-        
-        return '
-        <li class="blog-related-link">
-            <a class="blog-related-link__link" href="'.$url.'">'.$title.'</a>
-            
-        </li>';
-    }
-    
-}
-
-
-if ( ! function_exists( 'get_author_block' ) ) {
-	/**
-	 * GET INSIGHT GRID BLOCK
-	 *
-	 * @since 1.0.0
-	 */
-	function get_author_block($author = array()) {
-        
-        $url = $img = $name = '';
-        
-        if(isset($author->name)) {
-            
-            $name = $author->name;
-            $id = $author->term_id;
-            $imgid = get_field( 'author_img', 'term_'.$id);
-            $img = wp_get_attachment_image($imgid, 'medium', '');
-            $slug = $author->slug;
-            $url = get_home_url().'/authors/'.$slug; 
-        }
-        
-        return '
-            <div class="blog-author">
-                <figure class="blog-author__img mb-0">
-                    <a href="'.$url.'" tabindex="-1">
-                        '.$img.'
-                    </a>
-                </figure>
-                <p class="blog-author__name mb-0"><a href="'.$url.'"><span class="sr-only">Read More Articles by </span>'.$name.'</a></p>
-            </div>';
-        
-    }
-    
 }

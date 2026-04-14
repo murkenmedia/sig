@@ -28,6 +28,8 @@ article.tile {
 
 	flex-direction: column;
 	gap: 40px;
+	border-top: $bluedark 2px solid;
+	padding-top: 40px;
 
 	@media (min-width: $md) {
 		flex-direction: row;
@@ -59,7 +61,8 @@ article.tile {
 		flex-wrap: wrap;
 
         .tile__img {
-			max-height: 240px;
+			max-height: 280px;
+			//max-height: 180px;
 		}
             
 		.tile {
@@ -68,12 +71,12 @@ article.tile {
 
 	}
 
-	@media (min-width: 1200px) {
+	/* @media (min-width: 1200px) {
             
 		.tile {
 			max-width: calc(33.3% - 27px);
 		}
-	}
+	} */
 }
 
 .post-grid__tile.tile {

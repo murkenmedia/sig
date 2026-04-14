@@ -5,7 +5,7 @@ Description: Theme for SIG
 Author: Murken Media
 Author URI: http://murkenmedia.com
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Version: 1.0.19
+Version: 1.0.21
 Text Domain: sig
  
 License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
@@ -1068,7 +1068,7 @@ button.hero__controls__playpause:focus{outline:0;-webkit-box-shadow:0 0 0 2px #0
 .lazy-video__play__circle.circle-mid{width:420px;height:420px}.lazy-video__play__circle.circle-large{width:540px;height:540px}
 article.tile{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 article.tile .tile__content{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}
-article.tile .wp-block-button{margin-top:auto}.post-grid-block{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:40px}
+article.tile .wp-block-button{margin-top:auto}.post-grid-block{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:40px;border-top:#001e5f 2px solid;padding-top:40px}
 .post-grid-block__column{position:relative;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}.post-grid__tile.tile{display:none}
 .post-grid__tile.tile.filter-active{display:-webkit-box;display:-ms-flexbox;display:flex}.tile__content__cpt-date{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;gap:20px;font-size:1.05rem;letter-spacing:1px}
 .tile__content__cpt-date span.cpt{text-transform:uppercase}.tile__content__cpt-date span.date{color:rgba(0,102,253,0.7)}
@@ -1394,7 +1394,7 @@ button.hero__controls__playpause.active{-webkit-transition:none;transition:none}
 .circle-slide__content__collapse{display:block;max-height:0;overflow:hidden;-webkit-transition:max-height .3s ease-out 0s;transition:max-height .3s ease-out 0s}
 .circle-slider__controls{top:40px;bottom:auto}.content-slider .owl-stage-outer{padding:0 10vw}.content-slider .owl-item{width:80vw;-ms-flex-preferred-size:80vw;flex-basis:80vw;min-width:80vw}
 .content-tabs__outerlink{width:100%}.hero{min-height:400px}.hero__darken-lower{height:250px}.post-grid.tiles-grid.tiles-stacked-content{-webkit-column-gap:40px;-moz-column-gap:40px;column-gap:40px;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
-.post-grid.tiles-grid.tiles-stacked-content .tile__img{max-height:240px}.post-grid.tiles-grid.tiles-stacked-content .tile{max-width:calc(50% - 20px)}
+.post-grid.tiles-grid.tiles-stacked-content .tile__img{max-height:280px}.post-grid.tiles-grid.tiles-stacked-content .tile{max-width:calc(50% - 20px)}
 .team-grid__img{-ms-flex-preferred-size:150px;flex-basis:150px;max-width:150px}.animation-chain .move-up:nth-child(1),.animation-chain .move-left:nth-child(1),.animation-chain .move-right:nth-child(1){-webkit-transition:all 1s ease;transition:all 1s ease;-webkit-transition-delay:.1s;transition-delay:.1s}
 .animation-chain .fade-in:nth-child(1){-webkit-transition:opacity 1s ease;transition:opacity 1s ease;-webkit-transition-delay:.1s;transition-delay:.1s}
 .animation-chain .move-up:nth-child(2),.animation-chain .move-left:nth-child(2),.animation-chain .move-right:nth-child(2){-webkit-transition:all 1s ease;transition:all 1s ease;-webkit-transition-delay:.2s;transition-delay:.2s}
@@ -1895,8 +1895,8 @@ ul.has-x-large-font-size,ol.has-x-large-font-size{font-size:2.4rem}.max-600-lg{m
 }@media only screen and (min-width:1024px) and (-moz-min-device-pixel-ratio:1.5),only screen and (min-width:1024px) and (-o-min-device-pixel-ratio:3 / 2),only screen and (min-width:1024px) and (-webkit-min-device-pixel-ratio:1.5),only screen and (min-width:1024px) and (min-device-pixel-ratio:1.5){.no-svg #logo .logo__rings{background-image:url(assets/img/sig-rings@2x.png)}
 }@media(min-width:1024px) and (prefers-reduced-motion:reduce){ul.main-nav>li>a{-webkit-transition:none;transition:none}
 ul.main-nav__dropdown.depth_1.sub-menu{-webkit-transition:none;transition:none}.masthead__utility li>a{-webkit-transition:none;transition:none}
-}@media(min-width:1200px){.mfp-gallery .mfp-content img{max-width:1024px}.post-grid.tiles-grid.tiles-stacked-content .tile{max-width:calc(33.3% - 27px)}
-}@media(min-width:1250px){.masthead__logo{min-width:210px}}@media(min-width:1300px){.container,.container-sm,.container-md,.container-lg,.container-xl{max-width:1450px}
+}@media(min-width:1200px){.mfp-gallery .mfp-content img{max-width:1024px}}@media(min-width:1250px){.masthead__logo{min-width:210px}
+}@media(min-width:1300px){.container,.container-sm,.container-md,.container-lg,.container-xl{max-width:1450px}
 .col-xl{-ms-flex-preferred-size:0;flex-basis:0;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;max-width:100%}
 .row-cols-xl-1>*{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}.row-cols-xl-2>*{-webkit-box-flex:0;-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%}
 .row-cols-xl-3>*{-webkit-box-flex:0;-ms-flex:0 0 33.3333333333%;flex:0 0 33.3333333333%;max-width:33.3333333333%}

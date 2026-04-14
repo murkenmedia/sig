@@ -35,13 +35,13 @@ $cpts = implode(',', $cptarr);
 $args['post_type'] = $cptarr;
 
 
-$blog = get_filter_post_blocks($args,$max,$loadposts);
+$grid = get_filter_post_blocks($args,$max,$cptarr);
+
 
 //search sort
 $search_options = get_field('search_sort');
 
 $filters = '';
-
 
 //POST TYPE SELECTOR
 
@@ -53,11 +53,11 @@ if( $search_options && in_array('type', $search_options) ) {
 	
 		foreach( $types as $type ):
 
-			$args = array(
+			/* $args = array(
 				'post_type' => $type['value'],
 				'posts_per_page' => 1
 			);
-			$the_query = new WP_Query( $args );
+			$the_query = new WP_Query( $args ); */
 
 			//$total = $the_query->found_posts;
 			//'&nbsp;['.$total.']</span>
@@ -69,6 +69,7 @@ if( $search_options && in_array('type', $search_options) ) {
 					<span>'.$type['label'].'</span>
 				</label>
 			</div>';
+			
 		endforeach;
 		
 		$filters .= '
@@ -79,18 +80,17 @@ if( $search_options && in_array('type', $search_options) ) {
 			</fieldset>
 		</div>';
 
-    	$filternum++;
-		
-	}
+    	$filternum++;		
+	} 
 	
 }
 
-if( $search_options && in_array('cat', $search_options) ) {
+if( $search_options && in_array('topics', $search_options) ) {
 
 	$selections = $terms = '';
 
 	$terms = get_terms( array( 
-		'taxonomy' => 'category', 
+		'taxonomy' => 'insight_topic', 
 		'orderby' => 'count',
 		'order' => 'DESC',
 		'hide_empty' => true,
@@ -119,61 +119,6 @@ if( $search_options && in_array('cat', $search_options) ) {
 
     $filternum++;
 }
-
-/* if( $search_options && in_array('tag', $search_options) ) {
-
-	$selections = $terms = '';
-
-	$terms = get_terms( array( 
-		'taxonomy' => 'post_tag', 
-		'orderby' => 'count',
-		'order' => 'DESC',
-		'hide_empty' => true,
-	));
-	if( $terms ) : 
-		foreach ( $terms as $term ) :
-			//&nbsp;['.$term->count.']</span>
-			$selections .=  '
-			<div class="post-grid__filter__checkbox">
-				<label for="'.$term->slug.'-filter">
-					<input type="checkbox" class="post-grid__filter" name="'.$term->slug.'" value="'.$term->slug.'" id="'.$term->slug.'-filter" />
-					<span>'.$term->name.'</span>
-				</label>
-			</div>';
-		endforeach;
-	endif;
-
-
-	$filters .= '
-	<div class="post-grid__filter__fieldset">
-		<fieldset>
-			<legend class="post-grid__filter__legend">'.__('Filter by Topic', 'sig').'</legend>
-			'.$selections.'
-		</fieldset>
-	</div>';
-
-    $filternum++;
-} */
-
-
-
-//SEARCH
-/* if( $search_options && in_array('search', $search_options) ) {
-	$searchcontent = '
-	<div class="search-filter__col search-filter__search">
-		<div class="input-group search-group">
-		  <label for="search-filter__search__input" class="sr-only search-filter__search__label">'.__( 'Search', 'h4c' ).'</label>
-		  <input type="text" name="search-filter__search__input" placeholder="'.__( 'Search', 'h4c' ).'" id="search-filter__search__input" class="form-control search-filter__search__input" />
-		  <div class="input-group-append">
-			<button class="search-filter__search__btn" type="button">
-                <span class="screen-reader-text" aria-label="Search button">'.__( 'Search', 'h4c' ).'</span>
-            </button>
-		  </div>
-		</div>
-	</div>';
-    
-    $filternum++;
-} */
 
 $sort = '';
 if($filternum > 0) {
@@ -191,8 +136,8 @@ if($filternum > 0) {
     	<?php echo $sort; ?>
 	</div>
 	<div class="post-grid-block__column posts-column">
-		<div class="post-grid tiles-grid tiles-stacked-content" >		
-			<?php echo $blog; ?>
+		<div class="post-grid tiles-grid tiles-stacked-content">		
+			<?php echo $grid; ?>
 			<div class="post-grid__message">
 				<button class="post-grid__load-btn">Load More</button>
 			</div>		

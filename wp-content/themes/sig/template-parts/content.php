@@ -60,41 +60,17 @@ if(get_field('disable_featured_img')) {
 /////SIDEBAR
 $topiclinks = '';
 
-$tagsarr = array();
-$post_tags = get_the_tags($id);
-if ( $post_tags ) {
-    $links = '';
-	foreach( $post_tags as $tag ) {
-        array_push($tagsarr, $tag->term_id);
-        
+$topicsarr = array();
+$terms = get_the_terms($id, 'insight_topic');
+if( $terms ) : 
+    foreach ( $terms as $term ) :
+        array_push($topicsarr, $term->term_id);        
         $links .= '
         <li>
-            <a href="'.$insightslink.'#'.$tag->slug.'">'.$tag->name.'</a>
+            <a href="'.$insightslink.'#'.$term->slug.'">'.$term->name.'</a>
         </li>
         ';
-    }
-
-    $topiclinks .= '
-    <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
-        <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Tags', 'sig').'</h4>
-        <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
-            '.$links.'
-        </ul>
-    </div>';
-}
-
-$catsarr = array();
-$post_cats = get_the_category($id);
-if ( $post_cats ) {
-    $links = '';
-	foreach( $post_cats as $cat ) {
-        array_push($catsarr, $cat->term_id);        
-        $links .= '
-        <li>
-            <a href="'.$insightslink.'#'.$cat->slug.'">'.$cat->name.'</a>
-        </li>
-        ';
-    }
+    endforeach;
 
     $topiclinks .= '
     <div class="insights-single__sidebar__module insights-sidebar-topics mb-5">
@@ -103,7 +79,7 @@ if ( $post_cats ) {
             '.$links.'
         </ul>
     </div>';
-}
+endif;
 
 $authors = '';
 
@@ -116,7 +92,7 @@ $relatedlinks = '
     <h4 class="mb-3 sans-bold has-small-font-size has-blue-color">'.__('Related', 'sig').'</h4>
 
     <ul class="insights-single__sidebar__links list-unstyled has-small-font-size">
-        '.get_related_insights($id,$catsarr,$tagsarr,'link',4).'
+        '.get_related_insights($id,$topicsarr,'link',4).'
     </ul>
 
 </div>
@@ -177,7 +153,7 @@ $header = '
             <h4 class="text-center mb-6 has-large-font-size sans-500 has-blue-dark-color">Related Insights</h4>
 
             <div class="max-xl mx-auto tiles-grid tiles-three-col tiles-stacked-content">
-                <?php echo get_related_insights($id,$tagsarr,$catsarr,'',3); ?>
+                <?php echo get_related_insights($id,$topicsarr,'',3); ?>
             </div>
 
         </div>        
