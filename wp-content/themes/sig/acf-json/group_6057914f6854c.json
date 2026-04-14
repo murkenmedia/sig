@@ -1,34 +1,7 @@
 {
     "key": "group_6057914f6854c",
-    "title": "Event Date & Time",
+    "title": "Event Fields",
     "fields": [
-        {
-            "key": "field_642c7d05511d8",
-            "label": "Event Type",
-            "name": "event_type",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "Single Day": "Single Day: <em>(A <strong>single<\/strong> day event.)<\/em>",
-                "Multi-Day": "Multi-Day: <em>(A multiple day event that takes place on <strong>consecutive<\/strong> days.)<\/em>",
-                "Select Dates": "Select Dates: <em>(A multiple day event that takes place on <strong>non-consecutive<\/strong> days.)<\/em>"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 1,
-            "layout": "vertical",
-            "save_other_choice": 0
-        },
         {
             "key": "field_6057914f6c04f",
             "label": "Start Date",
@@ -36,23 +9,8 @@
             "aria-label": "",
             "type": "date_picker",
             "instructions": "Required.",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_642c7d05511d8",
-                        "operator": "==",
-                        "value": "Single Day"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_642c7d05511d8",
-                        "operator": "==",
-                        "value": "Multi-Day"
-                    }
-                ]
-            ],
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "25",
                 "class": "",
@@ -61,8 +19,8 @@
             "display_format": "F j, Y",
             "return_format": "Ymd",
             "first_day": 1,
-            "allow_in_bindings": 1,
-            "default_to_current_date": 0
+            "default_to_current_date": 0,
+            "allow_in_bindings": 1
         },
         {
             "key": "field_60579176c33c8",
@@ -70,17 +28,9 @@
             "name": "end_date",
             "aria-label": "",
             "type": "date_picker",
-            "instructions": "Required.",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_642c7d05511d8",
-                        "operator": "==",
-                        "value": "Multi-Day"
-                    }
-                ]
-            ],
+            "instructions": "Optional.",
+            "required": 0,
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "25",
                 "class": "",
@@ -89,8 +39,8 @@
             "display_format": "F j, Y",
             "return_format": "Ymd",
             "first_day": 1,
-            "allow_in_bindings": 1,
-            "default_to_current_date": 0
+            "default_to_current_date": 0,
+            "allow_in_bindings": 1
         },
         {
             "key": "field_642c7f7a3f647",
@@ -100,15 +50,7 @@
             "type": "time_picker",
             "instructions": "Optional",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_642c7d05511d8",
-                        "operator": "!=",
-                        "value": "Select Dates"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "25",
                 "class": "",
@@ -126,15 +68,7 @@
             "type": "time_picker",
             "instructions": "Optional",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_642c7d05511d8",
-                        "operator": "!=",
-                        "value": "Select Dates"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "25",
                 "class": "",
@@ -145,75 +79,63 @@
             "allow_in_bindings": 1
         },
         {
-            "key": "field_609d7b5d9e9f9",
-            "label": "Select Dates",
-            "name": "select_dates",
+            "key": "field_6053e75b02490",
+            "label": "CTA Link",
+            "name": "cta_link",
             "aria-label": "",
-            "type": "repeater",
-            "instructions": "Set the overall date range with the <strong>Start Date<\/strong> and  <strong>End Date<\/strong> fields above. Then create individual dates using this field.",
+            "type": "link",
+            "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_642c7d05511d8",
-                        "operator": "==",
-                        "value": "Select Dates"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "Add Dates",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_609d7b389e9f8",
-                    "label": "Start Date",
-                    "name": "select_start",
-                    "aria-label": "",
-                    "type": "date_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y",
-                    "return_format": "Ymd",
-                    "first_day": 1,
-                    "parent_repeater": "field_609d7b5d9e9f9",
-                    "default_to_current_date": 0
-                },
-                {
-                    "key": "field_635ac8811f24b",
-                    "label": "End Date",
-                    "name": "select_end",
-                    "aria-label": "",
-                    "type": "date_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y",
-                    "return_format": "Ymd",
-                    "first_day": 1,
-                    "parent_repeater": "field_609d7b5d9e9f9",
-                    "default_to_current_date": 0
-                }
-            ]
+            "return_format": "array",
+            "allow_in_bindings": 1
+        },
+        {
+            "key": "field_6889539a2fc4b",
+            "label": "Event Location",
+            "name": "event_location",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional. eg. San Diego, CA or Webinar",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_605792c9d4c48",
+            "label": "Custom Date\/Time Description",
+            "name": "datetime_desc",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "For more complex date\/time descriptions. eg. \"Mar 26, 27, 30 @ 7:30pm\".",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -237,5 +159,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776181355
+    "modified": 1776194724
 }

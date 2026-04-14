@@ -46,7 +46,7 @@ $grid = get_upcoming_events($args,$today);
 if ($grid == '') {
 	$grid = '
 	<div class="events-grid__message">
-		<p class="event-alert">'.__('There are no upcoming events at this time. Please check back later.', 'sig').'</p>
+		<p class="events-grid__message__alert">'.__('There are no upcoming events at this time. Please check back later.', 'sig').'</p>
 	</div>';
 }
 

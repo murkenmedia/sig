@@ -34,33 +34,25 @@ if ( ! function_exists( 'get_event_time' ) ) {
         
         $type = $startdate = $time = '';
         
-        $eventtype = get_field('event_type',$id);		
-        
-        if($eventtype == 'Multi-Day') {
-			
-			if(get_field('start_date',$id, false) && get_field('end_date',$id, false)) {
-				$start = get_field('start_date',$id, false);
-				$start = new DateTime($start);
-				$end = get_field('end_date',$id, false);
-				$end = new DateTime($end); 
-				if($start == $end) {
-					$startdate = $start->format('M j Y');
-				} else {
-					$startdate = $start->format('M j').'-'.$end->format('M j, Y');
-				}
+       
+		if(get_field('start_date',$id, false) && get_field('end_date',$id, false)) {
+			$start = get_field('start_date',$id, false);
+			$start = new DateTime($start);
+			$end = get_field('end_date',$id, false);
+			$end = new DateTime($end); 
+			if($start == $end) {
+				$startdate = $start->format('M j Y');
+			} else {
+				$startdate = $start->format('M j').'-'.$end->format('M j, Y');
 			}
-				               
-			
-		}
-		
-		if($eventtype == 'Single Day') {
-			if(get_field('end_date',$id, false)) {
-				$start = get_field('end_date',$id, false);
+		} else {
+			if(get_field('start_date',$id, false)) {
+				$start = get_field('start_date',$id, false);
 				$start = new DateTime($start);
 				$startdate = $start->format('M j, Y');
 			}
-			
 		}
+    
         
 		//add time
         if(get_field('start_time',$id)) {
@@ -109,7 +101,7 @@ if ( ! function_exists( 'get_event_block' ) ) {
 
         //TYPE
         $eventtime = get_event_time($id);
-        $details = '<p class="mt-2 mb-2 weight-500 has-blue-color">'.widowfix($eventtime).'</p>';
+        $details = '<p class="mt-2 mb-2 sans-600 has-blue-color has-medium-font-size letter-spacing-1">'.widowfix($eventtime).'</p>';
              
         $detailslink = '
 		<div class="wp-block-button">
@@ -138,7 +130,6 @@ if ( ! function_exists( 'get_event_block' ) ) {
 				</a>
 			</figure>
             <div class="tile__content pt-1">
-                '.$subtitle.'
                 <h3 class="tile__content__title mb-1 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3> 
 				'.$details.'               
                 <p class="tile__content__excerpt '.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
