@@ -18,12 +18,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
     $track = false; 
 }
 
-global $post;
-if($post->ID == null) {
-    $id = get_the_ID();
-} else {
-    $id = $post->ID;
-}
+$post_id = get_queried_object_id();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -45,8 +40,8 @@ if(get_field('google_analytics', 'option')) {
 	endif; 
 	$pageclasses = '';
     if(!is_search() && !is_archive() && !is_category()) {
-        if(get_field('page_options', $id))  {		
-            $pageoptions = get_field('page_options', $id);
+        if(get_field('page_options', $post_id))  {		
+            $pageoptions = get_field('page_options', $post_id);
             $pageclasses = implode(' ', $pageoptions);
         }
     }

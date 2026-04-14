@@ -5,7 +5,7 @@ Description: Theme for SIG
 Author: Murken Media
 Author URI: http://murkenmedia.com
 Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
-Version: 1.0.29
+Version: 1.0.30
 Text Domain: sig
  
 License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
@@ -1064,7 +1064,7 @@ button.hero__controls__playpause:focus{outline:0;-webkit-box-shadow:0 0 0 2px #0
 .lazy-video__play__circle.circle-mid{width:420px;height:420px}.lazy-video__play__circle.circle-large{width:540px;height:540px}
 article.tile{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}
 article.tile .tile__content{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}
-article.tile .wp-block-button{margin-top:auto}.post-grid-block{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:40px;border-top:#001e5f 2px solid;padding-top:40px}
+article.tile .wp-block-button{margin-top:auto}.post-grid-block{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;gap:40px}
 .post-grid-block__column{position:relative;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1}.post-grid__tile.tile{display:none}
 .post-grid__tile.tile.filter-active{display:-webkit-box;display:-ms-flexbox;display:flex}.tile__content__cpt-date{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;gap:20px;font-size:1.05rem;letter-spacing:1px}
 .tile__content__cpt-date span.cpt{text-transform:uppercase}.tile__content__cpt-date span.date{color:rgba(0,102,253,0.7)}

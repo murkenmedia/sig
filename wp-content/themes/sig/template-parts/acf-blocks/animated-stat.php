@@ -16,11 +16,6 @@ $block_classes = array(
 	$className
 );
 
-$isadmin = false;
-if (is_admin()) {
-    $isadmin =  true;
-}
-
 $adminpre = $adminsuf = '';
 
 $stat = $separator = '';

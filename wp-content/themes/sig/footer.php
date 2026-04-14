@@ -9,14 +9,15 @@
  * @package SIG
  */
 
+$post_id = get_queried_object_id();
 
-if(get_field('page_options', $id)) {
-	$options = get_field('page_options', $id);
+if(get_field('page_options', $post_id)) {
+	$options = get_field('page_options', $post_id);
 	if(!in_array('hide_footer_circles', $options) && !is_single('post')) {
 		echo get_footer_circles();
 	}
 } else {
-    $posttype = get_post_type($id);
+    $posttype = get_post_type($post_id);
     $skiparr = array('post','case-study','webinar','event');
     if(!in_array($posttype,$skiparr)) {
          echo get_footer_circles();

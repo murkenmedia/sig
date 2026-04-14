@@ -28,8 +28,8 @@ article.tile {
 
 	flex-direction: column;
 	gap: 40px;
-	border-top: $bluedark 2px solid;
-	padding-top: 40px;
+	//border-top: $blue 2px solid;
+	//padding-top: 40px;
 
 	@media (min-width: $md) {
 		flex-direction: row;
