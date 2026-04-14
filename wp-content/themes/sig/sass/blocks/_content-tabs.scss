@@ -180,6 +180,10 @@
 
     span.content-type-title, span.serif {
         display: none;
+
+        .arrow-icon:after {
+            display: inline;
+        }
     }
 
     @media (min-width: $md) {
@@ -195,13 +199,13 @@
             display: block;            
             text-align: left;            
 
-            /* &:hover, &.active {
+            &:hover, &.active {
                 .arrow-icon {
                     &:after {
                         margin-left: 10px;                
                     }
                 }
-            } */
+            }
             
         }
         span.content-type-title {

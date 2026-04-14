@@ -160,7 +160,7 @@ foreach ($postsarr as $postid) :
     $adatitle = $title;
     $slug = 'content-'.sanitize_title($title);
 
-    $title = widowfix($title);
+    $maintitle = widowfix($title);
     $url = get_the_permalink($id);
 
     $img = get_default_image($id);
@@ -192,7 +192,7 @@ foreach ($postsarr as $postid) :
     <li class="content-tabs__tab nav-item" role="presentation">
         <button class="nav-link '.$class.'" id="'.$slug.'-tab" data-toggle="tab" data-target="#'.$slug.'-panel" role="tab" type="button" aria-controls="'.$slug.'-panel" aria-selected="'.$dataattr.'" aria-label="'.$adatitle.'">
             <span class="content-type-title">'.$postypetitle.'</span>
-            <span class="tab-title serif arrow-icon"><span>'.$title.'</span></span>
+            <span class="tab-title serif"><span class="arrow-icon">'.$title.'</span></span>
         </button>
     </li>';
 
@@ -201,7 +201,7 @@ foreach ($postsarr as $postid) :
         <div class="content-tabs__content__inner">
             <a class="content-tabs__content__link" href="'.$url.'"><span class="sr-only">'.$linktext.' - '.$adatitle.'</span></a>
             <p class="content-type-title">'.$postypetitle.'</p>
-            <h3 class="arrow-icon"><span>'.$title.'</span></h3>
+            <h3 class="arrow-icon"><span>'.$maintitle.'</span></h3>
             <div class="wp-block-button is-style-small">
                 <div class="wp-block-button__link has-blue-dark-medium-background-color has-background wp-element-button" href="'.$url.'">'.$linktext.'</div>
             </div>
