@@ -115,7 +115,7 @@ $dropdown-width:220px;
                     left: 20px;
                     right: 20px;
                     top: auto;
-                    background-color: $green;
+                    background-color: $bluelightmed;
                     height: 6px;
                     transform-origin: center;
                     transform: scaleX(0);
@@ -128,6 +128,14 @@ $dropdown-width:220px;
                      display: block;
                  }
 
+            }
+
+            &.current-menu-item, &.current-menu-ancestor, &.current-menu-parent, &.current_page_parent, &.current-page-ancestor {
+                > a {
+                    &:after {
+                        background-color: $green;
+                    }
+                }
             }
 
 
