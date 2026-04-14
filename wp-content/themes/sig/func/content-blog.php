@@ -55,7 +55,7 @@ if ( ! function_exists( 'get_post_block' ) ) {
 	 * @since 1.0.0
 	 */
 	
-	function get_post_block($id) {
+	function get_post_block($id,$pretitle='') {
 		$blockclass = '';
         $lineclamp = 'line-clamp-6';
         $titleclass = ' has-regular-font-size';
@@ -74,7 +74,13 @@ if ( ! function_exists( 'get_post_block' ) ) {
 
         //$postype = get_post_type($id);
         //$date = get_the_date('F j, Y', $id);
-        //<p class="tile__content__date has-blue-medium-color mb-2">'.$date.'</p>
+
+        $subtitle = '';
+        if($pretitle = 'cpt') {
+            $posttype = get_post_type($id);
+            $cpt = get_insight_cpt_title($posttype);
+            $subtitle = '<p class="tile__content__pretitle mb-2 sans-600 has-blue-medium-color text-uppercase has-small-font-size letter-spacing-1">'.$cpt.'</p>';
+        }
 
 		$content = '
 		<article class="tile">
@@ -85,8 +91,8 @@ if ( ! function_exists( 'get_post_block' ) ) {
 				</a>
 			</figure>
             <div class="tile__content pt-1">
-                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>
-                
+                '.$subtitle.'
+                <h3 class="mb-3 has-blue-dark-color'.$titleclass.'"><a href="'.$url.'">'.$title.'</a></h3>                
                 <p class="'.$lineclamp.' has-small-font-size">'.$excerpt.'</p>
                 <div class="wp-block-button">
                     <a class="wp-block-button__link" tabindex="-1" href="'.$url.'">
@@ -184,16 +190,8 @@ if ( ! function_exists( 'get_post_block_with_filters' ) ) {
                     $pretitletext = get_field('client_name', $id);
 
                     break;
-                case "event":
-                    
-
-                    break;
-                case "post":
-                    $pretitletext = 'insight';
-
-                    break;
                 default:
-                   $pretitletext = $posttype;
+                   $pretitletext = get_insight_cpt_title($posttype);
 
                     break;
             }
@@ -201,18 +199,7 @@ if ( ! function_exists( 'get_post_block_with_filters' ) ) {
 
         } else {
 
-            switch ($posttype) {
-                case "case-study":
-                    $pretitletext = 'case study';
-                    break;
-                case "post":
-                    $pretitletext = 'insight';
-
-                    break;
-                default:
-                   $pretitletext = $posttype;
-                    break;
-            }
+            $pretitletext = get_insight_cpt_title($posttype);
 
         }
 
@@ -314,7 +301,7 @@ if ( ! function_exists( 'get_related_insights' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function get_related_insights($postid='',$topicarr='',$type = '',$max=3) { 
+	function get_related_insights($postid='',$topicarr='',$cpt=array(),$type = '',$max=3) { 
         
         $excludearr = array();
         array_push($excludearr, $postid);
@@ -322,8 +309,11 @@ if ( ! function_exists( 'get_related_insights' ) ) {
         $postcount = 0;
         //$max = 3;
         $related = '';
-        
+
         $cptarr = array('post', 'case-study', 'webinar');
+        if(!empty($cpt)) {
+            $cptarr = $cpt;
+        }
 
         $args = array( 
             'post_type' => $cptarr,
@@ -350,7 +340,7 @@ if ( ! function_exists( 'get_related_insights' ) ) {
                     $related .= get_blog_related_link($id);
                     break;
                 default:
-                    $related .= get_post_block($id,$type);
+                    $related .= get_post_block($id);
                     break;
             }
 
@@ -366,7 +356,7 @@ if ( ! function_exists( 'get_related_insights' ) ) {
             //$related .= '. second round: ';
         
             $remaining = $max-$postcount;
-
+        
             $args = array( 
                 'post_type' => $cptarr,
                 'post_status' => 'publish',
@@ -384,7 +374,7 @@ if ( ! function_exists( 'get_related_insights' ) ) {
                         $related .= get_blog_related_link($id);
                         break;
                     default:
-                        $related .= get_post_block($id,$type);
+                        $related .= get_post_block($id,'cpt');
                         break;
                 }
             
@@ -432,6 +422,38 @@ if ( ! function_exists( 'get_related_insights' ) ) {
     }
     
 }
+
+if ( ! function_exists( 'get_insight_cpt_title' ) ) {
+	/**
+	 * GET INSIGHT GRID BLOCK
+	 *
+	 * @since 1.0.0
+	 */
+	function get_insight_cpt_title($cpt) {
+        $title = '';
+        switch ($cpt) {
+            case 'post':
+                $title = 'Insights';
+                break;
+            case "case-study":
+                $title = 'Case Studies';                
+                break;
+            case "events":
+                $title = 'Events';                
+                break;
+            case "webinar":
+                $title = 'Webinars';                
+                break;
+            default:
+                $title = ucfirst($cpt);
+        }
+
+        return $title;
+    }
+}
+
+
+
 if ( ! function_exists( 'get_blog_related_link' ) ) {
 	/**
 	 * GET INSIGHT GRID BLOCK
@@ -442,16 +464,15 @@ if ( ! function_exists( 'get_blog_related_link' ) ) {
         $url = get_the_permalink($id);
         $title = get_the_title($id);
 
-        $postype = get_post_type($id);
+        $posttype= get_post_type($id);
 
-        if($postype == 'post') {
-            $postype ='insight';
-        }
+        $cpt = get_insight_cpt_title($posttype);
         //$date = get_the_date('F d, Y', $id);
         //<span class="blog-related-link__date">'.ucfirst($postype).'</span>
         
         return '
         <li class="blog-related-link">
+            <span class="blog-related-link__cpt sans-bold text-uppercase letter-spacing-1">'.$cpt.'</span>
             <a class="blog-related-link__link" href="'.$url.'">'.$title.'</a>
             
         </li>';

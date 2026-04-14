@@ -16,8 +16,10 @@ if(get_field('page_options', $id)) {
 		echo get_footer_circles();
 	}
 } else {
-    if('post' != get_post_type()) {
-        echo get_footer_circles();
+    $posttype = get_post_type($id);
+    $skiparr = array('post','case-study','webinar','event');
+    if(!in_array($posttype,$skiparr)) {
+         echo get_footer_circles();
     }
     
 }
