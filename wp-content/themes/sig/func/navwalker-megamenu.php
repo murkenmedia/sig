@@ -1,5 +1,29 @@
 <?php
  
+ function remove_active_class_from_blog( $classes, $item ) {
+    // Check if we are on a single post or post type archive
+    // AND if the menu item title is 'Blog'
+    if( ( is_singular( 'case-study' ) || is_archive() || is_singular( 'solutions' ) || is_singular( 'platforms' ) ) && $item->title == 'Insights' ){
+        // Remove 'current_page_parent' or 'current-menu-item' from the classes array
+        $classes = array_diff( $classes, array( 'current_page_parent', 'current-menu-item' ) );
+    }
+    if( ( is_singular( 'case-study' ) ) && $item->title == 'Case Studies' ){
+        $classes[] = 'current_page_parent';
+    }
+    if( ( is_singular( 'events' ) ) && $item->title == 'Events' ){
+        $classes[] = 'current_page_parent';
+    }
+    if( ( is_singular( 'solutions' ) ) && $item->title == 'Solutions' ){
+        $classes[] = 'current_page_parent';
+    }
+    if( ( is_singular( 'platforms' ) ) && $item->title == 'Platforms' ){
+        $classes[] = 'current_page_parent';
+    }
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'remove_active_class_from_blog', 10, 2 );
+
+
 /**
 * Extended Walker class for Mega Menu
 * Edited to support n-levels submenu and a Mega Menu.

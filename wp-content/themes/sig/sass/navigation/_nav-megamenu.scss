@@ -2,7 +2,7 @@
 
 //ACTIVE CTP
 
-body.single-solutions {
+/* body.single-solutions {
 	ul.main-nav {
         
         li#menu-item-45 a.mega-parent-link {
@@ -47,7 +47,7 @@ body.single-case-study {
 		    color: $nav-active;
         }
 	}	
-}
+} */
 
 
 $dropdown-width:220px;
@@ -147,16 +147,7 @@ $dropdown-width:220px;
 
             }
 
-            &.current-menu-item, &.current-menu-ancestor, &.current-menu-parent, &.current_page_parent, &.current-page-ancestor {
-                > a {
-                    &:after {
-                        background-color: $green;
-                    }
-                    &:before {
-                        transform: scaleX(1);
-                    }
-                }
-            }
+            
 
 
             &.current-menu-item, &.current-menu-ancestor, &.current-menu-parent, &.current_page_parent, &.current-page-ancestor, 
@@ -166,7 +157,7 @@ $dropdown-width:220px;
                     text-decoration: none;
                     outline: none;
                     //color:$nav-active;
-                    color: #FFF;
+                    color:  #FFF;
 
                     &:after {
                         transform: scaleX(1);
@@ -189,6 +180,31 @@ $dropdown-width:220px;
 
             }
 
+            &.current-menu-item, &.current-menu-ancestor, &.current-menu-parent, &.current_page_parent, &.current-page-ancestor {
+                > a {
+                    color:  $nav-active;
+
+                    &:after {
+                        background-color: $green;
+                    }
+                    &:before {
+                        transform: scaleX(1);
+                       display: none;
+                    }
+                }
+
+                &:hover, &:focus, &:focus-within, &.menu-hover {
+                    > a {
+                        //&:before,
+                        &:after {
+                            left: 20px;
+                            right: 20px;
+                            
+                        }
+                    }
+                }
+            }
+
             //SUBMENU
             &.menu-item-has-children, &.mega-menu-parent {
 
@@ -203,9 +219,9 @@ $dropdown-width:220px;
                        &:after {
                         @include webfonts($lineheight:1);
                         content:'\e909';
-                        font-size: 14px;
+                        font-size: 12px;
                         padding:0px;	
-                        color: $nav-dropdown-arrow;
+                        color:inherit;
                         position: absolute;
                         top: 0;
                         bottom:0;
