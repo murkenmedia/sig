@@ -131,6 +131,14 @@ if ( function_exists( 'acf_register_block' ) ) {
 					'align'    => array('full' ),
 				),
 			),
+
+			array(
+				'name'        => 'events-grid',
+				'title'       => __( 'Events Grid', 'sig' ),
+				'description' => __( 'Events Grid.', 'sig' ),
+				'icon'        => 'calendar-alt',
+				'keywords'    => array( 'events', 'grid' ),
+			),
             
 
            array(

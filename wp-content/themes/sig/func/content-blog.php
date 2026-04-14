@@ -74,7 +74,7 @@ if ( ! function_exists( 'get_post_block' ) ) {
 
         //$date = get_the_date('F j, Y', $id);
 
-        $subtitle = $tileclass = '';
+        $subtitle = $tileclass = $posttype = '';
         if($pretitle = 'cpt') {
             $posttype = get_post_type($id);
             $cpt = get_insight_cpt_title($posttype);
@@ -84,7 +84,7 @@ if ( ! function_exists( 'get_post_block' ) ) {
         }
 
 		$content = '
-		<article class="tile '.$tileclass.'">
+		<article class="tile '.$tileclass.' '.$posttype.'-'.$id.'">
 			<figure class="tile__img">
 				<a href="'.$url.'" tabindex="-1">
                     <span class="sr-only">'.$title.'</span>

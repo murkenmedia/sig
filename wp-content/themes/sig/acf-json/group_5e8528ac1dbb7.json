@@ -57,9 +57,7 @@
             "choices": {
                 "post": "Insights",
                 "webinar": "Webinars",
-                "case-study": "Case Studies",
-                "news": "News",
-                "events": "Events"
+                "case-study": "Case Studies"
             },
             "default_value": [],
             "return_format": "array",
@@ -135,5 +133,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776133862
+    "modified": 1776177514
 }
