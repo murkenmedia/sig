@@ -1,0 +1,134 @@
+// _sitemap.scss
+.sitemap-grid-block {
+    display: block;
+    width: 100%;
+}
+.sitemap-grid {
+    width: 100%;
+    max-width: $xl;
+    position: relative;
+    gap:50px;
+    display: flex;
+    flex-wrap: wrap;
+
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    max-width: $xl;
+    justify-content: space-between;
+
+    @media (min-width: $lg) {
+        gap:50px;
+        max-width:$xl;                        
+    }
+        
+
+}
+
+
+.sitemap-grid__item {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    padding: 0;
+    flex-basis: 100%;
+    position: relative;
+
+    @media (min-width: $md) {
+        flex-grow: 0;
+        flex-basis: 50%;
+
+    }
+
+    @media (min-width: $lg) {
+         flex-basis:calc(33% - 50px);
+         flex-grow: 0;         
+    }
+    
+    ul {
+        //list-style: none;
+        padding-left: 20px;
+        font-size: 1.2rem;
+        line-height: 1.3;
+        
+        li {
+            &::marker {
+                color: $blue;
+            }
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style: disc;
+            
+            li {
+                a {
+                    margin-bottom: 10px;
+                }
+                
+                &:last-of-type {
+                    a {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    a {
+        //font-weight: 500;
+        color: $text;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 12px;
+        
+        &:visited {
+            color: $text;
+        }
+        
+        &:hover, &:focus {
+            color: $blue;
+            text-decoration: underline;
+            text-decoration-thickness: .15rem;
+            text-underline-offset: .25rem;
+            text-decoration-color: $blue;
+        }
+    }
+
+
+    &.three-column-list {
+        @media (min-width: $lg) {
+            flex-basis:100%;
+
+            ul {
+                column-count: 3;
+                column-gap: 60px;
+                list-style: disc;
+                list-style-position: inside; 
+                padding-left: 0;
+
+                li {
+                    display: inline-block;
+                    padding-left: 20px;
+                    position: relative;
+
+                    &:before {
+                        content:'•';
+                        color: $blue;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: 27px;
+                        line-height: 1;
+                    }
+                }
+            }
+
+        }
+    }
+    
+}

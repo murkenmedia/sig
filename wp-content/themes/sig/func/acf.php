@@ -187,6 +187,15 @@ if ( function_exists( 'acf_register_block' ) ) {
 			),
 
 			array(
+				'name'        => 'sitemap',
+				'title'       => __( 'Sitemap', 'sig' ),
+				'description' => __( 'Sitemap', 'sig' ),
+                'icon' => 'editor-ul',
+				'keywords'    => array( 'sitemap' )
+			),
+
+
+			array(
 				'name'        => 'team-grid',
 				'title'       => __( 'Team Grid', 'sig' ),
 				'description' => __( 'Team Grid.', 'sig' ),

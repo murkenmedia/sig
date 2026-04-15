@@ -17,78 +17,153 @@ $block_classes = array(
 );
 
 
-$sitemap = $stay = $experience = $dine = $gather = $general = $other = '';
+$sitemap = $links = '';
 
-if ( has_nav_menu( 'sitemap-stay' ) ) {  
-$stay = '
+//PAGES
+$args = array(
+    'post_type' => 'page',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'exclude' => '18,20,22',
+    'title_li' => '',
+    'echo' => false
+);
+$links = wp_list_pages($args);
+
+$sitemap .= '
 <div class="sitemap-grid__item">
-    <h2 class="mb-4 has-medium-font-size">'.__('Stay', 'sig').'</h2>
+    <h2 class="mb-4 has-medium-font-size">'.__('Pages', 'sig').'</h2>
     <ul>
-        '.wp_nav_menu( array( 'theme_location' => 'sitemap-stay', 'container' => '', 'items_wrap' => '%3$s', 'echo' => false ) ).'
+        '.$links.'
     </ul>
 </div>';
-}
 
-if ( has_nav_menu( 'sitemap-experience' ) ) {  
-$experience = '
+///SOLUTIONS
+$args = array(
+    'post_type' => 'solutions',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'title_li' => '',
+    'echo' => false
+);
+$links = wp_list_pages($args);
+
+$sitemap .= '
 <div class="sitemap-grid__item">
-    <h2 class="mb-4 has-medium-font-size">'.__('Experience', 'sig').'</h2>
+    <h2 class="mb-4 has-medium-font-size">'.__('Solutions', 'sig').'</h2>
     <ul>
-        '.wp_nav_menu( array( 'theme_location' => 'sitemap-experience', 'container' => '', 'items_wrap' => '%3$s', 'echo' => false ) ).'
+        '.$links.'
     </ul>
 </div>';
-}
 
-if ( has_nav_menu( 'sitemap-dine' ) ) {  
-$dine = '
-<div class="sitemap-grid__item">
-    <h2 class="mb-4 has-medium-font-size">'.__('Dine', 'sig').'</h2>
+////PLATFORMS
+$args = array(
+    'post_type' => 'platforms',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'title_li' => '',
+    'echo' => false
+);
+$links = wp_list_pages($args);
+
+$sitemap .= '
+<div class="sitemap-grid__item ">
+    <h2 class="mb-4 has-medium-font-size">'.__('Platforms', 'sig').'</h2>
     <ul>
-        '.wp_nav_menu( array( 'theme_location' => 'sitemap-dine', 'container' => '', 'items_wrap' => '%3$s', 'echo' => false ) ).'
+        '.$links.'
     </ul>
 </div>';
+
+
+////CASE STUDIES
+$args = array(
+    'post_type' => 'case-study',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+);
+$links = wp_list_pages($args);
+
+
+$the_query = new WP_Query( $args );
+if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();				
+        $postid = get_the_id();
+        $links .= '
+        <li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
+    }
+    wp_reset_postdata();
 }
 
-if ( has_nav_menu( 'sitemap-gather' ) ) {  
-$gather = '
-<div class="sitemap-grid__item">
-    <h2 class="mb-4 has-medium-font-size">'.__('Gather', 'sig').'</h2>
+$sitemap .= '
+<div class="sitemap-grid__item three-column-list">
+    <h2 class="mb-4 has-medium-font-size">'.__('Case Studies', 'sig').'</h2>
     <ul>
-        '.wp_nav_menu( array( 'theme_location' => 'sitemap-gather', 'container' => '', 'items_wrap' => '%3$s', 'echo' => false ) ).'
+        '.$links.'
     </ul>
 </div>';
+
+////WEBINARS
+$args = array(
+    'post_type' => 'webinar',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+);
+$links = wp_list_pages($args);
+
+
+$the_query = new WP_Query( $args );
+if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();				
+        $postid = get_the_id();
+        $links .= '
+        <li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
+    }
+    wp_reset_postdata();
 }
 
-if ( has_nav_menu( 'sitemap-general' ) ) {  
-$general = '
-<div class="sitemap-grid__item">
-    <h2 class="mb-4 has-medium-font-size">'.__('General Information', 'sig').'</h2>
+$sitemap .= '
+<div class="sitemap-grid__item three-column-list">
+    <h2 class="mb-4 has-medium-font-size">'.__('Webinars', 'sig').'</h2>
     <ul>
-        '.wp_nav_menu( array( 'theme_location' => 'sitemap-general', 'container' => '', 'items_wrap' => '%3$s', 'echo' => false ) ).'
+        '.$links.'
     </ul>
 </div>';
+
+
+////INSIGHTS
+$args = array(
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+);
+$links = wp_list_pages($args);
+
+
+$the_query = new WP_Query( $args );
+if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();				
+        $postid = get_the_id();
+        $links .= '
+        <li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
+    }
+    wp_reset_postdata();
 }
 
-if ( has_nav_menu( 'sitemap-other' ) ) {   
-    $other = '
-    <div class="sitemap-grid__item">
-        <h2 class="mb-4 has-medium-font-size">'.__('Other', 'sig').'</h2>
-        <ul>
-            '.wp_nav_menu( array( 'theme_location' => 'sitemap-other', 'container' => '', 'items_wrap' => '%3$s', 'echo' => false ) ).'
-        </ul>
-    </div>';    
-}
-
-
-$sitemap = '
-<div class="sitemap-grid">
-    '.$stay.$experience.$dine.$gather.$general.$other.'
+$sitemap .= '
+<div class="sitemap-grid__item three-column-list">
+    <h2 class="mb-4 has-medium-font-size">'.__('Insights', 'sig').'</h2>
+    <ul>
+        '.$links.'
+    </ul>
 </div>';
-
-
 
 ?>
 
 <div id="<?php echo esc_attr( $block['id'] ); ?>" class="<?php echo esc_attr( implode( ' ', $block_classes ) ); ?>">
-    <?php echo $sitemap; ?>
+    <div class="sitemap-grid">
+        <?php echo $sitemap; ?>
+    </div>
 </div>

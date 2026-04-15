@@ -173,7 +173,7 @@ if ( ! function_exists( 'get_upcoming_events' ) ) {
             while ( $the_query->have_posts() ) {
                 $the_query->the_post();                
                 $id = get_the_ID();
-
+				$start_date = get_field('start_date',$id, false);
 				if(get_field('end_date',$id, false)) {
 					$end_date = get_field('end_date',$id, false);
 				} else {
