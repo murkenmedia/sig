@@ -72,7 +72,7 @@ if ( $the_query->have_posts() ) {
                 break;
             case 'case-study':
                 $linktext = __('Read Case Study', 'sig');
-                $postypetitle = "Case Highlight";
+                $postypetitle = "Case Studies";
                 break;
         }
 
