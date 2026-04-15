@@ -24,7 +24,7 @@ function sig_create_post_type() {
         'menu_position'       => 29,
         'show_in_rest' => true,
         'rewrite' => array( 'slug' => 'case-studies', 'with_front' => false ),
-        'taxonomies'  => array('case_study_category'),
+        'taxonomies'  => array('insight_topic'),
         'menu_icon'   => 'dashicons-search',		
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         )
@@ -177,7 +177,7 @@ function sig_create_post_type() {
         'menu_position'       => 29,
         'show_in_rest' => true,
         'rewrite' => array('with_front' => false),
-        'taxonomies'  => array( 'testimonial_category'),
+        'taxonomies'  => array( 'insight_topic'),
         'menu_icon'   => 'dashicons-admin-comments',
         'supports'   => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         )
@@ -205,7 +205,7 @@ function sig_create_post_type() {
         'menu_position'       => 29,
         'show_in_rest' => true,
         'rewrite' => array( 'slug' => 'webinars', 'with_front' => false ),
-        'taxonomies'  => array( 'webinar_category'),
+        'taxonomies'  => array( 'insight_topic'),
         'menu_icon'   => 'dashicons-cover-image',		
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         )

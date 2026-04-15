@@ -36,7 +36,7 @@ function create_sig_taxonomies() {
 
 	register_taxonomy(
 		'insight_topic',
-		array('post', 'webinar', 'case-study'),
+		array('post', 'webinar', 'case-study', 'testimonial'),
 		array(
 			'labels' =>  array(
 				'name'              => _x( 'Insight Topics', 'taxonomy general name', 'sig' ),
