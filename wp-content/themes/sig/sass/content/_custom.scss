@@ -447,12 +447,13 @@ ul.is-style-circle-icons-list {
     a {
         display: table;
         position: relative;
+        padding-right: 15px;
         
         &:after {
-            margin-left: 5px;
+            left: 5px;
             top:0px;
             position: relative;
-            display: inline-flex;
+            display: inline;
             flex-direction: column;
             justify-content: center;
             @include transition(all $medspeed $ease);
@@ -465,7 +466,7 @@ ul.is-style-circle-icons-list {
         
         &:hover {
             &:after {
-                margin-left: 9px;                
+                left: 10px;                
             }
         }
     }
@@ -473,12 +474,12 @@ ul.is-style-circle-icons-list {
 .arrow-icon {
     display: table;
     position: relative;
-    
+    padding-right: 20px;
     &:after {
-        margin-left: 5px;
+        left: 5px;
         top:0px;
         position: relative;
-        display: inline-flex;
+        display: inline;
         flex-direction: column;
         justify-content: center;
         @include transition(all $medspeed $ease);            
@@ -487,6 +488,12 @@ ul.is-style-circle-icons-list {
         @include webfonts($lineheight:1);
         color: #FFF;
         font-size: 75%;
+    }
+
+    &:hover {
+        &:after {
+            left: 15px;                
+        }
     }
 }
 
