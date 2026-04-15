@@ -85,21 +85,13 @@ body :where(.editor-styles-wrapper) {
         column-gap: 50px;
 
 
-        &.tiles-two-col {
-            
-            .tile {
-                max-width: calc(50% - 25px);  
-            }
-            
-        }
+
 
         &.tiles-three-col {
 
             justify-content: flex-start;
             
-            .tile {
-                max-width: calc(33.3% - 33px);  
-            }
+
 
             &.tiles-stacked-content {
                 .tile__img {
