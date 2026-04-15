@@ -32,7 +32,7 @@ add_action( 'wp_head', 'preconnect_scripts', 1 );
 if ( ! function_exists( 'sig_scripts' ) ) {
 	function sig_scripts() {     
 		
-        $jscustom = 1.12;
+        $jscustom = 1.13;
         
         $jsvendor = 1.00;
 		//wp_enqueue_script('modernizr', get_stylesheet_directory_uri() . '/assets/js/modernizr-custom.js',array( 'jquery' ), 1.0, false);

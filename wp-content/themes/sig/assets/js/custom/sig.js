@@ -159,12 +159,16 @@ jQuery.noConflict();
                     responsiveRefreshRate:50,
                     autoWidth:true,
                     margin:30,
-                    /* stagePadding:0,
-                    responsive: {
-                        782: {stagePadding: 100}, 
-                        1200: {stagePadding: 150},
-                        1500: {stagePadding: 220},
-                    }, */
+                    onInitialized: function(e) {
+                        $contentslider.find('.owl-dot').each(function(index) {
+                            jQuery(this).attr('aria-label', 'Navigate to Slide ' + (index + 1));
+                        });
+                    },
+                    onResized: function(e) {
+                        $contentslider.find('.owl-dot').each(function(index) {
+                            jQuery(this).attr('aria-label', 'Navigate to Slide ' + (index + 1));
+                        });
+                    },
                     onChanged: function(e) {
                         if (e.item) {
                           
@@ -188,12 +192,8 @@ jQuery.noConflict();
                 $prev.click(function() {
                     $contentslider.trigger('prev.owl.carousel');
                 });
-            });            
+            });         
         }
-
-
-
-
         
     });
     
