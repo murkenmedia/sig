@@ -9,23 +9,34 @@
  * @package SIG
  */
 
+$post_id = get_queried_object_id();
+
 $whitelist = array(
     '127.0.0.1',
     '::1'
 );
-$track = true; 
+$headopen = $headclose = $bodyopen = '';
+if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
 
-$post_id = get_queried_object_id();
+if(get_field('head_opening_scripts', 'option')) { 
+$headopen = get_field('head_opening_scripts', 'option').'
+';
+}
+if(get_field('head_closing_scripts', 'option')) { 
+$headclose = get_field('head_closing_scripts', 'option').'
+';
+}
+if(get_field('body_scripts', 'option')) { 
+$bodyopen = get_field('body_scripts', 'option').'
+';
+}
+
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-<?php if($track){ 
-if(get_field('head_opening_scripts', 'option')) { 
-    echo get_field('head_opening_scripts', 'option').'
-';
-} 
-}?>
+<?php echo $headopen; ?>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -44,20 +55,10 @@ if(get_field('head_opening_scripts', 'option')) {
     }
 
 	?>
-<?php if($track){ 
-if(get_field('head_closing_scripts', 'option')) { 
-echo get_field('head_closing_scripts', 'option').'
-'; 
-} 
-}?>
+<?php echo $headclose; ?>
 </head>
 <body <?php body_class($pageclasses); ?>>
-<?php if($track){ 
-if(get_field('body_scripts', 'option')) { 
-echo get_field('body_scripts', 'option').'
-'; 
-}
-}?>
+<?php echo $bodyopen; ?>
 <a class="skip-link" href="#content"><?php _e( 'Skip to the content', 'sig' ); ?></a> 
 <?php wp_body_open(); ?>
 <?php if(!wp_is_mobile()) : ?>

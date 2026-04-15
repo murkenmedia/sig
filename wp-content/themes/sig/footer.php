@@ -117,15 +117,21 @@ if(is_page(2)) {
 	}
 
 if(get_field('schema','option')) {
-$schema = get_field('schema','option');	
-echo $schema;
+echo get_field('schema','option');
+}
+}
+
+$whitelist = array(
+    '127.0.0.1',
+    '::1'
+);
+if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
+if(get_field('footer_scripts', 'option')) { 
+echo get_field('footer_scripts', 'option').'
+';
 }
 }
 ?>
-<?php
-if(get_field('footer_scripts', 'options')) {
-    echo get_field('footer_scripts', 'options');    
-}?>
 <?php wp_footer(); ?>
 </body>
 </html>
