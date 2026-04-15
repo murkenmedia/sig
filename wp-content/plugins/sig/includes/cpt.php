@@ -57,7 +57,7 @@ function sig_create_post_type() {
     );
     
     
-    register_post_type( 'news', array(
+    /* register_post_type( 'news', array(
         'labels' => array(
             'name' => __( 'News', 'post type general name', 'sig'),
             'singular_name' => __( 'News', 'post type singular name', 'sig'),
@@ -79,7 +79,7 @@ function sig_create_post_type() {
         'menu_icon'   => 'dashicons-admin-site',		
         'supports'   => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
         )
-    );
+    ); */
 
 
     register_post_type( 'platforms', array(
