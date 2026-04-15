@@ -9,26 +9,7 @@
 
 get_header();
 
-$content = $hero = $notfoundid = '';
-
-$args = array(
-    'post_type' => 'page',
-    'post_status' => 'private',
-    'posts_per_page' => 1,
-    'post_title' => '404 Page Not Found'
-);
-
-
-$query = new WP_Query($args);
-if ($query->have_posts()) {
-    while ($query->have_posts()) {
-        $query->the_post();    
-        $notfoundid = get_the_ID();
-        $content = get_the_content($notfoundid);
-    }
-}
-wp_reset_postdata();
-
+$content = $hero = '';
 
 $hero = get_hero_with_custom_text('404 Page Not Found');
 
@@ -36,7 +17,9 @@ $hero = get_hero_with_custom_text('404 Page Not Found');
 <section <?php post_class('site-content error-404'); ?>>
     <?php 
     echo $hero;
-    echo $content;    
+    if ( is_active_sidebar( 'page-not-found' ) ) :
+        dynamic_sidebar('page-not-found');			
+    endif;
     ?>
     <?php get_search_form(); ?>
     

@@ -52,6 +52,16 @@ if ( ! function_exists( 'sig_widgets_init' ) ) {
 			'before_title'  => '',
 			'after_title'   => '',
 		));
+
+		register_sidebar(array(
+			'name'          => esc_html__('404 Page Not Found', 'sig'),
+			'id'            => 'page-not-found',
+			'description'   => '',
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		));
         
     }
 	

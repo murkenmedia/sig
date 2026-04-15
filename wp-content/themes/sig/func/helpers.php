@@ -3,6 +3,21 @@
 
 add_filter( 'excerpt_length', function( $length ) { return 80; } );
 
+if ( ! function_exists( 'get_vimeo_id' ) ) {
+	/**
+	 * GET VIMEO ID
+	 *
+	 * @since 1.0.0
+	 */
+	function get_vimeo_id($url) {
+		$pattern = '/(?:https?:\/\/)?(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/([^\/]*)\/videos\/|album\/(\d+)\/video\/|video\/|)(\d+)(?:$|\/|\?)/';
+		
+		if (preg_match($pattern, $url, $matches)) {
+			return $matches[3];
+		}
+		return null;
+	}
+}
 
 if ( ! function_exists( 'url_exists' ) ) {
 	/**

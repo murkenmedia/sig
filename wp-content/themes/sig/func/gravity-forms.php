@@ -31,5 +31,16 @@ if ( ! function_exists( 'input_to_button' ) ) {
     }
 }
 
+///WEBINAR FUNCTION
+/* add_action('gform_after_submission_24', function () {
+    setcookie('webinar_access_granted', '1', [
+        'expires' => time() + 86400, // Valid for 24 hours
+        'path' => '/', // Cookie is accessible across the site
+        'secure' => is_ssl(), // Only send the cookie over HTTPS if available
+        'httponly' => false, // Cookie accessible to JavaScript
+        'samesite' => 'Lax' // Lax mode for cross-origin requests
+    ]);
+}, 10, 2); */
+
 
 ?>
