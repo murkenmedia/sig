@@ -14,9 +14,6 @@ $whitelist = array(
     '::1'
 );
 $track = true; 
-if(in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
-    $track = false; 
-}
 
 $post_id = get_queried_object_id();
 ?>
@@ -24,11 +21,11 @@ $post_id = get_queried_object_id();
 <html <?php language_attributes(); ?>>
 <head>
 <?php if($track){ 
-if(get_field('google_analytics', 'option')) { 
-    echo get_field('google_analytics', 'option').'
+if(get_field('head_opening_scripts', 'option')) { 
+    echo get_field('head_opening_scripts', 'option').'
 ';
-}
-} ?>
+} 
+}?>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,8 +45,8 @@ if(get_field('google_analytics', 'option')) {
 
 	?>
 <?php if($track){ 
-if(get_field('head_scripts', 'option')) { 
-echo get_field('head_scripts', 'option').'
+if(get_field('head_closing_scripts', 'option')) { 
+echo get_field('head_closing_scripts', 'option').'
 '; 
 } 
 }?>

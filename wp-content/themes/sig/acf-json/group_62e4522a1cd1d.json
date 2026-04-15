@@ -22,8 +22,8 @@
         },
         {
             "key": "field_65affd347a388",
-            "label": "Google Analytics Snippet",
-            "name": "google_analytics",
+            "label": "Opening Head Tag Scripts",
+            "name": "head_opening_scripts",
             "aria-label": "",
             "type": "textarea",
             "instructions": "Placement is just right after the opening <code>&lt;head&gt;<\/code> tag. <strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
@@ -43,8 +43,8 @@
         },
         {
             "key": "field_65b0011a9e8a8",
-            "label": "Head Tag Scripts",
-            "name": "head_scripts",
+            "label": "Closing Head Tag Scripts",
+            "name": "head_closing_scripts",
             "aria-label": "",
             "type": "textarea",
             "instructions": "Placement is just before the closing <code>&lt;\/head&gt;<\/code> tag. <strong>WARNING: Entering snippets that are incorrect or incomplete can break the site.<\/strong>",
@@ -234,5 +234,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776203127
+    "modified": 1776276088
 }
