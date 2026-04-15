@@ -10,7 +10,7 @@ if ( ! function_exists( 'gutenberg_editor_styles' ) ) {
 	 */	
 	function gutenberg_editor_styles() {
 		// Load the theme styles within Gutenberg.
-		$cssver = 1.04;
+		$cssver = 1.05;
 		wp_enqueue_style('my-gutenberg-editor-styles', get_theme_file_uri('style-gutenberg-editor.min.css'), array(), $cssver);
 
 	}	

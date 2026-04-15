@@ -15,7 +15,14 @@ $block_classes = array(
     'sitemap-grid-block',
     $className
 );
+$excludearr = array();
+$exclude = '';
+if(get_field('exclude') ) {
+    $excludearr = get_field('exclude');
 
+    $exclude = implode(",", $excludearr); 
+
+}
 
 $sitemap = $links = '';
 
@@ -24,7 +31,7 @@ $args = array(
     'post_type' => 'page',
     'post_status' => 'publish',
     'posts_per_page' => -1,
-    'exclude' => '18,20,22',
+    'exclude' => $exclude,
     'title_li' => '',
     'echo' => false
 );
@@ -44,6 +51,7 @@ $args = array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'title_li' => '',
+    'exclude' => $exclude,
     'echo' => false
 );
 $links = wp_list_pages($args);
@@ -62,6 +70,7 @@ $args = array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'title_li' => '',
+    'exclude' => $exclude,
     'echo' => false
 );
 $links = wp_list_pages($args);
@@ -79,6 +88,7 @@ $sitemap .= '
 $args = array(
     'post_type' => 'case-study',
     'post_status' => 'publish',
+    'post__not_in'   => $excludearr,
     'posts_per_page' => -1,
 );
 $links = wp_list_pages($args);
@@ -107,6 +117,7 @@ $sitemap .= '
 $args = array(
     'post_type' => 'webinar',
     'post_status' => 'publish',
+    'post__not_in'   => $excludearr,
     'posts_per_page' => -1,
 );
 $links = wp_list_pages($args);
@@ -136,6 +147,7 @@ $sitemap .= '
 $args = array(
     'post_type' => 'post',
     'post_status' => 'publish',
+    'post__not_in'   => $excludearr,
     'posts_per_page' => -1,
 );
 $links = wp_list_pages($args);
