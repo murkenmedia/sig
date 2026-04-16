@@ -202,7 +202,14 @@ if ( function_exists( 'acf_register_block' ) ) {
 				'icon'        => 'groups',
 				'keywords'    => array( 'team', 'grid' ),
 			),
-            
+
+			array(
+				'name'        => 'testimonial-slider',
+				'title'       => __( 'Testimonial Slider', 'sig' ),
+				'description' => __( 'Testimonial Slider', 'sig' ),
+				'icon'        => 'admin-comments',
+				'keywords'    => array( 'testimonial', 'slider' ),
+			),            
            
             array(
 				'name'        => 'tile',

@@ -8,6 +8,7 @@ blockquote {
         
         padding: 40px;
         quotes: inherit;
+
         
         p {
             
@@ -33,7 +34,12 @@ blockquote {
             }
             
             &:last-of-type {
-                margin-bottom: 60px;
+
+                margin-bottom: 40px;
+
+                @media (min-width: $md) {
+                    margin-bottom: 60px;
+                }
                 
                 &:after {
                     @include serif();

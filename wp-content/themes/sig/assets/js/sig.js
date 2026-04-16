@@ -1096,6 +1096,58 @@ jQuery.noConflict();
         });
       });
     }
+    if (jQuery(".testimonial-slider-block")[0]) {
+      jQuery('.testimonial-slider-block').each(function (i) {
+        var $sliderid = jQuery(this).data('id'),
+          $testimonialslider = jQuery('#' + $sliderid + '-slider'),
+          $next = jQuery('#' + $sliderid + '-next'),
+          $prev = jQuery('#' + $sliderid + '-prev');
+        $testimonialslider.owlCarousel({
+          animateIn: 'fadeIn',
+          animateOut: 'fadeOut',
+          items: 1,
+          smartSpeed: 1000,
+          nav: false,
+          autoplay: false,
+          dots: true,
+          loop: true,
+          mouseDrag: false,
+          touchDrag: false,
+          responsiveRefreshRate: 50,
+          autoHeight: true,
+          margin: 30,
+          onInitialized: function onInitialized(e) {
+            $testimonialslider.find('.owl-dot').each(function (index) {
+              jQuery(this).attr('aria-label', 'Navigate to Slide ' + (index + 1));
+            });
+          },
+          onResized: function onResized(e) {
+            $testimonialslider.find('.owl-dot').each(function (index) {
+              jQuery(this).attr('aria-label', 'Navigate to Slide ' + (index + 1));
+            });
+          },
+          onChanged: function onChanged(e) {
+            if (e.item) {
+              setTimeout(function () {
+                $testimonialslider.find('.owl-item').each(function () {
+                  if (jQuery(this).hasClass('active')) {
+                    jQuery(this).find('a.testimonial-slider__slide__link').attr('tabindex', 0);
+                  } else {
+                    jQuery(this).find('a.testimonial-slider__slide__link').attr('tabindex', -1);
+                  }
+                });
+              }, 1000);
+            }
+          }
+        });
+        $next.click(function () {
+          $testimonialslider.trigger('next.owl.carousel');
+        });
+        $prev.click(function () {
+          $testimonialslider.trigger('prev.owl.carousel');
+        });
+      });
+    }
   });
 
   ///ON READY	

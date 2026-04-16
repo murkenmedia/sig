@@ -56,12 +56,13 @@ Version: 1.1
 
 @import './content/max';
 @import './content/paragraphs';
-@import './content/lists';
+
 
 
 @import './content/links';
 
 body .editor-styles-wrapper {
+    @import './content/lists';
     @import './content/custom';
     @import './content/headings'; 
     @import './content/fonts';

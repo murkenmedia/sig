@@ -161,14 +161,17 @@
     animation-name: fadeOut
 }
 
-@keyframes fadeOut {
+.owl-carousel .fadeIn {
+  animation-name: fadeIn; 
+}
+/* @keyframes fadeOut {
     0% {
         opacity: 1;
     }
     100% {
         opacity: 0;
     }
-}
+} */
 
 .owl-height {
     transition: height .5s ease-in-out
