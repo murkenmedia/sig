@@ -19,7 +19,7 @@ $block_classes = array(
 $slides = $slider = $controls = '';
 $slidenum = 0;
 
-$showlogo = true;
+$showlogo = false;
 if(get_field('show_logo')) {    
     $showlogo = get_field('show_logo');
 }

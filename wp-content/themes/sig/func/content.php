@@ -9,17 +9,17 @@ if ( ! function_exists( 'get_testimonial_slide' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function get_testimonial_slide($id,$showimage=false) {
+	function get_testimonial_slide($id,$showlogo=false) {
 
         $content = get_post_gutenberg_blocks($id);
-        $content = str_replace('<p>"', "<p>", $content);
+        /* $content = str_replace('<p>"', "<p>", $content);
         $content = str_replace('"</p>', "</p>", $content);
-        $content = str_replace('”</p>', "</p>", $content);
+        $content = str_replace('”</p>', "</p>", $content); */
         $content = str_replace('<p></p>', "", $content);
         $content = widowfix($content);
 
         $img = '';
-        if($showimage) {
+        if($showlogo) {
             if (has_post_thumbnail($id)) {
                 $imgid = get_post_thumbnail_id($id);
                 $img = wp_get_attachment_image($imgid, 'full', '', array('loading'=>'lazy' ));
@@ -31,7 +31,7 @@ if ( ! function_exists( 'get_testimonial_slide' ) ) {
         $cite = get_the_title($id);
         return '
             <blockquote class="wp-block-quote has-text-align-center is-style-quotation-marks">
-                '.$img.'
+                '.$img.$showimage.'
                 '.$content.'
                 <cite>'.$cite.'</cite>
             </blockquote>';
