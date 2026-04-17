@@ -69,7 +69,7 @@
         background-color:$bluedark;
         
         .hero__content {
-            padding-bottom: 50px;
+            padding-bottom: 40px;
             text-align: left;
 
             @media (min-width: $md) {
@@ -129,7 +129,11 @@
     flex-direction: column;
     flex-wrap: nowrap;
     margin: 0 auto;    
-    padding: 120px 25px 70px 25px;
+    padding: 120px 25px 30px 25px;
+
+    @media (min-width: $sm) {
+        padding-bottom: 70px;
+    }
     
     @media (min-width: $md) {
          padding:100px 25px 70px 25px;

@@ -99,6 +99,7 @@ body .gform_wrapper.gravity-theme {
             display: inline-block;
             position: relative;
             margin-left: 5px;
+            top: 1px;
             &:after {
                 content: '\e92c';
                 @include webfonts($lineheight:1);

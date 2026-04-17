@@ -1,13 +1,9 @@
 <?php
 
 
-/**
-* Replaces the form's <input> buttons with <button> while maintaining attributes from original <input>.
-*/
-//add_filter( 'gform_next_button', 'input_to_button', 10, 2 );
-//add_filter( 'gform_previous_button', 'input_to_button', 10, 2 );
+//CHANGE THE SUBMIT TO A BUTTON SO I CAN STYLE IT
 add_filter( 'gform_submit_button_1', 'input_to_button', 10, 2 );
-
+add_filter( 'gform_submit_button_3', 'input_to_button', 10, 2 );
 if ( ! function_exists( 'input_to_button' ) ) {
     function input_to_button( $button, $form ) {
         $fragment = WP_HTML_Processor::create_fragment( $button );
@@ -31,16 +27,18 @@ if ( ! function_exists( 'input_to_button' ) ) {
     }
 }
 
-///WEBINAR FUNCTION
-/* add_action('gform_after_submission_24', function () {
-    setcookie('webinar_access_granted', '1', [
-        'expires' => time() + 86400, // Valid for 24 hours
-        'path' => '/', // Cookie is accessible across the site
-        'secure' => is_ssl(), // Only send the cookie over HTTPS if available
-        'httponly' => false, // Cookie accessible to JavaScript
-        'samesite' => 'Lax' // Lax mode for cross-origin requests
-    ]);
-}, 10, 2); */
+/////////WEBINARS
+add_filter( 'gform_confirmation_3', 'webinar_confirmation', 10, 4 );
+function webinar_confirmation( $confirmation, $form, $entry, $ajax ) {    
+    $id = rgar( $entry, '4' );
+    $confirmation = get_webinar($id);
 
+    return $confirmation;
+}
+
+add_action('gform_after_submission_3', 'set_webinar_cookie', 10, 2);
+function set_webinar_cookie( $entry, $form ) { 
+    setcookie('webinar_access_granted', '1', time() + 86400, "/");
+}
 
 ?>

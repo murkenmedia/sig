@@ -20,6 +20,27 @@
             "default_value": "",
             "allow_in_bindings": 1,
             "placeholder": ""
+        },
+        {
+            "key": "field_69e16861d261b",
+            "label": "Gated",
+            "name": "gated",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -43,5 +64,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1776149645
+    "modified": 1776380014
 }

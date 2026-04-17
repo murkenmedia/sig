@@ -60,7 +60,7 @@ const jsAjaxSRC = './assets/js/ajax/*.js';
 const jsAjaxDestination = './assets/js/';
 
 // Compiled JS ajax file name. Default set to ajax i.e. ajax.js.
-const jsAjaxFile = 'search-filter';
+const jsAjaxFile = 'sig-webinar';
 
 // Images options.
 

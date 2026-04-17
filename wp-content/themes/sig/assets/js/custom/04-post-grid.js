@@ -8,10 +8,6 @@ jQuery.noConflict();
 (function () {	
 
     document.addEventListener("DOMContentLoaded", function(){
-
-        
-
-        
         
         if (jQuery(".post-grid__filter")[0]){
 
@@ -60,16 +56,11 @@ jQuery.noConflict();
 
                     updateFilter();
                 }
-
             }
-
-
-
 
             jQuery('.post-grid__load-btn').on('click', function() {
                 let tiles = jQuery('.post-grid__tile:not(.filter-active)'),
                     max = jQuery(this).data('max');
-
 
                 if (tiles.length >=max) {
                     jQuery('.post-grid__tile:not(.filter-active)').slice(0, max).addClass('filter-active');
@@ -95,85 +86,8 @@ jQuery.noConflict();
                     updateFilter();
                 });
             });
-            
-
-            
-            
 
 		}
-
-        
-        /* ///POST GRID FILTERS GRID
-        if(jQuery('.post-grid__filters')[0]){            
-            //https://codepen.io/desandro/pen/GFbAs
-            let $container = jQuery('.post-grid__posts').isotope({
-                itemSelector: '.post-grid__item',
-                layoutMode: 'fitRows', 
-                fitRows: {
-                    equalheight: true
-                }
-            });
-
-            
-            let  $checkboxes = jQuery('.post-grid__filters input');
-            //$selects = jQuery('.meeting-filters-wrap select'),
-               
-
-               $checkboxes.change( function() {
-                    let exclusives = [];
-                    let inclusives = [];
-                    
-                    console.log('change');
-                    
-                    $checkboxes.each( function( i, elem ) {
-                        if ( elem.checked ) {
-                            inclusives.push( elem.value );
-                            jQuery(elem).parent().addClass('active');
-                        } else {
-                            jQuery(elem).parent().removeClass('active');
-                        }
-                    });
-                    
-                    exclusives = exclusives.join('');
-                    
-                    let filterValue;
-                    
-                    if ( inclusives.length ) {
-                        filterValue = jQuery.map( inclusives, function( value ) {
-                            return value + exclusives;
-                        });                        
-                        filterValue = filterValue.join('');
-                    } else {
-                        filterValue = exclusives;
-                    }
-                    
-                    //$output.text( filterValue );
-                    $container.isotope({ filter: filterValue });
-                    //$spaces.isotope({ filter: filterValue });
-                    //$floorplans.isotope({ filter: filterValue });
-                    
-                    if ( !$container.data('isotope').filteredItems.length ) {
-                        jQuery('#empty-results').addClass('active');
-                        jQuery('#reset-filters').addClass('active');
-                    } else {
-                        jQuery('#empty-results').removeClass('active');
-                        jQuery('#reset-filters').addClass('active');
-                    }
-
-                    //jQuery('.lazy').trigger('scroll');
-                
-            });
-            
-            
-            jQuery("#reset-filters").click(function(e){
-                e.preventDefault();
-                jQuery('input[type=checkbox]').prop('checked',false);
-                jQuery('input[type=checkbox]').parent().removeClass('active');
-                jQuery(this).removeClass('active');
-                $container.isotope({ filter: '*' });
-            });
-            
-        } */
         
     });
     
